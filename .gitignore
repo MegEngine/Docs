@@ -1,0 +1,7 @@
+build
+gen_cpp_docs/xml
+source/autogen
+source/cpp_api
+source/locale
+*.pyc
+*.state_dict
