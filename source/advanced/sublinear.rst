@@ -22,7 +22,7 @@
 亚线性内存技术仅适用于 MegEngine 静态图模式。这种内存优化方式在编译计算图和训练模型时会有少量的额外时间开销。下面我们以 `ResNet50 <https://arxiv.org/abs/1512.03385>`_ 为例，说明使用亚线性内存优化能够大幅节约网络训练显存使用。
 
 .. testcode::
-    
+
     import os
 
     import megengine as mge
@@ -43,9 +43,6 @@
             lr=0.1,
         )
 
-        data = mge.tensor()
-        label = mge.tensor(dtype="int32")
-
         # symbolic参数说明请参见 静态图的两种模式
         @trace(symbolic=True)
         def train_func(data, label, *, net, optimizer):
@@ -59,10 +56,8 @@
             # 使用假数据
             batch_data = np.random.randn(batch_size, 3, 224, 224).astype(np.float32)
             batch_label = np.random.randint(1000, size=(batch_size,)).astype(np.float32)
-            data.set_value(batch_data)
-            label.set_value(batch_label)
             optimizer.zero_grad()
-            train_func(data, label, net=resnet, optimizer=optimizer)
+            train_func(batch_data, batch_label, net=resnet, optimizer=optimizer)
             optimizer.step()
 
     # 设置使用单卡 GPU ，显存容量为 11 GB

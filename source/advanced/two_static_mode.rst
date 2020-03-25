@@ -26,12 +26,14 @@
 
     # @trace(symbolic=False) # “动态构造”
     @trace(symbolic=True) # “静态构造”
-    def train_func(data, label, *, opt, net): 
+    def train_func(data, label, *, opt, net):
         logits = net(data)
         print(logits[0]) # 因网络输出太多，此处仅打印部分
         loss = F.cross_entropy_with_softmax(logits, label)
         opt.backward(loss)
         return logits, loss
+
+输出为：
 
 .. testoutput::
 
