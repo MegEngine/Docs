@@ -174,7 +174,7 @@
             self.fc2 = M.Linear(120, 84)
             self.relu4 = M.ReLU()
             # 分类器
-            self.classifer = M.Linear(84, 10)
+            self.classifier = M.Linear(84, 10)
 
         def forward(self, x):
             x = self.pool1(self.relu1(self.conv1(x)))
@@ -184,7 +184,7 @@
             x = F.flatten(x, 1)
             x = self.relu3(self.fc1(x))
             x = self.relu4(self.fc2(x))
-            x = self.classifer(x)
+            x = self.classifier(x)
             return x
 
 
