@@ -261,16 +261,14 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
 
     le_net.eval() # 设置为测试模式
     data = mge.tensor()
-    label = mge.tensor(dtype="int32")
     correct = 0
     total = 0
     for idx, (batch_data, batch_label) in enumerate(dataloader_test):
         data.set_value(batch_data)
-        label.set_value(batch_label)
         logits = le_net(data)
-        predicted = F.argmax(logits, axis=1)
-        correct += (predicted==label).sum().numpy().item()
-        total += label.shape[0]
+        predicted = logits.numpy().argmax(axis=1)
+        correct += (predicted==batch_label).sum()
+        total += batch_label.shape[0]
     print("correct: {}, total: {}, accuracy: {}".format(correct, total, float(correct)/total))
 
 测试输出如下，可以看到经过训练的 ``LeNet`` 在 MNIST 测试数据集上的准确率已经达到98.84%：

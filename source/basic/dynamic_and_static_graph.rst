@@ -174,17 +174,12 @@ MegEngine 提供了很方便的动静态图转换的方法，几乎无需代码�
     trace.enabled = True # 开启trace，使用静态图模式
 
     le_net.eval() # 将网络设为测试模式
-    data = mge.tensor()
-    label = mge.tensor(dtype="int32")
     correct = 0
     total = 0
     for idx, (batch_data, batch_label) in enumerate(dataloader_test):
-        data.set_value(batch_data)
-        label.set_value(batch_label)
+        logits = eval_func(batch_data, net=le_net) # 测试函数
 
-        logits = eval_func(data, net=le_net) # 测试函数
-
-        predicted = F.argmax(logits, axis=1)
-        correct += (predicted==label).sum().numpy().item()
-        total += label.shape[0]
+        predicted = logits.numpy().argmax(axis=1)
+        correct += (predicted==batch_label).sum()
+        total += batch_label.shape[0]
     print("correct: {}, total: {}, accuracy: {}".format(correct, total, float(correct)/total))
