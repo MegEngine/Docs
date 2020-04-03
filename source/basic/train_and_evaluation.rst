@@ -206,7 +206,7 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
     le_net.load_state_dict(state_dict)
 
 :meth:`~.Module.eval` 和  :meth:`~.Module.train`
-``````````````````````````````
+--------------------------------------------------
 
 有少数算子训练和测试时行为不一致，例如 :class:`~.module.dropout.Dropout` 和 :class:`~.module.batchnorm.BatchNorm2d` 。 :class:`~.module.dropout.Dropout` 在训练时会以一定的概率概率将指定层的部分输出置零而在测试时则不会对输出进行任何更改。 :class:`~.module.batchnorm.BatchNorm2d` 在训练时会不断统计更新对应张量的均值和标准差，测试时则不会更新这两个值。
 
