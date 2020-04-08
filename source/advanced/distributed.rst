@@ -21,13 +21,13 @@
 通信机制简介
 ''''''''''''''''''''''''''''''
 
-在 MegEngine 中，对多 GPU 的管理基于 Python 自带的多进程库 :py:mod:`~.multiprocess` 。假设一台机器上有 8 张显卡，那么我们需要通过 :py:class:`.multiprocess.Process` 创建 8 个进程，与显卡一一对应。而为了能让这 8 个各自独立的进程能一同进行模型训练，我们需要管理它们之间的通信。
+在 MegEngine 中，对多 GPU 的管理基于 Python 自带的多进程库 :py:mod:`~.multiprocessing` 。假设一台机器上有 8 张显卡，那么我们需要通过 :py:class:`.multiprocessing.Process` 创建 8 个进程，与显卡一一对应。而为了能让这 8 个各自独立的进程能一同进行模型训练，我们需要管理它们之间的通信。
 
-首先我们会给每个进程分配一个进程序号（rank），从 0 到 7，作为每个进程的身份标识。通过 :py:class:`.multiprocess.Process` 的 ``target`` 参数指明所有进程需要执行的目标函数，同时在函数参数中指明每个进程自己的序号，从而使得所有进程执行同一段代码却能分工合作，完成不重复的任务，如下代码所示：
+首先我们会给每个进程分配一个进程序号（rank），从 0 到 7，作为每个进程的身份标识。通过 :py:class:`.multiprocessing.Process` 的 ``target`` 参数指明所有进程需要执行的目标函数，同时在函数参数中指明每个进程自己的序号，从而使得所有进程执行同一段代码却能分工合作，完成不重复的任务，如下代码所示：
 
 .. code-block::
 
-    import multiprocess as mp
+    import multiprocessing as mp
 
     for rank in range(num_devices):
         p = mp.Process(
