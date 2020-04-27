@@ -50,7 +50,6 @@
             if enable_sublinear:
                 config = SublinearMemoryConfig(genetic_nr_iter=genetic_nr_iter)
 
-            # symbolic参数说明请参见 静态图的两种模式
             @trace(symbolic=True, sublinear_memory_config=config)
             def train_func(data, label, *, net, optimizer):
                 pred = net(data)
