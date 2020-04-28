@@ -5,7 +5,7 @@
 
 使用大 batch size 通常能够提升深度学习模型性能。然而，我们经常遇到的困境是有限的 GPU 内存资源无法满足大 batch size 模型训练。为了缓解这一问题， MegEngine 提供了亚线性内存 ( sublinear memory ) 优化技术用于降低网络训练的内存占用量。该技术基于 `gradient checkpointing <https://arxiv.org/abs/1604.06174>`_ 算法，通过事先搜索最优的计算图节点作为前向传播和反向传播检查点（ checkpoints ），省去其它中间结果存储，大幅节约了内（显）存使用。
 
-用户可以在使用 :class:`~.trace` 编译静态图时使用 :class:`~.SublinearMemoryConfig` 设置参数 ``sublinear_memory_config`` 即可。
+用户在编译静态图时使用 :class:`~.SublinearMemoryConfig` 设置 :class:`~.trace` 的参数 ``sublinear_memory_config`` ，就可以打开亚线性内存优化。
 
 .. testcode::
 
@@ -17,7 +17,7 @@
     def train_func(data, label, *, net, optimizer):
         ...
 
-使用亚线性内存在编译计算图和训练模型时有少量的额外时间开销，但是可以大幅减少显存的开销。下面我们以 `ResNet50 <https://arxiv.org/abs/1512.03385>`_ 为例，来说明如何使用亚线性内存优化技术来突破显存瓶颈来训练更大batch size的模型。
+使用亚线性内存在编译计算图和训练模型时有少量的额外时间开销，但是可以大幅减少显存的开销。下面我们以 `ResNet50 <https://arxiv.org/abs/1512.03385>`_ 为例，说明如何使用亚线性内存优化技术，突破显存瓶颈来训练更大batch size的模型。
 
 .. testcode::
 
