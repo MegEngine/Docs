@@ -50,7 +50,7 @@ MegEngine 的一大核心优势是“训练推理一体化”，其中“训练�
 
 在此之前，为了能够正常使用 MegEngine 底层 C++ 接口，需要先按照 :ref:`installation` 从源码编译安装 MegEngine，并执行 ``make install`` 保证 MegEngine 相关 C++ 文件被正确安装。
 
-实现上述异或计算的示例 C++ 代码如下（引自 `xor-deploy.cpp <https://github.com/MegEngine/MegEngine/blob/master/sdk/xor-deploy/xor-deploy.cpp>`_ ）：
+实现上述异或计算的示例 C++ 代码如下（引自 `xor-deploy.cpp <https://github.com/MegEngine/MegEngine/blob/master/sdk/xor-deploy/xor_deploy.cpp>`_ ）：
 
 .. literalinclude:: src/xornet_deploy.cpp
     :language: cpp
