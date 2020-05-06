@@ -167,3 +167,22 @@
         dist.init_process_group(server, port, world_size, global_rank, local_rank)
 
 其它部分与单机版本完全相同。最终只需在每个机器上执行相同的 Python 程序，即可实现多机多卡的分布式训练。
+
+参数打包
+---------------------------
+
+单机多卡或者多机多卡训练的时候，都可以用参数打包来加速训练速度，只需在训练的模型外包一层参数打包模块。
+参数打包会将模型中的参数打包成连续的内存，在反传梯度的过程中可以减少通信次数，明显提升梯度同步的速度，达到训练加速的目的。
+另外，ParamPack有几个可以调整的参数，对加速效果有一定影响，具体看 :class:`~.module.ParamPack` 中的描述。
+
+用法：
+
+.. code-block::
+
+    from megengine.module import ParamPack
+
+    net = Le_Net()
+    net = ParamPack(net)
+    opt = SGD(net.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4)
+
+    # training code
