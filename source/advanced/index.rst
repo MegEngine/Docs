@@ -19,6 +19,8 @@
 
 5. :ref:`deployment` ：介绍如何将 MegEngine 模型在 C++ 环境下运行。
 
+6. :ref:`external_c_op` ：介绍如何在 MegEngine 中添加自定义 C++ 算子。
+
 .. toctree::
     :maxdepth: 2
     :hidden:
@@ -28,3 +30,4 @@
     sublinear
     two_static_mode
     deployment
+    external_c_op
