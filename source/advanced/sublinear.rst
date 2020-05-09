@@ -67,7 +67,7 @@
             print("Failed")
             return
 
-        print("Sucess")
+        print("Success")
 
 
     # 以下示例结果在2080Ti GPU运行得到，显存容量为 11 GB
