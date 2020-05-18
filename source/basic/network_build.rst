@@ -53,7 +53,7 @@
 
 * :meth:`~.Module.forward` ： 该方法定义前向传播计算流程。它接受输入数据并返回前向传播的计算结果。注意， :class:`~.Module` 对象是可被调用的 （ callable ），其实现就是 :meth:`~.Module.forward` 。
 
-:mod:`megengine.module` 包提供了常用的网络基本模块，如 :class:`~.conv.Conv2d` 、:class:`~.linear.Linear` 等。以 :class:`~.conv.Conv2d` 为例，该类的 :class:`__init__() <.conv.Conv2d>` 方法定义并初始化卷积核参数，其 :meth:`~.conv.Conv2d.forward` 方法执行卷积操作。
+:mod:`megengine.module` 包提供了常用的网络基本模块，如 :class:`~.module.conv.Conv2d` 、:class:`~.module.linear.Linear` 等。以 :class:`~.module.conv.Conv2d` 为例，该类的 :class:`__init__() <.module.conv.Conv2d>` 方法定义并初始化卷积核参数，其 :meth:`~.module.conv.Conv2d.forward` 方法执行卷积操作。
 
 基于各种常用的网络模块，我们可以方便地搭建非常复杂的网络。例如，上一个例子的网络定义可以简化成如下写法：
 

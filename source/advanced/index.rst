@@ -21,6 +21,8 @@
 
 6. :ref:`external_c_op` ：介绍如何在 MegEngine 中添加自定义 C++ 算子。
 
+7. :ref:`quantization` ：介绍如何在 MegEngine 中使用训练中量化（QAT）以及后量化。
+
 .. toctree::
     :maxdepth: 2
     :hidden:
@@ -31,3 +33,4 @@
     two_static_mode
     deployment
     external_c_op
+    quantization

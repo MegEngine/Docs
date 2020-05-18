@@ -11,6 +11,7 @@ API Reference
     autogen/megengine.core
     autogen/megengine.functional
     autogen/megengine.module
+    autogen/megengine.module.qat
     autogen/megengine.module.quantized
     autogen/megengine.module.pytorch
     autogen/megengine.optimizer
