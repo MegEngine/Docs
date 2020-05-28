@@ -23,6 +23,8 @@
 
 7. :ref:`quantization` ：介绍如何在 MegEngine 中使用训练中量化（QAT）以及后量化。
 
+8. :ref:`profiling` ：介绍如何对 MegEngine 训练代码做性能分析。
+
 .. toctree::
     :maxdepth: 2
     :hidden:
@@ -34,3 +36,4 @@
     deployment
     external_c_op
     quantization
+    profiling
