@@ -30,6 +30,7 @@
         import megengine.functional as F
         import megengine.hub as hub
         import megengine.optimizer as optim
+        from megengine import tensor
         from megengine.jit import trace, SublinearMemoryConfig
         import numpy as np
 
@@ -56,12 +57,16 @@
                 loss = F.cross_entropy_with_softmax(pred, label)
                 optimizer.backward(loss)
 
+            data = mge.tensor()
+            label = mge.tensor(dtype="int32")
             resnet.train()
             for i in range(10):
                 batch_data = np.random.randn(batch_size, 3, 224, 224).astype(np.float32)
                 batch_label = np.random.randint(1000, size=(batch_size,)).astype(np.int32)
+                data.set_value(batch_data)
+                label.set_label(batch_label)
                 optimizer.zero_grad()
-                train_func(batch_data, batch_label, net=resnet, optimizer=optimizer)
+                train_func(data, label, net=resnet, optimizer=optimizer)
                 optimizer.step()
         except:
             print("Failed")
