@@ -3,14 +3,10 @@
 cd $(dirname $0)
 rm -rf ../build/html
 
-AUTOGEN=../source/autogen
+AUTOGEN=../source/api_zh
 rm -rf $AUTOGEN
 
-if [ -z "$1" ]; then
-    ROOT_PATH=~/.local/lib/python3.6/site-packages
-else
-    ROOT_PATH=$1
-fi
+ROOT_PATH=$1
 
 #if [ ! -f "$ROOT_PATH/megengine/example.py" ]; then
     #ln -s $PWD/example/example.py $ROOT_PATH/megengine/
@@ -45,4 +41,4 @@ rm $AUTOGEN/megengine.data.dataset.vision.rst
 rm -f $AUTOGEN/modules.rst
 
 cd ..
-sphinx-build -D language="zh_CN" source build/html/zh_CN
+sphinx-build -D language="zh_CN" source build/html

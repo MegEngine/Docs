@@ -3,14 +3,10 @@
 cd $(dirname $0)
 rm -rf ../build/html
 
-AUTOGEN=../source/autogen
+AUTOGEN=../source/api
 rm -rf $AUTOGEN
 
-if [ -z "$1" ]; then
-    ROOT_PATH=~/.local/lib/python3.6/site-packages
-else
-    ROOT_PATH=$1
-fi
+ROOT_PATH=$1
 
 #if [ ! -f "$ROOT_PATH/megengine/example.py" ]; then
     #ln -s $PWD/example/example.py $ROOT_PATH/megengine/
@@ -44,6 +40,14 @@ rm $AUTOGEN/megengine.data.dataset.vision.rst
 # to avoid warning for unreferenced file
 rm -f $AUTOGEN/modules.rst
 
-cd ..
+#
+#if [[ -d source/api ]]
+#then
+#    rm -rf source/api
+#fi
+#mkdir source/api
+#cp source/api_zh/* source/api/
+#rm -rf source/api_zh
 # sphinx-build -b doctest source build/doctest
+cd ..
 sphinx-build source build/html

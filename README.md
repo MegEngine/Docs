@@ -48,7 +48,7 @@
 API docstring also contains examples written by [doctest](https://docs.python.org/3/library/doctest.html). Run the tests by
 
 ```
-gen_python_docs/gendoc.sh ~/.local/lib/python3.6/site-packages
+gen_python_docs/gene_html.sh ~/.local/lib/python3.6/site-packages
 sphinx-build -b doctest source build/doctest
 ```
 

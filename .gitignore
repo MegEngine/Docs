@@ -1,6 +1,7 @@
 build
 gen_cpp_docs/xml
 source/autogen
+source/autogen_zh
 source/cpp_api
 source/locale
 *.pyc

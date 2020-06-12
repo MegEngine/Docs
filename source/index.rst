@@ -74,6 +74,7 @@ MegEngine 的上述特点使其成为了最适合工业级研发的框架之一�
     首页 <self>
     基础学习 <basic/index>
     进阶学习 <advanced/index>
+    api_zh
     api
 
 .. footer::
