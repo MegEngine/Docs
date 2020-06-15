@@ -119,16 +119,26 @@ Observer 继承自 :class:`~.Module` ，也会参与网络的前向传播，但�
 * :class:`~.ExponentialMovingAverageObserver` ，引入动量的概念，对每批数据的 min/max 与现有 min/max 的加权和跟现有值比较；
 * :class:`~.HistogramObserver` ，更加复杂的基于直方图分布的 min/max 统计算法，且在 forward 时持续更新该分布，并根据该分布计算得到 scale 和 zero_point。
 
+在实际使用过程中，可能需要在训练时让 Observer 统计并更新参数，但是在推理时则停止更新。 Observer 和 FakeQuantize 都支持 :meth:`~.Observer.enable` 和 :meth:`~.Observer.disable` 功能，且 Observer 会在 :meth:`~.Module.train` 和 :meth:`~.Module.train` 时自动分别调用 enable/disable。
+
+所以一般在 Calibration 时，会先执行 ``net.eval()`` 保证网络的参数不被更新，然后再执行 :func:`enable_observer(net) <.quantize.enable_observer>` 来手动开启 Observer 的统计修改功能。
+
 模型转换模块与相关基类
 ''''''''''''''''''''''''''''''
 
-QConfig 提供了一系列如何对模型做量化的接口，而要使用这些接口，需要网络的 Module 能够在 forward 时给参数、activation 加上 Observer 和进行 FakeQuantize。转换模块的作用就是将模型中的普通 Module 替换为支持这一系列操作的 :class:`~.QATModule` ，以及无法训练专用于部署的 :class:`~.QuantizedModule` 。
+QConfig 提供了一系列如何对模型做量化的接口，而要使用这些接口，需要网络的 Module 能够在 forward 时给参数、activation 加上 Observer 和进行 FakeQuantize。转换模块的作用就是将模型中的普通 Module 替换为支持这一系列操作的 :class:`~.QATModule` ，并能支持进一步替换成无法训练、专用于部署的 :class:`~.QuantizedModule` 。
 
 基于三种基类实现的 Module 是一一对应的关系，通过转换接口可以依次替换为不同实现的同名 Module。同时考虑到量化与算子融合（Fuse）的高度关联，我们提供了一系列预先融合好的 Module，比如 :class:`~.module.conv.ConvRelu2d` 、 :class:`~.module.conv_bn.ConvBn2d` 和 :class:`~.module.conv_bn.ConvBnRelu2d` 等。除此之外还提供专用于量化的 :class:`~.module.quant_dequant.QuantStub` 、 :class:`~.module.quant_dequant.DeQuantStub` 等辅助模块。
 
 转换的原理很简单，就是将父 Module 中可被量化（Quantable）的子 Module 替换为对应的新 Module。但是有一些 Quantable Module 还包含 Quantable 子 Module，比如 ConvBn 就包含一个 Conv2d 和一个 BatchNorm2d，转换过程并不会对这些子 Module 进一步转换，原因是父 Module 被替换之后，其 forward 计算过程已经完全不同了，不会再依赖于这些子 Module。
 
-另外由于转换过程修改了原网络结构， :ref:`train_and_evaluation` 中提到的模型保存与加载也无法直接适用于转换后的网络，读取时需要先调用转换接口得到对应版本的新网络，才能将参数进行加载。
+.. note::
+
+    如果需要使一部分 Module 及其子 Module 保留 Float 状态，不进行转换，可以使用 :meth:`~.Module.disable_quantize` 来处理。
+
+    如果网络结构中涉及一些二元及以上的 ElementWise 操作符，比如加法乘法等，由于多个输入各自的 scale 并不一致，必须使用量化专用的算子，并指定好输出的 scale。实际使用中只需要把这些操作替换为 :class:`~.module.elemwise.Elemwise` 即可，比如 ``self.add_relu = Elemwise("FUSE_ADD_RELU")``
+
+    另外由于转换过程修改了原网络结构， :ref:`train_and_evaluation` 中提到的模型保存与加载无法直接适用于转换后的网络，读取新网络保存的参数时，需要先调用转换接口得到转换后的网络，才能用 load_state_dict 将参数进行加载。
 
 
 实例讲解
