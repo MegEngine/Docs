@@ -24,7 +24,7 @@
     Default value is `~/.local/lib/python3.6/site-packages`.
     Note that the RST files generated from python docstring are put under `source/autogen`.
     ```bash
-    ./gen_python_docs/gendoc.sh ~/.local/lib/python3.6/site-packages
+    ./gen_python_docs/gene_html.sh ~/.local/lib/python3.6/site-packages
     ```
 
 3. Start local sphinx service by:
