@@ -64,7 +64,7 @@
                 batch_data = np.random.randn(batch_size, 3, 224, 224).astype(np.float32)
                 batch_label = np.random.randint(1000, size=(batch_size,)).astype(np.int32)
                 data.set_value(batch_data)
-                label.set_label(batch_label)
+                label.set_value(batch_label)
                 optimizer.zero_grad()
                 train_func(data, label, net=resnet, optimizer=optimizer)
                 optimizer.step()
