@@ -3,7 +3,7 @@
 
 if [ ! -n "$1" ]
 then
-    ./gen_python_docs/gendoc.sh ~/.local/lib/python3.6/site-packages
+    ./gen_python_docs/gendoc.sh ~/.local/lib/python3.6/site-packages/megengine
 else
     ./gen_python_docs/gendoc.sh $1
 fi
@@ -16,7 +16,7 @@ fi
 cp -r build/html/api/* .tmp/
 if [ ! -n "$1" ]
 then
-    ./gen_python_docs/gendoc_zh.sh ~/.local/lib/python3.6/site-packages
+    ./gen_python_docs/gendoc_zh.sh ~/.local/lib/python3.6/site-packages/megengine
 else
     ./gen_python_docs/gendoc_zh.sh $1
 fi

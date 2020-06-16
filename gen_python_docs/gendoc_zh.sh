@@ -14,10 +14,7 @@ ROOT_PATH=$1
 
 export SPHINX_APIDOC_OPTIONS="members,undoc-members,show-inheritance"
 
-for i in megengine
-do
-    sphinx-apidoc -t templates -M -o $AUTOGEN $(realpath $ROOT_PATH)/$i
-done
+sphinx-apidoc -t templates -M -o $AUTOGEN $(realpath $ROOT_PATH)
 
 tail -n +4 $AUTOGEN/megengine.data.transform.rst >> $AUTOGEN/megengine.data.rst
 rm $AUTOGEN/megengine.data.transform.rst
@@ -42,3 +39,4 @@ rm -f $AUTOGEN/modules.rst
 
 cd ..
 sphinx-build -D language="zh_CN" source build/html
+

@@ -18,16 +18,25 @@
     ```bash
     pip3 install megengine -f https://megengine.org.cn/whl/mge.html
     ```
+2. Get MegEngine installation path ``MGE_ROOT``.
 
-2. Run [gen_python_docs/gendoc.sh](gen_python_docs/gendoc.sh) to generate HTML files.
-    The script accepts the previous python `site-packages` directory as the argument.
-    Default value is `~/.local/lib/python3.6/site-packages`.
-    Note that the RST files generated from python docstring are put under `source/autogen`.
     ```bash
-    ./gen_python_docs/gene_html.sh ~/.local/lib/python3.6/site-packages
+    MGE_ROOT=`python3 -c "import os; \
+                          import megengine; \
+                          print(os.path.dirname(megengine.__file__))"`
+    echo "MegEngine installed at" $MGE_ROOT
     ```
 
-3. Start local sphinx service by:
+3. Run [gen_python_docs/gendoc.sh](gen_python_docs/gendoc.sh) to generate HTML files.
+    The script accepts the MegEngine installation path as the argument.
+
+    ```bash
+    ./gen_python_docs/gene_html.sh $MGE_ROOT
+    ```
+
+    Note that the RST files generated from python docstring are put under `source/autogen`.
+
+4. Start local sphinx service by:
     ```bash
     sphinx-serve -b build -p 8000
     ```
