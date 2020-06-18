@@ -76,6 +76,7 @@ MegEngine 的上述特点使其成为了最适合工业级研发的框架之一�
     进阶学习 <advanced/index>
     api_zh
     api
+    android_app推理示例 <inference_example/index>
 
 .. footer::
 
