@@ -8,3 +8,4 @@ source/cpp_api
 source/locale
 *.pyc
 *.state_dict
+*.swp
