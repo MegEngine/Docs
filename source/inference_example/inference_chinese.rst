@@ -18,13 +18,6 @@ Shufflenet_v2 arm-android示例快速入门
 
    pip3 install megengine -f https://megengine.org.cn/whl/mge.html
 
-大部分Megengine的依赖组件都位于 third_party 目录下，不需要自己手动安装，在有网络支持的条件下，使用如下脚本进行安装。
-
-::
-
-   ./third_party/prepare.sh
-   ./third_party/install-mkl.sh
-
 2. 下载MegEngine的代码仓库
 ''''''''''''''''''''''''''
 我们需要使用 C++ 环境进行最终的部署，所以这里还需要通过源文件来编译安装 C++ 库
@@ -32,6 +25,13 @@ Shufflenet_v2 arm-android示例快速入门
 ::
 
    git clone https://github.com/MegEngine/MegEngine.git
+
+Megengine的依赖组件都位于 third_party 目录下，在有网络支持的条件下，使用如下脚本进行安装。
+
+::
+
+   ./third_party/prepare.sh
+   ./third_party/install-mkl.sh
 
 MegEngine可以支持多平台的交叉编译，可以根据官方指导文档选择不同目标的编译。
 对这个例子来说，我们选择arm-android的交叉编译。
@@ -53,13 +53,6 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
    file build_dir/android/arm64-v8a/Release/install/lib64/libmegengine.so
    #libmegengine.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, BuildID[sha1]=xxxxx, stripped
 
-`tips :默认编译的库为去符号表版本，如果想要编译带符号表的库，可以通过如下方式修改编译脚本，获得debug版本库。`
-
-::
-
-   BUILD_TYPE=Release # Release for stripped, Debug for not stripped
-   ARCH=arm64-v8a # arm64-v8a is default , armeabi-v7a can be set
-
 3. 准备预训练模型
 '''''''''''''''''
 想要使用MegEngine C++ API来加载模型，我们还需要做一些准备工作
@@ -67,8 +60,8 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
    #. 获取基于python接口预训练好的神经网络
    #. 将基于动态图的神经网络转换成静态图后，再转换成MegEngine C++ API可以加载的 mge文件
 
-官方 `MegEngine ModelHub`_ 提供了多种预训练模型，以及基于python对这些模型进行训练、推理的guide。
-通过这些guide，我们就可以大体了解训练和推理的基本过程。
+官方 `MegEngine ModelHub`_ 提供了多种预训练模型，以及基于python对这些模型进行训练、推理的指导文档。
+通过这些指导文档，我们就可以大体了解训练和推理的基本过程。
 
 接下来，通过以下python代码基于动态图的神经网络，实现动态图到静态图的转换并dump出可供c++调用的文件。
 
@@ -101,11 +94,12 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
       
 
       fun.trace(data,net=net)
-      fun.dump("shufflenet_deploy.mge", arg_names=["data"])
+      fun.dump("shufflenet_deploy.mge", arg_names=["data"], optimize_for_inference=True)
 
 执行脚本，并完成模型转换后，我们就获得了可以通过MegEngine C++ API加载的预训练模型文件 **shufflenet_deploy.mge**。
 
 *这里需要注意，dump函数定义了input 为 "data"，在后续使用推理接口传入数据时，需要保持名称一致。*
+*另外，dump参数 "optimize_for_inference=True" 可以对dump出的模型进行优化，具体信息可以参考* `dump optimize api`_
 
 4. Shufflenet_v2 C++ 实现示例
 ''''''''''''''''''''''''''''''''
@@ -180,7 +174,7 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 4.2. 将转换好的图像数据传给 input 层
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   1. 原始图像shape是 'HWC', 需要转成模型需要的 'CHW' shape。`HW表示宽高，C表示通道数`
+   1. 原始图像数据格式是 'HWC', 需要转成模型需要的 'CHW' 数据格式。`HW表示宽高，C表示通道数`
    2. 'CHW' 是 'NCHW' 的子集， `N表示batch size`
    3. 以下是一个转换的参考示例代码：
 
@@ -397,7 +391,7 @@ JNI 整体的目录结构设计如下：
 
 5.2. 交叉编译动态库和测试程序
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-代码准备好之后，我们使用CMake构建静态库libshufflenet_inference.a和测试程序shufflenet_loadrun。
+代码准备好之后，我们使用CMake构建动态库和测试程序。
 
 * 构建的启动脚本参考 `build inference 脚本`_
 * CMake构建脚本参考 `libshufflenet_inference CMake 构建脚本`_
@@ -580,7 +574,7 @@ MegEngine 也可以采用量化的模型在arm-android上进行部署，部署�
 .. _`MegEngine github`: https://github.com/MegEngine/MegEngine
 .. _`MegEngine ModelHub`: https://megengine.org.cn/model-hub
 .. _`MegEngine Model`: https://github.com/MegEngine/Models
-.. _`pkl python 转换代码`: inference_pkl_transform_code
+.. _`dump optimize api`: https://megengine.org.cn/doc/latest/autogen/megengine.jit.html?highlight=optimize_for_inference#megengine.jit.trace.dump
 .. _`xor net 部署`: https://megengine.org.cn/doc/latest/advanced/deployment.html
 .. _`shufflenet_v2模型`: https://megengine.org.cn/model-hub/megengine_vision_shufflenet_v2/
 .. _`inference.py`: https://github.com/MegEngine/Models/blob/master/official/vision/classification/shufflenet/inference.py
