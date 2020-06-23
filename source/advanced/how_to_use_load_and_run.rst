@@ -3,20 +3,20 @@
 如何使用load_and_run
 ======================================
 
-load_and_run 是 megengine 中的加载并运行模型的工具，主要用来做模型正确性验证，速度验证及性能调试，源代码在 `load-and-run <https://github.com/megengine/megengine/tree/master/sdk/load-and-run>`_ 。
+load_and_run 是 MegEngine 中的加载并运行模型的工具，主要用来做模型正确性验证，速度验证及性能调试，源代码在 `load-and-run <https://github.com/MegEngine/MegEngine/tree/master/sdk/load-and-run>`_ 。
 
 load_and_run 有以下功能：
 
 1. 编译出对应各个平台的版本，可以对比相同模型的速度；
 2. 测试验证不同模型优化方法的效果，可以直接跑 ./load_and_run 得到对应的帮助文档；
-3. `dump_with_testcase_mge.py <https://github.com/megengine/megengine/blob/master/sdk/load-and-run/dump_with_testcase_mge.py>`_ 会把输入数据、运行脚本时计算出的结果都打包到模型里，便于比较相同模型在不同平台下的计算结果差异；
+3. `dump_with_testcase_mge.py <https://github.com/MegEngine/MegEngine/blob/master/sdk/load-and-run/dump_with_testcase_mge.py>`_ 会把输入数据、运行脚本时计算出的结果都打包到模型里，便于比较相同模型在不同平台下的计算结果差异；
 4. 同时支持 ``--input`` 选项直接设置 mge c++ 模型的输入，输入格式支持 .ppm/.pgm/.json/.npy 和命令行方式。
 
 模型准备
 ---------------------------------------
 
-将mge模型序列化并导出到文件, 我们以 `ResNet50 <https://github.com/megengine/models/tree/master/official/vision/classification/resnet>`_ 为例。
-因为megengine的模型都是动态图形式(详细见: :ref:`dynamic_and_static_graph` ) ，所以我们需要先将模型转成静态图然后再部署。
+将mge模型序列化并导出到文件, 我们以 `ResNet50 <https://github.com/MegEngine/models/tree/master/official/vision/classification/resnet>`_ 为例。
+因为MegEngine的模型都是动态图形式(详细见: :ref:`dynamic_and_static_graph` ) ，所以我们需要先将模型转成静态图然后再部署。
 
 具体可参考如下代码片段:
 
@@ -51,7 +51,7 @@ load_and_run 有以下功能：
       fun.trace(data,net=net)
       fun.dump("resnet50.mge", arg_names=["data"], optimize_for_inference=True)
 
-执行脚本，并完成模型转换后，我们就获得了可以通过megengine c++ api加载的预训练模型文件 ``resnet50.mge``。
+执行脚本，并完成模型转换后，我们就获得了可以通过MegEngine c++ api加载的预训练模型文件 ``resnet50.mge``。
 
 输入准备
 ---------------------------------------
@@ -94,9 +94,9 @@ linux x86平台编译load_and_run
 
 .. code-block:: bash
 
-   git clone https://github.com/megengine/megengine.git
-   cd megengine && mkdir build && cd build
-   cmake .. -dmge_with_cuda=off -dmge_with_test=off
+   git clone https://github.com/MegEngine/MegEngine.git
+   cd MegEngine && mkdir build && cd build
+   cmake .. -DMGE_WITH_CUDA=OFF -DMGE_WITH_TEST=OFF
    make -j$(nproc)
 
 编译完成后，我们可以在 ``build/sdk/load_and_run`` 目录找到 ``load_and_run`` 。
@@ -107,7 +107,7 @@ linux下交叉编译arm版本load_and_run
 在ubuntu(16.04/18.04)上进行 arm-android的交叉编译:
 
 1. 到android的官网下载ndk的相关工具，这里推荐 *android-ndk-r21* 以上的版本：https://developer.android.google.cn/ndk/downloads/
-2. 在bash中设置ndk_root 环境变量：``export ndk_root=ndk_dir``
+2. 在bash中设置NDK_ROOT环境变量：``export NDK_ROOT=ndk_dir``
 3. 使用以下脚本进行arm-android的交叉编译
 
 .. code-block:: bash
@@ -138,7 +138,7 @@ linux下交叉编译arm版本load_and_run
     adb push build_dir/android/arm64-v8a/release/install/lib/libmegengine.so /data/local/tmp
     adb push cat.npy /data/local/tmp
     adb push resnet50.mge /data/local/tmp
-    adb shell && cd /data/local/tmp/ && export ld_library_path=.:$ld_library_path
+    adb shell && cd /data/local/tmp/ && export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 
 之后直接在手机上运行load_and_run， 可以得到如下输出:
 
@@ -165,7 +165,7 @@ linux下交叉编译arm版本load_and_run
 平台相关layout优化
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-目前megengine的网络是nchw的layout，但是这种layout不利于充分利用simd特性，且边界处理异常复杂。
+目前MegEngine的网络是nchw的layout，但是这种layout不利于充分利用simd特性，且边界处理异常复杂。
 为此，我们针对arm开发了nchw44的layout。
 
 这个命名主要是针对conv来定的。
@@ -201,7 +201,7 @@ linux下交叉编译arm版本load_and_run
 fastrun模式
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-目前在megengine中，针对某些opr，尤其是conv，我们内部存在很多种不同的算法，如direct, winograd, 或者 im2col 等，这些算法在不同的shape或者不同的硬件平台上，其性能表现不同，导致很难写出一个比较有效的启发式搜索算法，在执行的时候跑到合适的最快的算法。为此，我们megengine集成了fastrun的模式，也就是在执行模型的时候会将每个opr的可选所有算法都执行一遍，然后选择一个最优的算法记录下来。
+目前在MegEngine中，针对某些opr，尤其是conv，我们内部存在很多种不同的算法，如direct, winograd, 或者 im2col 等，这些算法在不同的shape或者不同的硬件平台上，其性能表现不同，导致很难写出一个比较有效的启发式搜索算法，在执行的时候跑到合适的最快的算法。为此，我们MegEngine集成了fastrun的模式，也就是在执行模型的时候会将每个opr的可选所有算法都执行一遍，然后选择一个最优的算法记录下来。
 
 一般分为两个阶段，搜参和运行。
 
@@ -265,7 +265,7 @@ winograd在channel较大的时候，能够有效提升卷积的计算速度，�
 其在在ResNet或者VGG16等网络, winograd 有非常大的加速效果。
 
 因为对于3x3的卷积，有多种winograd算法，如f(2,3), f(4,3), f(6,3)，从理论加速比来讲，f(6,3) > f(4,3) > f(2,3)，
-但是f(6, 3)的预处理开销更大，因为megengine内部是基于分块来处理的，对于featuremap比较小的情况，f(6,3)可能会引入比较多的冗余计算，其性能可能不如f(2,3)，所有我们将winograd变换和fastrun模式结合，基于fastrun模式搜索的结果来决定走哪种winograd变换。
+但是f(6, 3)的预处理开销更大，因为MegEngine内部是基于分块来处理的，对于featuremap比较小的情况，f(6,3)可能会引入比较多的冗余计算，其性能可能不如f(2,3)，所有我们将winograd变换和fastrun模式结合，基于fastrun模式搜索的结果来决定走哪种winograd变换。
 
 具体命令如下:
 
@@ -295,12 +295,12 @@ winograd在channel较大的时候，能够有效提升卷积的计算速度，�
 正确性验证
 ----------------------------------------
 
-megengine 内置了多种正确性验证的方法，方便检查网络计算正确性。
+MegEngine 内置了多种正确性验证的方法，方便检查网络计算正确性。
 
 开启asserteq验证正确性
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-可以基于脚本 `dump_with_testcase_mge.py <https://github.com/megengine/megengine/blob/master/sdk/load-and-run/dump_with_testcase_mge.py>`_ 将输入数据和运行脚本时使用当前默认的计算设备计算出的模型结果都打包到模型里， 这样在不同平台下就比较方便比较结果差异了。
+可以基于脚本 `dump_with_testcase_mge.py <https://github.com/MegEngine/MegEngine/blob/master/sdk/load-and-run/dump_with_testcase_mge.py>`_ 将输入数据和运行脚本时使用当前默认的计算设备计算出的模型结果都打包到模型里， 这样在不同平台下就比较方便比较结果差异了。
 
 .. code-block:: bash
 
