@@ -304,7 +304,7 @@ MegEngine 内置了多种正确性验证的方法，方便检查网络计算正�
 
 .. code-block:: bash
 
-    python3 $mge/sdk/load_and_run/dump_with_testcase_mge.py ./resnet50.mge --optimize -d cat.jpg -o resnet50.mdl
+    python3 $MGE/sdk/load_and_run/dump_with_testcase_mge.py ./resnet50.mge --optimize -d cat.jpg -o resnet50.mdl
 
 在执行load_and_run的时候就不需要额外带上 ``--input``，因为输入已经打包进 ``resnet50.mdl``, 同时在执行 ``dump_with_testcase_mge.py`` 脚本的时候，会在xpu(如果有gpu，就在gpu上执行，如果没有就在cpu上执行)执行整个网络，将结果作为 ``ground-truth`` 写入模型中。
 
