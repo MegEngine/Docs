@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-17 15:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/autogen/megengine.rst:2
+msgid "megengine package"
+msgstr "megengine package"
+
+#: ../../source/autogen/megengine.rst:11
+msgid "megengine.logger"
+msgstr "megengine.logger"
+
+#: megengine.logger.MegBrainLogFormatter:1 of
+msgid "Bases: :class:`megengine.logger.MegEngineLogFormatter`"
+msgstr "基类: :class:`megengine.logger.MegEngineLogFormatter`"
+
+#: megengine.logger.MegEngineLogFormatter:1 of
+msgid "Bases: :class:`logging.Formatter`"
+msgstr "基类: :class:`logging.Formatter`"
+
+#: megengine.logger.MegEngineLogFormatter.format:1 of
+msgid "Format the specified record as text."
+msgstr "将指定的记录格式化为文本。"
+
+#: megengine.logger.MegEngineLogFormatter.format:3 of
+msgid ""
+"The record's attribute dictionary is used as the operand to a string "
+"formatting operation which yields the returned string. Before formatting the"
+" dictionary, a couple of preparatory steps are carried out. The message "
+"attribute of the record is computed using LogRecord.getMessage(). If the "
+"formatting string uses the time (as determined by a call to usesTime(), "
+"formatTime() is called to format the event time. If there is exception "
+"information, it is formatted using formatException() and appended to the "
+"message."
+msgstr ""
+"record的属性字典用作字符串格式化操作中的操作数，该操作产生返回的字符串。在格式化字典之前，需要执行几个准备步骤。使用LogRecord.getMessage()计算record的消息属性。如果格式化字符串使用时间(通过调用usesTime()来确定)，则将调用formatTime()来格式化事件时间。如果存在异常信息，则使用formatException()将其格式化并附加到消息中。"
+
+#: megengine.logger.enable_debug_log:1 of
+msgid "Sets logging level to debug for all components."
+msgstr "设置日志记录级别(logging level)以调试所有组件。"
+
+#: megengine.logger.get_logger:1 of
+msgid "Gets megengine logger with given name."
+msgstr "按照给定名称获取megengine日志。"
+
+#: megengine.logger.replace_mgb_log_level:1 of
+msgid "Replaces megbrain log level in a block and restore after exiting."
+msgstr "替换block中megbrain的日志级别，并在退出后恢复。"
+
+#: megengine.logger.replace_mgb_log_level megengine.logger.set_log_file
+#: megengine.logger.set_log_level megengine.logger.set_mgb_log_level of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.logger.replace_mgb_log_level:4
+#: megengine.logger.set_mgb_log_level:4 of
+msgid "new log level"
+msgstr "新的日志级别"
+
+#: megengine.logger.set_log_file:1 of
+msgid "Sets log output file."
+msgstr "设置日志的输出文件。"
+
+#: megengine.logger.set_log_file:4 of
+msgid ""
+"file-like object that supports write and flush, or string for the filename"
+msgstr "支持写操作和flush操作的文件对象，或文件名的字符串"
+
+#: megengine.logger.set_log_file:7 of
+msgid "specify the mode to open log file if *fout* is a string"
+msgstr "如果 *fout* 是一个字符串，则为指定打开日志文件的模式"
+
+#: megengine.logger.set_log_level:1 of
+msgid "Sets default logging level."
+msgstr "设置默认的日志记录级别。"
+
+#: megengine.logger.set_log_level:4 of
+msgid "loggin level given by python :mod:`logging` module"
+msgstr "python的 :mod:`logging` 模块给出的日志记录级别"
+
+#: megengine.logger.set_log_level:5 of
+msgid "whether to update existing loggers"
+msgstr "是否更新现有的日志记录"
+
+#: megengine.logger.set_mgb_log_level:1 of
+msgid "Sets megbrain log level"
+msgstr "设置megbrain的日志级别"
+
+#: megengine.logger.set_mgb_log_level of
+msgid "Returns"
+msgstr "返回值"
+
+#: megengine.logger.set_mgb_log_level:5 of
+msgid "original log level"
+msgstr "初始的日志级别"
+
+#: ../../source/autogen/megengine.rst:19
+msgid "megengine.version"
+msgstr "megengine.version"

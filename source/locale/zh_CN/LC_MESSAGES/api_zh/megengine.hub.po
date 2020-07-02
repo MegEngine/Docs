@@ -1,0 +1,359 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-27 03:15-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/autogen/megengine.hub.rst:2
+msgid "megengine.hub package"
+msgstr "megengine.hub package"
+
+#: ../../source/autogen/megengine.hub.rst:11
+msgid "megengine.hub.const"
+msgstr "megengine.hub.const"
+
+#: ../../source/autogen/megengine.hub.rst:19
+msgid "megengine.hub.exceptions"
+msgstr "megengine.hub.exceptions"
+
+#: megengine.hub.exceptions.FetcherError:1 of
+msgid "Bases: :class:`Exception`"
+msgstr "基类 :class:`Exception`"
+
+#: megengine.hub.exceptions.FetcherError:1 of
+msgid "Base class for fetch related error."
+msgstr "获取相关错误的基类。"
+
+#: megengine.hub.exceptions.GitCheckoutError:1
+#: megengine.hub.exceptions.GitPullError:1
+#: megengine.hub.exceptions.InvalidGitHost:1
+#: megengine.hub.exceptions.InvalidProtocol:1
+#: megengine.hub.exceptions.InvalidRepo:1 of
+msgid "Bases: :class:`megengine.hub.exceptions.FetcherError`"
+msgstr "基类: :class:`megengine.hub.exceptions.FetcherError`"
+
+#: megengine.hub.exceptions.GitCheckoutError:1 of
+msgid "A git checkout error occurred"
+msgstr "git checkout产生异常"
+
+#: megengine.hub.exceptions.GitPullError:1 of
+msgid "A git pull error occurred"
+msgstr "git pull产生异常"
+
+#: megengine.hub.exceptions.InvalidGitHost:1 of
+msgid "The git host provided was somehow invalid."
+msgstr "由于某些原因，提供的git host无效。"
+
+#: megengine.hub.exceptions.InvalidProtocol:1 of
+msgid "The protocol provided was somehow invalid"
+msgstr "由于某些原因，提供的协议无效"
+
+#: megengine.hub.exceptions.InvalidRepo:1 of
+msgid "The repo provided was somehow invalid."
+msgstr "由于某些原因，所提供的代码仓库无效。"
+
+#: ../../source/autogen/megengine.hub.rst:27
+msgid "megengine.hub.fetcher"
+msgstr "megengine.hub.fetcher"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher:1
+#: megengine.hub.fetcher.GitSSHFetcher:1 of
+msgid "Bases: :class:`megengine.hub.fetcher.RepoFetcherBase`"
+msgstr "基类: :class:`megengine.hub.fetcher.RepoFetcherBase`"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch:1 of
+msgid "Fetches git repo by HTTPS protocol"
+msgstr "使用HTTPS协议拉取远端git代码仓库"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch
+#: megengine.hub.fetcher.GitSSHFetcher.fetch megengine.hub.hub.help
+#: megengine.hub.hub.import_module megengine.hub.hub.list
+#: megengine.hub.hub.load megengine.hub.hub.load_serialized_obj_from_url
+#: megengine.hub.tools.cd megengine.hub.tools.check_module_exists
+#: megengine.hub.tools.load_module of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch:4 of
+msgid "host address of git repo example: github.com"
+msgstr "git repo的主机地址。例如：github.com"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch:8
+#: megengine.hub.fetcher.GitSSHFetcher.fetch:8 of
+msgid ""
+"a string with format ``\"repo_owner/repo_name[:tag_name/:branch_name]\"`` "
+"with an optional tag/branch. The default branch is ``master`` if not "
+"specified. example: ``\"brain_sdk/MegBrain[:hub]\"``"
+msgstr ""
+"格式为 ``\"repo_owner/repo_name[:tag_name/:branch_name]\"`` "
+"的字符串，其中tag/branch是可选的。 若不指明，则默认分支是 ``master`` 。 例如： "
+"``\"brain_sdk/MegBrain[:hub]\"`` "
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch:13 megengine.hub.hub.help:20
+#: megengine.hub.hub.import_module:13 megengine.hub.hub.list:13
+#: megengine.hub.hub.load:16 of
+msgid "whether to use locally cached code or completely re-fetch"
+msgstr "选择使用本地缓存的代码或完全重新拉取代码"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch:16
+#: megengine.hub.fetcher.GitSSHFetcher.fetch:16 megengine.hub.hub.help:23
+#: megengine.hub.hub.import_module:16 megengine.hub.hub.list:16
+#: megengine.hub.hub.load:19 of
+msgid "commit id on github or gitlab"
+msgstr "GitHub或GitLab的commit id"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch:19
+#: megengine.hub.fetcher.GitSSHFetcher.fetch:19 of
+msgid ""
+"whether to accept the stdout and stderr of the subprocess with PIPE, instead"
+" of displaying on the screen"
+msgstr "是否通过Linux “管道” PIPE接受subprocess的stdout和stderr，而不是在屏幕上显示它们"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch
+#: megengine.hub.fetcher.GitSSHFetcher.fetch
+#: megengine.hub.fetcher.RepoFetcherBase.fetch megengine.hub.hub.help
+#: megengine.hub.hub.list megengine.hub.hub.load
+#: megengine.hub.hub.load_serialized_obj_from_url megengine.hub.tools.cd
+#: megengine.hub.tools.check_module_exists megengine.hub.tools.load_module of
+msgid "Return type"
+msgstr "返回类型"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch:22
+#: megengine.hub.fetcher.GitSSHFetcher.fetch:22
+#: megengine.hub.fetcher.RepoFetcherBase.fetch:2 megengine.hub.hub.help:29 of
+msgid ":py:class:`str`"
+msgstr ":py:class:`str`"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch
+#: megengine.hub.fetcher.GitSSHFetcher.fetch megengine.hub.hub.help
+#: megengine.hub.hub.import_module megengine.hub.hub.list
+#: megengine.hub.hub.load megengine.hub.hub.load_serialized_obj_from_url of
+msgid "Returns"
+msgstr "返回"
+
+#: megengine.hub.fetcher.GitHTTPSFetcher.fetch:23
+#: megengine.hub.fetcher.GitSSHFetcher.fetch:23 of
+msgid "directory where the repo code is stored"
+msgstr "repo代码的存储路径"
+
+#: megengine.hub.fetcher.GitSSHFetcher.fetch:1 of
+msgid "Fetches git repo by SSH protocol"
+msgstr "使用SSH协议拉取远端git代码仓库"
+
+#: megengine.hub.fetcher.GitSSHFetcher.fetch:4 of
+msgid "host address of git repo. example: github.com"
+msgstr "git repo的主机地址。例如：github.com"
+
+#: megengine.hub.fetcher.GitSSHFetcher.fetch:13 of
+msgid "whether to use locally fetched code or completely re-fetch"
+msgstr "选择使用本地缓存的代码或完全重新拉取代码"
+
+#: megengine.hub.fetcher.RepoFetcherBase:1 megengine.hub.hub.pretrained:1 of
+msgid "Bases: :class:`object`"
+msgstr "基类: :class:`object`"
+
+#: ../../source/autogen/megengine.hub.rst:35
+msgid "megengine.hub.hub"
+msgstr "megengine.hub.hub"
+
+#: megengine.hub.hub.list:1 of
+msgid "Lists all entrypoints available in repo hubconf"
+msgstr "列出repo中hubconf指定的所有可用的入口点"
+
+#: megengine.hub.hub.help:8 megengine.hub.hub.import_module:4
+#: megengine.hub.hub.list:4 megengine.hub.hub.load:4 of
+msgid ""
+"a string with format ``\"repo_owner/repo_name[:tag_name/:branch_name]\"`` "
+"with an optional tag/branch. The default branch is ``master`` if not "
+"specified. Example: ``\"brain_sdk/MegBrain[:hub]\"``"
+msgstr ""
+"格式为 ``\"repo_owner/repo_name[:tag_name/:branch_name]\"`` "
+"的字符串，其中tag/branch是可选的。 若不指明，则默认分支是 ``master`` 。 例如： "
+"``\"brain_sdk/MegBrain[:hub]\"`` "
+
+#: megengine.hub.hub.help:16 megengine.hub.hub.import_module:9
+#: megengine.hub.hub.list:9 megengine.hub.hub.load:12 of
+msgid "host address of git repo Example: github.com"
+msgstr "git仓库的主机地址，例如：github.com"
+
+#: megengine.hub.hub.help:26 megengine.hub.hub.import_module:19
+#: megengine.hub.hub.list:19 megengine.hub.hub.load:22 of
+msgid ""
+"which protocol to use to get the repo, and HTTPS protocol only supports "
+"public repo on github. The value should be one of HTTPS, SSH."
+msgstr "获得代码仓库所使用的协议，其中，HTTPS协议只支持github公共仓库。该参数值可为HTTPS 或 SSH。"
+
+#: megengine.hub.hub.list:22 of
+msgid ":py:class:`~typing.List`\\[:py:class:`str`]"
+msgstr ":py:class:`~typing.List`\\[:py:class:`str`]"
+
+#: megengine.hub.hub.list:23 of
+msgid "all entrypoint names of the model"
+msgstr "该模型的所有入口点（entrypoint）名称"
+
+#: megengine.hub.hub.load:1 of
+msgid "Loads model from github or gitlab repo, with pretrained weights."
+msgstr "从GitHub或GitLab中加载具有预训练权重的模型。"
+
+#: megengine.hub.hub.load:9 of
+msgid "an entrypoint defined in hubconf"
+msgstr "一个在hubconf中定义的入口点"
+
+#: megengine.hub.hub.load:25 megengine.hub.hub.load_serialized_obj_from_url:10
+#: of
+msgid ":py:data:`~typing.Any`"
+msgstr ":py:data:`~typing.Any`"
+
+#: megengine.hub.hub.load:26 of
+msgid "a single model with corresponding pretrained weights."
+msgstr "单个模型，具有对应的预训练的权重。"
+
+#: megengine.hub.hub.help:1 of
+msgid ""
+"This function returns docstring of entrypoint ``entry`` by following steps:"
+msgstr "通过以下步骤，该函数返回入口点 ``entry`` 的docstring ："
+
+#: megengine.hub.hub.help:3 of
+msgid "Pull the repo code specified by git and repo_info"
+msgstr "拉取下来git和repo_info指定的仓库代码"
+
+#: megengine.hub.hub.help:4 of
+msgid "Load the entry defined in repo's hubconf.py"
+msgstr "加载仓库中hubconf.py所定义的条目"
+
+#: megengine.hub.hub.help:5 of
+msgid "Return docstring of function entry"
+msgstr "返回函数入口的docstring（文档字符串）"
+
+#: megengine.hub.hub.help:13 of
+msgid "an entrypoint defined in hubconf.py"
+msgstr "一个在hubconf.py中定义的入口点"
+
+#: megengine.hub.hub.help:30 of
+msgid "docstring of entrypoint ``entry``"
+msgstr "入口点 ``entry`` 的文档字符串"
+
+#: megengine.hub.hub.load_serialized_obj_from_url:1 of
+msgid "Loads MegEngine serialized object from the given URL."
+msgstr "加载给定URL中的MegEngine序列化对象。"
+
+#: megengine.hub.hub.load_serialized_obj_from_url:3 of
+msgid ""
+"If the object is already present in ``model_dir``, it's deserialized and "
+"returned. If no ``model_dir`` is specified, it will be "
+"``MGE_HOME/serialized``."
+msgstr ""
+"如果对象已经在 ``model_dir`` 中，它会被反序列化并返回。如果没有指定 ``model_dir`` 时， 会被默认为 ``MGE_HOME "
+"/ serialized`` 。"
+
+#: megengine.hub.hub.load_serialized_obj_from_url:7 of
+msgid "url to serialized object"
+msgstr "序列化对象所在的url地址"
+
+#: megengine.hub.hub.load_serialized_obj_from_url:8 of
+msgid "dir to cache target serialized file"
+msgstr "缓存目标序列文件的路径"
+
+#: megengine.hub.hub.load_serialized_obj_from_url:11 of
+msgid "loaded object"
+msgstr "被加载入的对象"
+
+#: megengine.hub.hub.pretrained:1 of
+msgid ""
+"Decorator which helps to download pretrained weights from the given url."
+msgstr "装饰器，用来标识预训练权重的 url，以便于载入时自动下载权重。"
+
+#: megengine.hub.hub.pretrained:3 of
+msgid "For example, we can decorate a resnet18 function as follows"
+msgstr "例如，我们可以按以下方式装饰一个resnet18函数"
+
+#: megengine.hub.hub.pretrained:11 of
+msgid ""
+"When decorated function is called with ``pretrained=True``, MegEngine will "
+"automatically download and fill the returned model with pretrained weights."
+msgstr "当被装饰的函数具有参数 ``pretrained=True`` 时，M​​egEngine则自动下载并对返回的模型填入预训练的权重。"
+
+#: megengine.hub.hub.import_module:1 of
+msgid "Imports hubmodule like python import"
+msgstr "以类似python import的方式 import hubmodule"
+
+#: megengine.hub.hub.import_module:22 of
+msgid "hubconf.py as a python module"
+msgstr "作为一个python模块的hubconf.py"
+
+#: ../../source/autogen/megengine.hub.rst:43
+msgid "megengine.hub.tools"
+msgstr "megengine.hub.tools"
+
+#: megengine.hub.tools.cd:1 of
+msgid "Changes current directory to target"
+msgstr "将当前路径改为target路径"
+
+#: megengine.hub.tools.cd:4 of
+msgid "target directory"
+msgstr "目标路径"
+
+#: megengine.hub.tools.cd:7 of
+msgid ":py:class:`~typing.Iterator`\\[``None``]"
+msgstr ":py:class:`~typing.Iterator`\\[``None``]"
+
+#: megengine.hub.tools.check_module_exists:1 of
+msgid "Checks whether python module exists or not"
+msgstr "检查Python模块是否存在"
+
+#: megengine.hub.tools.check_module_exists:4 of
+msgid "name of module"
+msgstr "模块的名称"
+
+#: megengine.hub.tools.check_module_exists:7 of
+msgid ":py:class:`bool`"
+msgstr ":py:class:`bool`"
+
+#: megengine.hub.tools.load_module:1 of
+msgid "Loads module specified by name and path"
+msgstr "加载由 ``name`` 和 ``path`` 指定的模块"
+
+#: megengine.hub.tools.load_module:4 of
+msgid "module name"
+msgstr "模块名称"
+
+#: megengine.hub.tools.load_module:6 of
+msgid "module path"
+msgstr "模块路径"
+
+#: megengine.hub.tools.load_module:9 of
+msgid ":py:class:`module`"
+msgstr ":py:class:`module`"
+
+#~ msgid "Fetch git repo by HTTPS protocol"
+#~ msgstr "通过HTTPS协议拉取git仓库"
+
+#~ msgid "host address of git repo dxample: github.com"
+#~ msgstr "git repo的主机地址，例如：github.com"
+
+#~ msgid ""
+#~ "a string with format ``\"repo_owner/repo_name[:tag_name/:branch_name]\"`` "
+#~ "with an optional tag/branch. The default branch is ``master`` if not "
+#~ "specified. dxample: ``\"brain_sdk/MegBrain[:hub]\"``"
+#~ msgstr ""
+#~ "格式为 ``\"repo_owner/repo_name[:tag_name/:branch_name]\"`` "
+#~ "的字符串，其中tag/branch是可选的。 若不指明，则默认分支是 ``master`` 。 例如： "
+#~ "``\"brain_sdk/MegBrain[:hub]\"`` "
+
+#~ msgid ""
+#~ "Decorator helps quick link model function to existing pretrained weights."
+#~ msgstr "装饰器（Decorator），有助于迅速关联模型函数到现有的预训练的权重。"

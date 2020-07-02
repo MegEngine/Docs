@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-17 15:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/advanced/index.rst:4
+msgid "引言"
+msgstr ""
+
+#: ../../source/advanced/index.rst:6
+msgid "在这部分，您将了解 MegEngine 的一些高级用法。"
+msgstr ""
+
+#: ../../source/advanced/index.rst:8
+msgid "为了学习这部分内容，您需要掌握 :ref:`基础学习 <basic>` 内容。"
+msgstr ""
+
+#: ../../source/advanced/index.rst:10
+msgid "这部分共包含四个小节，彼此相对独立，您可以根据个人兴趣和需求进行选择性阅读。"
+msgstr ""
+
+#: ../../source/advanced/index.rst:12
+msgid ":ref:`distributed` ：介绍如何进行分布式训练模型。"
+msgstr ""
+
+#: ../../source/advanced/index.rst:14
+msgid ":ref:`parameter_more_setting` ：介绍更加细粒度的参数优化设置方法。"
+msgstr ""
+
+#: ../../source/advanced/index.rst:16
+msgid ":ref:`sublinear` ：介绍 MegEngine 的亚线性内存优化技术。"
+msgstr ""
+
+#: ../../source/advanced/index.rst:18
+msgid ":ref:`two_static_mode` ：介绍 MegEngine 中静态图的两种模式。"
+msgstr ""
+
+#: ../../source/advanced/index.rst:20
+msgid ":ref:`deployment` ：介绍如何将 MegEngine 模型在 C++ 环境下运行。"
+msgstr ""
+

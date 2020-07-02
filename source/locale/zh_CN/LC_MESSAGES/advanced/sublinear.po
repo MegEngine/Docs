@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-17 15:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/advanced/sublinear.rst:4
+msgid "亚线性内存优化"
+msgstr ""
+
+#: ../../source/advanced/sublinear.rst:6
+msgid ""
+"使用大 batch size 通常能够提升深度学习模型性能。然而，我们经常遇到的困境是有限的 GPU 内存资源无法满足大 batch size "
+"模型训练。为了缓解这一问题， MegEngine 提供了亚线性内存 ( sublinear memory ) "
+"优化技术用于降低网络训练的内存占用量。该技术基于 `gradient checkpointing "
+"<https://arxiv.org/abs/1604.06174>`_ 算法，通过事先搜索最优的计算图节点作为前向传播和反向传播检查点（ "
+"checkpoints ），省去其它中间结果存储，大幅节约了内（显）存使用。"
+msgstr ""
+
+#: ../../source/advanced/sublinear.rst:8
+msgid "用户通过如下的环境变量设置开启亚线性内存优化："
+msgstr ""
+
+#: ../../source/advanced/sublinear.rst:22
+msgid ""
+"亚线性内存技术仅适用于 MegEngine 静态图模式。这种内存优化方式在编译计算图和训练模型时会有少量的额外时间开销。下面我们以 "
+"`ResNet50 <https://arxiv.org/abs/1512.03385>`_ "
+"为例，说明使用亚线性内存优化能够大幅节约网络训练显存使用。"
+msgstr ""
+

@@ -1,0 +1,146 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-17 15:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/basic/network_build.rst:4
+msgid "网络搭建"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:6
+msgid ""
+"在 :ref:`basic_concepts` 中我们介绍了计算图、张量和算子，神经网络可以看成一个计算图。在 MegEngine "
+"中，我们按照计算图的拓扑结构，将张量和算子连接起来，即可完成对网络的搭建。MegEngine 提供了基于 "
+":mod:`~.megengine.functional` 和基于 :class:`~.Module` 的两种方式搭建网络。 "
+":mod:`~.megengine.functional` 仅提供最基本的算子功能，数据连接的工作完全由用户完成； "
+":class:`~.Module` 对网络模块（包含若干算子及其参数的基本单元）进行了进一步的封装，代码更易复用和维护。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:10
+msgid "基于 :mod:`~.megengine.functional` 搭建网络"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:12
+msgid ""
+":mod:`~.megengine.functional` 包提供了常用的算子函数（如 "
+":func:`~.functional.nn.conv2d` 、 :func:`~.functional.nn.linear` "
+"等）。这些函数接受参与计算的张量并返回计算结果。参与计算的张量通常包括两类：输入数据和该算子自身的参数，其中后者是网路中需要学习的变量。比如，二维卷积（"
+" :func:`~.functional.nn.conv2d` "
+"）接受多通道的二维图像作为输入数据，把卷积核作为参数，输出经卷积操作后的多通道二维图像。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:14
+msgid ""
+"算子的输入和输出数据都是 :class:`~.Tensor` 类型。算子的参数通常由 :class:`~.Parameter` 类表示。 "
+":class:`~.Parameter` 是 :class:`~.Tensor` 的子类，其对象（即网络参数）可以被优化器更新。更多内容参见 "
+":ref:`train_and_evaluation` 。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:16
+msgid ""
+"下面的例子实现了一个两层卷积网络（使用 `ReLU "
+"<https://en.wikipedia.org/wiki/Rectifier_(neural_networks)>`_ 作为激活函数）："
+msgstr ""
+
+#: ../../source/basic/network_build.rst:44
+msgid "基于 :class:`~.Module` 搭建网络"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:46
+msgid ""
+"在上面的代码中，对于每一个需要参数的算子，都需要单独定义其网络参数。由于“ conv + relu "
+"”这样的组合出现了两次，代码显得臃肿。对于更加复杂的网络，这样的写法可读性、可复用性和可维护性会比较差。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:48
+msgid ""
+"为了更好的封装和复用算子， MegEngine 在 :mod:`~.megengine.functional` 基础上提供了 "
+":mod:`~.megengine.module` 包。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:50
+msgid ""
+":mod:`megengine.module` 包定义了抽象的网络模块基类 :class:`~.Module` "
+"。它是构造网络的基本单元，可以被组合和叠加。它定义了网络模块的基本接口和属性，如“前向传播\"等。所有 :class:`~.Module` "
+"子类都需要实现 :class:`~.Module` 定义的两个抽象方法，介绍如下："
+msgstr ""
+
+#: ../../source/basic/network_build.rst:52
+msgid ":class:`__init__() <.Module>` ：在构造方法中创建这个模块，包括定义网络参数、构造和连接其子模块等工作。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:54
+msgid ""
+":meth:`~.Module.forward` ： 该方法定义前向传播计算流程。它接受输入数据并返回前向传播的计算结果。注意， "
+":class:`~.Module` 对象是可被调用的 （ callable ），其实现就是 :meth:`~.Module.forward` 。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:56
+msgid ""
+":mod:`megengine.module` 包提供了常用的网络基本模块，如 :class:`~.conv.Conv2d` "
+"、:class:`~.linear.Linear` 等。以 :class:`~.conv.Conv2d` 为例，该类的 "
+":class:`__init__() <.conv.Conv2d>` 方法定义并初始化卷积核参数，其 "
+":meth:`~.conv.Conv2d.forward` 方法执行卷积操作。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:58
+msgid "基于各种常用的网络模块，我们可以方便地搭建非常复杂的网络。例如，上一个例子的网络定义可以简化成如下写法："
+msgstr ""
+
+#: ../../source/basic/network_build.rst:100
+msgid ""
+"使用 :class:`~.Module` 定义的网络比使用 :mod:`~.megengine.functional` "
+"进一步封装了内部实现，更易复用，统一的接口使得代码更易维护。 我们推荐使用 :class:`~.Module` 搭建网络。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:102
+msgid "此外， :class:`~.Module` 其它常用的方法如下："
+msgstr ""
+
+#: ../../source/basic/network_build.rst:104
+msgid ":meth:`~.Module.parameters` ： 该方法返回包含网络参数的迭代器。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:106
+msgid ":meth:`~.Module.named_parameters` ： 该方法返回包含参数名称及对应网络参数的迭代器。"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:108
+msgid ""
+":meth:`~.Module.state_dict`：返回以参数名称和网络参数为键值对的有序字典，可用于保存训练好的模型。比如，对于上面定义的 "
+"``ConvReLU`` 模块，打印它的一个实例的 ``state_dict`` ："
+msgstr ""
+
+#: ../../source/basic/network_build.rst:115
+msgid "输出的参数信息有卷积的权重项 ``'conv_weight'`` 和偏置项 ``'conv_bias'`` ："
+msgstr ""
+
+#: ../../source/basic/network_build.rst:149
+msgid ""
+"最后，我们来搭建更加复杂的、经典的 `LeNet <http://yann.lecun.com/exdb/publis/pdf/lecun-"
+"01a.pdf>`_ 网络，其结构如下图："
+msgstr ""
+
+#: ../../source/basic/network_build.rst:155
+msgid "图1 LeNet ( http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf )"
+msgstr ""
+
+#: ../../source/basic/network_build.rst:157
+msgid "使用 :class:`~.Module` 搭建 LeNet 的代码如下："
+msgstr ""
+

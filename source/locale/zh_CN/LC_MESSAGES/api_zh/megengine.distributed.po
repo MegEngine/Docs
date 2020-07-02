@@ -1,0 +1,331 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-15 09:28-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/api_zh/megengine.distributed.rst:2
+msgid "megengine.distributed package"
+msgstr "megengine.distributed package"
+
+#: ../../source/api_zh/megengine.distributed.rst:11
+msgid "megengine.distributed.brainpp"
+msgstr "megengine.distributed.brainpp"
+
+#: megengine.distributed.brainpp.InitServer:1 of
+msgid "Bases: :class:`object`"
+msgstr "基类: :class:`object`"
+
+#: megengine.distributed.brainpp.InitServer:1 of
+msgid "server for synchronizing master hostname and port"
+msgstr "用于同步master主机名和端口的服务器"
+
+#: megengine.distributed.brainpp.ThreadXMLRPCServer:1 of
+msgid ""
+"Bases: :class:`socketserver.ThreadingMixIn`, "
+":class:`xmlrpc.server.SimpleXMLRPCServer`"
+msgstr ""
+"基类: :class:`socketserver.ThreadingMixIn`, "
+":class:`xmlrpc.server.SimpleXMLRPCServer`"
+
+#: megengine.distributed.brainpp.dist_tqdm:1 of
+msgid ""
+"a wrapper of tqdm, only rank0 prints the progress bar, otherwise multiple "
+"stdouts might mix up with each other in rlaunch mode"
+msgstr "tqdm的封装，仅rank0下打印进度条，否则在rlaunch模式下多个标准输出可能会互相混淆"
+
+#: megengine.distributed.brainpp.init_connect:1 of
+msgid "client for synchronizing master hostname and port"
+msgstr "用于同步master主机名和端口的客户端"
+
+#: megengine.distributed.brainpp.launcher:1 of
+msgid "get rlaunch environment and synchronize master address"
+msgstr "获得rlaunch环境并同步主机地址"
+
+#: ../../source/api_zh/megengine.distributed.rst:19
+msgid "megengine.distributed.functional"
+msgstr "megengine.distributed.functional"
+
+#: megengine.distributed.functional.all_gather:1 of
+msgid "Create all_gather operator for collective communication"
+msgstr "创建 all_gather 算子，用于聚合通信（collective communication）"
+
+#: megengine.distributed.functional.all_gather
+#: megengine.distributed.functional.all_reduce_max
+#: megengine.distributed.functional.all_reduce_min
+#: megengine.distributed.functional.all_reduce_sum
+#: megengine.distributed.functional.bcast_param
+#: megengine.distributed.functional.broadcast
+#: megengine.distributed.functional.reduce_scatter_sum
+#: megengine.distributed.functional.reduce_sum
+#: megengine.distributed.helper.collective_comm_symvar
+#: megengine.distributed.util.init_process_group of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.distributed.functional.all_gather:4
+#: megengine.distributed.functional.all_reduce_max:4
+#: megengine.distributed.functional.all_reduce_min:4
+#: megengine.distributed.functional.all_reduce_sum:4
+#: megengine.distributed.functional.broadcast:4
+#: megengine.distributed.functional.reduce_scatter_sum:4
+#: megengine.distributed.functional.reduce_sum:4 of
+msgid "input tensor"
+msgstr "输入张量"
+
+#: megengine.distributed.functional.all_gather:6
+#: megengine.distributed.functional.all_reduce_max:6
+#: megengine.distributed.functional.all_reduce_min:6
+#: megengine.distributed.functional.all_reduce_sum:6
+#: megengine.distributed.functional.bcast_param:6
+#: megengine.distributed.functional.broadcast:6
+#: megengine.distributed.functional.reduce_scatter_sum:6
+#: megengine.distributed.functional.reduce_sum:6
+#: megengine.distributed.helper.collective_comm_symvar:6 of
+msgid "unique identifier for collective communication"
+msgstr "聚合通信的唯一标识符"
+
+#: megengine.distributed.functional.all_gather:8
+#: megengine.distributed.functional.all_reduce_max:8
+#: megengine.distributed.functional.all_reduce_min:8
+#: megengine.distributed.functional.all_reduce_sum:8
+#: megengine.distributed.functional.bcast_param:8
+#: megengine.distributed.functional.broadcast:8
+#: megengine.distributed.functional.reduce_scatter_sum:8
+#: megengine.distributed.functional.reduce_sum:8
+#: megengine.distributed.helper.collective_comm_symvar:10 of
+msgid "number of ranks, use util.get_world_size() as default"
+msgstr "进程数目， 默认使用 util.get_world_size() "
+
+#: megengine.distributed.functional.all_gather:10
+#: megengine.distributed.functional.reduce_scatter_sum:10 of
+msgid "rank of this node"
+msgstr "该节点的编号"
+
+#: megengine.distributed.functional.all_gather
+#: megengine.distributed.functional.all_reduce_max
+#: megengine.distributed.functional.all_reduce_min
+#: megengine.distributed.functional.all_reduce_sum
+#: megengine.distributed.functional.bcast_param
+#: megengine.distributed.functional.broadcast
+#: megengine.distributed.functional.reduce_scatter_sum
+#: megengine.distributed.functional.reduce_sum
+#: megengine.distributed.helper.collective_comm_symvar
+#: megengine.distributed.util.get_backend
+#: megengine.distributed.util.get_free_ports
+#: megengine.distributed.util.get_group_id
+#: megengine.distributed.util.get_master_ip
+#: megengine.distributed.util.get_master_port
+#: megengine.distributed.util.get_rank
+#: megengine.distributed.util.get_world_size
+#: megengine.distributed.util.group_barrier
+#: megengine.distributed.util.init_process_group
+#: megengine.distributed.util.is_distributed of
+msgid "Return type"
+msgstr "返回类型"
+
+#: megengine.distributed.functional.all_gather:13
+#: megengine.distributed.functional.all_reduce_max:11
+#: megengine.distributed.functional.all_reduce_min:11
+#: megengine.distributed.functional.all_reduce_sum:11
+#: megengine.distributed.functional.broadcast:13
+#: megengine.distributed.functional.reduce_scatter_sum:13
+#: megengine.distributed.functional.reduce_sum:13 of
+msgid ":py:class:`~megengine.core.tensor.Tensor`"
+msgstr ":py:class:`~megengine.core.tensor.Tensor`"
+
+#: megengine.distributed.functional.all_reduce_max:1 of
+msgid "Create all_reduce_max operator for collective communication"
+msgstr "创建用于聚合通信（collective communication）的all_reduce_max算子"
+
+#: megengine.distributed.functional.all_reduce_min:1 of
+msgid "Create all_reduce_min operator for collective communication"
+msgstr "创建用于聚合通信（collective communication）的all_reduce_min算子"
+
+#: megengine.distributed.functional.all_reduce_sum:1 of
+msgid "Create all_reduce_sum operator for collective communication"
+msgstr "创建用于聚合通信（collective communication）的all_reduce_sum算子"
+
+#: megengine.distributed.functional.bcast_param:1 of
+msgid "Broadcast parameters among devices"
+msgstr "向多个设备广播参数"
+
+#: megengine.distributed.functional.bcast_param:4 of
+msgid "input Buffer or Parameter to be synchronized"
+msgstr "待同步的输入Buffer或者Parameter"
+
+#: megengine.distributed.functional.bcast_param:10
+#: megengine.distributed.functional.broadcast:10
+#: megengine.distributed.functional.reduce_sum:10 of
+msgid "whether this is a root node"
+msgstr "该节点是否为根节点"
+
+#: megengine.distributed.functional.bcast_param:13
+#: megengine.distributed.util.group_barrier:4
+#: megengine.distributed.util.init_process_group:17 of
+msgid "``None``"
+msgstr "``None``"
+
+#: megengine.distributed.functional.broadcast:1 of
+msgid "Create broadcast operator for collective communication"
+msgstr "创建聚合通信（collective communication）的广播算子"
+
+#: megengine.distributed.functional.reduce_scatter_sum:1 of
+msgid "Create reduce_scatter_sum operator for collective communication"
+msgstr "创建聚合通信（collective communication）的reduce_scatter_sum算子"
+
+#: megengine.distributed.functional.reduce_sum:1 of
+msgid "Create reduce_sum operator for collective communication"
+msgstr "创建聚合通信（collective communication）的reduce_sum算子"
+
+#: ../../source/api_zh/megengine.distributed.rst:27
+msgid "megengine.distributed.helper"
+msgstr "megengine.distributed.helper"
+
+#: megengine.distributed.helper.collective_comm_symvar:1 of
+msgid "Helper function for creating collective_comm operators"
+msgstr "用于创建collective_comm算子的辅助函数"
+
+#: megengine.distributed.helper.collective_comm_symvar:4 of
+msgid "tensor or comp_graph"
+msgstr "张量或计算图"
+
+#: megengine.distributed.helper.collective_comm_symvar:8 of
+msgid "mode of collective communication"
+msgstr "聚合通信模式"
+
+#: megengine.distributed.helper.collective_comm_symvar:12 of
+msgid "whether this node is root node"
+msgstr "该节点是否为根节点"
+
+#: megengine.distributed.helper.collective_comm_symvar:14 of
+msgid "output data type, use dtype of inp as default"
+msgstr "输出数据的类型，默认使用inp的dtype"
+
+#: megengine.distributed.helper.collective_comm_symvar:16 of
+msgid "output comp node, use comp node of inp as default"
+msgstr "输出的计算节点，默认使用inp的计算节点"
+
+#: megengine.distributed.helper.collective_comm_symvar:18 of
+msgid "output comp graph, use comp graph of inp as default"
+msgstr "输出的计算图，默认使用inp的计算图"
+
+#: megengine.distributed.helper.collective_comm_symvar:21 of
+msgid ":py:class:`~megengine._internal.mgb.SymbolVar`"
+msgstr ":py:class:`~megengine._internal.mgb.SymbolVar`"
+
+#: ../../source/api_zh/megengine.distributed.rst:35
+msgid "megengine.distributed.util"
+msgstr "megengine.distributed.util"
+
+#: megengine.distributed.util.get_backend:1 of
+msgid "Get the backend str"
+msgstr "获取字符串形式表示的后端"
+
+#: megengine.distributed.util.get_backend:4
+#: megengine.distributed.util.get_master_ip:4 of
+msgid ":py:class:`str`"
+msgstr ":py:class:`str`"
+
+#: megengine.distributed.util.get_free_ports:1 of
+msgid "Get one or more free ports."
+msgstr "获得一个或多个空闲端口。"
+
+#: megengine.distributed.util.get_free_ports:5 of
+msgid ":py:class:`~typing.List`\\[:py:class:`int`]"
+msgstr ":py:class:`~typing.List`\\[:py:class:`int`]"
+
+#: megengine.distributed.util.get_group_id:1 of
+msgid "Get group id for collective communication"
+msgstr "获得聚合通信的group id"
+
+#: megengine.distributed.util.get_group_id:4
+#: megengine.distributed.util.get_master_port:4
+#: megengine.distributed.util.get_rank:4
+#: megengine.distributed.util.get_world_size:4 of
+msgid ":py:class:`int`"
+msgstr ":py:class:`int`"
+
+#: megengine.distributed.util.get_master_ip:1 of
+msgid "Get the IP address of the master node"
+msgstr "获取主节点的IP地址"
+
+#: megengine.distributed.util.get_master_port:1 of
+msgid "Get the port of the rpc server on the master node"
+msgstr "获取主节点上RPC服务器的端口"
+
+#: megengine.distributed.util.get_rank:1 of
+msgid "Get the rank of the current process"
+msgstr "获取当前进程的进程号"
+
+#: megengine.distributed.util.get_world_size:1 of
+msgid "Get the total number of processes participating in the job"
+msgstr "获取的参与任务的进程总数"
+
+#: megengine.distributed.util.group_barrier:1 of
+msgid "Block until all ranks in the group reach this barrier"
+msgstr "阻止调用，直到组中的所有进程达到这个障碍点（barrier）"
+
+#: megengine.distributed.util.init_process_group:1 of
+msgid ""
+"Initialize the distributed process group, and also specify the device used "
+"in the current process."
+msgstr "初始化分布式进程组，并且指定在当前进程中使用的设备。"
+
+#: megengine.distributed.util.init_process_group:4 of
+msgid "IP address of the master node."
+msgstr "主节点的IP地址。"
+
+#: megengine.distributed.util.init_process_group:6 of
+msgid "Port available for all processes to communicate."
+msgstr "所有进程之间进行通信的可用端口。"
+
+#: megengine.distributed.util.init_process_group:8 of
+msgid "Total number of processes participating in the job."
+msgstr "参与任务的进程总数。"
+
+#: megengine.distributed.util.init_process_group:10 of
+msgid "Rank of the current process."
+msgstr "当前进程的进程号。"
+
+#: megengine.distributed.util.init_process_group:12 of
+msgid "The GPU device id to bind this process to."
+msgstr "待与该进程绑定的GPU设备号"
+
+#: megengine.distributed.util.init_process_group:14 of
+msgid "Communicator backend, currently support 'nccl' and 'ucx'"
+msgstr "Communicator的后端，目前支持'NCCL'和'UCX'"
+
+#: megengine.distributed.util.is_distributed:1 of
+msgid "Return True if the distributed process group has been initialized"
+msgstr "如果分布式进程组已完成初始化则返回True"
+
+#: megengine.distributed.util.is_distributed:4 of
+msgid ":py:class:`bool`"
+msgstr ":py:class:`bool`"
+
+#: megengine.distributed.util.synchronized:1 of
+msgid ""
+"Decorator. Decorated function will synchronize when finished. Specifically, "
+"we use this to prevent data race during hub.load"
+msgstr "装饰器（Decorator）。结束后，装饰后的函数会被同步。实际应用上，我们用它来防止hub.load期间的数据竞争"
+
+#~ msgid "rank of the current process, use util.get_rank() as default"
+#~ msgstr "当前进程的进程序号（rank），默认使用util.get_rank()"
+
+#~ msgid "rank of root node, use 0 as default"
+#~ msgstr "根节点（根进程）的进程序号（rank），使用0作为默认值"

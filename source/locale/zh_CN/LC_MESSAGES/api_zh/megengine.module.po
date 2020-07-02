@@ -1,0 +1,1678 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-15 09:28-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/api_zh/megengine.module.rst:2
+msgid "megengine.module package"
+msgstr "megengine.module package"
+
+#: ../../source/api_zh/megengine.module.rst:11
+msgid "megengine.module.activation"
+msgstr "megengine.module.activation"
+
+#: megengine.module.activation.LeakyReLU:1 megengine.module.activation.PReLU:1
+#: megengine.module.activation.ReLU:1 megengine.module.activation.Sigmoid:1
+#: megengine.module.activation.Softmax:1 megengine.module.concat.Concat:1
+#: megengine.module.dropout.Dropout:1 megengine.module.elemwise.Elemwise:1
+#: megengine.module.embedding.Embedding:1
+#: megengine.module.external.CambriconSubgraph:1
+#: megengine.module.identity.Identity:1 megengine.module.linear.Linear:1
+#: megengine.module.parampack.ParamPack:1
+#: megengine.module.quant_dequant.DequantStub:1
+#: megengine.module.quant_dequant.QuantStub:1
+#: megengine.module.sequential.Sequential:1 of
+msgid "Bases: :class:`megengine.module.module.Module`"
+msgstr "基类： :class:`megengine.module.module.Module`"
+
+#: megengine.module.activation.LeakyReLU:1 megengine.module.activation.PReLU:1
+#: megengine.module.activation.ReLU:1 megengine.module.activation.Sigmoid:1 of
+msgid "Applies the element-wise function:"
+msgstr "对每个元素应用函数："
+
+#: megengine.module.activation.LeakyReLU:3 of
+msgid "\\text{LeakyReLU}(x) = \\max(0,x) + negative\\_slope \\times \\min(0,x)"
+msgstr "\\text{LeakyReLU}(x) = \\max(0,x) + negative\\_slope \\times \\min(0,x)"
+
+#: megengine.module.activation.LeakyReLU:6 megengine.module.activation.PReLU:6
+#: of
+msgid "or"
+msgstr "或者"
+
+#: megengine.module.activation.LeakyReLU:8 of
+msgid ""
+"\\text{LeakyReLU}(x) = \\begin{cases} x, & \\text{ if } x \\geq 0 \\\\ "
+"negative\\_slope \\times x, & \\text{ otherwise } \\end{cases}"
+msgstr ""
+"\\text{LeakyReLU}(x) = \\begin{cases} x, & \\text{ if } x \\geq 0 \\\\ "
+"negative\\_slope \\times x, & \\text{ otherwise } \\end{cases}"
+
+#: megengine.module.activation.LeakyReLU:15
+#: megengine.module.activation.PReLU:25 megengine.module.activation.ReLU:6
+#: megengine.module.activation.Sigmoid:6
+#: megengine.module.activation.Softmax:12
+#: megengine.module.batchnorm.BatchNorm2d:53
+#: megengine.module.embedding.Embedding:20
+#: megengine.module.embedding.Embedding.from_pretrained:14 of
+msgid "Examples:"
+msgstr "示例代码："
+
+#: megengine.module.activation.LeakyReLU:28
+#: megengine.module.activation.PReLU:37 megengine.module.activation.ReLU:19
+#: megengine.module.activation.Sigmoid:20
+#: megengine.module.activation.Softmax:26
+#: megengine.module.embedding.Embedding:35
+#: megengine.module.embedding.Embedding.from_pretrained:28 of
+msgid "Outputs:"
+msgstr "输出："
+
+#: megengine.module.activation.PReLU:3 of
+msgid "\\text{PReLU}(x) = \\max(0,x) + a * \\min(0,x)"
+msgstr "\\text{PReLU}(x) = \\max(0,x) + a * \\min(0,x)"
+
+#: megengine.module.activation.PReLU:8 of
+msgid ""
+"\\text{PReLU}(x) = \\begin{cases} x, & \\text{ if } x \\geq 0 \\\\ ax, & "
+"\\text{ otherwise } \\end{cases}"
+msgstr ""
+"\\text{PReLU}(x) = \\begin{cases} x, & \\text{ if } x \\geq 0 \\\\ ax, & "
+"\\text{ otherwise } \\end{cases}"
+
+#: megengine.module.activation.PReLU:15 of
+msgid ""
+"Here :math:`a` is a learnable parameter. When called without arguments, "
+"`PReLU()` uses a single paramter :math:`a` across all input channel. If "
+"called with `PReLU(num_of_channels)`, a seperate :math:`a` is used for each "
+"input channle."
+msgstr ""
+"这里的 :math:`a` 是一个可学习参数。当以无参数方式调用 `PReLU()` 时，它会在所有输入通道上使用同一个  :math:`a` "
+"参数。若以 `PReLU(num_of_channels)` 方式调用，每个输入通道都使用不同的 :math:`a` 。"
+
+#: megengine.module.activation.PReLU megengine.module.activation.Softmax
+#: megengine.module.batchnorm.BatchNorm2d megengine.module.conv.Conv2d
+#: megengine.module.conv.ConvTranspose2d megengine.module.conv.LocalConv2d
+#: megengine.module.dropout.Dropout megengine.module.elemwise.Elemwise
+#: megengine.module.embedding.Embedding
+#: megengine.module.embedding.Embedding.from_pretrained
+#: megengine.module.init.calculate_correct_fan
+#: megengine.module.init.calculate_fan_in_and_fan_out
+#: megengine.module.init.calculate_gain megengine.module.init.fill_
+#: megengine.module.init.msra_normal_ megengine.module.init.msra_uniform_
+#: megengine.module.init.normal_ megengine.module.init.ones_
+#: megengine.module.init.uniform_ megengine.module.init.xavier_normal_
+#: megengine.module.init.xavier_uniform_ megengine.module.init.zeros_
+#: megengine.module.linear.Linear megengine.module.module.Module.apply
+#: megengine.module.module.Module.buffers
+#: megengine.module.module.Module.named_buffers
+#: megengine.module.module.Module.named_modules
+#: megengine.module.module.Module.named_parameters
+#: megengine.module.module.Module.parameters
+#: megengine.module.module.Module.train megengine.module.parampack.ParamPack
+#: megengine.module.parampack.ParamPack.named_parameters
+#: megengine.module.parampack.ParamPack.parameters
+#: megengine.module.pooling.AvgPool2d megengine.module.pooling.MaxPool2d of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.module.activation.PReLU:20 of
+msgid ""
+"number of :math:`a` to learn, there is only two values are legitimate: 1, or"
+" the number of channels at input. Default: 1"
+msgstr "待学习的 :math:`a` 参数数目，仅允许两种合法值： 1，或者输入数据通道数。 默认： 1"
+
+#: megengine.module.activation.PReLU:23 of
+msgid "the initial value of :math:`a`. Default: 0.25"
+msgstr ":math:`a` 初始值。默认：0.25"
+
+#: megengine.module.activation.ReLU:3 of
+msgid "\\text{ReLU}(x) = \\max(x, 0)"
+msgstr "\\text{ReLU}(x) = \\max(x, 0)"
+
+#: megengine.module.activation.Sigmoid:3 of
+msgid "\\text{Sigmoid}(x) = \\frac{1}{1 + \\exp(-x)}"
+msgstr "\\text{Sigmoid}(x) = \\frac{1}{1 + \\exp(-x)}"
+
+#: megengine.module.activation.Softmax:1 of
+msgid "Applies a softmax function. Softmax is defined as:"
+msgstr "应用一个softmax函数。SoftMax定义为："
+
+#: megengine.module.activation.Softmax:3 of
+msgid "\\text{Softmax}(x_{i}) = \\frac{exp(x_i)}{\\sum_j exp(x_j)}"
+msgstr "\\text{Softmax}(x_{i}) = \\frac{exp(x_i)}{\\sum_j exp(x_j)}"
+
+#: megengine.module.activation.Softmax:6 of
+msgid ""
+"It is applied to an n-dimensional input Tensor and rescaling them so that "
+"the elements of the n-dimensional output Tensor lie in the range of `[0, 1]`"
+" and sum to 1."
+msgstr "应用softmax于一个n维输入张量，并重新放缩张量中的元素值，使得n维输出张量中所有元素的取值范围为 `[0,1]` 并且加和为1。"
+
+#: megengine.module.activation.Softmax:9 of
+msgid ""
+"An axis along which softmax will be applied. By default, softmax will apply "
+"along the highest ranked axis."
+msgstr "沿着该轴应用softmax。默认情况下，softmax应用于最高维。"
+
+#: ../../source/api_zh/megengine.module.rst:19
+msgid "megengine.module.batchnorm"
+msgstr "megengine.module.batchnorm"
+
+#: megengine.module.batchnorm.BatchNorm1d:1
+#: megengine.module.batchnorm.BatchNorm2d:1
+#: megengine.module.batchnorm.SyncBatchNorm:1 of
+msgid "Bases: :class:`megengine.module.batchnorm._BatchNorm`"
+msgstr "基类： :class:`megengine.module.batchnorm._BatchNorm`"
+
+#: megengine.module.batchnorm.BatchNorm1d:1 of
+msgid "Applies Batch Normalization over a 2D/3D tensor."
+msgstr "在2D/3D张量上进行批标准化（batch normalization）。"
+
+#: megengine.module.batchnorm.BatchNorm1d:3 of
+msgid "Refer to :class:`~.BatchNorm2d` for more information."
+msgstr "参见 :class:`~.BatchNorm2d` 以获取更多信息。"
+
+#: megengine.module.batchnorm.BatchNorm2d:1 of
+msgid "Applies Batch Normalization over a 4D tensor."
+msgstr "在四维张量上进行批标准化（Batch Normalization）。"
+
+#: megengine.module.batchnorm.BatchNorm2d:3 of
+msgid ""
+"y = \\frac{x - \\mathrm{E}[x]}{ \\sqrt{\\mathrm{Var}[x] + \\epsilon}} * "
+"\\gamma + \\beta"
+msgstr ""
+"y = \\frac{x - \\mathrm{E}[x]}{ \\sqrt{\\mathrm{Var}[x] + \\epsilon}} * "
+"\\gamma + \\beta"
+
+#: megengine.module.batchnorm.BatchNorm2d:7 of
+msgid ""
+"The mean and standard-deviation are calculated per-dimension over the mini-"
+"batches and :math:`\\gamma` and :math:`\\beta` are learnable parameter "
+"vectors."
+msgstr "计算mini-batch各维的均值和标准差。其中， :math:`\\gamma` 和 :math:`\\beta` 是可学习的参数向量。"
+
+#: megengine.module.batchnorm.BatchNorm2d:11 of
+msgid ""
+"By default, during training this layer keeps running estimates of its "
+"computed mean and variance, which are then used for normalization during "
+"evaluation. The running estimates are kept with a default :attr:`momentum` "
+"of 0.9."
+msgstr ""
+"默认在训练过程中，该层持续估计其计算的均值和方差，随后在评估过程中用于标准化。运行中的估计保持默认的 :attr:`momentum` 值 0.9。"
+
+#: megengine.module.batchnorm.BatchNorm2d:16 of
+msgid ""
+"If :attr:`track_running_stats` is set to ``False``, this layer will not keep"
+" running estimates, and batch statistics are instead used during evaluation "
+"time."
+msgstr ""
+"如果 :attr:`track_running_stats` 设置为 ``False`` "
+"，此层将不会累计估计统计数据，而是把当前batch的统计数据应用在评估阶段。"
+
+#: megengine.module.batchnorm.BatchNorm2d:21 of
+msgid ""
+"This :attr:`momentum` argument is different from one used in optimizer "
+"classes and the conventional notion of momentum. Mathematically, the update "
+"rule for running statistics here is :math:`\\hat{x}_\\text{new} = "
+"\\text{momentum} \\times \\hat{x} + (1 - \\text{momentum}) \\times x_t`, "
+"where :math:`\\hat{x}` is the estimated statistic and :math:`x_t` is the new"
+" observed value."
+msgstr ""
+"与在优化器类和传统动量概念中的  :attr:`momentum` 不同， 这里统计特性的更新规则为： "
+":math:`\\hat{x}_\\text{new} = (1 - \\text{momentum}) \\times \\hat{x} + "
+"\\text{momentum} \\times x_t` ，其中 :math:`\\hat{x}` 是估计的统计特性， :math:`x_t` "
+"是新观测值。"
+
+#: megengine.module.batchnorm.BatchNorm2d:28 of
+msgid ""
+"Because the Batch Normalization is done over the `C` dimension, computing "
+"statistics on `(N, H, W)` slices, it's common terminology to call this "
+"Spatial Batch Normalization."
+msgstr ""
+"因为批标准化是在 `C` 维进行的，`(N, H, W)` 切片上进行统计计算，所以通常将此方法称作空域批正则（Spatial Batch "
+"Normalization）。"
+
+#: megengine.module.batchnorm.BatchNorm2d:33 of
+msgid ""
+"usually the :math:`C` from an input of size :math:`(N, C, H, W)` or the "
+"highest ranked dimension of an input with less than 4D."
+msgstr "通常是形状为 :math:`(N, C, H, W)` 输入数据的 :math:`C` 或者维度低于四维的输入的最高维。"
+
+#: megengine.module.batchnorm.BatchNorm2d:37 of
+msgid ""
+"a value added to the denominator for numerical stability. Default: 1e-5."
+msgstr "添加到分母的单个值，增加数值稳定性。默认：1e-5。"
+
+#: megengine.module.batchnorm.BatchNorm2d:40 of
+msgid ""
+"the value used for the `running_mean` and `running_var` computation. "
+"Default: 0.9"
+msgstr "用于计算 `running_mean` 和 `running_var` 的值。默认：0.9"
+
+#: megengine.module.batchnorm.BatchNorm2d:44 of
+msgid ""
+"a boolean value that when set to ``True``, this module has learnable affine "
+"parameters. Default: ``True``"
+msgstr "单个布尔值，当设置为 ``True`` ，那么这个模块具有可学习的仿射（affine）参数。默认： ``True``"
+
+#: megengine.module.batchnorm.BatchNorm2d:47 of
+msgid ""
+"when set to ``True``, this module tracks the running mean and variance. When"
+" set to ``False``, this module does not track such statistics and always "
+"uses batch statistics in both training and eval modes. Default: ``True``."
+msgstr ""
+"当设置为 ``True`` ，则这个模块跟踪运行时的不同batch的均值和方差。当设置为 ``False`` "
+"，该模块不跟踪这样的统计数据并在训练和eval模式下始终使用当前批统计数据。默认： ``True`` 。"
+
+#: megengine.module.batchnorm.SyncBatchNorm:1 of
+msgid "Applies Synchronization Batch Normalization."
+msgstr "使用同步批标准化。"
+
+#: ../../source/api_zh/megengine.module.rst:27
+msgid "megengine.module.concat"
+msgstr "megengine.module.concat"
+
+#: megengine.module.concat.Concat:1 of
+msgid ""
+"A :class:`~.Module` to do functional concat. Could be replaced with "
+":class:`~.QATModule` version :class:`~.qat.concat.Concat` using "
+":func:`~.quantize.quantize_qat`."
+msgstr ""
+"一个与函数型concat功能相同的 :class:`~.Module` 。 可用 :func:`~.quantize.quantize_qat` 替换成"
+" :class:`~.QATModule` 型的 :class:`~.qat.concat.Concat` 。"
+
+#: ../../source/api_zh/megengine.module.rst:35
+msgid "megengine.module.conv"
+msgstr "megengine.module.conv"
+
+#: megengine.module.conv.Conv2d:1 megengine.module.conv.ConvTranspose2d:1 of
+msgid "Bases: :class:`megengine.module.conv._ConvNd`"
+msgstr "基类： :class:`megengine.module.conv._ConvNd`"
+
+#: megengine.module.conv.Conv2d:1 of
+msgid "Applies a 2D convolution over an input tensor."
+msgstr "对输入张量进行二维卷积"
+
+#: megengine.module.conv.Conv2d:3 of
+msgid ""
+"For instance, given an input of the size :math:`(N, C_{\\text{in}}, H, W)`, "
+"this layer generates an output of the size :math:`(N, C_{\\text{out}}, "
+"H_{\\text{out}}, W_{\\text{out}})` through the process described as below:"
+msgstr ""
+"例如，给定形状为 :math:`(N, C_{\\text{in}}, H, W)`  的输入，该层生成形状为 :math:`(N, "
+"C_{\\text{out}}, H_{\\text{out}}, W_{\\text{out}})` 的输出，生成过程如下："
+
+#: megengine.module.conv.Conv2d:8 of
+msgid ""
+"\\text{out}(N_i, C_{\\text{out}_j}) = \\text{bias}(C_{\\text{out}_j}) + "
+"\\sum_{k = 0}^{C_{\\text{in}} - 1} \\text{weight}(C_{\\text{out}_j}, k) "
+"\\star \\text{input}(N_i, k)"
+msgstr ""
+"\\text{out}(N_i, C_{\\text{out}_j}) = \\text{bias}(C_{\\text{out}_j}) + "
+"\\sum_{k = 0}^{C_{\\text{in}} - 1} \\text{weight}(C_{\\text{out}_j}, k) "
+"\\star \\text{input}(N_i, k)"
+
+#: megengine.module.conv.Conv2d:12 of
+msgid ""
+"where :math:`\\star` is the valid 2D cross-correlation operator, :math:`N` "
+"is a batch size, :math:`C` denotes a number of channels, :math:`H` is a "
+"height of input planes in pixels, and :math:`W` is width in pixels."
+msgstr ""
+"其中 :math:`\\star` 是有效的2D互相关运算; :math:`N` 是批大小; :math:`C` 表示通道数; :math:`H` "
+"是以像素为单位输入平面的高度; :math:`W`是以像素为单位的平面宽度。"
+
+#: megengine.module.conv.Conv2d:17 of
+msgid ""
+"When ``groups == in_channels`` and ``out_channels == K * in_channels``, "
+"where `K` is a positive integer, this operation is also known as depthwise "
+"convolution."
+msgstr ""
+"当 ``groups == in_channels`` 且 ``out_channels == K * in_channels`` ，其中 `K` "
+"是正整数，该操作也被称为深度方向卷积（depthwise convolution）。"
+
+#: megengine.module.conv.Conv2d:21 of
+msgid ""
+"In other words, for an input of size :math:`(N, C_{in}, H_{in}, W_{in})`, a "
+"depthwise convolution with a depthwise multiplier `K`, can be constructed by"
+" arguments :math:`(in\\_channels=C_{in}, out\\_channels=C_{in} \\times K, "
+"..., groups=C_{in})`."
+msgstr ""
+"换句话说，对于形状为 :math:`(N, C_{in}, H_{in}, W_{in})` 的输入，可通过参数 "
+":math:`(in\\_channels=C_{in}, out\\_channels=C_{in} \\times K, ..., "
+"groups=C_{in})` ，构造一个深度方向乘法器 `K`。"
+
+#: megengine.module.conv.Conv2d:26 megengine.module.conv.ConvTranspose2d:12
+#: megengine.module.conv.LocalConv2d:5 of
+msgid "number of input channels."
+msgstr "输入数据中的通道数。"
+
+#: megengine.module.conv.Conv2d:28 megengine.module.conv.ConvTranspose2d:14
+#: megengine.module.conv.LocalConv2d:7 of
+msgid "number of output channels."
+msgstr "输出数据中的通道数。"
+
+#: megengine.module.conv.Conv2d:30 megengine.module.conv.ConvTranspose2d:16
+#: megengine.module.conv.LocalConv2d:13 of
+msgid ""
+"size of weight on spatial dimensions. If ``kernel_size`` is an :class:`int`,"
+" the actual kernel size would be ``(kernel_size, kernel_size)``. Default: 1"
+msgstr ""
+"在空域维度权重的尺寸。如果 ``kernel_size`` 是一个 :class:`int` ，则实际的卷积核尺寸是 ``(kernel_size, "
+"kernel_size)`` 。默认：1"
+
+#: megengine.module.conv.Conv2d:34 megengine.module.conv.ConvTranspose2d:20
+#: megengine.module.conv.LocalConv2d:17 of
+msgid "stride of the 2D convolution operation. Default: 1"
+msgstr "二维卷积运算的步长。默认：1"
+
+#: megengine.module.conv.Conv2d:36 megengine.module.conv.ConvTranspose2d:22
+#: megengine.module.conv.LocalConv2d:19 of
+msgid ""
+"size of the paddings added to the input on both sides of its spatial "
+"dimensions. Only zero-padding is supported. Default: 0"
+msgstr "输入数据空域维度两侧的填充（padding）大小。仅支持填充0值。默认：0"
+
+#: megengine.module.conv.Conv2d:39 megengine.module.conv.ConvTranspose2d:25 of
+msgid "dilation of the 2D convolution operation. Default: 1"
+msgstr "二维卷积运算的空洞（dilation）。默认：1"
+
+#: megengine.module.conv.Conv2d:41 of
+msgid ""
+"number of groups to divide input and output channels into, so as to perform "
+"a \"grouped convolution\". When ``groups`` is not 1, ``in_channels`` and "
+"``out_channels`` must be divisible by ``groups``, and there would be an "
+"extra dimension at the beginning of the weight's shape. Specifically, the "
+"shape of weight would be ``(groups, out_channel // groups, in_channels // "
+"groups, *kernel_size)``."
+msgstr ""
+"将输入与输出通道分组的数目，用于进行分组卷积（grouped convolution）。当 ``groups`` 不为1时， "
+"``in_channels`` 和  ``out_channels`` 必须可被 ``groups`` "
+"整除，并且在权重形状的开始附加一个额外的维度。具体来说，权重的形状会变为 ``(groups, out_channel // groups, "
+"in_channels // groups, *kernel_size)`` 。"
+
+#: megengine.module.conv.Conv2d:48 of
+msgid "whether to add a bias onto the result of convolution. Default: True"
+msgstr "是否将偏置（bias）加入卷积的结果中。默认：True。"
+
+#: megengine.module.conv.Conv2d:51 megengine.module.conv.ConvTranspose2d:37 of
+msgid ""
+"Supports `CROSS_CORRELATION` or `CONVOLUTION`. Default: `CROSS_CORRELATION`."
+msgstr "支持 `CROSS_CORRELATION` 或 `CONVOLUTION` 。默认： `CROSS_CORRELATION` 。"
+
+#: megengine.module.conv.Conv2d:54 megengine.module.conv.ConvTranspose2d:40 of
+msgid ""
+"When set to `DEFAULT`, no special requirements will be placed on the "
+"precision of intermediate results. When set to `FLOAT32`, float32 would be "
+"used for accumulator and intermediate result, but only effective when input "
+"and output are of float16 dtype."
+msgstr ""
+"若设定为 `DEFAULT` ，则对中间结果的精度没有特殊的要求。当设定为 `FLOAT32` "
+"时，FLOAT32将作为累加器和中间结果的精度，但只有当输入和输出的dtype是float16时才生效 。"
+
+#: megengine.module.conv.ConvRelu2d:1 megengine.module.conv.LocalConv2d:1 of
+msgid "Bases: :class:`megengine.module.conv.Conv2d`"
+msgstr "基类： :class:`megengine.module.conv.Conv2d`"
+
+#: megengine.module.conv.ConvRelu2d:1 of
+msgid ""
+"A fused :class:`~.Module` including Conv2d and relu. Could be replaced with "
+":class:`~.QATModule` version :class:`~.qat.conv.ConvRelu2d` using "
+":func:`~.quantize.quantize_qat`."
+msgstr ""
+"融合了 Conv2d 和 relu 的 :class:`~.Module` 。 可以调用 :func:`~.quantize.quantize_qat`"
+" 替换成 :class:`~.QATModule` 型的 :class:`~.qat.conv.ConvRelu2d` ."
+
+#: megengine.module.conv.ConvTranspose2d:1 of
+msgid "Applies a 2D transposed convolution over an input tensor."
+msgstr "对输入张量进行二维转置卷积。"
+
+#: megengine.module.conv.ConvTranspose2d:3 of
+msgid ""
+"This module is also known as a deconvolution or a fractionally-strided "
+"convolution. :class:`ConvTranspose2d` can ben seen as the gradient of "
+":class:`Conv2d` operation with respect to its input."
+msgstr ""
+"该模块也称为反卷积或微步卷积。 :class:`ConvTranspose2d` 可以看作是 :class:`Conv2d` 操作对自身输入的梯度。"
+
+#: megengine.module.conv.ConvTranspose2d:7 of
+msgid ""
+"Convolution usually reduces the size of input, while transposed convolution "
+"works the opposite way, transforming a smaller input to a larger output "
+"while preserving the connectivity pattern."
+msgstr "卷积通常降低了输入的大小，而转置卷积工作方式完全相反，在相同的连接方式下，它对较小的输入进行放大来输出。"
+
+#: megengine.module.conv.ConvTranspose2d:27 of
+msgid ""
+"number of groups to divide input and output channels into, so as to perform "
+"a \"grouped convolution\". When ``groups`` is not 1, ``in_channels`` and "
+"``out_channels`` must be divisible by ``groups``, and there would be an "
+"extra dimension at the beginning of the weight's shape. Specifically, the "
+"shape of weight would be ``(groups, out_channels // groups, in_channels // "
+"groups, *kernel_size)``. Default: 1"
+msgstr ""
+"将输入与输出通道分组的数目，用于进行分组卷积（grouped convolution）。当 ``groups`` 不为1时， "
+"``in_channels`` 和  ``out_channels`` 必须可被 ``groups`` "
+"整除，并且在权重形状的开始附加一个额外的维度。具体来说，权重的形状会变为 ``(groups, out_channel // groups, "
+"in_channels // groups, *kernel_size)`` 。 默认：1"
+
+#: megengine.module.conv.ConvTranspose2d:34 of
+msgid "wether to add a bias onto the result of convolution. Default: True"
+msgstr "是否将偏置（bias）加入卷积的结果中。默认：True。"
+
+#: megengine.module.conv.LocalConv2d:1 of
+msgid ""
+"Applies a spatial convolution with untied kernels over an input 4D tensor. "
+"It is also known as the locally connected layer."
+msgstr "在输入的4D张量上使用多个untied kernel进行空域卷积。它也被称为局部连接层。"
+
+#: megengine.module.conv.LocalConv2d:9 of
+msgid "the height of the input images."
+msgstr "输入图像的高度。"
+
+#: megengine.module.conv.LocalConv2d:11 of
+msgid "the width of the input images."
+msgstr "输入图像的宽度。"
+
+#: megengine.module.conv.LocalConv2d:22 of
+msgid ""
+"number of groups to divide input and output channels into, so as to perform "
+"a \"grouped convolution\". When ``groups`` is not 1, ``in_channels`` and "
+"``out_channels`` must be divisible by ``groups``. The shape of weight is "
+"``(groups, output_height, output_width, in_channels // groups, *kernel_size,"
+" out_channels // groups)``."
+msgstr ""
+"将输入与输出通道分组的数目，用于进行分组卷积（grouped convolution）。当 ``groups`` 不为1时， "
+"``in_channels`` 和  ``out_channels`` 必须可被 ``groups`` 整除。权重的形状为 ``(groups, "
+"output_height, output_width, in_channels // groups, *kernel_size, "
+"out_channels // groups)`` 。"
+
+#: ../../source/api_zh/megengine.module.rst:43
+msgid "megengine.module.conv\\_bn"
+msgstr "megengine.module.conv\\_bn"
+
+#: megengine.module.conv_bn.ConvBn2d:1 megengine.module.conv_bn.ConvBnRelu2d:1
+#: of
+msgid "Bases: :class:`megengine.module.conv_bn._ConvBnActivation2d`"
+msgstr "基类： :class:`megengine.module.conv_bn._ConvBnActivation2d`"
+
+#: megengine.module.conv_bn.ConvBn2d:1 of
+msgid ""
+"A fused :class:`~.Module` including Conv2d, BatchNorm2d. Could be replaced "
+"with :class:`~.QATModule` version :class:`~.qat.conv_bn.ConvBn2d` using "
+":func:`~.quantize.quantize_qat`."
+msgstr ""
+"融合了 Conv2d 和 BatchNorm2d 的 :class:`~.Module` 。 可以调用 "
+":func:`~.quantize.quantize_qat` 替换成 :class:`~.QATModule` 型的 "
+":class:`~.qat.conv_bn.ConvBn2d` ."
+
+#: megengine.module.conv_bn.ConvBnRelu2d:1 of
+msgid ""
+"A fused :class:`~.Module` including Conv2d, BatchNorm2d and relu. Could be "
+"replaced with :class:`~.QATModule` version "
+":class:`~.qat.conv_bn.ConvBnRelu2d` using :func:`~.quantize.quantize_qat`."
+msgstr ""
+"融合了 Conv2d  ，BatchNorm2d 和 relu 的 :class:`~.Module` 。 可以调用 "
+":func:`~.quantize.quantize_qat` 替换成 :class:`~.QATModule` 型的 "
+":class:`~.qat.conv_bn.ConvBnRelu2d` ."
+
+#: ../../source/api_zh/megengine.module.rst:51
+msgid "megengine.module.dropout"
+msgstr "megengine.module.dropout"
+
+#: megengine.module.dropout.Dropout:1 of
+msgid ""
+"Randomly set input elements to zeros with the probability "
+":math:`drop\\_prob` during training. Commonly used in large networks to "
+"prevent overfitting. Note that we perform dropout only during training, we "
+"also rescale(multiply) the output tensor by :math:`\\frac{1}{1 - "
+"drop\\_prob}`. During inference :class:`~.Dropout` is equal to "
+":class:`~.Identity`."
+msgstr ""
+"训练时，依概率 :math:`drop\\_prob` "
+"随机地将某些输入元素置为0。在大型网络中有广泛应用，可以有效防止过拟合。注意，我们只在训练过程中执行dropout操作。输出张量也会通过因子 "
+":math:`\\frac{1}{1 - p}` 进行放缩（即相乘）。在预测（inference）阶段， :class:`~.Dropout` 与 "
+":class:`~.Identity` 等效。"
+
+#: megengine.module.dropout.Dropout:5 of
+msgid "The probability to drop (set to zero) each single element"
+msgstr "每个元素被置为0的概率"
+
+#: ../../source/api_zh/megengine.module.rst:59
+msgid "megengine.module.elemwise"
+msgstr "megengine.module.elemwise"
+
+#: megengine.module.elemwise.Elemwise:1 of
+msgid ""
+"A :class:`~.Module` to do elemwise operator. Could be replaced with "
+":class:`~.QATModule` version :class:`~.qat.elemwise.Elemwise` using "
+":func:`~.quantize.quantize_qat`."
+msgstr ""
+"相当于elemwise算子的 :class:`~.Module` 。可调用 :func:`~.quantize.quantize_qat` 替换成 "
+":class:`~.QATModule` 型的 class:`~.qat.elemwise.Elemwise` 。"
+
+#: megengine.module.elemwise.Elemwise:4 of
+msgid ""
+"the elemwise method, support the following string. It will do the normal "
+"elemwise operator for float.  * \"ADD\": a + b * \"FUSE_ADD_RELU\": max(x+y,"
+" 0) * \"MUL\": x * y * \"MIN\": min(x, y) * \"MAX\": max(x, y) * \"SUB\": x "
+"- y * \"TRUE_DIV\": x / y * \"FUSE_ADD_SIGMOID\": sigmoid(x + y) * "
+"\"FUSE_ADD_TANH\": tanh(x + y) * \"RELU\": x > 0 ? x : 0 * \"ABS\": x > 0 ? "
+"x : -x * \"SIGMOID\": sigmoid(x) * \"EXP\": exp(x) * \"TANH\": tanh(x) * "
+"\"FUSE_MUL_ADD3\": x * y + z * \"FAST_TANH\": fast_tanh(x) * \"NEGATE\": -x "
+"* \"ACOS\": acos(x) * \"ASIN\": asin(x) * \"CEIL\": ceil(x) * \"COS\": "
+"cos(x) * \"EXPM1\": expm1(x) * \"FLOOR\": floor(x) * \"LOG\": log(x) * "
+"\"LOG1P\": log1p(x) * \"SIN\": sin(x) * \"ROUND\": round(x) * \"ERF\": "
+"erf(x) * \"ERFINV\": erfinv(x) * \"ERFC\": erfc(x) * \"ERFCINV\": erfcinv(x)"
+" * \"ABS_GRAD\": abs_grad * \"FLOOR_DIV\": floor_div * \"MOD\": mod * "
+"\"SIGMOID_GRAD\": sigmoid_grad * \"SWITCH_GT0\": switch_gt0 * \"TANH_GRAD\":"
+" tanh_grad * \"LT\": lt * \"LEQ\": leq * \"EQ\": eq * \"POW\": pow * "
+"\"LOG_SUM_EXP\": log_sum_exp * \"FAST_TANH_GRAD\": fast_tanh_grad * "
+"\"ATAN2\": atan2 * \"COND_LEQ_MOV\": cond_leq_mov * \"H_SWISH\": h_swish * "
+"\"FUSE_ADD_H_SWISH\": h_swish(x+y) * \"H_SWISH_GRAD\": h_swish_grad"
+msgstr " "
+
+#: megengine.module.elemwise.Elemwise:4 of
+msgid ""
+"the elemwise method, support the following string. It will do the normal "
+"elemwise operator for float."
+msgstr "elemwise方法，会进行标准elemwise浮点数运算。支持如下字符串："
+
+#: megengine.module.elemwise.Elemwise:7 of
+msgid "\"ADD\": a + b"
+msgstr "\"ADD\": a + b"
+
+#: megengine.module.elemwise.Elemwise:8 of
+msgid "\"FUSE_ADD_RELU\": max(x+y, 0)"
+msgstr "\"FUSE_ADD_RELU\": max(x+y, 0)"
+
+#: megengine.module.elemwise.Elemwise:9 of
+msgid "\"MUL\": x * y"
+msgstr "\"MUL\": x * y"
+
+#: megengine.module.elemwise.Elemwise:10 of
+msgid "\"MIN\": min(x, y)"
+msgstr "\"MIN\": min(x, y)"
+
+#: megengine.module.elemwise.Elemwise:11 of
+msgid "\"MAX\": max(x, y)"
+msgstr "\"MAX\": max(x, y)"
+
+#: megengine.module.elemwise.Elemwise:12 of
+msgid "\"SUB\": x - y"
+msgstr "\"SUB\": x - y"
+
+#: megengine.module.elemwise.Elemwise:13 of
+msgid "\"TRUE_DIV\": x / y"
+msgstr "\"TRUE_DIV\": x / y"
+
+#: megengine.module.elemwise.Elemwise:14 of
+msgid "\"FUSE_ADD_SIGMOID\": sigmoid(x + y)"
+msgstr "\"FUSE_ADD_SIGMOID\": sigmoid(x + y)"
+
+#: megengine.module.elemwise.Elemwise:15 of
+msgid "\"FUSE_ADD_TANH\": tanh(x + y)"
+msgstr "\"FUSE_ADD_TANH\": tanh(x + y)"
+
+#: megengine.module.elemwise.Elemwise:16 of
+msgid "\"RELU\": x > 0 ? x : 0"
+msgstr "\"RELU\": x > 0 ? x : 0"
+
+#: megengine.module.elemwise.Elemwise:17 of
+msgid "\"ABS\": x > 0 ? x : -x"
+msgstr "\"ABS\": x > 0 ? x : -x"
+
+#: megengine.module.elemwise.Elemwise:18 of
+msgid "\"SIGMOID\": sigmoid(x)"
+msgstr "\"SIGMOID\": sigmoid(x)"
+
+#: megengine.module.elemwise.Elemwise:19 of
+msgid "\"EXP\": exp(x)"
+msgstr "\"EXP\": exp(x)"
+
+#: megengine.module.elemwise.Elemwise:20 of
+msgid "\"TANH\": tanh(x)"
+msgstr "\"TANH\": tanh(x)"
+
+#: megengine.module.elemwise.Elemwise:21 of
+msgid "\"FUSE_MUL_ADD3\": x * y + z"
+msgstr "\"FUSE_MUL_ADD3\": x * y + z"
+
+#: megengine.module.elemwise.Elemwise:22 of
+msgid "\"FAST_TANH\": fast_tanh(x)"
+msgstr "\"FAST_TANH\": fast_tanh(x)"
+
+#: megengine.module.elemwise.Elemwise:23 of
+msgid "\"NEGATE\": -x"
+msgstr "\"NEGATE\": -x"
+
+#: megengine.module.elemwise.Elemwise:24 of
+msgid "\"ACOS\": acos(x)"
+msgstr "\"ACOS\": acos(x)"
+
+#: megengine.module.elemwise.Elemwise:25 of
+msgid "\"ASIN\": asin(x)"
+msgstr "\"ASIN\": asin(x)"
+
+#: megengine.module.elemwise.Elemwise:26 of
+msgid "\"CEIL\": ceil(x)"
+msgstr "\"CEIL\": ceil(x)"
+
+#: megengine.module.elemwise.Elemwise:27 of
+msgid "\"COS\": cos(x)"
+msgstr "\"COS\": cos(x)"
+
+#: megengine.module.elemwise.Elemwise:28 of
+msgid "\"EXPM1\": expm1(x)"
+msgstr "\"EXPM1\": expm1(x)"
+
+#: megengine.module.elemwise.Elemwise:29 of
+msgid "\"FLOOR\": floor(x)"
+msgstr "\"FLOOR\": floor(x)"
+
+#: megengine.module.elemwise.Elemwise:30 of
+msgid "\"LOG\": log(x)"
+msgstr "\"LOG\": log(x)"
+
+#: megengine.module.elemwise.Elemwise:31 of
+msgid "\"LOG1P\": log1p(x)"
+msgstr "\"LOG1P\": log1p(x)"
+
+#: megengine.module.elemwise.Elemwise:32 of
+msgid "\"SIN\": sin(x)"
+msgstr "\"SIN\": sin(x)"
+
+#: megengine.module.elemwise.Elemwise:33 of
+msgid "\"ROUND\": round(x)"
+msgstr "\"ROUND\": round(x)"
+
+#: megengine.module.elemwise.Elemwise:34 of
+msgid "\"ERF\": erf(x)"
+msgstr "\"ERF\": erf(x)"
+
+#: megengine.module.elemwise.Elemwise:35 of
+msgid "\"ERFINV\": erfinv(x)"
+msgstr "\"ERFINV\": erfinv(x)"
+
+#: megengine.module.elemwise.Elemwise:36 of
+msgid "\"ERFC\": erfc(x)"
+msgstr "\"ERFC\": erfc(x)"
+
+#: megengine.module.elemwise.Elemwise:37 of
+msgid "\"ERFCINV\": erfcinv(x)"
+msgstr "\"ERFCINV\": erfcinv(x)"
+
+#: megengine.module.elemwise.Elemwise:38 of
+msgid "\"ABS_GRAD\": abs_grad"
+msgstr "\"ABS_GRAD\": abs_grad"
+
+#: megengine.module.elemwise.Elemwise:39 of
+msgid "\"FLOOR_DIV\": floor_div"
+msgstr "\"FLOOR_DIV\": floor_div"
+
+#: megengine.module.elemwise.Elemwise:40 of
+msgid "\"MOD\": mod"
+msgstr "\"MOD\": mod"
+
+#: megengine.module.elemwise.Elemwise:41 of
+msgid "\"SIGMOID_GRAD\": sigmoid_grad"
+msgstr "\"SIGMOID_GRAD\": sigmoid_grad"
+
+#: megengine.module.elemwise.Elemwise:42 of
+msgid "\"SWITCH_GT0\": switch_gt0"
+msgstr "\"SWITCH_GT0\": switch_gt0"
+
+#: megengine.module.elemwise.Elemwise:43 of
+msgid "\"TANH_GRAD\": tanh_grad"
+msgstr "\"TANH_GRAD\": tanh_grad"
+
+#: megengine.module.elemwise.Elemwise:44 of
+msgid "\"LT\": lt"
+msgstr "\"LT\": lt"
+
+#: megengine.module.elemwise.Elemwise:45 of
+msgid "\"LEQ\": leq"
+msgstr "\"LEQ\": leq"
+
+#: megengine.module.elemwise.Elemwise:46 of
+msgid "\"EQ\": eq"
+msgstr "\"EQ\": eq"
+
+#: megengine.module.elemwise.Elemwise:47 of
+msgid "\"POW\": pow"
+msgstr "\"POW\": pow"
+
+#: megengine.module.elemwise.Elemwise:48 of
+msgid "\"LOG_SUM_EXP\": log_sum_exp"
+msgstr "\"LOG_SUM_EXP\": log_sum_exp"
+
+#: megengine.module.elemwise.Elemwise:49 of
+msgid "\"FAST_TANH_GRAD\": fast_tanh_grad"
+msgstr "\"FAST_TANH_GRAD\": fast_tanh_grad"
+
+#: megengine.module.elemwise.Elemwise:50 of
+msgid "\"ATAN2\": atan2"
+msgstr "\"ATAN2\": atan2"
+
+#: megengine.module.elemwise.Elemwise:51 of
+msgid "\"COND_LEQ_MOV\": cond_leq_mov"
+msgstr "\"COND_LEQ_MOV\": cond_leq_mov"
+
+#: megengine.module.elemwise.Elemwise:52 of
+msgid "\"H_SWISH\": h_swish"
+msgstr "\"H_SWISH\": h_swish"
+
+#: megengine.module.elemwise.Elemwise:53 of
+msgid "\"FUSE_ADD_H_SWISH\": h_swish(x+y)"
+msgstr "\"FUSE_ADD_H_SWISH\": h_swish(x+y)"
+
+#: megengine.module.elemwise.Elemwise:54 of
+msgid "\"H_SWISH_GRAD\": h_swish_grad"
+msgstr "\"H_SWISH_GRAD\": h_swish_grad"
+
+#: ../../source/api_zh/megengine.module.rst:67
+msgid "megengine.module.embedding"
+msgstr "megengine.module.embedding"
+
+#: megengine.module.embedding.Embedding:1 of
+msgid ""
+"A simple lookup table that stores embeddings of a fixed dictionary and size."
+msgstr "一个简单的查询表，存储具有固定大小的词向量（embedding）于固定的词典中。"
+
+#: megengine.module.embedding.Embedding:3 of
+msgid ""
+"This module is often used to store word embeddings and retrieve them using "
+"indices. The input to the module is a list of indices, and the output is the"
+" corresponding word embeddings. The indices should less than num_embeddings."
+msgstr ""
+"该模块通常用于存储词向量（word "
+"embeddings），并使用索引来检索。输入索引列表到模块中，则输出对应的词向量。索引值应小于num_embeddings。"
+
+#: megengine.module.embedding.Embedding:8 of
+msgid "size of embedding dictionary."
+msgstr "词向量字典的大小。"
+
+#: megengine.module.embedding.Embedding:10 of
+msgid "size of each embedding vector."
+msgstr "每个词向量的大小。"
+
+#: megengine.module.embedding.Embedding:12
+#: megengine.module.embedding.Embedding:14
+#: megengine.module.embedding.Embedding:16 of
+msgid "should be set to None, not support now."
+msgstr "应设置为None，目前不支持。"
+
+#: megengine.module.embedding.Embedding:18 of
+msgid ""
+"the learnable weights of the module of shape (num_embeddings, "
+"embedding_dim)."
+msgstr "该模块的可学习权重，形状为(num_embeddings, embedding_dim) 。"
+
+#: megengine.module.embedding.Embedding.from_pretrained:1 of
+msgid "Creates Embedding instance from given 2-dimensional FloatTensor."
+msgstr "从给定的2维FloatTensor创建词向量实例。"
+
+#: megengine.module.embedding.Embedding.from_pretrained:4 of
+msgid "Tensor contained weight for the embedding."
+msgstr "包含词向量权重的张量。"
+
+#: megengine.module.embedding.Embedding.from_pretrained:6 of
+msgid ""
+"If ``True``, the weight does not get updated during the learning process. "
+"Default: ``True``."
+msgstr "如果为 ``True`` ，则在学习过程中不更新权重。默认： ``True`` 。"
+
+#: megengine.module.embedding.Embedding.from_pretrained:8
+#: megengine.module.embedding.Embedding.from_pretrained:10
+#: megengine.module.embedding.Embedding.from_pretrained:12 of
+msgid "should be set to None, not support Now."
+msgstr "应设置为None，目前不支持。"
+
+#: megengine.module.embedding.Embedding.reset_parameters
+#: megengine.module.init.calculate_correct_fan
+#: megengine.module.init.calculate_fan_in_and_fan_out
+#: megengine.module.init.calculate_gain megengine.module.init.fill_
+#: megengine.module.init.msra_normal_ megengine.module.init.msra_uniform_
+#: megengine.module.init.normal_ megengine.module.init.ones_
+#: megengine.module.init.uniform_ megengine.module.init.xavier_normal_
+#: megengine.module.init.xavier_uniform_ megengine.module.init.zeros_
+#: megengine.module.linear.Linear.reset_parameters
+#: megengine.module.module.Module.apply megengine.module.module.Module.buffers
+#: megengine.module.module.Module.children megengine.module.module.Module.eval
+#: megengine.module.module.Module.modules
+#: megengine.module.module.Module.named_buffers
+#: megengine.module.module.Module.named_children
+#: megengine.module.module.Module.named_modules
+#: megengine.module.module.Module.named_parameters
+#: megengine.module.module.Module.parameters
+#: megengine.module.module.Module.train
+#: megengine.module.module.Module.zero_grad
+#: megengine.module.parampack.ParamPack.named_parameters
+#: megengine.module.parampack.ParamPack.parameters of
+msgid "Return type"
+msgstr "返回类型"
+
+#: megengine.module.embedding.Embedding.reset_parameters:2
+#: megengine.module.init.fill_:9 megengine.module.init.msra_normal_:25
+#: megengine.module.init.msra_uniform_:26 megengine.module.init.normal_:12
+#: megengine.module.init.ones_:7 megengine.module.init.uniform_:12
+#: megengine.module.init.xavier_normal_:16
+#: megengine.module.init.xavier_uniform_:17 megengine.module.init.zeros_:7
+#: megengine.module.linear.Linear.reset_parameters:2
+#: megengine.module.module.Module.apply:8
+#: megengine.module.module.Module.eval:5
+#: megengine.module.module.Module.train:12
+#: megengine.module.module.Module.zero_grad:5 of
+msgid "``None``"
+msgstr "``None``"
+
+#: ../../source/api_zh/megengine.module.rst:75
+msgid "megengine.module.external"
+msgstr "megengine.module.external"
+
+#: megengine.module.external.CambriconSubgraph:1 of
+msgid "Load a serialized Cambricon subgraph."
+msgstr "加载已序列化的Cambricon子图。"
+
+#: megengine.module.external.CambriconSubgraph:3 of
+msgid "See :func:`~.cambricon_subgraph` for more details."
+msgstr "请参阅 :func:`~.cambricon_subgraph` 了解详情。"
+
+#: ../../source/api_zh/megengine.module.rst:83
+msgid "megengine.module.identity"
+msgstr "megengine.module.identity"
+
+#: megengine.module.identity.Identity:1 of
+msgid "A placeholder identity operator that will ignore any argument."
+msgstr "恒等占位符，输出和输入相等"
+
+#: ../../source/api_zh/megengine.module.rst:91
+msgid "megengine.module.init"
+msgstr "megengine.module.init"
+
+#: megengine.module.init.calculate_correct_fan:1 of
+msgid ""
+"Calculate fan_in or fan_out value for given weight tensor, depending on "
+"given ``mode``."
+msgstr "计算对于给定的权重张量fan_in或fan_out值，这取决于给定的 ``mode`` 。"
+
+#: megengine.module.init.calculate_correct_fan:4 of
+msgid "See :func:`calculate_fan_in_and_fan_out` for details."
+msgstr "请参阅 :func:`calculate_fan_in_and_fan_out` 了解详情。"
+
+#: megengine.module.init.calculate_correct_fan:7
+#: megengine.module.init.calculate_fan_in_and_fan_out:5 of
+msgid "Weight tensor in NCHW format"
+msgstr "NCHW格式的权重张量"
+
+#: megengine.module.init.calculate_correct_fan:9 of
+msgid "``'fan_in'`` or ``'fan_out'``"
+msgstr "``'fan_in'`` 或 ``'fan_out'``"
+
+#: megengine.module.init.calculate_correct_fan:12
+#: megengine.module.init.calculate_gain:23 of
+msgid ":py:class:`float`"
+msgstr ":py:class:`float`"
+
+#: megengine.module.init.calculate_fan_in_and_fan_out:1 of
+msgid ""
+"Calculate fan_in / fan_out value for given weight tensor. This function "
+"assumes input tensor is stored in NCHW format."
+msgstr "对于给定的权重张量，计算fan_in / fan_out值。此函数假定输入张量存储格式为NCHW。"
+
+#: megengine.module.init.calculate_fan_in_and_fan_out:8 of
+msgid ":py:data:`~typing.Tuple`\\[:py:class:`float`, :py:class:`float`]"
+msgstr ":py:data:`~typing.Tuple`\\[:py:class:`float`, :py:class:`float`]"
+
+#: megengine.module.init.calculate_gain:1 of
+msgid ""
+"Return a recommended gain value (see the table below) for the given "
+"nonlinearity function."
+msgstr "对于给定的非线性函数返回一个推荐的增益值（见下表）。"
+
+#: megengine.module.init.calculate_gain:5 of
+msgid "nonlinearity"
+msgstr "非线性"
+
+#: megengine.module.init.calculate_gain:5 of
+msgid "gain"
+msgstr "增益"
+
+#: megengine.module.init.calculate_gain:7 of
+msgid "Linear / Identity"
+msgstr "Linear / Identity"
+
+#: megengine.module.init.calculate_gain:7
+#: megengine.module.init.calculate_gain:8
+#: megengine.module.init.calculate_gain:9 of
+msgid ":math:`1`"
+msgstr ":math:`1`"
+
+#: megengine.module.init.calculate_gain:8 of
+msgid "Conv{1,2,3}D"
+msgstr "Conv{1,2,3}D"
+
+#: megengine.module.init.calculate_gain:9 of
+msgid "Sigmoid"
+msgstr "Sigmoid"
+
+#: megengine.module.init.calculate_gain:10 of
+msgid "Tanh"
+msgstr "Tanh"
+
+#: megengine.module.init.calculate_gain:10 of
+msgid ":math:`\\frac{5}{3}`"
+msgstr ":math:`\\frac{5}{3}`"
+
+#: megengine.module.init.calculate_gain:11 of
+msgid "ReLU"
+msgstr "ReLU"
+
+#: megengine.module.init.calculate_gain:11 of
+msgid ":math:`\\sqrt{2}`"
+msgstr ":math:`\\sqrt{2}`"
+
+#: megengine.module.init.calculate_gain:12 of
+msgid "Leaky Relu"
+msgstr "Leaky Relu"
+
+#: megengine.module.init.calculate_gain:12 of
+msgid ":math:`\\sqrt{\\frac{2}{1 + \\text{negative_{slope}}^2}}`"
+msgstr ":math:`\\sqrt{\\frac{2}{1 + \\text{negative_{slope}}^2}}`"
+
+#: megengine.module.init.calculate_gain:16 of
+msgid "Name of the non-linear function"
+msgstr "非线性函数的名称"
+
+#: megengine.module.init.calculate_gain:18 of
+msgid ""
+"Optional parameter for leaky_relu. Only effective when ``nonlinearity`` is "
+"\"leaky_relu\"."
+msgstr "leaky_relu的可选参数。只有当 ``nonlinearity`` 是 \"leaky_relu\" 时有效。"
+
+#: megengine.module.init.fill_:1 of
+msgid "Fill the given ``tensor`` with value ``val``."
+msgstr "将 ``val`` 填入到给定的 ``tensor`` 。"
+
+#: megengine.module.init.fill_:4 megengine.module.init.msra_normal_:12
+#: megengine.module.init.msra_uniform_:13 megengine.module.init.normal_:5
+#: megengine.module.init.ones_:4 megengine.module.init.uniform_:5
+#: megengine.module.init.xavier_normal_:11
+#: megengine.module.init.xavier_uniform_:12 megengine.module.init.zeros_:4 of
+msgid "An n-dimentional tensor to be initialized"
+msgstr "待初始化的n维张量"
+
+#: megengine.module.init.fill_:6 of
+msgid "The value to be filled throughout the tensor"
+msgstr "在整个张量上填入的值"
+
+#: megengine.module.init.msra_normal_:1 of
+msgid ""
+"Fill ``tensor`` wilth random values sampled from :math:`\\mathcal{N}(0, "
+"\\text{std}^2)` where"
+msgstr "从 :math:`\\mathcal{N}(0, \\text{std}^2)` 中随机采样得到值，填入 ``tensor`` ，式中，"
+
+#: megengine.module.init.msra_normal_:4 of
+msgid "\\text{std} = \\sqrt{\\frac{2}{(1 + a^2) \\times \\text{fan_in}}}"
+msgstr "\\text{std} = \\sqrt{\\frac{2}{(1 + a^2) \\times \\text{fan_in}}}"
+
+#: megengine.module.init.msra_normal_:7 megengine.module.init.msra_uniform_:7
+#: of
+msgid ""
+"Detailed information can be retrieved from `\"Delving deep into rectifiers: "
+"Surpassing human-level performance on ImageNet classification\" "
+"<https://www.cv-"
+"foundation.org/openaccess/content_iccv_2015/papers/He_Delving_Deep_into_ICCV_2015_paper.pdf>`_."
+msgstr ""
+"参考 `\"Delving deep into rectifiers: Surpassing human-level performance on "
+"ImageNet classification\" <https://www.cv-"
+"foundation.org/openaccess/content_iccv_2015/papers/He_Delving_Deep_into_ICCV_2015_paper.pdf>`_"
+" 获取详细说明。"
+
+#: megengine.module.init.msra_normal_:14
+#: megengine.module.init.msra_uniform_:15 of
+msgid ""
+"Optional parameter for calculating gain for leaky_relu. See "
+":func:`calculate_gain` for details."
+msgstr "用于计算leaky_relu增益的可选参数。请参阅： :func:`calculate_gain` 了解详情。"
+
+#: megengine.module.init.msra_normal_:17 of
+msgid ""
+"``'fan_in'`` or ``'fan_out'``, used to calculate :math:`gain`, the scaling "
+"factor for :math:`gain`. See :func:`calculate_fan_in_and_fan_out` for "
+"details."
+msgstr ""
+"``'fan_in'`` 或 ``'fan_out'`` ，用于计算 :math:`gain` ，是 :math:`gain` 的比例因子。请参阅 "
+":func:`calculate_fan_in_and_fan_out` 了解详情。"
+
+#: megengine.module.init.msra_normal_:21
+#: megengine.module.init.msra_uniform_:22 of
+msgid ""
+"Name of the non-linear function used to calculate :math:`gain`. See "
+":func:`calculate_gain` for details."
+msgstr "用于计算 :math:`gain` 的非线性函数的名称。请参阅 :func:`calculate_gain` 了解详情。"
+
+#: megengine.module.init.msra_uniform_:1 of
+msgid ""
+"Fill ``tensor`` wilth random values sampled from "
+":math:`\\mathcal{U}(-\\text{bound}, \\text{bound})` where"
+msgstr "使用 :math:`\\mathcal{U}(-\\text{bound}, \\text{bound})` 的随机采样值填入 ``tensor`` "
+
+#: megengine.module.init.msra_uniform_:4 of
+msgid "\\text{bound} = \\sqrt{\\frac{6}{(1 + a^2) \\times \\text{fan_in}}}"
+msgstr "\\text{bound} = \\sqrt{\\frac{6}{(1 + a^2) \\times \\text{fan_in}}}"
+
+#: megengine.module.init.msra_uniform_:18 of
+msgid ""
+"``'fan_in'`` or ``'fan_out'``, used to calculate :math:`gain`, the scaling "
+"factor for :math:`bound`. See :func:`calculate_fan_in_and_fan_out` for "
+"details."
+msgstr ""
+"`` 'fan_in'`` 或 ``' fan_out'`` ，用于计算 :math:`gain` ，为 :math:`bound` "
+"的比例因子。请参阅： :func:`calculate_fan_in_and_fan_out` 了解详情。"
+
+#: megengine.module.init.normal_:1 of
+msgid ""
+"Fill the given ``tensor`` with random value sampled from normal distribution"
+" :math:`\\mathcal{N}(\\text{mean}, \\text{std}^2)`."
+msgstr ""
+"使用从正态分布 :math:`\\mathcal{N}(\\text{mean}, \\text{std}^2)` 中的随机采样值填入给定的 "
+"``tensor`` "
+
+#: megengine.module.init.normal_:7 of
+msgid "The mean of the normal distribution"
+msgstr "正态分布的均值"
+
+#: megengine.module.init.normal_:9 of
+msgid "The standard deviation of the normal distribution"
+msgstr "正态分布的标准差"
+
+#: megengine.module.init.ones_:1 of
+msgid "Fill the given ``tensor`` with the scalar value `1`."
+msgstr "使用标量值 `1` 填入给定的 ``tensor`` 。"
+
+#: megengine.module.init.uniform_:1 of
+msgid ""
+"Fill the given ``tensor`` with random value sampled from uniform "
+"distribution :math:`\\mathcal{U}(\\text{a}, \\text{b})`."
+msgstr ""
+"使用从均匀分布 :math:`\\mathcal{U}(\\text{a}, \\text{b})` 中的随机采样值填入给定的  ``tensor`` "
+"。"
+
+#: megengine.module.init.uniform_:7 of
+msgid "Lower bound of the sampling interval"
+msgstr "采样区间的下界"
+
+#: megengine.module.init.uniform_:9 of
+msgid "Upper bound of the sampling interval"
+msgstr "采样区间的上界"
+
+#: megengine.module.init.xavier_normal_:1 of
+msgid ""
+"Fill ``tensor`` with random values sampled from :math:`\\mathcal{N}(0, "
+"\\text{std}^2)` where"
+msgstr "使用从 :math:`\\mathcal{N}(0, \\text{std}^2)` 中随机采样值填入  ``tensor`` 。其中，"
+
+#: megengine.module.init.xavier_normal_:4 of
+msgid ""
+"\\text{std} = \\text{gain} \\times \\sqrt{\\frac{2}{\\text{fan_in} + "
+"\\text{fan_out}}}"
+msgstr ""
+"\\text{std} = \\text{gain} \\times \\sqrt{\\frac{2}{\\text{fan_in} + "
+"\\text{fan_out}}}"
+
+#: megengine.module.init.xavier_normal_:7
+#: megengine.module.init.xavier_uniform_:7 of
+msgid ""
+"Also known as Glorot initialization. Detailed information can be retrieved "
+"from `\"Understanding the difficulty of training deep feedforward neural "
+"networks\" <http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf>`_."
+msgstr ""
+"又称Glorot初始化。详细的说明可以参考 `\"Understanding the difficulty of training deep "
+"feedforward neural networks\" "
+"<http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf>`_ 。"
+
+#: megengine.module.init.xavier_normal_:13 of
+msgid "Scaling factor for :math:`std`."
+msgstr ":math:`std` 的比例因子 。"
+
+#: megengine.module.init.xavier_uniform_:1 of
+msgid ""
+"Fill ``tensor`` with random values sampled from :math:`\\mathcal{U}(-a, a)` "
+"where"
+msgstr "使用从 :math:`\\mathcal{U}(-a, a)` 中随机采样值填入 ``tensor`` 。其中，"
+
+#: megengine.module.init.xavier_uniform_:4 of
+msgid "a = \\text{gain} \\times \\sqrt{\\frac{6}{\\text{fan_in} + \\text{fan_out}}}"
+msgstr "a = \\text{gain} \\times \\sqrt{\\frac{6}{\\text{fan_in} + \\text{fan_out}}}"
+
+#: megengine.module.init.xavier_uniform_:14 of
+msgid "Scaling factor for :math:`a`."
+msgstr ":math:`a` 的比例因子。"
+
+#: megengine.module.init.zeros_:1 of
+msgid "Fill the given ``tensor`` with scalar value `0`."
+msgstr "使用标量值  `0` 填入给定 ``tensor``  。"
+
+#: ../../source/api_zh/megengine.module.rst:99
+msgid "megengine.module.linear"
+msgstr "megengine.module.linear"
+
+#: megengine.module.linear.Linear:1 of
+msgid ""
+"Applies a linear transformation to the input. For instance, if input is x, "
+"then output y is:"
+msgstr "对输入进行线性变换。例如，若有输入x，则输出y为："
+
+#: megengine.module.linear.Linear:4 of
+msgid "y = xW^T + b"
+msgstr "y = xW^T + b"
+
+#: megengine.module.linear.Linear:8 of
+msgid "where :math:`y_i= \\sum_j W_{ij} x_j + b_i`"
+msgstr "其中 :math:`y_i= \\sum_j W_{ij} x_j + b_i` "
+
+#: megengine.module.linear.Linear:11 of
+msgid "size of each input sample."
+msgstr "各输入样本的大小。"
+
+#: megengine.module.linear.Linear:13 of
+msgid "size of each output sample."
+msgstr "各输出样本的大小。"
+
+#: megengine.module.linear.Linear:15 of
+msgid ""
+"If set to ``False``, the layer will not learn an additive bias. Default: "
+"``True``"
+msgstr "如果设置为 ``False`` ，则该层不会学习加性偏置。默认： ``True`` 。"
+
+#: ../../source/api_zh/megengine.module.rst:107
+msgid "megengine.module.module"
+msgstr "megengine.module.module"
+
+#: megengine.module.module.Module:1 of
+msgid "Bases: :class:`object`"
+msgstr "基类： :class:`object`"
+
+#: megengine.module.module.Module:1 of
+msgid "Base Module class."
+msgstr "Module基类。"
+
+#: megengine.module.module.Module.apply:1 of
+msgid ""
+"Apply function ``fn`` to all the modules within this module, including "
+"itself."
+msgstr "对当前模块中的所有模块应用函数 ``fn`` ，包括当前模块本身。"
+
+#: megengine.module.module.Module.apply:5 of
+msgid "The function to be applied on modules."
+msgstr "多个模块上要应用的函数。"
+
+#: megengine.module.module.Module.buffers:1 of
+msgid "Returns an iterable for the :class:`~.Buffer` of the module."
+msgstr "返回该模块中 :class:`~.Buffer` 的一个可迭代对象。"
+
+#: megengine.module.module.Module.buffers:4
+#: megengine.module.module.Module.named_buffers:7 of
+msgid ""
+"If ``True``, returns all :class:`~.Buffer` within this module, else only "
+"returns :class:`~.Buffer` that are direct attributes of this module."
+msgstr ""
+"如果为 ``True`` ，则返回所有当前模块中的 :class:`~.Buffer` ，否则只返回属于该模块直接属性的 "
+":class:`~.Buffer` 。"
+
+#: megengine.module.module.Module.buffers:9 of
+msgid ""
+":py:class:`~typing.Iterable`\\[:py:class:`~megengine.core.tensor_nn.Buffer`]"
+msgstr ""
+":py:class:`~typing.Iterable`\\[:py:class:`~megengine.core.tensor_nn.Buffer`]"
+
+#: megengine.module.module.Module.children:1 of
+msgid ""
+"Returns an iterable for all the submodules that are direct attributes of "
+"this module."
+msgstr "返回一个可迭代对象，可遍历所有属于当前模块的直接属性的子模块。"
+
+#: megengine.module.module.Module.children:5
+#: megengine.module.module.Module.modules:5 of
+msgid ""
+":py:class:`~typing.Iterable`\\[:py:class:`~megengine.module.module.Module`]"
+msgstr ""
+":py:class:`~typing.Iterable`\\[:py:class:`~megengine.module.module.Module`]"
+
+#: megengine.module.module.Module.disable_quantize:1 of
+msgid ""
+"Set ``module``'s ``quantize_diabled`` attribute and return ``module``. Could"
+" be used as a decorator."
+msgstr "设置 ``module`` 的 ``quantize_diabled`` 属性，并返回 ``module`` 。可以作为装饰器使用。"
+
+#: megengine.module.module.Module.eval:1 of
+msgid ""
+"Set training mode of all the modules within this module (including itself) "
+"to ``False``. See :meth:`~.Module.train` for details."
+msgstr ""
+"当前模块中所有模块的 ``training`` 属性（包括自身）置为 ``False`` ，并将其切换为推理模式。请参阅 "
+":meth:`~.Module.train` 了解详情。"
+
+#: megengine.module.module.Module.load_state_dict:1 of
+msgid ""
+"Load a given dictionary created by :func:`state_dict` into this module. If "
+"``strict`` is ``True``, the keys of :func:`state_dict` must exactly match "
+"the keys returned by :func:`state_dict`."
+msgstr ""
+"向当前模块中加载由 :func:`state_dict` 创建的给定字典。若 ``strict`` 为 ``True`` ， "
+":func:`state_dict` 的键则必须与 :func:`state_dict` 返回的键准确匹配。"
+
+#: megengine.module.module.Module.load_state_dict:5 of
+msgid ""
+"Users can also pass a closure: `Function[key: str, var: Tensor] -> "
+"Optional[np.ndarray]` as a `state_dict`, in order to handle complex "
+"situations. For example, load everything except for the final linear "
+"classifier:"
+msgstr ""
+"为了处理复杂情况，用户可以传入闭包 `Function[key: str, var: Tensor] -> Optional[np.ndarray]` "
+"作为 `state_dict` 。例如，欲加载除了最后线性分类器外的所有部分："
+
+#: megengine.module.module.Module.load_state_dict:17 of
+msgid "Here returning `None` means skipping parameter `k`."
+msgstr "这里返回 `None` 意味着忽略参数 `k` 。"
+
+#: megengine.module.module.Module.load_state_dict:19 of
+msgid ""
+"To prevent shape mismatch (e.g. load PyTorch weights), we can reshape before"
+" loading:"
+msgstr "为了防止形状不匹配（例如加载PyTorch权重），我们可以在加载之前重塑（reshape）："
+
+#: megengine.module.module.Module.load_state_dict:28 of
+msgid "We can also perform inplace re-initialization or pruning:"
+msgstr "我们还可以进行原位重初始化或修剪（pruning）："
+
+#: megengine.module.module.Module.modules:1 of
+msgid ""
+"Returns an iterable for all the modules within this module, including "
+"itself."
+msgstr "返回一个可迭代对象，可以遍历当前模块中的所有模块，包括其本身。"
+
+#: megengine.module.module.Module.named_buffers:1 of
+msgid ""
+"Returns an iterable for key :class:`~.Buffer` pairs of the module, where "
+"``key`` is the dotted path from this module to the :class:`~.Buffer` ."
+msgstr ""
+"返回可遍历模块中 key 与 :class:`~.Buffer` 的键值对的可迭代对象，其中 ``key`` 为从该模块至 "
+":class:`~.Buffer` 的点路径（dotted path）。"
+
+#: megengine.module.module.Module.named_buffers:5
+#: megengine.module.module.Module.named_parameters:8
+#: megengine.module.parampack.ParamPack.named_parameters:7 of
+msgid "The prefix prepended to the keys."
+msgstr "加在每个键（key）前的前缀。"
+
+#: megengine.module.module.Module.named_buffers:12 of
+msgid ""
+":py:class:`~typing.Iterable`\\[:py:data:`~typing.Tuple`\\[:py:class:`str`, "
+":py:class:`~megengine.core.tensor_nn.Buffer`]]"
+msgstr ""
+":py:class:`~typing.Iterable`\\[:py:data:`~typing.Tuple`\\[:py:class:`str`, "
+":py:class:`~megengine.core.tensor_nn.Buffer`]]"
+
+#: megengine.module.module.Module.named_children:1 of
+msgid ""
+"Returns an iterable of key-submodule pairs for all the submodules that are "
+"direct attributes of this module, where 'key' is the attribute name of "
+"submodules."
+msgstr ""
+"返回可迭代对象，可以遍历属于当前模块的直接属性的所有子模块（submodule）与键（key）组成的”key-"
+"submodule”对，其中'key'是子模块对应的属性名。"
+
+#: megengine.module.module.Module.named_children:6
+#: megengine.module.module.Module.named_modules:9 of
+msgid ""
+":py:class:`~typing.Iterable`\\[:py:data:`~typing.Tuple`\\[:py:class:`str`, "
+":py:class:`~megengine.module.module.Module`]]"
+msgstr ""
+":py:class:`~typing.Iterable`\\[:py:data:`~typing.Tuple`\\[:py:class:`str`, "
+":py:class:`~megengine.module.module.Module`]]"
+
+#: megengine.module.module.Module.named_modules:1 of
+msgid ""
+"Returns an iterable of key-module pairs for all the modules within this "
+"module, including itself, where 'key' is the dotted path from this module to"
+" the submodules."
+msgstr ""
+"返回可迭代对象，可以遍历当前模块包括自身在内的所有其内部模块所组成的key-module键-"
+"模块对，其中'key'是从当前模块到各子模块的点路径（dotted path）。"
+
+#: megengine.module.module.Module.named_modules:6 of
+msgid "The prefix prepended to the path."
+msgstr "加在路径前的前缀。"
+
+#: megengine.module.module.Module.named_parameters:1
+#: megengine.module.parampack.ParamPack.named_parameters:1 of
+msgid ""
+"Returns an iterable for key :class:`~.Parameter` pairs of the module, where "
+"``key`` is the dotted path from this module to the :class:`~.Parameter` ."
+msgstr ""
+"返回一个可迭代对象，可以遍历当前模块中key与 :class:`~.Parameter` 组成的键值对。其中  ``key`` 是从模块到 "
+":class:`~.Parameter` 的点路径（dotted path）。"
+
+#: megengine.module.module.Module.named_parameters:5
+#: megengine.module.parampack.ParamPack.named_parameters:5 of
+msgid ""
+"Limitation over the :attr:`~.Parameter.requires_grad` attribute of returned "
+":class:`~.Parameter` . ``None`` for no limitation."
+msgstr ""
+"返回的 :class:`~.Parameter` 中 :attr:`~.Parameter.requires_grad` 属性上的限制。置为 "
+"``None`` 表示没有限制。"
+
+#: megengine.module.module.Module.named_parameters:10
+#: megengine.module.module.Module.parameters:7
+#: megengine.module.parampack.ParamPack.named_parameters:8
+#: megengine.module.parampack.ParamPack.parameters:6 of
+msgid ""
+"If ``True``, returns all :class:`~.Parameter` within this module, else only "
+"returns :class:`~.Parameter` that are direct attributes of this module."
+msgstr ""
+"如果为 ``True`` ， 则返回在此模块内的所有 :class:`~.Parameter` ; 否则，只返回属于当前模块直接属性的 "
+":class:`~.Parameter` 。"
+
+#: megengine.module.module.Module.named_parameters:15
+#: megengine.module.parampack.ParamPack.named_parameters:13 of
+msgid ""
+":py:class:`~typing.Iterable`\\[:py:data:`~typing.Tuple`\\[:py:class:`str`, "
+":py:class:`~megengine.core.tensor_nn.Parameter`]]"
+msgstr ""
+":py:class:`~typing.Iterable`\\[:py:data:`~typing.Tuple`\\[:py:class:`str`, "
+":py:class:`~megengine.core.tensor_nn.Parameter`]]"
+
+#: megengine.module.module.Module.parameters:1
+#: megengine.module.parampack.ParamPack.parameters:1 of
+msgid "Returns an iterable for the :class:`~.Parameter` of the module."
+msgstr "返回一个可迭代对象，遍历当前模块中的所有 :class:`~.Parameter`"
+
+#: megengine.module.module.Module.parameters:4
+#: megengine.module.parampack.ParamPack.parameters:4 of
+msgid ""
+"Limitation over the :attr:`~.Parameter.requires_grad` attribute of returned "
+":class:`.Parameter`. ``None`` for no limitation."
+msgstr ""
+"返回的 :class:`~.Parameter` 中 :attr:`~.Parameter.requires_grad` 属性上的限制。置为 "
+"``None`` 表示没有限制。"
+
+#: megengine.module.module.Module.parameters:12
+#: megengine.module.parampack.ParamPack.parameters:11 of
+msgid ""
+":py:class:`~typing.Iterable`\\[:py:class:`~megengine.core.tensor_nn.Parameter`]"
+msgstr ""
+":py:class:`~typing.Iterable`\\[:py:class:`~megengine.core.tensor_nn.Parameter`]"
+
+#: megengine.module.module.Module.state_dict:1 of
+msgid "Returns a dictionary containing whole states of the module."
+msgstr "返回包含模块整体状态的字典。"
+
+#: megengine.module.module.Module.train:1 of
+msgid ""
+"Set training mode of all the modules within this module (including itself) "
+"to ``mode``. This effectively sets the ``training`` attributes of those "
+"modules to ``mode``, but only has effect on certain modules (e.g. "
+":class:`~.BatchNorm2d`, :class:`~.Dropout`, :class:`~.Observer`)"
+msgstr ""
+"将当前模块，及其内部所有模块的训练模式置为 ``mode`` 。该方法将这些模块的 ``training`` 属性便捷地置为 ``mode`` "
+"。但只对特定种类的模块起作用（比如： :class:`~.BatchNorm2d` ， :class:`~.Dropout` ， "
+":class:`~.Observer` ）。"
+
+#: megengine.module.module.Module.train:7 of
+msgid "the training mode to be set on modules."
+msgstr "要在多个模块中设置的训练模式。"
+
+#: megengine.module.module.Module.train:9 of
+msgid "whether to recursively call submodules' ``train()``."
+msgstr "是否递归调用子模块的 ``train()`` 。"
+
+#: megengine.module.module.Module.zero_grad:1 of
+msgid "Set all parameters' grads to zero"
+msgstr "将所有参数的梯度置0。"
+
+#: ../../source/api_zh/megengine.module.rst:115
+msgid "megengine.module.parampack"
+msgstr "megengine.module.parampack"
+
+#: megengine.module.parampack.ParamPack:1 of
+msgid ""
+"Pack module's parameters by gathering their memory to continuous address. "
+"Using (device, dtype, requires_grad) as key, for example ('gpu0', float32, "
+"True), parameters with same key will be packed togather. It helps a lot for "
+"multimachine training by speeding up allreduce gradients."
+msgstr ""
+"汇集参数的内存地址到连续地址来打包模块参数。使用(device, dtype, requires_grad) 作为键，比如 ('gpu0', "
+"float32, True) 。具有相同键的参数会被打包在一起。因为这种方法加速了梯度规约（all reduce），大大改善了多机训练性能。"
+
+#: megengine.module.parampack.ParamPack:7 of
+msgid "the module you want to pack parameters."
+msgstr "待打包参数的模块。"
+
+#: megengine.module.parampack.ParamPack:9 of
+msgid "how many parameters will be unpacked at first."
+msgstr "起初需要解包的参数数目。"
+
+#: megengine.module.parampack.ParamPack:11 of
+msgid "upper bound of packed parameters' size in MB."
+msgstr "以MB为单位的打包后参数大小的上界。"
+
+#: megengine.module.parampack.ParamPack:13 of
+msgid "upper bound of the number of parameters of each group."
+msgstr "各组中参数数目的上界。"
+
+#: ../../source/api_zh/megengine.module.rst:123
+msgid "megengine.module.pooling"
+msgstr "megengine.module.pooling"
+
+#: megengine.module.pooling.AvgPool2d:1 megengine.module.pooling.MaxPool2d:1
+#: of
+msgid "Bases: :class:`megengine.module.pooling._PoolNd`"
+msgstr "基类： :class:`megengine.module.pooling._PoolNd`"
+
+#: megengine.module.pooling.AvgPool2d:1 of
+msgid "Applies a 2D average pooling over an input."
+msgstr "对输入数据进行2D平均值池化（average pooling）。"
+
+#: megengine.module.pooling.AvgPool2d:3 megengine.module.pooling.MaxPool2d:3
+#: of
+msgid ""
+"For instance, given an input of the size :math:`(N, C, H, W)` and "
+":attr:`kernel_size` :math:`(kH, kW)`, this layer generates the output of the"
+" size :math:`(N, C, H_{out}, W_{out})` through a process described as:"
+msgstr ""
+"例如，给定形状为 :math:`(N, C, H, W)` 的输入以及形为 :math:`(kH, kW)` 的 :attr:`kernel_size`"
+" ，该层产生形状为 :math:`(N, C, H_{out}, W_{out})` 的输出。生成过程描述如下："
+
+#: megengine.module.pooling.AvgPool2d:7 of
+msgid ""
+"out(N_i, C_j, h, w)  = \\frac{1}{kH * kW} \\sum_{m=0}^{kH-1} "
+"\\sum_{n=0}^{kW-1}                        input(N_i, C_j, stride[0] \\times "
+"h + m, stride[1] \\times w + n)"
+msgstr ""
+"out(N_i, C_j, h, w)  = \\frac{1}{kH * kW} \\sum_{m=0}^{kH-1} "
+"\\sum_{n=0}^{kW-1}                        input(N_i, C_j, stride[0] \\times "
+"h + m, stride[1] \\times w + n)"
+
+#: megengine.module.pooling.AvgPool2d:12 megengine.module.pooling.MaxPool2d:14
+#: of
+msgid ""
+"If :attr:`padding` is non-zero, then the input is implicitly zero-padded on "
+"both sides for :attr:`padding` number of points."
+msgstr "若 :attr:`padding` 非零， 则输入数据会被隐式地在两边用零值进行填充（pad)  :attr:`padding` 个点。"
+
+#: megengine.module.pooling.AvgPool2d:16 of
+msgid "the size of the window."
+msgstr "窗的大小。"
+
+#: megengine.module.pooling.AvgPool2d:18 megengine.module.pooling.MaxPool2d:20
+#: of
+msgid "the stride of the window. Default value is ``kernel_size``."
+msgstr "窗的步长。默认是 ``kernel_size`` 。"
+
+#: megengine.module.pooling.AvgPool2d:20 megengine.module.pooling.MaxPool2d:22
+#: of
+msgid "implicit zero padding to be added on both sides."
+msgstr "对两边进行隐式的零值填充尺寸"
+
+#: megengine.module.pooling.MaxPool2d:1 of
+msgid "Applies a 2D max pooling over an input."
+msgstr "对输入数据进行2D最大值池化（max pooling）。"
+
+#: megengine.module.pooling.MaxPool2d:7 of
+msgid ""
+"\\begin{aligned}     out(N_i, C_j, h, w) ={} & \\max_{m=0, \\ldots, kH-1} "
+"\\max_{n=0, \\ldots, kW-1}         \\text{input}(N_i, C_j, \\text{stride[0]}"
+" \\times h + m,         \\text{stride[1]} \\times w + n) \\end{aligned}"
+msgstr ""
+"\\begin{aligned}     out(N_i, C_j, h, w) ={} & \\max_{m=0, \\ldots, kH-1} "
+"\\max_{n=0, \\ldots, kW-1}         \\text{input}(N_i, C_j, \\text{stride[0]}"
+" \\times h + m,         \\text{stride[1]} \\times w + n) \\end{aligned}"
+
+#: megengine.module.pooling.MaxPool2d:18 of
+msgid "the size of the window to take a max over."
+msgstr "从中取最大值的窗口大小。"
+
+#: ../../source/api_zh/megengine.module.rst:131
+msgid "megengine.module.quant\\_dequant"
+msgstr "megengine.module.quant\\_dequant"
+
+#: megengine.module.quant_dequant.DequantStub:1 of
+msgid ""
+"A helper :class:`~.Module` simply returning input. Could be replaced with "
+":class:`~.QATModule` version :class:`~.qat.DequantStub` using "
+":func:`~.quantize.quantize_qat`."
+msgstr ""
+"仅返回输入的辅助 :class:`~.Module` 。可调用 :func:`~.quantize.quantize_qat` 替换成 "
+":class:`~.QATModule` 型的 :class:`~.qat.DequantStub` 。"
+
+#: megengine.module.quant_dequant.QuantStub:1 of
+msgid ""
+"A helper :class:`~.Module` simply returning input. Could be replaced with "
+":class:`~.QATModule` version :class:`~.qat.QuantStub` using "
+":func:`~.quantize.quantize_qat`."
+msgstr ""
+"仅返回输入的辅助 :class:`~.Module` 。可调用 :func:`~.quantize.quantize_qat` 替换成 "
+":class:`~.QATModule` 型的 :class:`~.qat.QuantStub` 。"
+
+#: ../../source/api_zh/megengine.module.rst:139
+msgid "megengine.module.sequential"
+msgstr "megengine.module.sequential"
+
+#: megengine.module.sequential.Sequential:1 of
+msgid ""
+"A sequential container. Modules will be added to it in the order they are "
+"passed in the constructor. Alternatively, an ordered dict of modules can "
+"also be passed in."
+msgstr "一个序列容器。多个模块会按在构造函数中传入的顺序加到该容器中。或者，也可以使用模块组成的有序字典来存入容器。"
+
+#: megengine.module.sequential.Sequential:5 of
+msgid "To make it easier to understand, here is a small example:"
+msgstr "为了便于理解，这里提供一个小例子："
+
+#~ msgid ""
+#~ "Detailed information can be retrieved from `Delving deep into rectifiers: "
+#~ "Surpassing human-level performance on ImageNet classification`"
+#~ msgstr ""
+#~ "详细信息可阅读 `Delving deep into rectifiers: Surpassing human-level performance on"
+#~ " ImageNet classification` "
+
+#~ msgid "Bases: :class:`megengine.module.module.QATModule`"
+#~ msgstr "Bases: :class:`megengine.module.module.QATModule`"
+
+#~ msgid ""
+#~ "A :class:`~.QATModule` to do functional concat, should replace concat with "
+#~ "this module, supporting ``qat`` mode and ``quantized`` mode."
+#~ msgstr ""
+#~ ":class:`~.QATModule` 类，实现串联（concatenate）功能。使用此模块代替函数concat，支持 ``qat`` 模式和 "
+#~ "``quantized`` 模式。"
+
+#~ msgid "Forward method for ``qat`` mode."
+#~ msgstr "对于 ``qat`` 模式的前向方法。"
+
+#~ msgid "megengine.module.conv\\_bn\\_relu"
+#~ msgstr "megengine.module.conv\\_bn\\_relu"
+
+#~ msgid ""
+#~ "A fused :class:`~.QATModule` including Conv2d and BatchNorm2d, supporting "
+#~ "``qat`` mode and ``normal`` mode."
+#~ msgstr ""
+#~ "融合了 Conv2d 和 BatchNorm2d 的 :class:`~.QATModule` 类，支持 ``qat`` 和 ``normal`` "
+#~ "模式。"
+
+#~ msgid ""
+#~ "A fused :class:`~.QATModule` including Conv2d, BatchNorm2d and relu, "
+#~ "supporting ``qat`` mode and ``normal`` mode."
+#~ msgstr ""
+#~ "融合了 Conv2d ， BatchNorm2d 和 relu 的 :class:`~.QATModule` 类，支持 ``qat`` 和 "
+#~ "``normal`` 模式。"
+
+#~ msgid ""
+#~ "A :class:`~.QATModule` to do elemwise operator, should functional operator "
+#~ "with this module, supporting ``qat`` mode and ``normal`` mode."
+#~ msgstr ""
+#~ "执行 elemwise 算子操作的类 :class:`~.QATModule` ，应以该模块替代对应的函数算子，支持 ``qat`` 和 "
+#~ "``normal`` 模式。"
+
+#~ msgid ""
+#~ "Base class of quantization related Module. Add extra forward methods "
+#~ ":meth:`~.QATModule.forward_qat` and :meth:`~.QATModule.forward_quantized` "
+#~ "for ``qat``(quantization aware training) mode and ``quantized`` mode "
+#~ "respectively."
+#~ msgstr ""
+#~ "与量化（quantization）有关的模块所继承的基类。使用时，需分别为 ``qat`` (quantization aware training) "
+#~ "模式与  ``quantized`` 模式添加额外的前向方法 :meth:`~.QATModule.forward_qat` 和  "
+#~ ":meth:`~.QATModule.forward_quantized` 。"
+
+#~ msgid ""
+#~ "Use :meth:`~.QATModule.quant` to switch between ``QAT`` and ``NORMAL`` mode,"
+#~ " and use :meth:`~.QATModule.to_quantized` to switch to ``quantized`` mode, "
+#~ "which is irreversible."
+#~ msgstr ""
+#~ "使用 :meth:`~.QATModule.quant` 在 ``QAT`` 模式与 ``NORMAL`` 模式间切换，也可使用  "
+#~ ":meth:`~.QATModule.to_quantized` 切换到 ``quantized`` 模式，该方法不可逆。"
+
+#~ msgid ""
+#~ "If you want to recursively switch mode for all QATModule in network, use "
+#~ "functions in :mod:`~.quantization.quantize`."
+#~ msgstr "若要递归地切换网络中所有QATModule的模式，则需使用 :mod:`~.quantization.quantize` 中的函数。"
+
+#~ msgid "Bases: :class:`enum.Enum`"
+#~ msgstr "Bases: :class:`enum.Enum`"
+
+#~ msgid "An enumeration."
+#~ msgstr "枚举。"
+
+#~ msgid ""
+#~ "Change ``self.quantizing`` mode, available values: "
+#~ "``self.QATMode.DISABLED``, ``QAT``,``CALIBRATION``."
+#~ msgstr ""
+#~ "更改 ``self.quantizing`` 模式，可用值： ``self.QATMode.DISABLED`` ， ``QAT`` "
+#~ "，``CALIBRATION`` 。"
+
+#~ msgid ""
+#~ "Return a new :class:`~.Module` with quantized parameters of ``self`` "
+#~ "according to scale and zero_point in ``self.xxx_observer``."
+#~ msgstr ""
+#~ "返回一个新的 :class:`~.Module` 类，它具有量化后的 ``self`` 参数，参数值由 ``self.xxx_observer`` 中的"
+#~ " scale 和 zero_point 确定。"
+
+#~ msgid "A helper QATModule doing de-quantize operation on input."
+#~ msgstr "对输入进行反量化（de-quantization）操作的辅助QATModule模块。"
+
+#~ msgid "A helper QATModule doing quantize operation on input."
+#~ msgstr "对输入进行量化（quantization）操作的辅助QATModule模块。"

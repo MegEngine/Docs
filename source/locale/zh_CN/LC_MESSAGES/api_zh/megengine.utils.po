@@ -1,0 +1,325 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-27 03:15-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/autogen/megengine.utils.rst:2
+msgid "megengine.utils package"
+msgstr "megengine.utils package"
+
+#: ../../source/autogen/megengine.utils.rst:11
+msgid "megengine.utils.http\\_download"
+msgstr "megengine.utils.http\\_download"
+
+#: megengine.utils.http_download.HTTPDownloadError:1 of
+msgid "Bases: :class:`BaseException`"
+msgstr "基类: :class:`BaseException`"
+
+#: megengine.utils.http_download.HTTPDownloadError:1 of
+msgid "The class that represents http request error"
+msgstr "表示http请求错误的类"
+
+#: megengine.utils.http_download.download_from_url:1 of
+msgid "Downloads file from given url to ``dst``"
+msgstr "从指定URL下载文件到 ``dst`` "
+
+#: megengine.utils.http_download.download_from_url
+#: megengine.utils.profile_analyzer.OprProfRst.__init__
+#: megengine.utils.profile_analyzer.OprProfRst.update_device_prof_info
+#: megengine.utils.profile_analyzer.OprProfRst.update_footprint
+#: megengine.utils.profile_analyzer.OprProfRst.update_host_prof_info
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.__init__
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select
+#: megengine.utils.profile_analyzer.Record.__init__
+#: megengine.utils.profile_analyzer.Record.get_column_by_name
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func
+#: megengine.utils.types.get_ndtuple of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.utils.http_download.download_from_url:4 of
+msgid "source URL"
+msgstr "来源网址URL"
+
+#: megengine.utils.http_download.download_from_url:6 of
+msgid "saving path"
+msgstr "保存路径"
+
+#: megengine.utils.http_download.download_from_url:7 of
+msgid "how many seconds to wait for data before giving up"
+msgstr "等待数据多少秒后放弃"
+
+#: ../../source/autogen/megengine.utils.rst:19
+msgid "megengine.utils.max\\_recursion\\_limit"
+msgstr "megengine.utils.max\\_recursion\\_limit"
+
+#: megengine.utils.max_recursion_limit.AlternativeRecursionLimit:1
+#: megengine.utils.profile_analyzer.NonExistNum:1
+#: megengine.utils.profile_analyzer.OprProfRst:1
+#: megengine.utils.profile_analyzer.ProfileAnalyzer:1
+#: megengine.utils.profile_analyzer.Record:1
+#: megengine.utils.profile_analyzer.TimeFuncHelper:1 of
+msgid "Bases: :class:`object`"
+msgstr "基类: :class:`object`"
+
+#: megengine.utils.max_recursion_limit.AlternativeRecursionLimit:1 of
+msgid "A reentrant context manager for setting global recursion limits."
+msgstr "一个可重入上下文管理器，可用于设置全局递归限制。"
+
+#: megengine.utils.max_recursion_limit.max_recursion_limit:1 of
+msgid "Sets recursion limit to the max possible value"
+msgstr "设置递归限制为最大可能值"
+
+#: ../../source/autogen/megengine.utils.rst:27
+msgid "megengine.utils.profile\\_analyze"
+msgstr "megengine.utils.profile\\_analyze"
+
+#: megengine.utils.profile_analyze.main:1 of
+msgid "Analyses profile info from :mod:`~.utils.profile_analyzer` ."
+msgstr "分析 :mod:`~.utils.profile_analyzer` 中的性能分析信息。"
+
+#: megengine.utils.profile_analyze.main:3 of
+msgid "Run this file with ``--help`` to get more usage."
+msgstr "运行该文件时，附带 ``--help`` 得到更详细的使用说明。"
+
+#: ../../source/autogen/megengine.utils.rst:35
+msgid "megengine.utils.profile\\_analyzer"
+msgstr "megengine.utils.profile\\_analyzer"
+
+#: megengine.utils.profile_analyzer.NonExistNum:1 of
+msgid ""
+"An object that behaves like a number but means a field does not exist; It is"
+" always greater than any real number"
+msgstr "一个内部方法类似数字型的对象，但用来表明一个域不存在。它总是大于任何实数"
+
+#: megengine.utils.profile_analyzer.OprProfRst:1 of
+msgid "Opr profiling result dumped from megengine profiler."
+msgstr "从megengine profiler抛出的opr profiling结果。"
+
+#: megengine.utils.profile_analyzer.OprProfRst.__init__:1 of
+msgid ""
+"Opr profiling initialization, which sets up name, type and id of opr_info."
+msgstr "opr profiling初始化，其中设置opr_info的name，type，id。"
+
+#: megengine.utils.profile_analyzer.OprProfRst.__init__:4 of
+msgid "profiling json exec_graph items"
+msgstr "对json exec_graph条目进行性能分析"
+
+#: megengine.utils.profile_analyzer.OprProfRst.footprint:1 of
+msgid ""
+"A mapping from ``\"memory\"`` or ``\"computation\"`` to the actual number of"
+" corresponding operations"
+msgstr "从 ``\"memory\"`` 或 ``\"computation\"`` 到对应操作中实际数据的映射"
+
+#: megengine.utils.profile_analyzer.OprProfRst.opr_info:1 of
+msgid "A dict containing operator info:  name, id and type."
+msgstr "一个包含操作符信息的dict型变量，信息包括 :  name, id and type。"
+
+#: megengine.utils.profile_analyzer.OprProfRst.time_dict:1 of
+msgid "A mapping from ``\"host\"`` or ``\"device\"`` to list of profiling results."
+msgstr "从 ``\"host\"`` 或 ``\"device\"`` 到性能测试（profiling）结果列表的映射。"
+
+#: megengine.utils.profile_analyzer.OprProfRst.update_device_prof_info:1 of
+msgid "Updates device profiling info"
+msgstr "更新设备性能测试信息（profiling info）"
+
+#: megengine.utils.profile_analyzer.OprProfRst.update_device_prof_info:4 of
+msgid "device time for single opr, is an attribute of profiling result."
+msgstr "对于单个算子（operator）的设备时间，是性能测试（profiling）结果的属性之一。"
+
+#: megengine.utils.profile_analyzer.OprProfRst.update_footprint:1 of
+msgid "Updates opr footprint"
+msgstr "更新算子性能记录（footprint）"
+
+#: megengine.utils.profile_analyzer.OprProfRst.update_footprint:4 of
+msgid "footprint for single opr, is an attribute of profiling result."
+msgstr "单个算子的内存大小（footprint）性能记录，是性能测试结果的属性之一。"
+
+#: megengine.utils.profile_analyzer.OprProfRst.update_host_prof_info:1 of
+msgid "Updates host profiling info"
+msgstr "更新host的性能测试信息（profiling info）"
+
+#: megengine.utils.profile_analyzer.OprProfRst.update_host_prof_info:4 of
+msgid "host time for single opr, is an attribute of profiling result."
+msgstr "单个算子的host时间， 性能测试结果的属性之一。"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.__init__:1 of
+msgid "Initializes ProfileAnalyzer"
+msgstr "初始化ProfileAnalyzer"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.__init__:4 of
+msgid "dict dumped from json str."
+msgstr "由json字符串生成的dict字典。"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.__init__:6 of
+msgid "function that filter oprs."
+msgstr "一个可以筛选算子的函数。"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select:1 of
+msgid "Select operation"
+msgstr "选择操作"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select:4 of
+msgid "time_func provided by user, would apply to every OprProfRst"
+msgstr "由用户提供的time_func，它依次作用于每一个OprProfRst"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select:7 of
+msgid "filter satisfied operatiors."
+msgstr "满足筛选条件的算子。"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select:9 of
+msgid "function that apply to list of records which are aggregated by atype"
+msgstr "在一组被 atype 聚合的记录上进行调用的函数"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select:12 of
+msgid "the type aggregated by"
+msgstr "聚合（aggregate）所依据的类型"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select:14 of
+msgid "keyword for sorting all records."
+msgstr "对所有记录进行排序时使用的关键字。"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select:16 of
+msgid "specify the maximum number of records."
+msgstr "指定最大记录数。"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func of
+msgid "Return type"
+msgstr "返回类型"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select:17 of
+msgid ""
+":py:class:`~typing.List`\\[:py:class:`~megengine.utils.profile_analyzer.Record`]"
+msgstr ""
+":py:class:`~typing.List`\\[:py:class:`~megengine.utils.profile_analyzer.Record`]"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func of
+msgid "Returns"
+msgstr "返回"
+
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select:18 of
+msgid "the records that go through select, aggregate, sort."
+msgstr "通过选择，聚合，排序过程的记录。"
+
+#: megengine.utils.profile_analyzer.Record:1 of
+msgid "A record of analyzing result"
+msgstr "分析结果记录"
+
+#: megengine.utils.profile_analyzer.Record.__init__:1 of
+msgid "Initializes single record"
+msgstr "初始化单个记录"
+
+#: megengine.utils.profile_analyzer.Record.__init__:4 of
+msgid ""
+"opr running time, evaluated by applying users providing function to "
+"OprProfRst."
+msgstr "算子的运行时间，通过将用户提供的函数作用于OprProfRst的方式进行衡量。"
+
+#: megengine.utils.profile_analyzer.Record.__init__:7 of
+msgid ""
+"opr information, could be original opr information or aggregate infomation "
+"if aggregating enabled."
+msgstr "算子的信息，可以是原来的OPR信息，或启用aggregating聚合的条件下，聚合后的信息。"
+
+#: megengine.utils.profile_analyzer.Record.__init__:10 of
+msgid ""
+"contains footprint information, for now, we have ``\"computation\"``, "
+"``\"memory\"``, ``\"in_shapes\"``, ``\"out_shapes\"``."
+msgstr ""
+"包含内存使用记录的信息，截至目前， 支持的类型有  ``\"computation\"``, ``\"memory\"``, "
+"``\"in_shapes\"``, ``\"out_shapes\"`` 。"
+
+#: megengine.utils.profile_analyzer.Record.get_column_by_name:1 of
+msgid "extracts column value by its column name"
+msgstr "根据列名提取列值"
+
+#: megengine.utils.profile_analyzer.Record.get_column_by_name:4 of
+msgid "column name, None for time."
+msgstr "列名称，None表示时间。"
+
+#: megengine.utils.profile_analyzer.TimeFuncHelper:1 of
+msgid "Time Function Helper for users."
+msgstr "为用户提供的时间函数助手。"
+
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func:1 of
+msgid "Eval oprerator profile time."
+msgstr "测试算子时间性能。"
+
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func:4
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:4
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func:4 of
+msgid "'host' or 'device'"
+msgstr "'host' 或 'device'"
+
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func:6
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:6
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func:6 of
+msgid "'kern' or 'end'"
+msgstr "'kern' 或 'end'"
+
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func:8
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:8
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func:8 of
+msgid "apply to list of all ``thread`` of ``gpu`` time."
+msgstr "作用于 ``gpu`` 时间的所有 ``thread`` 。"
+
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func:9
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:9
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func:9 of
+msgid ":py:class:`float`"
+msgstr ":py:class:`float`"
+
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func:10
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:10
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func:10 of
+msgid "Eval time results"
+msgstr "评估时间结果"
+
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:1 of
+msgid "Eval oprerator profile max end time"
+msgstr "测试算子的最长结束时间"
+
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func:1 of
+msgid "Eval oprerator profile min start time"
+msgstr "测试算子最短开始时间"
+
+#: ../../source/autogen/megengine.utils.rst:43
+msgid "megengine.utils.types"
+msgstr "megengine.utils.types"
+
+#: megengine.utils.types.get_ndtuple:1 of
+msgid "Converts possibly 1D tuple to nd tuple"
+msgstr "转换可能为一维的元组到N维元组"
+
+#: megengine.utils.types.get_ndtuple:4 of
+msgid "whether to allow zero tuple value"
+msgstr "是否允许元组值为零"
+
+#~ msgid "Eval max end time"
+#~ msgstr "评估最大结束时间"
+
+#~ msgid "Eval oprerator profile time with ``np.min``."
+#~ msgstr "使用 ``np.min`` 评估最短算子时间 。"
