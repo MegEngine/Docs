@@ -1,32 +1,35 @@
 =======================================
-MegEngine inference in C++(arm-andorid)
+Android推理示例
 =======================================
 
 
-Shufflenet_v2 arm-android示例快速入门
+ShuffleNet V2 arm-android示例快速入门
 ---------------------------------------
+
 这是一个简单的图像分类应用，基于 MegEngine C++接口、Android JNI及Camera Api，帮助大家快速在Android平台实现一个图像分类的App。
-在这个例子中所使用的模型，为MegEngine官方预训练的 `shufflenet_v2模型`_ ，用于做简单的图像分类任务。
+在这个例子中所使用的模型，为MegEngine官方预训练的 `ShuffleNet V2模型`_ ，用于做简单的图像分类任务。
 
 1. 安装MegEngine python库
 ''''''''''''''''''''''''''
+
 按照MegEngine的安装提示，完成python库的安装
 
 * 通过包管理器 pip 安装 MegEngine，将MegEngine加入到python包中
 
-::
-
-   pip3 install megengine -f https://megengine.org.cn/whl/mge.html
+  ::
+    
+    pip3 install megengine -f https://megengine.org.cn/whl/mge.html
 
 2. 下载MegEngine的代码仓库
 ''''''''''''''''''''''''''
-我们需要使用 C++ 环境进行最终的部署，所以这里还需要通过源文件来编译安装 C++ 库
+
+我们需要使用 C++ 环境进行最终的部署，所以这里还需要通过源文件来编译安装 C++ 库。
 
 ::
 
    git clone https://github.com/MegEngine/MegEngine.git
 
-Megengine的依赖组件都位于 third_party 目录下，在有网络支持的条件下，使用如下脚本进行安装。
+MegEngine的依赖组件都位于 third_party 目录下，在有网络支持的条件下，使用如下脚本进行安装。
 
 ::
 
@@ -36,14 +39,15 @@ Megengine的依赖组件都位于 third_party 目录下，在有网络支持的�
 MegEngine可以支持多平台的交叉编译，可以根据官方指导文档选择不同目标的编译。
 对这个例子来说，我们选择arm-android的交叉编译。
 
-* 在ubuntu(16.04/18.04)上进行 arm-android的交叉编译:
-   1. 到android的官网下载NDK的相关工具，这里推荐*android-ndk-r21*以上的版本：https://developer.android.google.cn/ndk/downloads/ 
+在ubuntu(16.04/18.04)上进行 arm-android的交叉编译:
+
+   1. 到android的官网下载NDK的相关工具，这里推荐 *android-ndk-r21* 以上的版本： `NDK下载`_ 
    2. 在bash中设置NDK_ROOT 环境变量：export NDK_ROOT=NDK_DIR
    3. 使用以下脚本进行arm-android的交叉编译：
 
-::
+      ::
 
-   ./scripts/cmake-build/cross_build_android_arm_inference.sh
+         ./scripts/cmake-build/cross_build_android_arm_inference.sh
 
 编译完成后，我们可以在 *build_dir/android/arm64-v8a/Release/install* 目录下找到编译生成的库文件和相关头文件。
 这时，可以检查一下生成的库是否对应目标架构：
@@ -63,12 +67,12 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 官方 `MegEngine ModelHub`_ 提供了多种预训练模型，以及基于python对这些模型进行训练、推理的指导文档。
 通过这些指导文档，我们就可以大体了解训练和推理的基本过程。
 
-接下来，通过以下python代码基于动态图的神经网络，实现动态图到静态图的转换并dump出可供c++调用的文件。
+接下来，通过以下python代码基于动态图的神经网络，实现动态图到静态图的转换并dump出可供C++调用的文件。
 
 *代码片段:*
 
 .. code-block:: python
-   :linenos:
+
 
    import megengine.module as M
    import megengine.functional as F
@@ -99,14 +103,14 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 执行脚本，并完成模型转换后，我们就获得了可以通过MegEngine C++ API加载的预训练模型文件 **shufflenet_deploy.mge**。
 
 *这里需要注意，dump函数定义了input 为 "data"，在后续使用推理接口传入数据时，需要保持名称一致。*
-*另外，dump参数 "optimize_for_inference=True" 可以对dump出的模型进行优化，具体信息可以参考* `dump optimize api`_
+*另外，dump参数 "optimize_for_inference=True" 可以对dump出的模型进行优化，具体信息可以参考* :meth:`dump optimize API <megengine.jit.trace.dump>` 
 
-4. Shufflenet_v2 C++ 实现示例
+4. ShuffleNet V2 C++ 实现示例
 ''''''''''''''''''''''''''''''''
-基于官方的 xor_net C++ sample `xor net 部署`_ ，我们可以实现自己的基于shufflenet_v2的推理代码。
+基于官方的 xor net C++ 案例 `xor net 部署`_ ，我们可以实现自己的基于ShuffleNet V2的推理代码。
 代码的任务分成四步：
 
-   1. 参考官网对于 `shufflenet_v2模型`_ 要求, 需要先将图像数据转换为指定格式的tensor
+   1. 参考官网对于 `ShuffleNet V2模型`_ 要求, 需要先将图像数据转换为指定格式的tensor
    2. 将转换好的数据输入到模型的输入层
    3. 调用MegEngine C++接口，实现推理过程
    4. 将模型的预测结果进行解析，并打印出来
@@ -115,17 +119,21 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 在前面章节，我们在将PKL文件转换成mge模型的时候，为了计算图的全流程，我们是给模型的input层填充了一些随机数据。
 现在需要将真实的图像数据填充到input层，以完成对图像的推理。在这个例子中，模型要求的输入数据为 **CHW:3*224*224**。
-根据 `shufflenet_v2模型`_ 的说明，我们需要对图像做以下的预处理
+根据 `ShuffleNet V2模型`_ 的说明，我们需要对图像做以下的预处理
 
    1. 将图像格式转换为BGR,
    2. 先将图像缩放到256*256，避免在后续的裁切中有更多的信息损失，
    3. 将图像中心裁切到 224*224 的大小，保留ROI区域，并适配模型输入要求，
-   4. 将裁切后的图像做归一化处理, 这里用到的mean和std为： mean: [103.530, 116.280, 123.675], std: [57.375, 57.120, 58.395]
+   4. 将裁切后的图像做归一化处理, 这里用到的mean和std为： 
+      
+      mean: [103.530, 116.280, 123.675]
+
+      std: [57.375, 57.120, 58.395]
 
 关于图像转换的步骤，可以参考 `inference.py`_ 中的原始代码片段：
 
 .. code-block:: python
-   :linenos:
+
 
    transform = T.Compose(
       [
@@ -148,7 +156,6 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 *代码片段:*
 
 .. code-block:: c++
-   :linenos:
 
    constexpr int RESIZE_WIDTH = 256;
    constexpr int RESIZE_HEIGHT = 256;
@@ -181,7 +188,7 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 *代码片段:*
 
 .. code-block:: c++
-   :linenos:
+
 
       auto data = network.tensor_map.at("data");
       data->resize({1,3,224,224});
@@ -197,7 +204,9 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
          iptr3[j] = imgptr[3*j +2];
       }
 
-*注意，此处网络的输入层名称为“data”，需要和第3节中dump时传入的名称保持一致。*
+.. note::
+
+    注意，此处网络的输入层名称为“data”，需要和第3节中dump时传入的名称保持一致。
 
 完成数据格式转换后，调用MegEngine的推理接口，对输入图像数据进行预测。
 
@@ -207,7 +216,7 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 *代码片段:*
 
 .. code-block:: c++
-   :linenos:
+
 
    // 读取通过运行参数指定的模型文件,inp_file 需要输入的shufflenet_v2.mge文件
    std::unique_ptr<serialization::InputFile> inp_file = serialization::InputFile::make_fs(argv[1]);
@@ -246,7 +255,7 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
    //dimension
    predict.shape().ndim
 
-对于 shufflenent_v2 这个case来说，num_class 也即是 类别数保存在：
+对于 ShuffleNet V2 这个case来说，num_class 也即是 *类别数* 保存在：
 
 ::
 
@@ -257,7 +266,7 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 *代码片段:*
 
 .. code-block:: c++
-   :linenos:
+
 
    for (int i = 0; i < num_classes; i++){
       sum += predict_ptr[i];
@@ -323,7 +332,7 @@ JNI 整体的目录结构设计如下：
 *头文件shufflenet_interface.h代码片段:*
 
 .. code-block:: c++
-   :linenos:
+
 
     typedef void *ShuffleNetContext_PTR;
     ShuffleNetContext_PTR PUBLIC_API shufflenet_init(const ModelInit &init);
@@ -339,7 +348,7 @@ JNI 整体的目录结构设计如下：
 *测试程序shufflenet_loadrun.cpp代码片段:*
 
 .. code-block:: c++
-   :linenos:
+
    
     #include "shufflenet_interface.h"
 
@@ -431,6 +440,8 @@ JNI 整体的目录结构设计如下：
 测试图片
 
 .. image:: imgs/cat.jpg
+   :align: center
+   :scale: 50%
 
 执行测试程序后，我们可以从标准输出获得predict的结果：
 ::
@@ -446,7 +457,7 @@ JNI 整体的目录结构设计如下：
 6. Android Camera 预览实时推理
 ''''''''''''''''''''''''''''''''''''''''''
 在这个章节，我们来看一下如何使用Android Camera做实时推理
-我们可以基于`Android Camera Example github`_修改，快速搭建我们的APP。
+我们可以基于 `Android Camera Example github`_ 修改，快速搭建我们的APP。
 
 主要有如下过程：
 
@@ -561,6 +572,9 @@ JNI 参考代码：`inference jni 参考代码`_
 经过前面实现，我们就可以build APP了。构建完成后， 我们就可以得到一个apk文件， 可以安装到手机来测试并继续优化了。
 
 .. image:: imgs/inference_demo.png
+   :align: center
+   :height: 600px
+   :scale: 50%
 
 
 7. 量化部署
@@ -574,18 +588,18 @@ MegEngine 也可以采用量化的模型在arm-android上进行部署，部署�
 .. _`MegEngine github`: https://github.com/MegEngine/MegEngine
 .. _`MegEngine ModelHub`: https://megengine.org.cn/model-hub
 .. _`MegEngine Model`: https://github.com/MegEngine/Models
-.. _`dump optimize api`: https://megengine.org.cn/doc/latest/autogen/megengine.jit.html?highlight=optimize_for_inference#megengine.jit.trace.dump
 .. _`xor net 部署`: https://megengine.org.cn/doc/latest/advanced/deployment.html
-.. _`shufflenet_v2模型`: https://megengine.org.cn/model-hub/megengine_vision_shufflenet_v2/
+.. _`ShuffleNet V2模型`: https://megengine.org.cn/model-hub/megengine_vision_shufflenet_v2/
 .. _`inference.py`: https://github.com/MegEngine/Models/blob/master/official/vision/classification/shufflenet/inference.py
 .. _`imagenet_class_info.json`: https://github.com/MegEngine/Models/blob/master/official/assets/imagenet_class_info.json
 .. _`模型量化 Model Quantization`: https://github.com/MegEngine/Models/tree/master/official/quantization
+.. _`NDK下载`: https://developer.android.google.cn/ndk/downloads/ 
 
-.. _`C++ 推理代码`: inference_cpp_predict_code.html
-.. _`shufflenet interface 代码`: shufflenet_interface_code.html
-.. _`build inference 脚本`: build_inference_script.html
-.. _`libshufflenet_inference CMake 构建脚本`: libshufflenet_inference_CMakeLists_script.html
-.. _`inference jni CMake 构建脚本`: inference_jni_CMakeLists_script.html
-.. _`inference jni 参考代码`: inference_jni_code.html
-.. _`Camera preview 参考代码`: Camera2BasicFragment_code.html
-.. _`ImageNetClassifier`: ImageNetClassifier_code.html
+.. _`C++ 推理代码`: https://github.com/MegEngine/Inference-Demo/blob/master/native/shufflenet_interface/src/shufflenet_run.cpp
+.. _`shufflenet interface 代码`: https://github.com/MegEngine/Inference-Demo/blob/master/native/shufflenet_interface/src/shufflenet_interface.cpp
+.. _`build inference 脚本`: https://github.com/MegEngine/Inference-Demo/blob/master/native/shufflenet_interface/build_inference.sh
+.. _`libshufflenet_inference CMake 构建脚本`: https://github.com/MegEngine/Inference-Demo/blob/master/native/shufflenet_interface/CMakeLists.txt
+.. _`inference jni CMake 构建脚本`: https://github.com/MegEngine/Inference-Demo/blob/master/camera_app/Camera2Basic/inference_jni/src/main/cpp/CMakeLists.txt
+.. _`inference jni 参考代码`: https://github.com/MegEngine/Inference-Demo/blob/master/camera_app/Camera2Basic/inference_jni/src/main/java/com/example/inference/ImageNetClassifier.java
+.. _`Camera preview 参考代码`: https://github.com/MegEngine/Inference-Demo/blob/master/camera_app/Camera2Basic/inference_jni/src/main/cpp/inference_jni.cpp
+.. _`ImageNetClassifier`: https://github.com/MegEngine/Inference-Demo/blob/master/camera_app/Camera2Basic/app/src/main/java/com/example/android/camera2basic/Camera2BasicFragment.java

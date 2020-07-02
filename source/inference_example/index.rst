@@ -1,15 +1,12 @@
 ====================================
-MegEngine Learning Guide
+项目实战
 ====================================
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: 教程目录：
    
    inference_chinese
-   kaggle_flowerclassify_demo
-   kaggle_raw_data_functions
-   reference_codes
 
 
 
