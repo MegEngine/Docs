@@ -1,0 +1,15 @@
+/megbrain/serialization/load_dump_config.h
+/megbrain/serialization/serializer.h
+/megbrain/serialization/file.h
+/megbrain/plugin/*
+/megbrain/gopt/inference.h
+/megbrain/comp_node.h
+/megbrain/dtype.h
+/megbrain/exception.h
+/megbrain/graph/cg.h
+/megbrain/graph/operator_node.h
+/megbrain/graph/event.h
+/megbrain/graph/symbol_var.h
+/megbrain/graph/var_node.h
+/megbrain/tensor.h
+/megbrain/utils/debug.h

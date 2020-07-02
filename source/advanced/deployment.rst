@@ -55,7 +55,7 @@ MegEngine 的一大核心优势是“训练推理一体化”，其中“训练�
 .. literalinclude:: src/xornet_deploy.cpp
     :language: cpp
 
-简单解释一下代码的意思，我们首先通过 ``serialization::GraphLoader`` 将模型加载进来，接着通过 ``tensor_map`` 和上节指定的输入名称 ``data`` ，找到模型的输入指针，再将运行时提供的输入 ``x`` 和 ``y`` 赋值给输入指针，然后我们使用 ``network.graph->compile`` 将模型编译成一个函数接口，并调用执行，最后将得到的结果 ``predict`` 进行输出，该输出的两个值即为异或结果为 0 的概率以及为 1 的概率 。
+简单解释一下代码的意思，我们首先通过 :ref:`exhale_class_classmgb_1_1serialization_1_1GraphLoader` 将模型加载进来，接着通过 ``tensor_map`` 和上节指定的输入名称 ``data`` ，找到模型的输入指针，再将运行时提供的输入 ``x`` 和 ``y`` 赋值给输入指针，然后我们使用 ``network.graph->compile`` 将模型编译成一个函数接口，并调用执行，最后将得到的结果 ``predict`` 进行输出，该输出的两个值即为异或结果为 0 的概率以及为 1 的概率 。
 
 编译并执行
 ------------------------------

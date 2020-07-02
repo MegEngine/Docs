@@ -6,6 +6,8 @@ source/api
 source/api_zh
 source/cpp_api
 source/locale
+source/doxyoutput
+source/include/file
 *.pyc
 *.state_dict
 *.swp

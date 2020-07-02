@@ -18,20 +18,18 @@
     ```bash
     pip3 install megengine -f https://megengine.org.cn/whl/mge.html
     ```
-2. Get MegEngine installation path ``MGE_ROOT``.
+
+2. Make sure you have cloned [MegBrain](https://git-core.megvii-inc.com/brain-sdk/MegBrain)
 
     ```bash
-    MGE_ROOT=`python3 -c "import os; \
-                          import megengine; \
-                          print(os.path.dirname(megengine.__file__))"`
-    echo "MegEngine installed at" $MGE_ROOT
+    git clone git@git-core.megvii-inc.com:brain-sdk/MegBrain.git
     ```
 
-3. Run [gen_python_docs/gendoc.sh](gen_python_docs/gendoc.sh) to generate HTML files.
-    The script accepts the MegEngine installation path as the argument.
+3. Run [gen_python_docs/gen_html.sh](gen_python_docs/gendoc.sh) to generate HTML files.
+    The script accepts the MegEngine installation and MegBrain clone path as the argument.
 
     ```bash
-    ./gen_python_docs/gene_html.sh $MGE_ROOT
+    ./gen_python_docs/gen_html.sh $MGE_ROOT $MEB_ROOT
     ```
 
     Note that the RST files generated from python docstring are put under `source/autogen`.
@@ -56,8 +54,8 @@
 
 API docstring also contains examples written by [doctest](https://docs.python.org/3/library/doctest.html). Run the tests by
 
-```
-gen_python_docs/gene_html.sh ~/.local/lib/python3.6/site-packages
+```bash
+gen_python_docs/gen_html.sh ~/.local/lib/python3.6/site-packages $MEB_ROOT
 sphinx-build -b doctest source build/doctest
 ```
 
@@ -74,3 +72,19 @@ build succeeded.
 ```
 
 Otherwise, please fix any failed test or warning.
+
+## Insert C++ doc hyperlink
+
+1. For class referencing:
+
+find the class rst file and copy its name and replace the doc with
+```
+:ref:`exhale_class_<filename without .rst>`
+```
+
+2. For file referencing；
+
+find the file and copy its name and replace the doc with
+```
+:ref:`file_file_<filename>`
+```

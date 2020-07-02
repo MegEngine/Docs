@@ -13,6 +13,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+import textwrap
 
 # -- Project information -----------------------------------------------------
 
@@ -35,7 +36,37 @@ extensions = [
     'sphinxcontrib.jupyter',
     'sphinx_autodoc_typehints',
     'nbsphinx',
+    'breathe',
+    'exhale',
 ]
+
+# Setup the breathe extension
+breathe_projects = {
+    "MegEngine Doc": "./doxyoutput/xml"
+}
+breathe_default_project = "MegEngine Doc"
+
+# Setup the exhale extension
+exhale_args = {
+    # These arguments are required
+    "containmentFolder":     "./cpp_api",
+    "rootFileName":          "library_root.rst",
+    "rootFileTitle":         "C++ API",
+    "doxygenStripFromPath":  "include",
+    # "doxygenStripFromPath":  "../../../MegBrain/src",
+    # Suggested optional arguments
+    "createTreeView":        True,
+    # TIP: if using the sphinx-bootstrap-theme, you need
+    # "treeViewIsBootstrap": True,
+    "exhaleExecutesDoxygen": True,
+    "exhaleDoxygenStdin": textwrap.dedent('''
+        INPUT      = include
+        # Using `=` instead of `+=` overrides
+        PREDEFINED = FOO="12"
+    '''),
+    # "createTreeView": True,
+    "verboseBuild": True,
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

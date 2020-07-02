@@ -3,14 +3,11 @@
 cd $(dirname $0)
 rm -rf ../build/html
 
-AUTOGEN=../source/api
-rm -rf $AUTOGEN
-
 ROOT_PATH=$1
+API_DIR=${API_DIR:-api}
 
-#if [ ! -f "$ROOT_PATH/megengine/example.py" ]; then
-    #ln -s $PWD/example/example.py $ROOT_PATH/megengine/
-#fi
+AUTOGEN=../source/${API_DIR}
+rm -rf $AUTOGEN
 
 export SPHINX_APIDOC_OPTIONS="members,undoc-members,show-inheritance"
 
@@ -25,26 +22,13 @@ rm $AUTOGEN/megengine.data.dataset.rst
 tail -n +4 $AUTOGEN/megengine.data.dataset.vision.rst >> $AUTOGEN/megengine.data.rst
 rm $AUTOGEN/megengine.data.dataset.vision.rst
 
-# add contents on each page
-# sed -e '9i.. contents::\n' $AUTOGEN/* -i
-
-# add imported-members on each module
-# sed -e '/:members:/a\ \ \ \ :imported-members:' $AUTOGEN/* -i
-
-# fix title level
-# sed -e '/ module$/ {n; s/-/^/g}' $AUTOGEN/* -i
-
 # to avoid warning for unreferenced file
 rm -f $AUTOGEN/modules.rst
 
-#
-#if [[ -d source/api ]]
-#then
-#    rm -rf source/api
-#fi
-#mkdir source/api
-#cp source/api_zh/* source/api/
-#rm -rf source/api_zh
-# sphinx-build -b doctest source build/doctest
 cd ..
-sphinx-build source build/html
+
+if [[ ! -n $BUILD_LANG ]]; then
+    sphinx-build -j$(nproc) source build/html
+else
+    sphinx-build -D language="zh_CN" -j$(nproc) source build/html
+fi
