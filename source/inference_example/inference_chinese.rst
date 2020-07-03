@@ -3,10 +3,10 @@ Android推理示例
 =======================================
 
 
-ShuffleNet V2 arm-android示例快速入门
+ShuffleNet V2 ARM-Android 示例快速入门
 ---------------------------------------
 
-这是一个简单的图像分类应用，基于 MegEngine C++接口、Android JNI及Camera Api，帮助大家快速在Android平台实现一个图像分类的App。
+这是一个简单的图像分类应用，基于 MegEngine C++接口、Android JNI及Camera API，帮助大家快速在Android平台实现一个图像分类的App。
 在这个例子中所使用的模型，为MegEngine官方预训练的 `ShuffleNet V2模型`_ ，用于做简单的图像分类任务。
 
 1. 安装MegEngine python库
@@ -37,17 +37,17 @@ MegEngine的依赖组件都位于 third_party 目录下，在有网络支持的�
    ./third_party/install-mkl.sh
 
 MegEngine可以支持多平台的交叉编译，可以根据官方指导文档选择不同目标的编译。
-对这个例子来说，我们选择arm-android的交叉编译。
+对这个例子来说，我们选择ARM-Android的交叉编译。
 
-在ubuntu(16.04/18.04)上进行 arm-android的交叉编译:
+在ubuntu(16.04/18.04)上进行 ARM-Android的交叉编译:
 
-   1. 到android的官网下载NDK的相关工具，这里推荐 *android-ndk-r21* 以上的版本： `NDK下载`_ 
-   2. 在bash中设置NDK_ROOT 环境变量：export NDK_ROOT=NDK_DIR
-   3. 使用以下脚本进行arm-android的交叉编译：
+1. 到Android的官网下载NDK的相关工具，这里推荐 *android-ndk-r21* 以上的版本： `NDK下载`_ 
+2. 在bash中设置NDK_ROOT 环境变量：export NDK_ROOT=NDK_DIR
+3. 使用以下脚本进行ARM-Android的交叉编译：
 
-      ::
+   ::
 
-         ./scripts/cmake-build/cross_build_android_arm_inference.sh
+      ./scripts/cmake-build/cross_build_android_arm_inference.sh
 
 编译完成后，我们可以在 *build_dir/android/arm64-v8a/Release/install* 目录下找到编译生成的库文件和相关头文件。
 这时，可以检查一下生成的库是否对应目标架构：
@@ -61,8 +61,8 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 '''''''''''''''''
 想要使用MegEngine C++ API来加载模型，我们还需要做一些准备工作
 
-   #. 获取基于python接口预训练好的神经网络
-   #. 将基于动态图的神经网络转换成静态图后，再转换成MegEngine C++ API可以加载的 mge文件
+#. 获取基于python接口预训练好的神经网络
+#. 将基于动态图的神经网络转换成静态图后，再转换成MegEngine C++ API可以加载的 mge文件
 
 官方 `MegEngine ModelHub`_ 提供了多种预训练模型，以及基于python对这些模型进行训练、推理的指导文档。
 通过这些指导文档，我们就可以大体了解训练和推理的基本过程。
@@ -110,10 +110,10 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 基于官方的 xor net C++ 案例 `xor net 部署`_ ，我们可以实现自己的基于ShuffleNet V2的推理代码。
 代码的任务分成四步：
 
-   1. 参考官网对于 `ShuffleNet V2模型`_ 要求, 需要先将图像数据转换为指定格式的tensor
-   2. 将转换好的数据输入到模型的输入层
-   3. 调用MegEngine C++接口，实现推理过程
-   4. 将模型的预测结果进行解析，并打印出来
+1. 参考官网对于 `ShuffleNet V2模型`_ 要求, 需要先将图像数据转换为指定格式的tensor
+2. 将转换好的数据输入到模型的输入层
+3. 调用MegEngine C++接口，实现推理过程
+4. 将模型的预测结果进行解析，并打印出来
 
 4.1. 将图像数据转换成tensor张量
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -121,14 +121,14 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 现在需要将真实的图像数据填充到input层，以完成对图像的推理。在这个例子中，模型要求的输入数据为 **CHW:3*224*224**。
 根据 `ShuffleNet V2模型`_ 的说明，我们需要对图像做以下的预处理
 
-   1. 将图像格式转换为BGR,
-   2. 先将图像缩放到256*256，避免在后续的裁切中有更多的信息损失，
-   3. 将图像中心裁切到 224*224 的大小，保留ROI区域，并适配模型输入要求，
-   4. 将裁切后的图像做归一化处理, 这里用到的mean和std为： 
-      
-      mean: [103.530, 116.280, 123.675]
+1. 将图像格式转换为BGR,
+2. 先将图像缩放到256*256，避免在后续的裁切中有更多的信息损失，
+3. 将图像中心裁切到 224*224 的大小，保留ROI区域，并适配模型输入要求，
+4. 将裁切后的图像做归一化处理, 这里用到的mean和std为： 
+  
+   mean: [103.530, 116.280, 123.675]
 
-      std: [57.375, 57.120, 58.395]
+   std: [57.375, 57.120, 58.395]
 
 关于图像转换的步骤，可以参考 `inference.py`_ 中的原始代码片段：
 
@@ -148,9 +148,9 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 
 具体到C++代码的实现，也同样分成三步，我们以opencv为例：
 
-   1. 宽高resize到256*256，
-   2. 中心裁切为224*224，
-   3. 对图像做归一化处理。
+1. 宽高resize到256*256，
+2. 中心裁切为224*224，
+3. 对图像做归一化处理。
 
 
 *代码片段:*
@@ -181,9 +181,9 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 4.2. 将转换好的图像数据传给 input 层
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   1. 原始图像数据格式是 'HWC', 需要转成模型需要的 'CHW' 数据格式。`HW表示宽高，C表示通道数`
-   2. 'CHW' 是 'NCHW' 的子集， `N表示batch size`
-   3. 以下是一个转换的参考示例代码：
+1. 原始图像数据格式是 'HWC', 需要转成模型需要的 'CHW' 数据格式。`HW表示宽高，C表示通道数`
+2. 'CHW' 是 'NCHW' 的子集， `N表示batch size`
+3. 以下是一个转换的参考示例代码：
 
 *代码片段:*
 
@@ -281,7 +281,7 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 
 调用MegEngine 推理接口的完整代码可以参考：`C++ 推理代码`_ 。
 
-接下来，我们来看看如何做arm-android的动态库封装，以使我们的android应用程序可以正常调用推理接口。
+接下来，我们来看看如何做ARM-Android的动态库封装，以使我们的Android应用程序可以正常调用推理接口。
 
 5. C++ Shufflenet SDK封装
 ''''''''''''''''''''''''''''''''''''''''''
@@ -464,7 +464,7 @@ JNI 整体的目录结构设计如下：
 * 将labels json文件和Model文件以assets方式打包到APK
 * 将libmegengine.so和libshufflenet_inference.so作为动态库打包到APK
 * 使用shufflenet interface实现JNI interface
-* 获取Android Camera Preview数据, 经由jni，最终送到MegEngine完成推理
+* 获取Android Camera Preview数据, 经由JNI，最终送到MegEngine完成推理
 
 app 的目录结构设计如下：
 
@@ -492,7 +492,7 @@ app 的目录结构设计如下：
 
 这里我们只需要将json文件和model 文件直接放到app的assets 目录即可， APP在构建的时候会自动将该目录的文件打包到apk
 
-6.2. 将APP依赖的jni及动态库打包成aar module
+6.2. 将APP依赖的JNI及动态库打包成aar module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 我们将APP依赖的功能相关的逻辑抽离出来，作为一个独立module打包成aar并添加到app依赖项中。我们来看一下构建脚本
@@ -501,7 +501,7 @@ APP添加inference_jni依赖项
 
     implementation project(path: ':inference_jni')
 
-在inference_jni gradle配置java和jni的编译选项, 这里我们选择只是构建arm64-v8a,如需要armeabi-v7a, 可以在abiFilters添加即可
+在inference_jni gradle配置Java和jni的编译选项, 这里我们选择只是构建arm64-v8a,如需要armeabi-v7a, 可以在abiFilters添加即可
 
 ::
     
@@ -530,40 +530,40 @@ APP添加inference_jni依赖项
     }
     
 inference jni构建脚本示例参考: `inference jni CMake 构建脚本`_
-这里会生成java interface会加载的动态库inference-jni。
+这里会生成Java interface会加载的动态库inference-jni。
 inference-jni以动态链接方式链接前面章节实现的libshufflenet_inference.so(已经预置放到jniLibs目录)
 
 
-6.3. 实现java interface及jni的调用
+6.3. 实现Java interface及JNI的调用
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-我们定义一个java class：ImageNetClassifier。 
+我们定义一个Java class：ImageNetClassifier。 
 该类关键函数如下功能：
 
-*   Create为工厂函数，用来实例化ImageNetClassifier并初始化jni interface（对应前文的shufflenet_init）
-*   prepareRun里实现加载动态库libinference-jni.so
-*   recognizeYUV420Tp1，推理函数（对应前文的shufflenet_recognize），并返回Top1
-*   close，销毁jni handle（对应前文的shufflenet_close）及当前classifier对象
+* Create为工厂函数，用来实例化ImageNetClassifier并初始化jni interface（对应前文的shufflenet_init）
+* prepareRun里实现加载动态库libinference-jni.so
+* recognizeYUV420Tp1，推理函数（对应前文的shufflenet_recognize），并返回Top1
+* close，销毁jni handle（对应前文的shufflenet_close）及当前classifier对象
 
 ImageNetClassifier 参考代码：`ImageNetClassifier`_
 
-6.4. 实现jni interface及libshufflenet_inference的调用
+6.4. 实现JNI interface及libshufflenet_inference的调用
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-jni interface主要是衔接java interface和shufflenet interface， 
-也就是将java 传递到native的参数转成shufflenet interface 可以识别的参数，完成shufflenet interface的调用。
+JNI interface主要是衔接Java interface和shufflenet interface， 
+也就是将Java 传递到native的参数转成shufflenet interface 可以识别的参数，完成shufflenet interface的调用。
 其中就包含了YUV420_888转BGR的逻辑.
 
 JNI 参考代码：`inference jni 参考代码`_
 
 6.5. 获取Camera Preview帧数据，完成推理
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-透过前面内容，我们已经封装出java的上层api，也即可以将camera的preview 数据直接送到java api即可将整个流程串通。
-大家可以自行选择使用Camera API，还是Camera API2来获取预览数据，api使用上会有些许差异，本章节我们使用主流的API2来演示。
+透过前面内容，我们已经封装出Java的上层API，也即可以将camera的preview 数据直接送到Java API即可将整个流程串通。
+大家可以自行选择使用Camera API，还是Camera API2来获取预览数据，API使用上会有些许差异，本章节我们使用主流的API2来演示。
 
 流程可以简化为：
-   * 创建一个格式为YUV420_888的ImageReader并设置为Camera Preview的Surface，然后开启预览。
-   * 在ImageReader收到预览帧数据后，我们就可以将帧数据post到后台线程并调用classifier.recognizeYUV420Tp1，
-   * 在jni完成YUV转BGR后送到Shufflenet interface，最终送到MegEngine完成推理。
-   * 在inference结果返回后，就可以在UI Thread 实时更新推理结果。
+* 创建一个格式为YUV420_888的ImageReader并设置为Camera Preview的Surface，然后开启预览。
+* 在ImageReader收到预览帧数据后，我们就可以将帧数据post到后台线程并调用classifier.recognizeYUV420Tp1，
+* 在jni完成YUV转BGR后送到Shufflenet interface，最终送到MegEngine完成推理。
+* 在inference结果返回后，就可以在UI Thread 实时更新推理结果。
 
 配置Camera预览的参考代码：`Camera preview 参考代码`_
 
@@ -579,7 +579,7 @@ JNI 参考代码：`inference jni 参考代码`_
 
 7. 量化部署
 ''''''''''''''''
-MegEngine 也可以采用量化的模型在arm-android上进行部署，部署过程和本文的上述4-7章完全一致。
+MegEngine 也可以采用量化的模型在ARM-Android上进行部署，部署过程和本文的上述4-7章完全一致。
 推理接口可以支持int8或fp32的模型部署。
 具体量化模型的训练和dump方法可以参考github上的指导： `模型量化 Model Quantization`_
 
