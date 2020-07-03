@@ -8,10 +8,12 @@ rm -rf source/cpp_api
 
 set -e
 
-if [ ! -n "$2" ]
+if [ ! -n "$1" ]
 then
     echo "MegBrain directory not provided"
     exit 1
+else
+    MGB_ROOT=$1
 fi
 
 exec 3<"source/include/h_file.txt"
@@ -20,15 +22,15 @@ exec 4<"source/include/h_location.txt"
 while read line1<&3 && read line2<&4
 do
     mkdir -p "source/include/file${line2%/*}"
-    cp ${2}${line1} "source/include/file${line2%/*}"
+    cp ${MGB_ROOT}${line1} "source/include/file${line2%/*}"
 done
 
-if [ ! -n "$1" ]; then
+if [ ! -n "$2" ]; then
     MGE_ROOT=`python3 -c "import os; \
                           import megengine; \
                           print(os.path.dirname(megengine.__file__))"`
 else
-    MGE_ROOT=$1
+    MGE_ROOT=$2
 fi
 
 ./gen_python_docs/gendoc.sh $MGE_ROOT

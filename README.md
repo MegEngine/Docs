@@ -29,7 +29,7 @@
     The script accepts the MegEngine installation and MegBrain clone path as the argument.
 
     ```bash
-    ./gen_python_docs/gen_html.sh $MGE_ROOT $MEB_ROOT
+    ./gen_python_docs/gen_html.sh $MGB_ROOT $MGE_ROOT(optional)
     ```
 
     Note that the RST files generated from python docstring are put under `source/autogen`.
@@ -55,7 +55,7 @@
 API docstring also contains examples written by [doctest](https://docs.python.org/3/library/doctest.html). Run the tests by
 
 ```bash
-gen_python_docs/gen_html.sh ~/.local/lib/python3.6/site-packages $MEB_ROOT
+gen_python_docs/gen_html.sh $MGB_ROOT ~/.local/lib/python3.6/site-packages/megengine
 sphinx-build -b doctest source build/doctest
 ```
 
