@@ -27,8 +27,4 @@ rm -f $AUTOGEN/modules.rst
 
 cd ..
 
-if [[ ! -n $BUILD_LANG ]]; then
-    sphinx-build -j$(nproc) source build/html
-else
-    sphinx-build -D language="zh_CN" -j$(nproc) source build/html
-fi
+sphinx-build ${BUILDLANG} -j$(nproc) source build/html

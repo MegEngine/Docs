@@ -53,7 +53,6 @@ exhale_args = {
     "rootFileName":          "library_root.rst",
     "rootFileTitle":         "C++ API",
     "doxygenStripFromPath":  "include",
-    # "doxygenStripFromPath":  "../../../MegBrain/src",
     # Suggested optional arguments
     "createTreeView":        True,
     # TIP: if using the sphinx-bootstrap-theme, you need
@@ -61,8 +60,6 @@ exhale_args = {
     "exhaleExecutesDoxygen": True,
     "exhaleDoxygenStdin": textwrap.dedent('''
         INPUT      = include
-        # Using `=` instead of `+=` overrides
-        PREDEFINED = FOO="12"
     '''),
     # "createTreeView": True,
     "verboseBuild": True,
