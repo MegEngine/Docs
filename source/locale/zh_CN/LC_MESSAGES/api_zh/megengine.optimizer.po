@@ -192,7 +192,7 @@ msgstr "计算当前调度器(scheduler)的学习率。"
 #: megengine.optimizer.lr_scheduler.LRScheduler.load_state_dict:1
 #: megengine.optimizer.multi_step_lr.MultiStepLR.load_state_dict:1 of
 msgid "Loads the schedulers state."
-msgstr "加载调度器(scheduler)的状态"
+msgstr "加载调度器(scheduler)的状态。"
 
 #: megengine.optimizer.lr_scheduler.LRScheduler.load_state_dict:3
 #: megengine.optimizer.multi_step_lr.MultiStepLR.load_state_dict:3 of

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 09:28-0700\n"
+"POT-Creation-Date: 2020-07-07 16:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "megengine.core.device"
 
 #: megengine.core.device.get_default_device:1 of
 msgid "Gets default computing node."
-msgstr "得到默认的计算节点"
+msgstr "获取默认的计算节点。"
 
 #: megengine.core.device.get_default_device:3 of
 msgid "It returns the value set by :func:`~.set_default_device`."
@@ -56,7 +56,7 @@ msgstr ":py:class:`str`"
 
 #: megengine.core.device.get_device_count:1 of
 msgid "Gets number of devices installed on this system."
-msgstr "获取安装在此系统的设备数"
+msgstr "获取安装在此系统的设备数。"
 
 #: megengine.core.device.get_device_count
 #: megengine.core.device.set_default_device
@@ -78,7 +78,7 @@ msgstr ":py:class:`int`"
 
 #: megengine.core.device.is_cuda_available:1 of
 msgid "Returns whether cuda device is available on this system."
-msgstr "返回是否可在当前系统获取cuda设备。"
+msgstr "是否可在当前系统获取cuda设备。"
 
 #: megengine.core.device.is_cuda_available:6 of
 msgid ":py:class:`bool`"
@@ -86,7 +86,7 @@ msgstr ":py:class:`bool`"
 
 #: megengine.core.device.set_default_device:1 of
 msgid "Sets default computing node."
-msgstr "设置默认的计算节点"
+msgstr "设置默认的计算节点。"
 
 #: megengine.core.device.set_default_device:4 of
 msgid ""
@@ -95,8 +95,8 @@ msgid ""
 "'gupx' can also be used to specify any number of cpu or gpu devices.  "
 "'multithread' device type is avaliable when inference, which implements "
 "multi-threading parallelism at the operator level. For example, "
-"'multithread4' will compute with 4 threads. which implements  The default "
-"value is 'xpux' to specify any device available.  It can also be set by "
+"'multithread4' will compute with 4 threads. which implements  The default"
+" value is 'xpux' to specify any device available.  It can also be set by "
 "environmental variable `MGE_DEFAULT_DEVICE`."
 msgstr " "
 
@@ -114,8 +114,7 @@ msgid ""
 "'multithread' device type is avaliable when inference, which implements "
 "multi-threading parallelism at the operator level. For example, "
 "'multithread4' will compute with 4 threads. which implements"
-msgstr ""
-"推理时，'multithread' 型设备可用。它可以实现算子级别的多线程并行运算。例如 'multithread4' 会使用4个线程进行计算。"
+msgstr "推理时，'multithread' 型设备可用。它可以实现算子级别的多线程并行运算。例如 'multithread4' 会使用4个线程进行计算。"
 
 #: megengine.core.device.set_default_device:12 of
 msgid "The default value is 'xpux' to specify any device available."
@@ -145,16 +144,14 @@ msgid ""
 msgstr "计算规则应在 ``forward`` 方法中定义，同时， ``backward`` 中方法定义梯度计算。"
 
 #: megengine.core.function.Function:6 of
-msgid ""
-"Each instance of ``Function`` should be used only once during forwardding."
+msgid "Each instance of ``Function`` should be used only once during forwardding."
 msgstr "``Function`` 的每个实例只能在前向计算过程中调用一次。"
 
 #: megengine.core.function.Function:8 megengine.core.graph.Graph:8
 #: megengine.core.serialization.load:23 megengine.core.tensor.Tensor.ai:3
 #: megengine.core.tensor.Tensor.batched_mi:9
 #: megengine.core.tensor.Tensor.broadcast:3 megengine.core.tensor.Tensor.mi:4
-#: megengine.core.tensor.Tensor.reshape:3
-#: megengine.core.tensor_factory.ones:14
+#: megengine.core.tensor.Tensor.reshape:3 megengine.core.tensor_factory.ones:14
 #: megengine.core.tensor_factory.zeros:14 of
 msgid "Examples:"
 msgstr "示例代码："
@@ -165,16 +162,16 @@ msgstr "定义了如何对算子进行深度复制"
 
 #: megengine.core.function.Function.backward:1 of
 msgid ""
-"Compute the gradient of the forward function. It must be overriden by all "
-"subclasses."
+"Compute the gradient of the forward function. It must be overriden by all"
+" subclasses."
 msgstr "计算forward函数的梯度。它必须在所有子类中被重写。"
 
 #: megengine.core.function.Function.backward:4 of
 msgid ""
 "gradients of outputs that are returned by "
 ":meth:`~.function.Function.forward`  .. note::      In case when some "
-"tensors of outputs are not related to loss function, the corresponding     "
-"values in ``output_grads`` would be ``None``."
+"tensors of outputs are not related to loss function, the corresponding"
+"     values in ``output_grads`` would be ``None``."
 msgstr ""
 ":meth:`~.function.Function.forward` 返回的输出梯度。\n"
 " .. note::      如果输出的张量和损失函数不相关，对应的 ``output_grads`` 值应为 ``None`` 。"
@@ -187,17 +184,18 @@ msgstr ":meth:`~.function.Function.forward` 返回的输出梯度"
 
 #: megengine.core.function.Function.backward:8 of
 msgid ""
-"In case when some tensors of outputs are not related to loss function, the "
-"corresponding values in ``output_grads`` would be ``None``."
+"In case when some tensors of outputs are not related to loss function, "
+"the corresponding values in ``output_grads`` would be ``None``."
 msgstr "当一些输出的张量和损失函数不相关时，对应的 ``output_grads`` 值应为 ``None`` 。"
 
 #: megengine.core.function.Function.backward:13 of
 msgid ""
 "This method should return a tuple which containing the gradients of all "
 "inputs, in the same order as the ``inputs`` argument of "
-":meth:`~.function.Function.forward` . A ``Tensor`` could be returned instead"
-" if there is only one input. If users want to stop the propagation of some "
-"gradients, the corresponding returned values should be set ``None`` ."
+":meth:`~.function.Function.forward` . A ``Tensor`` could be returned "
+"instead if there is only one input. If users want to stop the propagation"
+" of some gradients, the corresponding returned values should be set "
+"``None`` ."
 msgstr ""
 "此方法返回一个由所有输入梯度组成的元组，这些梯度的顺序和 :meth:`~.function.Function.forward` 中的 "
 "``inputs`` 参数顺序相同。如果只有一个输入，则替代地返回单个 ``Tensor`` 。如果用户想停止某些梯度的传播，相应的返回值应设为 "
@@ -214,8 +212,8 @@ msgstr ""
 
 #: megengine.core.function.Function.forward:1 of
 msgid ""
-"Applies operations to ``inputs`` and returns results. It must be overriden "
-"by all subclasses. Users can call "
+"Applies operations to ``inputs`` and returns results. It must be "
+"overriden by all subclasses. Users can call "
 ":meth:`~.function.Function.save_for_backward` in this method to save "
 "tensors."
 msgstr ""
@@ -237,22 +235,21 @@ msgstr "张量的元组或单个张量。"
 
 #: megengine.core.function.Function.forward:10 of
 msgid ""
-"This method should return a tuple of Tensor or a single Tensor representing "
-"the output of the function."
+"This method should return a tuple of Tensor or a single Tensor "
+"representing the output of the function."
 msgstr "这个方法返回张量元组或单个张量，表示函数的输出。"
 
 #: megengine.core.function.Function.save_for_backward:1 of
 msgid ""
-"Saves tensors needed for gradient computation. This method should be called "
-"only once in :meth:`~.function.Function.forward`, additional calls will "
-"replace values saved previously."
+"Saves tensors needed for gradient computation. This method should be "
+"called only once in :meth:`~.function.Function.forward`, additional calls"
+" will replace values saved previously."
 msgstr ""
 "保存可用于梯度计算的多个张量。该方法在 :meth:`~.function.Function.forward` "
 "中只调用一次。额外的调用会覆盖之前保存的值。"
 
 #: megengine.core.function.Function.save_for_backward:4 of
-msgid ""
-"The saved tensors can be accessed through the ``saved_tensors`` attribute."
+msgid "The saved tensors can be accessed through the ``saved_tensors`` attribute."
 msgstr "保存的张量可以通过 ``saved_tensors`` 属性进行访问。"
 
 #: ../../source/api_zh/megengine.core.rst:27
@@ -297,30 +294,30 @@ msgstr "输出文件路径"
 #: megengine.core.graph.dump:9 of
 msgid ""
 "``['f16_io_f32_comp', 'f16_io_comp', 'use_nhwcd4', "
-"'fuse_conv_bias_nonlinearity']`` , four elements are optional, it can be an "
-"empty list, None or a list containing any of them.  .. note::      "
-"``f16_io_f32_comp`` – whether to use float16 for I/O between oprs and use "
-"float32 as internal computation precision. Note the output var would be "
-"changed to float16;      ``f16_io_comp`` – whether to use float16 for both "
-"I/O and computation precision;      ``use_nhwcd4`` – whether to use NHWCD4 "
-"data format. This is faster on some OpenCL devices;      "
-"``fuse_conv_bias_nonlinearity`` – whether to fuse conv+bias+nonlinearty into"
-" one opr. This is supported only when ``use_nhwcd4`` is set."
+"'fuse_conv_bias_nonlinearity']`` , four elements are optional, it can be "
+"an empty list, None or a list containing any of them.  .. note::      "
+"``f16_io_f32_comp`` – whether to use float16 for I/O between oprs and use"
+" float32 as internal computation precision. Note the output var would be "
+"changed to float16;      ``f16_io_comp`` – whether to use float16 for "
+"both I/O and computation precision;      ``use_nhwcd4`` – whether to use "
+"NHWCD4 data format. This is faster on some OpenCL devices;      "
+"``fuse_conv_bias_nonlinearity`` – whether to fuse conv+bias+nonlinearty "
+"into one opr. This is supported only when ``use_nhwcd4`` is set."
 msgstr "  "
 
 #: megengine.core.graph.dump:9 of
 msgid ""
 "``['f16_io_f32_comp', 'f16_io_comp', 'use_nhwcd4', "
-"'fuse_conv_bias_nonlinearity']`` , four elements are optional, it can be an "
-"empty list, None or a list containing any of them."
+"'fuse_conv_bias_nonlinearity']`` , four elements are optional, it can be "
+"an empty list, None or a list containing any of them."
 msgstr ""
 "``[“f16_io_f32_comp”，“f16_io_comp”，“use_nhwcd4”，“fuse_conv_bias_nonlinearity”]``"
 " ，4个元素都是可选项，它可以是一个空列表，None或仅有个别项的列表。"
 
 #: megengine.core.graph.dump:13 of
 msgid ""
-"``f16_io_f32_comp`` – whether to use float16 for I/O between oprs and use "
-"float32 as internal computation precision. Note the output var would be "
+"``f16_io_f32_comp`` – whether to use float16 for I/O between oprs and use"
+" float32 as internal computation precision. Note the output var would be "
 "changed to float16;"
 msgstr ""
 "``f16_io_f32_comp``  - "
@@ -334,17 +331,17 @@ msgstr "``f16_io_comp``  - 是否使用float16同时作为I/O和中间计算精�
 
 #: megengine.core.graph.dump:17 of
 msgid ""
-"``use_nhwcd4`` – whether to use NHWCD4 data format. This is faster on some "
-"OpenCL devices;"
+"``use_nhwcd4`` – whether to use NHWCD4 data format. This is faster on "
+"some OpenCL devices;"
 msgstr "``use_nhwcd4``  - 是否使用NHWCD4数据格式。在部分OpenCL设备上，该格式可加快运行速度;"
 
 #: megengine.core.graph.dump:19 of
 msgid ""
-"``fuse_conv_bias_nonlinearity`` – whether to fuse conv+bias+nonlinearty into"
-" one opr. This is supported only when ``use_nhwcd4`` is set."
+"``fuse_conv_bias_nonlinearity`` – whether to fuse conv+bias+nonlinearty "
+"into one opr. This is supported only when ``use_nhwcd4`` is set."
 msgstr ""
-"``fuse_conv_bias_nonlinearity``  - 是否将 conv + bias + nonlinearty 融合为一个算子。仅在 "
-"``use_nhwcd4`` 启用时支持。"
+"``fuse_conv_bias_nonlinearity``  - 是否将 conv + bias + nonlinearty "
+"融合为一个算子。仅在 ``use_nhwcd4`` 启用时支持。"
 
 #: megengine.core.graph.get_default_graph:1 of
 msgid "Returns a default Graph object, most probably for eager evaluation."
@@ -369,9 +366,9 @@ msgstr "一个文件名字符串或文本文件对象，用于从中加载对象
 #: megengine.core.serialization.load:6 of
 msgid ""
 "Default: ``None``.  .. note::      map_location will change the logical "
-"locator when loading models,     avoiding tensors be loading on non-existent"
-" device. If you want to     add the mapping relationship between logical "
-"locator and physical     locator in runtime, please call "
+"locator when loading models,     avoiding tensors be loading on non-"
+"existent device. If you want to     add the mapping relationship between "
+"logical locator and physical     locator in runtime, please call "
 ":func:`mge.set_device_map()`"
 msgstr " "
 
@@ -381,10 +378,10 @@ msgstr "默认: ``None`` 。"
 
 #: megengine.core.serialization.load:10 of
 msgid ""
-"map_location will change the logical locator when loading models, avoiding "
-"tensors be loading on non-existent device. If you want to add the mapping "
-"relationship between logical locator and physical locator in runtime, please"
-" call :func:`mge.set_device_map()`"
+"map_location will change the logical locator when loading models, "
+"avoiding tensors be loading on non-existent device. If you want to add "
+"the mapping relationship between logical locator and physical locator in "
+"runtime, please call :func:`mge.set_device_map()`"
 msgstr ""
 "加载模型时，map_location将修改逻辑locator，以免张量被加载到不存在的设备中。如果想要在运行时添加逻辑locator和物理locator之间的映射关系，需要调用"
 " :func:`mge.set_device_map()` "
@@ -408,8 +405,7 @@ msgid "object to save. Only ``module`` or ``state_dict`` are allowed."
 msgstr "待保存的对象。仅支持 ``module`` 或 ``state_dict`` 。"
 
 #: megengine.core.serialization.save:6 of
-msgid ""
-"a string of file name or a text file object to which ``obj`` is saved to."
+msgid "a string of file name or a text file object to which ``obj`` is saved to."
 msgstr "用于保存 ``obj`` 的一个文件名字符串或文本文件对象。"
 
 #: megengine.core.serialization.save:10 of
@@ -454,22 +450,22 @@ msgstr "转换张量为指定的类型。"
 #: megengine.core.tensor.Tensor.batched_incr_mi:1
 #: megengine.core.tensor.Tensor.batched_set_mi:1 of
 msgid ""
-"Equal to :meth:`~.Tensor.incr_subtensor` which using batched mesh indexing."
+"Equal to :meth:`~.Tensor.incr_subtensor` which using batched mesh "
+"indexing."
 msgstr "等同于使用批量网格索引(batched mesh indexing)的 :meth:`~.Tensor.incr_subtensor` 。"
 
 #: megengine.core.tensor.Tensor.batched_mi:1 of
-msgid ""
-"Return a object which supports getting subtensor by batched mesh indexing."
+msgid "Return a object which supports getting subtensor by batched mesh indexing."
 msgstr "返回一个支持通过批量网格索引(batched mesh indexing)获得子张量的对象。"
 
 #: megengine.core.tensor.Tensor.batched_mi:4 of
 msgid ""
-"For Tensor ``a`` and index ``idx``, each value of the ``idx`` need to be a "
-"2-dim matrix or slice. Cartesian product ``... * idx[k-1][i] * idx[k][i] * "
-"idx[k+1][i] * ...`` will be a subtensor from ``a[i]``. Each matrix "
-"``idx[k]`` should have the size of ``batched_dim`` rows as ``idx[0]`` "
-"indicated. And for slice value, it will apply same slice for each "
-"``batched_dim``. For more details see the example below."
+"For Tensor ``a`` and index ``idx``, each value of the ``idx`` need to be "
+"a 2-dim matrix or slice. Cartesian product ``... * idx[k-1][i] * "
+"idx[k][i] * idx[k+1][i] * ...`` will be a subtensor from ``a[i]``. Each "
+"matrix ``idx[k]`` should have the size of ``batched_dim`` rows as "
+"``idx[0]`` indicated. And for slice value, it will apply same slice for "
+"each ``batched_dim``. For more details see the example below."
 msgstr ""
 "对于张量 ``a`` 和索引 ``idx`` ，  ``idx`` 的每个值都必须是二维矩阵或矩阵切片。 笛卡尔积 ``... * "
 "idx[k-1][i] * idx[k][i] * idx[k+1][i] * ...`` 是从 ``a[i]`` 中得到的子张量。 每个矩阵 "
@@ -493,8 +489,7 @@ msgid "Fills the tensor with the specified value."
 msgstr "使用指定值填充张量。"
 
 #: megengine.core.tensor.Tensor.incr_ai:1 of
-msgid ""
-"Equal to :meth:`~.Tensor.incr_subtensor` which supports advanced indexing."
+msgid "Equal to :meth:`~.Tensor.incr_subtensor` which supports advanced indexing."
 msgstr "等同于支持高级索引(advanced indexing)的 :meth:`~.Tensor.incr_subtensor` 。"
 
 #: megengine.core.tensor.Tensor.incr_mi:1 of
@@ -503,15 +498,15 @@ msgstr "等同于使用网格索引(mesh indexing)的 :meth:`~.Tensor.incr_subte
 
 #: megengine.core.tensor.Tensor.incr_subtensor:1 of
 msgid ""
-"Return a object which supports using ``__getitem__`` to increase subtensor."
+"Return a object which supports using ``__getitem__`` to increase "
+"subtensor."
 msgstr "返回一个支持使用 ``__getitem__`` 来增加子张量的对象。"
 
 #: megengine.core.tensor.Tensor.incr_subtensor:3 of
 msgid ""
 "``c = a.incr_subtensor(b)[idx]`` is equivalent to ``c = a.copy()`` and "
 "``c[idx] += b``."
-msgstr ""
-" ``c = a.incr_subtensor(b)[idx]`` 等价于 ``c = a.copy()`` 加 ``c[idx] += b`` 。"
+msgstr " ``c = a.incr_subtensor(b)[idx]`` 等价于 ``c = a.copy()`` 加 ``c[idx] += b`` 。"
 
 #: megengine.core.tensor.Tensor.item:1 of
 msgid "If tensor only has only one value, return it."
@@ -527,8 +522,8 @@ msgstr "返回给定张量的均值。"
 
 #: megengine.core.tensor.Tensor.mi:1 of
 msgid ""
-"Return a object which supports getting subtensor by the coordinates which is"
-" Cartesian product of given index."
+"Return a object which supports getting subtensor by the coordinates which"
+" is Cartesian product of given index."
 msgstr "返回一个对象，该对象支持通过由给定索引的笛卡尔乘积得到的坐标获得子张量。"
 
 #: megengine.core.tensor.Tensor.min:1 of
@@ -556,9 +551,12 @@ msgid "Return a tensor which has given target shape"
 msgstr "返回一个具有给定目标形状的张量"
 
 #: megengine.core.tensor.Tensor.set_ai:1 of
-msgid ""
-"Equal to :meth:`~.Tensor.set_subtensor` which supports advanced indexing."
+msgid "Equal to :meth:`~.Tensor.set_subtensor` which supports advanced indexing."
 msgstr "等同于支持高级索引(advanced indexing)的 :meth:`~.Tensor.set_subtensor` 。"
+
+#: megengine.core.tensor.Tensor.set_dtype:1 of
+msgid "Set the data type of the tensor."
+msgstr "设置张量的数据类型。"
 
 #: megengine.core.tensor.Tensor.set_mi:1 of
 msgid "Equal to :meth:`~.Tensor.set_subtensor` which using mesh indexing."
@@ -572,8 +570,7 @@ msgstr "返回一个支持使用 ``__getitem__`` 来获得子张量的对象。"
 msgid ""
 "``c = a.set_subtensor(b)[idx]`` is equivalent to ``c = a.copy()`` and "
 "``c[idx] = b``."
-msgstr ""
-" ``c = a.set_subtensor(b)[idx]`` 等价于 ``c = a.copy()`` 加 ``c[idx] = b`` 。"
+msgstr " ``c = a.set_subtensor(b)[idx]`` 等价于 ``c = a.copy()`` 加 ``c[idx] = b`` 。"
 
 #: megengine.core.tensor.Tensor.set_value:1 of
 msgid "Set value to the tensor."
@@ -581,8 +578,8 @@ msgstr "将张量元素置为特定值。"
 
 #: megengine.core.tensor.Tensor.shape:1 of
 msgid ""
-"Return an int tuple that is the shape/layout of the tensor. Could be invalid"
-" in static graph mode."
+"Return an int tuple that is the shape/layout of the tensor. Could be "
+"invalid in static graph mode."
 msgstr "返回int元组，表明张量的形状/布局。静态图模式下可能无效。"
 
 #: megengine.core.tensor.Tensor.shapeof:1 of
@@ -591,7 +588,8 @@ msgstr "返回一个张量，表明该方法所属张量的形状。"
 
 #: megengine.core.tensor.Tensor.sqrt:1 of
 msgid ""
-"Return a tensor that each element is the square root of its original value."
+"Return a tensor that each element is the square root of its original "
+"value."
 msgstr "返回一个张量，其中各元素是其原始值的平方根。"
 
 #: megengine.core.tensor.Tensor.sum:1 of
@@ -600,7 +598,8 @@ msgstr "对给定张量求和。"
 
 #: megengine.core.tensor.Tensor.to:1 of
 msgid ""
-"Performs Tensor device conversion, returns Tensor with the specified device."
+"Performs Tensor device conversion, returns Tensor with the specified "
+"device."
 msgstr "张量设备转换，返回在指定设备上的张量。"
 
 #: megengine.core.tensor.TensorDict:1 of
@@ -623,7 +622,9 @@ msgstr "已有的数据数组，类型必须是Python list，NumPy array 或None
 msgid ""
 "target Tensor data type, one of ``(\"uint8\", \"int8\", \"int16\", "
 "\"int32\", \"float32\", \"float16\")``."
-msgstr "目标张量数据类型，为 ``(\"uint8\", \"int8\", \"int16\", \"int32\", \"float32\", \"float16\")`` 中的一种。"
+msgstr ""
+"目标张量数据类型，为 ``(\"uint8\", \"int8\", \"int16\", \"int32\", \"float32\", "
+"\"float16\")`` 中的一种。"
 
 #: megengine.core.tensor.tensor:8 of
 msgid "target device for Tensor storing."
@@ -631,21 +632,21 @@ msgstr "用于存储张量目标设备。"
 
 #: megengine.core.tensor.tensor:10 of
 msgid ""
-"whether its gradiant will be calculated during :meth:`~.Optimizer.backward`"
+"whether its gradiant will be calculated during "
+":meth:`~.Optimizer.backward`"
 msgstr "在 :meth:`~.Optimizer.backward` 过程中，是否计算梯度。"
 
 #: megengine.core.tensor.wrap_io_tensor:1 of
-msgid ""
-"A wrapper to make ``func`` compatible with functions in ``_internal.opr``."
+msgid "A wrapper to make ``func`` compatible with functions in ``_internal.opr``."
 msgstr "一个包装器，使 ``func`` 与 ``_internal.opr`` 中的函数兼容。"
 
 #: ../../source/api_zh/megengine.core.rst:51
 msgid "megengine.core.tensor\\_factory"
 msgstr "megengine.core.tensor\\_factory"
 
-#: megengine.core.tensor_factory.zeros:1 of
-msgid "Create a tensor filled with 0."
-msgstr "创建张量，其中值填入0。"
+#: megengine.core.tensor_factory.ones:1 of
+msgid "Create a tensor filled with 1."
+msgstr "创建张量，其中值填入1。"
 
 #: megengine.core.tensor_factory.ones:4 megengine.core.tensor_factory.zeros:4
 #: of
@@ -662,27 +663,27 @@ msgstr "数据类型，默认值：\"int32\""
 msgid "Compute node of the matrix, Default: None"
 msgstr "矩阵的计算节点，默认值：None"
 
-#: megengine.core.tensor_factory.ones:10
-#: megengine.core.tensor_factory.zeros:10 of
+#: megengine.core.tensor_factory.ones:10 megengine.core.tensor_factory.zeros:10
+#: of
 msgid "Compute graph of the matrix, Default: None"
 msgstr "矩阵的计算图，默认值：None"
 
-#: megengine.core.tensor_factory.ones:11
-#: megengine.core.tensor_factory.zeros:11 of
+#: megengine.core.tensor_factory.ones:11 megengine.core.tensor_factory.zeros:11
+#: of
 msgid ":py:class:`~megengine.core.tensor.Tensor`"
 msgstr ":py:class:`~megengine.core.tensor.Tensor`"
 
-#: megengine.core.tensor_factory.zeros:12 of
-msgid "tensor of zeros"
-msgstr "零值张量"
-
-#: megengine.core.tensor_factory.ones:1 of
-msgid "Create a tensor filled with 1."
-msgstr "创建张量，并填入值1。"
-
 #: megengine.core.tensor_factory.ones:12 of
 msgid "tensor of ones"
-msgstr "1值组成的张量"
+msgstr "全1张量"
+
+#: megengine.core.tensor_factory.zeros:1 of
+msgid "Create a tensor filled with 0."
+msgstr "创建张量，其中值填入0。"
+
+#: megengine.core.tensor_factory.zeros:12 of
+msgid "tensor of zeros"
+msgstr "全0张量"
 
 #: ../../source/api_zh/megengine.core.rst:59
 msgid "megengine.core.tensor\\_nn"
@@ -705,16 +706,26 @@ msgid "Return shape of parameter."
 msgstr "返回参数的形状。"
 
 #~ msgid ""
-#~ "default device type. The type can be 'cpu0', 'cpu1', etc., or 'gpu0', "
-#~ "'gpu1', etc., to specify the particular cpu or gpu to use. To specify "
-#~ "multiple devices, use cpu0:1 or gpu0:2. 'cpux' and  'gupx' can also be used "
-#~ "to specify any number of cpu or gpu devices.  The default value is 'xpux' to"
-#~ " specify any device available.  It can also be set by environmental variable"
-#~ " `MGE_DEFAULT_DEVICE`."
+#~ "default device type. The type can "
+#~ "be 'cpu0', 'cpu1', etc., or 'gpu0', "
+#~ "'gpu1', etc., to specify the particular"
+#~ " cpu or gpu to use. To specify"
+#~ " multiple devices, use cpu0:1 or "
+#~ "gpu0:2. 'cpux' and  'gupx' can also "
+#~ "be used to specify any number of"
+#~ " cpu or gpu devices.  The default "
+#~ "value is 'xpux' to specify any "
+#~ "device available.  It can also be "
+#~ "set by environmental variable "
+#~ "`MGE_DEFAULT_DEVICE`."
 #~ msgstr ""
-#~ "默认的设备类型。 为了指定要使用的特定cpu或gpu，类型可以是 'cpu0' , 'cpu1' 等，或 'gpu0' , 'gpu1' 等。 "
-#~ "如果要指定多个设备，可以使用 cpu0:1 或 gpu0:2。也可以用 'cpux' 和 'gupx' 来指定任意数量的cpu或gpu设备。 "
-#~ "为了指定任意可用的设备，默认值设为 'xpux' 。  该值也可以通过环境变量 `MGE_DEFAULT_DEVICE` 进行设置。"
+#~ "默认的设备类型。 为了指定要使用的特定cpu或gpu，类型可以是 'cpu0' , "
+#~ "'cpu1' 等，或 'gpu0' , 'gpu1' 等。 "
+#~ "如果要指定多个设备，可以使用 cpu0:1 或 gpu0:2。也可以用 'cpux' "
+#~ "和 'gupx' 来指定任意数量的cpu或gpu设备。 为了指定任意可用的设备，默认值设为 "
+#~ "'xpux' 。  该值也可以通过环境变量 `MGE_DEFAULT_DEVICE` "
+#~ "进行设置。"
 
 #~ msgid "Bases: :class:`megengine.core.tensor.Dict`"
 #~ msgstr "基类： :class:`megengine.core.tensor.Dict`"
+

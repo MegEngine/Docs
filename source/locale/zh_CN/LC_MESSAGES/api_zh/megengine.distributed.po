@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 09:28-0700\n"
+"POT-Creation-Date: 2020-07-07 14:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,40 +23,6 @@ msgid "megengine.distributed package"
 msgstr "megengine.distributed package"
 
 #: ../../source/api_zh/megengine.distributed.rst:11
-msgid "megengine.distributed.brainpp"
-msgstr "megengine.distributed.brainpp"
-
-#: megengine.distributed.brainpp.InitServer:1 of
-msgid "Bases: :class:`object`"
-msgstr "基类: :class:`object`"
-
-#: megengine.distributed.brainpp.InitServer:1 of
-msgid "server for synchronizing master hostname and port"
-msgstr "用于同步master主机名和端口的服务器"
-
-#: megengine.distributed.brainpp.ThreadXMLRPCServer:1 of
-msgid ""
-"Bases: :class:`socketserver.ThreadingMixIn`, "
-":class:`xmlrpc.server.SimpleXMLRPCServer`"
-msgstr ""
-"基类: :class:`socketserver.ThreadingMixIn`, "
-":class:`xmlrpc.server.SimpleXMLRPCServer`"
-
-#: megengine.distributed.brainpp.dist_tqdm:1 of
-msgid ""
-"a wrapper of tqdm, only rank0 prints the progress bar, otherwise multiple "
-"stdouts might mix up with each other in rlaunch mode"
-msgstr "tqdm的封装，仅rank0下打印进度条，否则在rlaunch模式下多个标准输出可能会互相混淆"
-
-#: megengine.distributed.brainpp.init_connect:1 of
-msgid "client for synchronizing master hostname and port"
-msgstr "用于同步master主机名和端口的客户端"
-
-#: megengine.distributed.brainpp.launcher:1 of
-msgid "get rlaunch environment and synchronize master address"
-msgstr "获得rlaunch环境并同步主机地址"
-
-#: ../../source/api_zh/megengine.distributed.rst:19
 msgid "megengine.distributed.functional"
 msgstr "megengine.distributed.functional"
 
@@ -192,7 +158,7 @@ msgstr "创建聚合通信（collective communication）的reduce_scatter_sum算
 msgid "Create reduce_sum operator for collective communication"
 msgstr "创建聚合通信（collective communication）的reduce_sum算子"
 
-#: ../../source/api_zh/megengine.distributed.rst:27
+#: ../../source/api_zh/megengine.distributed.rst:19
 msgid "megengine.distributed.helper"
 msgstr "megengine.distributed.helper"
 
@@ -228,7 +194,7 @@ msgstr "输出的计算图，默认使用inp的计算图"
 msgid ":py:class:`~megengine._internal.mgb.SymbolVar`"
 msgstr ":py:class:`~megengine._internal.mgb.SymbolVar`"
 
-#: ../../source/api_zh/megengine.distributed.rst:35
+#: ../../source/api_zh/megengine.distributed.rst:27
 msgid "megengine.distributed.util"
 msgstr "megengine.distributed.util"
 
@@ -282,8 +248,8 @@ msgstr "阻止调用，直到组中的所有进程达到这个障碍点（barrie
 
 #: megengine.distributed.util.init_process_group:1 of
 msgid ""
-"Initialize the distributed process group, and also specify the device used "
-"in the current process."
+"Initialize the distributed process group, and also specify the device "
+"used in the current process."
 msgstr "初始化分布式进程组，并且指定在当前进程中使用的设备。"
 
 #: megengine.distributed.util.init_process_group:4 of
@@ -320,8 +286,8 @@ msgstr ":py:class:`bool`"
 
 #: megengine.distributed.util.synchronized:1 of
 msgid ""
-"Decorator. Decorated function will synchronize when finished. Specifically, "
-"we use this to prevent data race during hub.load"
+"Decorator. Decorated function will synchronize when finished. "
+"Specifically, we use this to prevent data race during hub.load"
 msgstr "装饰器（Decorator）。结束后，装饰后的函数会被同步。实际应用上，我们用它来防止hub.load期间的数据竞争"
 
 #~ msgid "rank of the current process, use util.get_rank() as default"
@@ -329,3 +295,33 @@ msgstr "装饰器（Decorator）。结束后，装饰后的函数会被同步。
 
 #~ msgid "rank of root node, use 0 as default"
 #~ msgstr "根节点（根进程）的进程序号（rank），使用0作为默认值"
+
+#~ msgid "megengine.distributed.brainpp"
+#~ msgstr "megengine.distributed.brainpp"
+
+#~ msgid "Bases: :class:`object`"
+#~ msgstr "基类: :class:`object`"
+
+#~ msgid "server for synchronizing master hostname and port"
+#~ msgstr "用于同步master主机名和端口的服务器"
+
+#~ msgid ""
+#~ "Bases: :class:`socketserver.ThreadingMixIn`, "
+#~ ":class:`xmlrpc.server.SimpleXMLRPCServer`"
+#~ msgstr ""
+#~ "基类: :class:`socketserver.ThreadingMixIn`, "
+#~ ":class:`xmlrpc.server.SimpleXMLRPCServer`"
+
+#~ msgid ""
+#~ "a wrapper of tqdm, only rank0 "
+#~ "prints the progress bar, otherwise "
+#~ "multiple stdouts might mix up with "
+#~ "each other in rlaunch mode"
+#~ msgstr "tqdm的封装，仅rank0下打印进度条，否则在rlaunch模式下多个标准输出可能会互相混淆"
+
+#~ msgid "client for synchronizing master hostname and port"
+#~ msgstr "用于同步master主机名和端口的客户端"
+
+#~ msgid "get rlaunch environment and synchronize master address"
+#~ msgstr "获得rlaunch环境并同步主机地址"
+
