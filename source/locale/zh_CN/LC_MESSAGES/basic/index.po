@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-17 15:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/basic/index.rst:4
+msgid "引言"
+msgstr ""
+
+#: ../../source/basic/index.rst:6
+msgid "在这部分，您将了解 MegEngine 的基础概念和基本使用方法。"
+msgstr ""
+
+#: ../../source/basic/index.rst:8
+msgid "为了学习这部分内容，您需要："
+msgstr ""
+
+#: ../../source/basic/index.rst:10
+msgid "根据 :ref:`installation` 成功安装 MegEngine。"
+msgstr ""
+
+#: ../../source/basic/index.rst:11
+msgid "具备 Python 和 NumPy 的基础知识。"
+msgstr ""
+
+#: ../../source/basic/index.rst:13
+msgid "您不需要："
+msgstr ""
+
+#: ../../source/basic/index.rst:15
+msgid "了解其它的深度学习框架，如 PyTorch。"
+msgstr ""
+
+#: ../../source/basic/index.rst:16
+msgid "具备机器学习和深度神经网络的背景知识。"
+msgstr ""
+
+#: ../../source/basic/index.rst:18
+msgid "这部分共包含五个小节，由浅入深，需要按照顺序学习。"
+msgstr ""
+
+#: ../../source/basic/index.rst:20
+msgid ":ref:`basic_concepts` ：介绍计算图、张量、算子等概念。"
+msgstr ""
+
+#: ../../source/basic/index.rst:21
+msgid ":ref:`network_build` ：介绍在 MegEngine 中搭建网络的两种方式。"
+msgstr ""
+
+#: ../../source/basic/index.rst:22
+msgid ":ref:`data_load` ：介绍在 MegEngine 中加载和处理数据的方法。"
+msgstr ""
+
+#: ../../source/basic/index.rst:23
+msgid ":ref:`train_and_evaluation` ：介绍如何进行模型的训练与测试。"
+msgstr ""
+
+#: ../../source/basic/index.rst:24
+msgid ""
+":ref:`dynamic_and_static_graph` "
+"：介绍动态图和静态图的概念，优缺点和使用方法。实际应用中，对于较大的网络，推荐使用静态图。"
+msgstr ""
+
+#: ../../source/basic/index.rst:26
+msgid ""
+"对于上述内容非常熟悉的用户（例如 PyTorch 用户），也建议您快速阅读了解这部分的内容，因为它们是 :ref:`进阶学习 "
+"<advanced>` 的基础。"
+msgstr ""
+

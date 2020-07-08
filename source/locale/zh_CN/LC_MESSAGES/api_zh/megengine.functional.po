@@ -1,0 +1,2072 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-07 14:11+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/api_zh/megengine.functional.rst:2
+msgid "megengine.functional package"
+msgstr "megengine.functional package"
+
+#: ../../source/api_zh/megengine.functional.rst:11
+msgid "megengine.functional.debug\\_param"
+msgstr "megengine.functional.debug\\_param"
+
+#: megengine.functional.debug_param.get_conv_execution_strategy:1 of
+msgid "Returns the execuation strategy of :class:`~.Conv2d`."
+msgstr "返回 :class:`~.Conv2d` 的执行策略。"
+
+#: megengine.functional.debug_param.get_conv_execution_strategy:3 of
+msgid "See :func:`~.set_conv_execution_strategy` for possible return values"
+msgstr "参考 :func:`~.set_conv_execution_strategy` 的相关说明了解可能返回的值"
+
+#: megengine.functional.debug_param.get_conv_execution_strategy
+#: megengine.functional.elemwise.isinf megengine.functional.elemwise.isnan
+#: megengine.functional.graph.grad
+#: megengine.functional.loss.binary_cross_entropy
+#: megengine.functional.loss.cross_entropy
+#: megengine.functional.loss.cross_entropy_with_softmax
+#: megengine.functional.loss.hinge_loss megengine.functional.loss.l1_loss
+#: megengine.functional.loss.nll_loss megengine.functional.loss.smooth_l1_loss
+#: megengine.functional.loss.square_loss
+#: megengine.functional.loss.triplet_margin_loss
+#: megengine.functional.math.argmax megengine.functional.math.argmin
+#: megengine.functional.math.max megengine.functional.math.mean
+#: megengine.functional.math.min megengine.functional.math.normalize
+#: megengine.functional.math.prod megengine.functional.math.sqrt
+#: megengine.functional.math.sum megengine.functional.nn.assert_equal
+#: megengine.functional.nn.avg_pool2d megengine.functional.nn.batch_norm2d
+#: megengine.functional.nn.batched_matrix_mul megengine.functional.nn.conv2d
+#: megengine.functional.nn.conv_transpose2d megengine.functional.nn.dropout
+#: megengine.functional.nn.eye megengine.functional.nn.flatten
+#: megengine.functional.nn.identity megengine.functional.nn.indexing_one_hot
+#: megengine.functional.nn.interpolate megengine.functional.nn.leaky_relu
+#: megengine.functional.nn.linear megengine.functional.nn.local_conv2d
+#: megengine.functional.nn.matrix_mul megengine.functional.nn.max_pool2d
+#: megengine.functional.nn.one_hot megengine.functional.nn.prelu
+#: megengine.functional.nn.roi_align megengine.functional.nn.roi_pooling
+#: megengine.functional.nn.softmax megengine.functional.nn.softplus
+#: megengine.functional.nn.sync_batch_norm
+#: megengine.functional.quantized.conv_bias_activation
+#: megengine.functional.sort.argsort megengine.functional.sort.sort
+#: megengine.functional.sort.top_k megengine.functional.tensor.add_axis
+#: megengine.functional.tensor.arange megengine.functional.tensor.broadcast_to
+#: megengine.functional.tensor.concat megengine.functional.tensor.cond_take
+#: megengine.functional.tensor.dimshuffle megengine.functional.tensor.gather
+#: megengine.functional.tensor.linspace megengine.functional.tensor.remove_axis
+#: megengine.functional.tensor.reshape megengine.functional.tensor.scatter
+#: megengine.functional.tensor.transpose megengine.functional.tensor.where
+#: megengine.functional.tensor.zeros_like megengine.functional.utils.accuracy
+#: megengine.functional.utils.zero_grad of
+msgid "Return type"
+msgstr "返回值类型"
+
+#: megengine.functional.debug_param.get_conv_execution_strategy:6 of
+msgid ":py:class:`str`"
+msgstr ":py:class:`str`"
+
+#: megengine.functional.debug_param.set_conv_execution_strategy:1 of
+msgid "Sets the execuation strategy of :class:`~.Conv2d`."
+msgstr "设置 :class:`~.Conv2d` 的执行策略。"
+
+#: megengine.functional.debug_param.set_conv_execution_strategy
+#: megengine.functional.graph.add_update megengine.functional.graph.grad
+#: megengine.functional.loss.binary_cross_entropy
+#: megengine.functional.loss.cross_entropy
+#: megengine.functional.loss.cross_entropy_with_softmax
+#: megengine.functional.loss.hinge_loss megengine.functional.loss.l1_loss
+#: megengine.functional.loss.nll_loss megengine.functional.loss.smooth_l1_loss
+#: megengine.functional.loss.square_loss
+#: megengine.functional.loss.triplet_margin_loss
+#: megengine.functional.math.argmax megengine.functional.math.argmin
+#: megengine.functional.math.logsumexp megengine.functional.math.max
+#: megengine.functional.math.mean megengine.functional.math.min
+#: megengine.functional.math.norm megengine.functional.math.normalize
+#: megengine.functional.math.prod megengine.functional.math.sqrt
+#: megengine.functional.math.sum megengine.functional.nn.assert_equal
+#: megengine.functional.nn.avg_pool2d megengine.functional.nn.batch_norm2d
+#: megengine.functional.nn.batched_matrix_mul megengine.functional.nn.conv2d
+#: megengine.functional.nn.conv_transpose2d megengine.functional.nn.dropout
+#: megengine.functional.nn.embedding megengine.functional.nn.eye
+#: megengine.functional.nn.flatten megengine.functional.nn.identity
+#: megengine.functional.nn.indexing_one_hot megengine.functional.nn.interpolate
+#: megengine.functional.nn.linear megengine.functional.nn.matrix_mul
+#: megengine.functional.nn.max_pool2d megengine.functional.nn.one_hot
+#: megengine.functional.nn.roi_align megengine.functional.nn.roi_pooling
+#: megengine.functional.nn.softmax megengine.functional.nn.sync_batch_norm
+#: megengine.functional.nn.warp_perspective
+#: megengine.functional.quantized.conv_bias_activation
+#: megengine.functional.sort.argsort megengine.functional.sort.sort
+#: megengine.functional.sort.top_k megengine.functional.tensor.add_axis
+#: megengine.functional.tensor.arange megengine.functional.tensor.broadcast_to
+#: megengine.functional.tensor.concat megengine.functional.tensor.cond_take
+#: megengine.functional.tensor.dimshuffle megengine.functional.tensor.gather
+#: megengine.functional.tensor.linspace megengine.functional.tensor.remove_axis
+#: megengine.functional.tensor.reshape megengine.functional.tensor.scatter
+#: megengine.functional.tensor.where megengine.functional.tensor.zeros_like
+#: megengine.functional.utils.accuracy megengine.functional.utils.zero_grad of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.functional.debug_param.set_conv_execution_strategy:4 of
+msgid ""
+"Decides how :class:`~.Conv2d` algorithm is chosen. Available values:  * "
+"'HEURISTIC' uses heuristic to choose the fastest algorithm. * 'PROFILE' "
+"runs possible algorithms on real device to find the best. * "
+"'PROFILE_HEURISTIC' uses profile result and heuristic to choose the "
+"fastest algorithm. * 'PROFILE_REPRODUCIBLE' uses the fastest of profile "
+"result that is also reproducible. * 'HEURISTIC_REPRODUCIBLE' uses "
+"heuristic to choose the fastest algorithm that is also reproducible.  The"
+" default strategy is 'HEURISTIC'.  It can also be set through the "
+"environmental variable 'MEGENGINE_CONV_EXECUTION_STRATEGY'."
+msgstr ""
+"Decides how :class:`~.Conv2d` algorithm is chosen. Available values:  * "
+"'HEURISTIC' uses heuristic to choose the fastest algorithm. * 'PROFILE' "
+"runs possible algorithms on real device to find the best. * "
+"'PROFILE_HEURISTIC' uses profile result and heuristic to choose the "
+"fastest algorithm. * 'PROFILE_REPRODUCIBLE' uses the fastest of profile "
+"result that is also reproducible. * 'HEURISTIC_REPRODUCIBLE' uses "
+"heuristic to choose the fastest algorithm that is also reproducible.  The"
+" default strategy is 'HEURISTIC'.  It can also be set through the "
+"environmental variable 'MEGENGINE_CONV_EXECUTION_STRATEGY'."
+
+#: megengine.functional.debug_param.set_conv_execution_strategy:4 of
+msgid "Decides how :class:`~.Conv2d` algorithm is chosen. Available values:"
+msgstr "决定 :class:`~.Conv2d` 算法的选择方式。 可能的取值有："
+
+#: megengine.functional.debug_param.set_conv_execution_strategy:7 of
+msgid "'HEURISTIC' uses heuristic to choose the fastest algorithm."
+msgstr "'HEURISTIC'使用启发式方法以选择速度最快的算法。"
+
+#: megengine.functional.debug_param.set_conv_execution_strategy:8 of
+msgid "'PROFILE' runs possible algorithms on real device to find the best."
+msgstr "'PROFILE'在真实的设备上运行可能的所有算法以找出最佳算法。"
+
+#: megengine.functional.debug_param.set_conv_execution_strategy:9 of
+msgid ""
+"'PROFILE_HEURISTIC' uses profile result and heuristic to choose the "
+"fastest algorithm."
+msgstr "'PROFILE_HEURISTIC'使用真实设备上的运行速度结果和启发式的方法以选择速度最快的算法。"
+
+#: megengine.functional.debug_param.set_conv_execution_strategy:10 of
+msgid ""
+"'PROFILE_REPRODUCIBLE' uses the fastest of profile result that is also "
+"reproducible."
+msgstr "'PROFILE_REPRODUCIBLE'使用在真实设备上运行速度最快并可以复现的算法。"
+
+#: megengine.functional.debug_param.set_conv_execution_strategy:11 of
+msgid ""
+"'HEURISTIC_REPRODUCIBLE' uses heuristic to choose the fastest algorithm "
+"that is also reproducible."
+msgstr "'HEURISTIC_REPRODUCIBLE'使用启发式方法选择速度最快并且可以复现的算法。"
+
+#: megengine.functional.debug_param.set_conv_execution_strategy:13 of
+msgid "The default strategy is 'HEURISTIC'."
+msgstr "默认的策略是'HEURISTIC'。"
+
+#: megengine.functional.debug_param.set_conv_execution_strategy:15 of
+msgid ""
+"It can also be set through the environmental variable "
+"'MEGENGINE_CONV_EXECUTION_STRATEGY'."
+msgstr "它也可以通过环境变量“MEGENGINE_CONV_EXECUTION_STRATEGY”进行设置。"
+
+#: ../../source/api_zh/megengine.functional.rst:19
+msgid "megengine.functional.elemwise"
+msgstr "megengine.functional.elemwise"
+
+#: megengine.functional.elemwise.abs:1 of
+msgid "Calculate the absolute value element-wise."
+msgstr "逐元素计算绝对值。"
+
+#: megengine.functional.elemwise.add:1 of
+msgid "Element-wise addition."
+msgstr "逐元素相加。"
+
+#: megengine.functional.elemwise.arccos:1 of
+msgid "Inverse cosine, element-wise."
+msgstr "逐元素计算反余弦值。"
+
+#: megengine.functional.elemwise.arcsin:1 of
+msgid "Inverse sine, element-wise."
+msgstr "逐元素计算反正弦值。"
+
+#: megengine.functional.elemwise.ceil:1 of
+msgid "Return the ceil of the input, element-wise."
+msgstr "逐元素返回输入值向上取整后的值。"
+
+#: megengine.functional.elemwise.cos:1 of
+msgid "Cosine, element-wise."
+msgstr "逐元素计算余弦值。"
+
+#: megengine.functional.elemwise.divide:1 of
+msgid "Return (x / y) element-wise."
+msgstr "返回逐元素表达式 (x / y) 的值。"
+
+#: megengine.functional.elemwise.equal:1 of
+msgid "Return (x == y) element-wise."
+msgstr "返回逐元素表达式 (x == y) 的值。"
+
+#: megengine.functional.elemwise.exp:1 of
+msgid "Calculate the exponential element-wise"
+msgstr "逐元素计算指数。"
+
+#: megengine.functional.elemwise.floor:1 of
+msgid "Return the floor of the input, element-wise"
+msgstr "返回逐元素输入值向下取整后的值。"
+
+#: megengine.functional.elemwise.greater:1 of
+msgid "Return (x > y) element-wise."
+msgstr "返回逐元素表达式 (x > y) 的值。"
+
+#: megengine.functional.elemwise.greater_equal:1 of
+msgid "Return (x >= y) element-wise"
+msgstr "返回逐元素表达式 (x >= y) 的值。"
+
+#: megengine.functional.elemwise.isinf:1 of
+msgid "Returns a new tensor representing if each element is Inf or not."
+msgstr "返回一个张量，它表示每个元素是否是无穷大值(Inf)。"
+
+#: megengine.functional.elemwise.isinf megengine.functional.elemwise.isnan of
+msgid "param"
+msgstr "参数"
+
+#: megengine.functional.elemwise.isinf:3 megengine.functional.elemwise.isnan:3
+#: of
+msgid "inp"
+msgstr "inp"
+
+#: megengine.functional.elemwise.isinf:4 megengine.functional.elemwise.isnan:4
+#: megengine.functional.loss.binary_cross_entropy:10
+#: megengine.functional.loss.cross_entropy:37
+#: megengine.functional.loss.cross_entropy_with_softmax:22
+#: megengine.functional.loss.hinge_loss:36 megengine.functional.loss.l1_loss:43
+#: megengine.functional.loss.nll_loss:37
+#: megengine.functional.loss.smooth_l1_loss:43
+#: megengine.functional.loss.square_loss:30
+#: megengine.functional.loss.triplet_margin_loss:20
+#: megengine.functional.math.argmax:9 megengine.functional.math.argmin:9
+#: megengine.functional.math.max:9 megengine.functional.math.mean:30
+#: megengine.functional.math.min:9 megengine.functional.math.normalize:18
+#: megengine.functional.math.prod:8 megengine.functional.math.sqrt:5
+#: megengine.functional.math.sum:11 megengine.functional.nn.assert_equal:33
+#: megengine.functional.nn.avg_pool2d:17
+#: megengine.functional.nn.batch_norm2d:30
+#: megengine.functional.nn.batched_matrix_mul:7
+#: megengine.functional.nn.conv2d:36
+#: megengine.functional.nn.conv_transpose2d:36
+#: megengine.functional.nn.dropout:11 megengine.functional.nn.eye:12
+#: megengine.functional.nn.flatten:35 megengine.functional.nn.identity:7
+#: megengine.functional.nn.indexing_one_hot:29
+#: megengine.functional.nn.interpolate:41 megengine.functional.nn.leaky_relu:6
+#: megengine.functional.nn.linear:14 megengine.functional.nn.local_conv2d:6
+#: megengine.functional.nn.matrix_mul:7 megengine.functional.nn.max_pool2d:17
+#: megengine.functional.nn.one_hot:30 megengine.functional.nn.prelu:6
+#: megengine.functional.nn.roi_align:21 megengine.functional.nn.roi_pooling:13
+#: megengine.functional.nn.softmax:19 megengine.functional.nn.softplus:11
+#: megengine.functional.nn.sync_batch_norm:28
+#: megengine.functional.quantized.conv_bias_activation:40
+#: megengine.functional.tensor.add_axis:7 megengine.functional.tensor.arange:10
+#: megengine.functional.tensor.broadcast_to:7
+#: megengine.functional.tensor.concat:11
+#: megengine.functional.tensor.cond_take:29
+#: megengine.functional.tensor.dimshuffle:18
+#: megengine.functional.tensor.gather:46
+#: megengine.functional.tensor.linspace:10
+#: megengine.functional.tensor.remove_axis:7
+#: megengine.functional.tensor.reshape:36
+#: megengine.functional.tensor.scatter:62
+#: megengine.functional.tensor.transpose:5 megengine.functional.tensor.where:35
+#: megengine.functional.tensor.zeros_like:25
+#: megengine.functional.utils.zero_grad:10 of
+msgid ":py:class:`~megengine.core.tensor.Tensor`"
+msgstr ":py:class:`~megengine.core.tensor.Tensor`"
+
+#: megengine.functional.elemwise.isinf megengine.functional.elemwise.isnan
+#: megengine.functional.graph.grad megengine.functional.math.argmax
+#: megengine.functional.math.argmin megengine.functional.math.max
+#: megengine.functional.math.min megengine.functional.math.norm
+#: megengine.functional.math.normalize megengine.functional.math.prod
+#: megengine.functional.math.sqrt megengine.functional.math.sum
+#: megengine.functional.nn.batched_matrix_mul megengine.functional.nn.dropout
+#: megengine.functional.nn.eye megengine.functional.nn.matrix_mul
+#: megengine.functional.nn.roi_pooling megengine.functional.sort.argsort
+#: megengine.functional.sort.sort megengine.functional.sort.top_k
+#: megengine.functional.tensor.add_axis megengine.functional.tensor.arange
+#: megengine.functional.tensor.broadcast_to megengine.functional.tensor.concat
+#: megengine.functional.tensor.dimshuffle megengine.functional.tensor.linspace
+#: megengine.functional.tensor.remove_axis megengine.functional.utils.accuracy
+#: of
+msgid "Returns"
+msgstr "返回"
+
+#: megengine.functional.elemwise.isinf:5 of
+msgid "a new tensor representing if each element in :attr:`inp` is Inf or not."
+msgstr "一个新的张量，它表示 :attr:`inp` 中的每个元素是否为无穷大值(Inf)。"
+
+#: megengine.functional.elemwise.isinf:7 megengine.functional.elemwise.isnan:7
+#: megengine.functional.loss.cross_entropy:13
+#: megengine.functional.loss.hinge_loss:14 megengine.functional.loss.l1_loss:23
+#: megengine.functional.loss.nll_loss:8
+#: megengine.functional.loss.smooth_l1_loss:22
+#: megengine.functional.math.argmax:12 megengine.functional.math.argmin:12
+#: megengine.functional.math.max:12 megengine.functional.math.mean:12
+#: megengine.functional.math.min:12 megengine.functional.math.prod:11
+#: megengine.functional.math.sqrt:8 megengine.functional.math.sum:14
+#: megengine.functional.nn.assert_equal:12
+#: megengine.functional.nn.batched_matrix_mul:10
+#: megengine.functional.nn.dropout:14 megengine.functional.nn.eye:15
+#: megengine.functional.nn.flatten:10
+#: megengine.functional.nn.indexing_one_hot:11
+#: megengine.functional.nn.interpolate:14 megengine.functional.nn.matrix_mul:10
+#: megengine.functional.nn.one_hot:8
+#: megengine.functional.nn.warp_perspective:24
+#: megengine.functional.sort.argsort:10 megengine.functional.sort.sort:10
+#: megengine.functional.sort.top_k:16 megengine.functional.tensor.add_axis:10
+#: megengine.functional.tensor.arange:13
+#: megengine.functional.tensor.broadcast_to:10
+#: megengine.functional.tensor.concat:14
+#: megengine.functional.tensor.cond_take:9
+#: megengine.functional.tensor.dimshuffle:21
+#: megengine.functional.tensor.gather:23
+#: megengine.functional.tensor.linspace:13
+#: megengine.functional.tensor.remove_axis:10
+#: megengine.functional.tensor.reshape:10
+#: megengine.functional.tensor.scatter:38 megengine.functional.tensor.where:14
+#: megengine.functional.tensor.zeros_like:6
+#: megengine.functional.utils.accuracy:13 of
+msgid "Examples:"
+msgstr "例如："
+
+#: megengine.functional.elemwise.isnan:1 of
+msgid "Returns a new tensor representing if each element is NaN or not."
+msgstr "返回一个新的张量，该张量表明每个元素是否为非数值类型(NaN)。"
+
+#: megengine.functional.elemwise.isnan:5 of
+msgid "a new tensor representing if each element in :attr:`inp` is NaN or not."
+msgstr "一个新的张量，该张量表示 :attr:`inp` 中的每个元素是否为非数值类型(NaN)。"
+
+#: megengine.functional.elemwise.less:1 of
+msgid "Return (x < y) element-wise."
+msgstr "返回逐元素 (x < y) 的值。"
+
+#: megengine.functional.elemwise.less_equal:1 of
+msgid "Return (x =< y) element-wise."
+msgstr "返回逐元素 (x =< y) 的值。"
+
+#: megengine.functional.elemwise.log:1 of
+msgid "Natural logarithm (base `e`), element-wise."
+msgstr "逐元素的自然对数(底数 `e` )。"
+
+#: megengine.functional.elemwise.maximum:1 of
+msgid "Element-wise maximum of array elements."
+msgstr "逐元素的最大数组元素。"
+
+#: megengine.functional.elemwise.minimum:1 of
+msgid "Element-wise minimum of array elements."
+msgstr "逐元素的最小数组元素。"
+
+#: megengine.functional.elemwise.mod:1 of
+msgid "Return element-wise remainder of division."
+msgstr "返回逐元素相除所得的余数。"
+
+#: megengine.functional.elemwise.multiply:1 of
+msgid "Element-wise multiplication."
+msgstr "逐元素相乘。"
+
+#: megengine.functional.elemwise.power:1 of
+msgid ""
+"First tensor elements raised to powers from second tensor (x ** y), "
+"element-wise."
+msgstr "第一个张量元素按元素从第二个数组提升为幂(x ** y)。"
+
+#: megengine.functional.elemwise.relu:1 of
+msgid "Return `max(x, 0)` element-wise."
+msgstr "返回逐元素 `max(x, 0)` 的值。"
+
+#: megengine.functional.elemwise.round:1 of
+msgid "Round tensor to int element-wise."
+msgstr "将所有张量元素四舍五入为整数类型(int)。"
+
+#: megengine.functional.elemwise.sigmoid:1 of
+msgid "Return 1 / ( 1 + exp( -x ) ) element-wise."
+msgstr "逐元素计算 1 / ( 1 + exp( -x ) ) 的值，并返回。"
+
+#: megengine.functional.elemwise.sin:1 of
+msgid "Sine, element-wise."
+msgstr "逐元素的正弦值。"
+
+#: megengine.functional.elemwise.subtract:1 of
+msgid "Subtract arguments element-wise"
+msgstr "逐元素减去参数。"
+
+#: megengine.functional.elemwise.tanh:1 of
+msgid "Compute hyperbolic tangent element-wise."
+msgstr "逐元素计算双曲正切值。"
+
+#: ../../source/api_zh/megengine.functional.rst:27
+msgid "megengine.functional.graph"
+msgstr "megengine.functional.graph"
+
+#: megengine.functional.graph.add_extra_vardep:1 of
+msgid ""
+"Explicitly set the dependency that tensor ``oup`` depends on tensor "
+"``dep``."
+msgstr "显式指定张量 ``oup`` 对张量 ``dep`` 的依赖关系。"
+
+#: megengine.functional.graph.add_update:1 of
+msgid "Inplace modify ``dest`` as follows:"
+msgstr "将 ``dest`` 进行如下的原位更新："
+
+#: megengine.functional.graph.add_update:3 of
+msgid "dest = alpha * dest +  beta * delta + bias"
+msgstr "dest = alpha * dest +  beta * delta + bias"
+
+#: megengine.functional.graph.add_update:7 of
+msgid "input data that will be inplace modified."
+msgstr "需要被原位更新的输入数据。"
+
+#: megengine.functional.graph.add_update:9 of
+msgid "update value that will be added to ``dest``."
+msgstr "将被加入到 ``dest`` 中的更新值。"
+
+#: megengine.functional.graph.add_update:11 of
+msgid "weight ratio of ``dest``. Default: 1.0"
+msgstr "``dest`` 的权重。默认： 1.0"
+
+#: megengine.functional.graph.add_update:13 of
+msgid "weight ratio of ``delta``. Default: 1.0"
+msgstr "``delta`` 的权重。默认：1.0"
+
+#: megengine.functional.graph.add_update:15 of
+msgid "bias value appended to the result. Default: 0.0"
+msgstr "添加到结果中的偏置量。默认：0.0"
+
+#: megengine.functional.graph.grad:1 of
+msgid "Compute the symbolic gradient of ``target`` with repect to ``wrt``."
+msgstr "计算 ``target`` 对 ``wrt`` 的符号梯度。"
+
+#: megengine.functional.graph.grad:3 of
+msgid "``wrt`` can either be a single tensor or a sequence of tensors."
+msgstr "``wrt`` 可以是单一张量或一个张量的序列。"
+
+#: megengine.functional.graph.grad:6 of
+msgid "``grad`` target tensor"
+msgstr "``grad`` 目标张量"
+
+#: megengine.functional.graph.grad:8 of
+msgid "with respect to which to compute the gradient"
+msgstr "计算相对于该值的梯度"
+
+#: megengine.functional.graph.grad:10 of
+msgid "whether to give warning if ``wrt`` is not endpoint"
+msgstr "如果 ``wrt`` 不是终节点，是否给予警告"
+
+#: megengine.functional.graph.grad:12 of
+msgid ""
+"whether to use virtual ``grad`` opr, so fwd graph can be optimized before"
+" applying ``grad``; if ``None`` is given, then virtual ``grad`` would be "
+"used if ``graph_opt_level >= 2``"
+msgstr ""
+"是否使用虚拟 ``grad`` 算子, 以便在应使用 ``grad`` 之前优化fwd图；如果给定值为 ``None`` , 则当 "
+"``graph_opt_level >= 2`` 时将使用虚拟 ``grad`` 。"
+
+#: megengine.functional.graph.grad:16 of
+msgid ""
+"if ``target`` does not depend on ``wrt``, set to True to return a zero-"
+"valued :class:`~.Tensor` rather than ``None``; can't be set to False when"
+" using virtual ``grad`` opr."
+msgstr ""
+"如果 ``target`` 不依赖于 ``wrt`` ,则设为True时将返回一个零值(zero-valued)的 "
+":class:`~.Tensor` 而非 ``None`` ;当使用虚拟 ``grad`` 算子时，不能设为 None。"
+
+#: megengine.functional.graph.grad:19 of
+msgid ""
+":py:data:`~typing.Union`\\[:py:class:`~megengine.core.tensor.Tensor`, "
+":py:class:`~typing.Iterable`\\[:py:data:`~typing.Optional`\\[:py:class:`~megengine.core.tensor.Tensor`]],"
+" ``None``]"
+msgstr ""
+":py:data:`~typing.Union`\\[:py:class:`~megengine.core.tensor.Tensor`, "
+":py:class:`~typing.Iterable`\\[:py:data:`~typing.Optional`\\[:py:class:`~megengine.core.tensor.Tensor`]],"
+" ``None``]"
+
+#: megengine.functional.graph.grad:20 of
+msgid ":math:`\\partial\\text{target} / \\partial\\text{wrt}`"
+msgstr ":math:`\\partial\\text{target} / \\partial\\text{wrt}`"
+
+#: ../../source/api_zh/megengine.functional.rst:35
+msgid "megengine.functional.loss"
+msgstr "megengine.functional.loss"
+
+#: megengine.functional.loss.binary_cross_entropy:1 of
+msgid ""
+"Function that measures the Binary Cross Entropy between the target and "
+"the prediction."
+msgstr "用于计算目标值与预测值之间的二元交叉熵的函数。"
+
+#: megengine.functional.loss.binary_cross_entropy:4 of
+msgid "(N,*) where * means, any number of additional dimensions."
+msgstr "(N,*) 其中*指任何附加的维度。"
+
+#: megengine.functional.loss.binary_cross_entropy:6 of
+msgid "(N,*), same shape as the input."
+msgstr "(N,*),与输入的形状相同。"
+
+#: megengine.functional.loss.cross_entropy:1 of
+msgid "Returns the cross entropy loss in a classification problem."
+msgstr "返回一个分类问题中的交叉熵损失。"
+
+#: megengine.functional.loss.cross_entropy:3 of
+msgid "\\textrm{CrossEntropy}(x, y) = - \\sum_{i} y_i\\log(x_i)"
+msgstr "\\textrm{CrossEntropy}(x, y) = - \\sum_{i} y_i\\log(x_i)"
+
+#: megengine.functional.loss.cross_entropy:6
+#: megengine.functional.loss.cross_entropy_with_softmax:13 of
+msgid "The input tensor representing the predicted probability."
+msgstr "表示预测概率的输入张量。"
+
+#: megengine.functional.loss.cross_entropy:7
+#: megengine.functional.loss.cross_entropy_with_softmax:15 of
+msgid "The input tensor representing the classification label."
+msgstr "表示分类标签的输入张量。"
+
+#: megengine.functional.loss.cross_entropy:9 of
+msgid "An axis along which cross_entropy will be applied. Default: 1"
+msgstr "沿着该轴计算cross_entropy。默认：1"
+
+#: megengine.functional.loss.cross_entropy:11 of
+msgid ""
+"Specifies a target value that is ignored and does not contribute to the "
+"input gradient. Default: -1"
+msgstr "表示需要被忽略的分类标签，其对于梯度不会有贡献。默认：-1"
+
+#: megengine.functional.loss.cross_entropy:29
+#: megengine.functional.loss.hinge_loss:28 megengine.functional.loss.l1_loss:35
+#: megengine.functional.loss.nll_loss:29
+#: megengine.functional.loss.smooth_l1_loss:36 megengine.functional.math.min:24
+#: megengine.functional.math.prod:23 megengine.functional.math.sqrt:20
+#: megengine.functional.nn.assert_equal:25
+#: megengine.functional.nn.batched_matrix_mul:28
+#: megengine.functional.nn.dropout:28 megengine.functional.nn.eye:27
+#: megengine.functional.nn.flatten:26 megengine.functional.nn.interpolate:30
+#: megengine.functional.nn.matrix_mul:25 megengine.functional.nn.one_hot:20
+#: megengine.functional.nn.warp_perspective:41
+#: megengine.functional.sort.argsort:21 megengine.functional.sort.sort:21
+#: megengine.functional.sort.top_k:27 megengine.functional.tensor.add_axis:21
+#: megengine.functional.tensor.broadcast_to:22
+#: megengine.functional.tensor.concat:27
+#: megengine.functional.tensor.cond_take:21
+#: megengine.functional.tensor.dimshuffle:32
+#: megengine.functional.tensor.gather:37
+#: megengine.functional.tensor.remove_axis:21
+#: megengine.functional.tensor.reshape:21
+#: megengine.functional.tensor.scatter:52 megengine.functional.tensor.where:27
+#: megengine.functional.utils.accuracy:26 of
+msgid "Outputs:"
+msgstr "输出："
+
+#: megengine.functional.loss.cross_entropy_with_softmax:1 of
+msgid "Returns loss after applying :func:`~.softmax` + :func:`~.cross_entropy`."
+msgstr "在应用 :func:`~.softmax` +  :func:`~.cross_entropy` 后返回损失。"
+
+#: megengine.functional.loss.cross_entropy_with_softmax:3 of
+msgid ""
+"It has better numerical stability compared with sequential calls to "
+":func:`~.softmax` and :func:`~.cross_entropy`."
+msgstr "与顺序调用 :func:`~.softmax` 和  :func:`~.cross_entropy` 相比，具有更好的数值稳定性。"
+
+#: megengine.functional.loss.cross_entropy_with_softmax:5 of
+msgid "When using label smoothing, the label distribution is as follows:"
+msgstr "当使用标签平滑(label smoothing)时，标签的分布情况如下:"
+
+#: megengine.functional.loss.cross_entropy_with_softmax:7 of
+msgid "y^{LS}_{k}=y_{k}\\left(1-\\alpha\\right)+\\alpha/K"
+msgstr "y^{LS}_{k}=y_{k}\\left(1-\\alpha\\right)+\\alpha/K"
+
+#: megengine.functional.loss.cross_entropy_with_softmax:9 of
+msgid ""
+"where :math:`y^{LS}` and :math:`y` are new label distribution and origin "
+"label distribution respectively. k is the index of label distribution. "
+":math:`\\alpha` is label_smooth and :math:`K` is the number of classes."
+msgstr ""
+"其中 :math:`y^{LS}` 和 :math:`y` 分别是新的标签分布和原始的标签分布。 k是标签分布的索引。 "
+":math:`\\alpha` 是label_smooth， :math:`K` 是类的数量。"
+
+#: megengine.functional.loss.cross_entropy_with_softmax:17 of
+msgid "An axis along which softmax will be applied. Default: 1."
+msgstr "沿着该维度应用SOFTMAX。默认：1。"
+
+#: megengine.functional.loss.cross_entropy_with_softmax:19 of
+msgid ""
+"A label smoothing of parameter that can re-distribute target "
+"distribution. Default: 0."
+msgstr "用于对原始标签分布进行标签平滑的参数。默认：0。"
+
+#: megengine.functional.loss.hinge_loss:1 of
+msgid "Caculate the hinge loss which is often used in SVMs."
+msgstr "计算支持向量机SVM中经常使用的hinge loss。"
+
+#: megengine.functional.loss.hinge_loss:3 of
+msgid "The hinge loss can be described as:"
+msgstr "hinge loss可以表示为："
+
+#: megengine.functional.loss.hinge_loss:5 of
+msgid "loss(x, y) = \\frac{1}{N}\\sum_i\\sum_j(max(0, 1 - x_i_j*y_i_j))"
+msgstr "loss(x, y) = \\frac{1}{N}\\sum_i\\sum_j(max(0, 1 - x_i_j*y_i_j))"
+
+#: megengine.functional.loss.hinge_loss:8 of
+msgid "The input tensor representing the predicted probability, shape is (N, C)."
+msgstr "表示预测概率的输入张量，形为(N,C)。"
+
+#: megengine.functional.loss.hinge_loss:10 of
+msgid ""
+"The input tensor representing the binary classification label, shape is "
+"(N, C)."
+msgstr "表示二分类标签的输入张量，形为(N,C)。"
+
+#: megengine.functional.loss.hinge_loss:12 of
+msgid "Specify the norm to caculate the loss, should be \"L1\" or \"L2\"."
+msgstr "指定计算损失时采用的范数，应为 \"L1\" 或 \"L2\" 。"
+
+#: megengine.functional.loss.l1_loss:1 of
+msgid ""
+"Calculates the mean absolute error (MAE) between each element in the pred"
+" :math:`x` and label :math:`y`."
+msgstr "计算预测值 :math:`x` 和标签值 :math:`y` 的每个元素之间的平均绝对误差(MAE)。"
+
+#: megengine.functional.loss.l1_loss:4 of
+msgid "The mean absolute error can be described as:"
+msgstr "平均绝对误差可以表示为："
+
+#: megengine.functional.loss.l1_loss:6 of
+msgid "\\ell(x,y) = mean\\left(L \\right)"
+msgstr "\\ell(x,y) = mean\\left(L \\right)"
+
+#: megengine.functional.loss.l1_loss:8 megengine.functional.loss.square_loss:8
+#: of
+msgid "where"
+msgstr "式中，"
+
+#: megengine.functional.loss.l1_loss:10 of
+msgid "L = \\{l_1,\\dots,l_N\\}, \\quad l_n = \\left| x_n - y_n \\right|,"
+msgstr "L = \\{l_1,\\dots,l_N\\}, \\quad l_n = \\left| x_n - y_n \\right|,"
+
+#: megengine.functional.loss.l1_loss:15
+#: megengine.functional.loss.square_loss:15 of
+msgid ""
+":math:`x` and :math:`y` are tensors of arbitrary shapes with a total of "
+":math:`N` elements each. :math:`N` is the batch size."
+msgstr ""
+":math:`x` 和 :math:`y` 是任意形状的张量，各张量包含 :math:`N` 个元素。  :math:`N` "
+"是批(batch)大小。"
+
+#: megengine.functional.loss.l1_loss:19 megengine.functional.loss.nll_loss:4
+#: megengine.functional.loss.smooth_l1_loss:18
+#: megengine.functional.loss.square_loss:19 of
+msgid "The predicted result from model."
+msgstr "从模型中预测的结果。"
+
+#: megengine.functional.loss.l1_loss:21 megengine.functional.loss.nll_loss:6
+#: megengine.functional.loss.smooth_l1_loss:20
+#: megengine.functional.loss.square_loss:21 of
+msgid "The ground truth to compare."
+msgstr "用于比较的真实值。"
+
+#: megengine.functional.loss.nll_loss:1 of
+msgid "The negative log likelihood loss."
+msgstr "负对数似然损失。"
+
+#: megengine.functional.loss.smooth_l1_loss:1 of
+msgid ""
+"Caculate the smooth l1 loss proposed in `Fast R-CNN paper by Ross "
+"Girshick`."
+msgstr "计算在 `Fast R-CNN paper by Ross Girshick` 中提出的smooth l1损失。"
+
+#: megengine.functional.loss.smooth_l1_loss:3 of
+msgid "The smooth l1 loss can be described as:"
+msgstr "smooth l1损失可以表示为:"
+
+#: megengine.functional.loss.smooth_l1_loss:5 of
+msgid "\\text{loss}(x, y) = \\frac{1}{n} \\sum_{i} l_{i}"
+msgstr "\\text{loss}(x, y) = \\frac{1}{n} \\sum_{i} l_{i}"
+
+#: megengine.functional.loss.smooth_l1_loss:8 of
+msgid "where :math:`l_{i}` is given by:"
+msgstr "其中 :math:`l_{i}` 由下式给出："
+
+#: megengine.functional.loss.smooth_l1_loss:10 of
+msgid ""
+"l_{i} = \\begin{cases} 0.5 (x_i - y_i)^2, & \\text{if } |x_i - y_i| < 1 "
+"\\\\ |x_i - y_i| - 0.5, & \\text{otherwise } \\end{cases}"
+msgstr ""
+"l_{i} = \\begin{cases} 0.5 (x_i - y_i)^2, & \\text{if } |x_i - y_i| < 1 "
+"\\\\ |x_i - y_i| - 0.5, & \\text{otherwise } \\end{cases}"
+
+#: megengine.functional.loss.square_loss:1 of
+msgid ""
+"Calculates the mean squared error (squared L2 norm) between each element "
+"in the pred :math:`x` and label :math:`y`."
+msgstr "计算预测值 :math:`x` 和标签值 :math:`y` 之间的均方误差(平方L2范数)。"
+
+#: megengine.functional.loss.square_loss:4 of
+msgid "The mean squared error can be described as:"
+msgstr "均方误差可以表示为："
+
+#: megengine.functional.loss.square_loss:6 of
+msgid "\\ell(x, y) = mean\\left( L \\right)"
+msgstr "\\ell(x, y) = mean\\left( L \\right)"
+
+#: megengine.functional.loss.square_loss:10 of
+msgid "L = \\{l_1,\\dots,l_N\\}, \\quad l_n = \\left( x_n - y_n \\right)^2,"
+msgstr "L = \\{l_1,\\dots,l_N\\}, \\quad l_n = \\left( x_n - y_n \\right)^2,"
+
+#: megengine.functional.loss.square_loss:28 of
+msgid "Shape:"
+msgstr "形状："
+
+#: megengine.functional.loss.square_loss:24 of
+msgid ""
+"pred: :math:`(N, *)` where :math:`*` means any number of additional "
+"dimensions"
+msgstr "预测值 : :math:`(N, *)` ，这里的 :math:`*` 指任何附加的维度。"
+
+#: megengine.functional.loss.square_loss:26 of
+msgid "label: :math:`(N, *)`. Same shape as ``pred``"
+msgstr "标签: :math:`(N, *)`. 与 ``pred`` 的形状相同"
+
+#: megengine.functional.loss.triplet_margin_loss:1 of
+msgid "Creates a criterion that measures the triplet loss given an input tensors."
+msgstr "创建一个标准，用于计算给定输入张量的三元组损失(triplet loss)。"
+
+#: megengine.functional.loss.triplet_margin_loss:3 of
+msgid ""
+"L(a, p, n) = max\\left\\{d\\left(a_{i},p_{i}\\right)-d\\left(a_{i}, "
+"n_{i}\\right)+margin, 0\\right\\},\\ "
+"d\\left(x_{i},y_{i}\\right)=\\left\\|x_{i}-y_{i}\\right\\|_{p}"
+msgstr ""
+"L(a, p, n) = max\\left\\{d\\left(a_{i},p_{i}\\right)-d\\left(a_{i}, "
+"n_{i}\\right)+margin, 0\\right\\},\\ "
+"d\\left(x_{i},y_{i}\\right)=\\left\\|x_{i}-y_{i}\\right\\|_{p}"
+
+#: megengine.functional.loss.triplet_margin_loss:9 of
+msgid "The input tensor representing the anchor samples."
+msgstr "表示锚采样的输入张量。"
+
+#: megengine.functional.loss.triplet_margin_loss:11 of
+msgid "The input tensor representing the positive samples."
+msgstr "表示正样本的输入张量。"
+
+#: megengine.functional.loss.triplet_margin_loss:13 of
+msgid "The input tensor representing the negative samples."
+msgstr "表示负样本的输入张量。"
+
+#: megengine.functional.loss.triplet_margin_loss:15 of
+msgid "Default: 1.0"
+msgstr "默认：1.0"
+
+#: megengine.functional.loss.triplet_margin_loss:17 of
+msgid "The norm degree for pairwise distance. Default: 2.0"
+msgstr "计算成对距离使用的范数。默认：2.0"
+
+#: ../../source/api_zh/megengine.functional.rst:43
+msgid "megengine.functional.math"
+msgstr "megengine.functional.math"
+
+#: megengine.functional.math.argmax:1 of
+msgid "Returns the indices of the maximum values along an axis"
+msgstr "返回某轴上所有最大值的索引"
+
+#: megengine.functional.math.argmax:4 megengine.functional.math.argmin:4
+#: megengine.functional.math.max:4 megengine.functional.math.mean:6
+#: megengine.functional.math.min:4 megengine.functional.math.norm:4
+#: megengine.functional.math.prod:4 megengine.functional.math.sqrt:4
+#: megengine.functional.nn.dropout:5 megengine.functional.nn.identity:4
+#: megengine.functional.tensor.broadcast_to:4 of
+msgid "The input tensor"
+msgstr "输入张量"
+
+#: megengine.functional.math.argmax:6 megengine.functional.math.argmin:6
+#: megengine.functional.math.max:6 megengine.functional.math.mean:8
+#: megengine.functional.math.min:6 megengine.functional.math.norm:8
+#: megengine.functional.math.sum:6 of
+msgid ""
+"The dimension to reduce. If None, all the dimensions will be reduced. "
+"Default: None"
+msgstr "要进行降低的维度。如果设置为None，则所有的维度都将减小。默认：None"
+
+#: megengine.functional.math.argmax:8 megengine.functional.math.argmin:8
+#: megengine.functional.math.max:8 megengine.functional.math.min:8 of
+msgid "Whether the output tensor has *axis* retained or not. Default: False"
+msgstr "输出张量是否保留了轴 *axis* 。默认：false"
+
+#: megengine.functional.math.argmax:10 megengine.functional.math.argmin:10
+#: megengine.functional.math.max:10 megengine.functional.math.min:10
+#: megengine.functional.math.norm:10 megengine.functional.math.prod:9
+#: megengine.functional.math.sum:12 megengine.functional.nn.dropout:12
+#: megengine.functional.tensor.add_axis:8
+#: megengine.functional.tensor.broadcast_to:8
+#: megengine.functional.tensor.concat:12
+#: megengine.functional.tensor.dimshuffle:19
+#: megengine.functional.tensor.remove_axis:8 of
+msgid "The output tensor"
+msgstr "输出张量"
+
+#: megengine.functional.math.argmin:1 of
+msgid "Returns the indices of the minimum values along an axis"
+msgstr "返回一个轴上最小值的索引"
+
+#: megengine.functional.math.logsumexp:1 of
+msgid ""
+"Compute the log of the sum of exponentials of inputs along the given "
+":attr:`axis`. The computation is numerically stabilized."
+msgstr "计算输入数据沿给定维度 :attr:`axis` 的指数之和的对数(log)。该计算是数值稳定的。"
+
+#: megengine.functional.math.logsumexp:3 of
+msgid ""
+"\\mathsf{logsumexp}(x_1, \\dots, x_n) = \\log(\\exp(x_1) + \\cdots + "
+"\\exp(x_n))"
+msgstr ""
+"\\mathsf{logsumexp}(x_1, \\dots, x_n) = \\log(\\exp(x_1) + \\cdots + "
+"\\exp(x_n))"
+
+#: megengine.functional.math.logsumexp:8 megengine.functional.math.sum:4
+#: megengine.functional.nn.avg_pool2d:6 megengine.functional.nn.flatten:4
+#: megengine.functional.nn.max_pool2d:6 megengine.functional.nn.softmax:12 of
+msgid "The input tensor."
+msgstr "输入张量。"
+
+#: megengine.functional.math.logsumexp:10 of
+msgid ""
+"Axis over which the sum is taken. It can be a single axis or a list of "
+"axes."
+msgstr "求和计算所在的维度。可以是单个维度或维度的列表。"
+
+#: megengine.functional.math.logsumexp:12 of
+msgid "whether to retain :attr:`axis` or not for the output tensor."
+msgstr "输出张量是否保留 :attr:`axis` 。"
+
+#: megengine.functional.math.max:1 of
+msgid "Returns the max value of the input tensor along given *axis*."
+msgstr "返回输入张量在给定轴 *axis* 上的最大值。"
+
+#: megengine.functional.math.mean:1 of
+msgid ""
+"Returns the mean value of each row of the ``inp`` tensor in the given "
+"``axis``. If axis is a list of dimensions, reduce over all of them."
+msgstr "返回在给定轴 ``axis`` 上 ``inp`` 张量每一行的平均值。如果给定的轴是一个维度列表，则减小所有维度。"
+
+#: megengine.functional.math.mean:10 megengine.functional.math.norm:9
+#: megengine.functional.math.sum:9 of
+msgid "Whether the output tensor has ``axis`` retained or not. Default: False"
+msgstr "输出张量是否保留了轴 ``axis`` 。 默认： False"
+
+#: megengine.functional.math.min:1 of
+msgid "Returns the min value of input tensor along given *axis*."
+msgstr "返回输入张量在给定轴 *axis* 上的最小值。"
+
+#: megengine.functional.math.norm:1 of
+msgid "Calculate ``p``-norm of input tensor along certain axis."
+msgstr "计算输入张量在某些轴上的 ``p`` -范数。"
+
+#: megengine.functional.math.norm:6 megengine.functional.math.normalize:12 of
+msgid "power of value ``p`` applied to ``inp``. Default: 2"
+msgstr "对 ``inp`` 进行 ``p`` 次幂计算. 默认：2"
+
+#: megengine.functional.math.normalize:1 of
+msgid "Perform :math:`L_p` normalization of input tensor along certain axis."
+msgstr "计算输入张量在某些轴上的 :math:`L_p` 范数。"
+
+#: megengine.functional.math.normalize:3 of
+msgid ""
+"For a tensor :attr:`inp` of shape :math:`(n_0, ..., n_{dim}, ..., n_k)`, "
+"each :math:`n_{dim}` -element vector :math:`v` along dimension "
+":attr:`axis` is transformed as:"
+msgstr ""
+"对于一个形如 :math:`(n_0, ..., n_{dim}, ..., n_k)` 的张量 :attr:`inp` , 其每个 "
+":math:`n_{dim}` - :attr:`axis` 维度上的元素向量 :math:`v` 将转化为:"
+
+#: megengine.functional.math.normalize:6 of
+msgid "v = \\frac{v}{\\max(\\lVert v \\rVert_p, \\epsilon)}."
+msgstr "v = \\frac{v}{\\max(\\lVert v \\rVert_p, \\epsilon)}."
+
+#: megengine.functional.math.normalize:10 of
+msgid "the input tensor"
+msgstr "输入张量"
+
+#: megengine.functional.math.normalize:14 of
+msgid ""
+"The dimension to reduce. If None, all the dimensions will be reduced to "
+"calculate the norm. Default: None"
+msgstr "要进行降低的维度。如果设置为None，则所有的维度都将降低，用于计算范数。默认：None"
+
+#: megengine.functional.math.normalize:17 of
+msgid "a small value to avoid division by zero. Default: 1e-12"
+msgstr "为防止0做除数而设的较小值。 默认： 1e-12"
+
+#: megengine.functional.math.normalize:19 of
+msgid "the normalized output tensor"
+msgstr "归一化的输出张量"
+
+#: megengine.functional.math.prod:1 of
+msgid "Returns the element product of input tensor along given *axis*."
+msgstr "返回输入张量在给定维度 *axis* 上各元素的乘积。"
+
+#: megengine.functional.math.prod:6 of
+msgid ""
+"The dimension to reduce. If None, all the dimensions will be reduced. "
+"Default: ``None``"
+msgstr "降维操作中降低的维度。如果设置为None，则所有的维度都将减小。默认：  ``None`` "
+
+#: megengine.functional.math.prod:7 of
+msgid "Whether the output tensor has *axis* retained or not. Default: ``False``"
+msgstr "输出张量是否保留了轴 *axis* 。 默认： ``False`` "
+
+#: megengine.functional.math.sqrt:1 of
+msgid "Return a new tensor with the square-root of the elements of ``inp``"
+msgstr "返回一个包含 ``inp`` 中各元素平方根的新的张量"
+
+#: megengine.functional.math.sqrt:6 of
+msgid "The computed tensor"
+msgstr "计算得到的张量"
+
+#: megengine.functional.math.sum:1 of
+msgid "Returns the sum of each row of the ``inp`` tensor in the given ``axis``."
+msgstr "返回 ``inp`` 张量在给定轴 ``axis`` 上每一行的和。"
+
+#: ../../source/api_zh/megengine.functional.rst:51
+msgid "megengine.functional.nn"
+msgstr "megengine.functional.nn"
+
+#: megengine.functional.nn.assert_equal:1 of
+msgid ""
+"Asserts that ``get`` equals to ``expect``, and returns value of "
+"``expect``."
+msgstr "断言 ``get`` 等于 ``expect`` ，并返回 ``expect`` 的值。"
+
+#: megengine.functional.nn.assert_equal:4 of
+msgid "tensor to be checked."
+msgstr "要检查的张量。"
+
+#: megengine.functional.nn.assert_equal:6 of
+msgid "tensor with expected values."
+msgstr "期望值张量。"
+
+#: megengine.functional.nn.assert_equal:8 of
+msgid "tolerance that two float values are asserted equal. Default: 1e-4"
+msgstr "断言两个浮点(float)值相等时的容忍度(tolerance)。 默认： 1e-4"
+
+#: megengine.functional.nn.assert_equal:10 of
+msgid "whether to print details if two tensors are not equal. Default: False"
+msgstr "如果两个张量不相等时，是否需要输出细节。 默认： False"
+
+#: megengine.functional.nn.avg_pool2d:1 of
+msgid "Applies a 2D average pooling over an input."
+msgstr "对输入进行二维平均池化。"
+
+#: megengine.functional.nn.avg_pool2d:3 of
+msgid "Refer to :class:`~.AvgPool2d` for more information."
+msgstr "更多信息参见 :class:`~.AvgPool2d` 。"
+
+#: megengine.functional.nn.avg_pool2d:8 megengine.functional.nn.max_pool2d:8 of
+msgid "The size of the window."
+msgstr "窗口的尺寸。"
+
+#: megengine.functional.nn.avg_pool2d:10 megengine.functional.nn.max_pool2d:10
+#: of
+msgid ""
+"The stride of the window. If not provided, its value is set to "
+"``kernel_size``. Default: None"
+msgstr "窗口的步长。 如果该值没有给出，则将值设置为 ``kernel_size`` 。默认： None"
+
+#: megengine.functional.nn.avg_pool2d:13 megengine.functional.nn.max_pool2d:13
+#: of
+msgid "Implicit zero padding to be added on both sides. Default: 0"
+msgstr "添加在每一侧的隐含零值填充。 默认： 0"
+
+#: megengine.functional.nn.batch_norm2d:1 of
+msgid "Applies batch normalization to the input."
+msgstr "对输入进行批标准化。"
+
+#: megengine.functional.nn.batch_norm2d:3
+#: megengine.functional.nn.sync_batch_norm:3 of
+msgid ""
+"Refer to :class:`~.BatchNorm2d` and :class:`~.BatchNorm1d` for more "
+"information."
+msgstr "更多信息参见 :class:`~.BatchNorm2d` 和 :class:`~.BatchNorm1d` 。"
+
+#: megengine.functional.nn.batch_norm2d:6
+#: megengine.functional.nn.sync_batch_norm:5 of
+msgid "input tensor."
+msgstr "输入张量。"
+
+#: megengine.functional.nn.batch_norm2d:8
+#: megengine.functional.nn.sync_batch_norm:7 of
+msgid "tensor to store running mean."
+msgstr "存储运行中的均值的张量。"
+
+#: megengine.functional.nn.batch_norm2d:10
+#: megengine.functional.nn.sync_batch_norm:9 of
+msgid "tensor to store running variance."
+msgstr "存储运行中的方差的张量。"
+
+#: megengine.functional.nn.batch_norm2d:12
+#: megengine.functional.nn.sync_batch_norm:11 of
+msgid ""
+"scaling tensor in the learnable affine parameters. See :math:`\\gamma` in"
+" :class:`~.BatchNorm2d`"
+msgstr "可学习仿射参数中的放缩张量。可参阅 :class:`~.BatchNorm2d` 中的 :math:`\\gamma`"
+
+#: megengine.functional.nn.batch_norm2d:15
+#: megengine.functional.nn.sync_batch_norm:14 of
+msgid ""
+"bias tensor in the learnable affine parameters. See :math:`eta` in "
+":class:`~.BatchNorm2d`"
+msgstr "可学习仿射参数中的偏置张量。可参阅 :class:`~.BatchNorm2d` 中的 :math:`eta`"
+
+#: megengine.functional.nn.batch_norm2d:18
+#: megengine.functional.nn.sync_batch_norm:17 of
+msgid ""
+"a boolean value to indicate whether batch norm is performed in traning "
+"mode. Default: ``False``"
+msgstr "一个布尔值，它表示是否执行训练模式下的批归一化，  即对当前批数据进行统计并更新统计量。 默认： ``False``"
+
+#: megengine.functional.nn.batch_norm2d:21
+#: megengine.functional.nn.sync_batch_norm:20 of
+msgid ""
+"the value used for the ``running_mean`` and ``running_var`` computation. "
+"Default: 0.9"
+msgstr "用于计算 ``running_mean`` 和 ``running_var`` 的值。 默认： 0.9"
+
+#: megengine.functional.nn.batch_norm2d:25
+#: megengine.functional.nn.sync_batch_norm:24 of
+msgid "a value added to the denominator for numerical stability. Default: 1e-5."
+msgstr "为提高数值稳定性而添加到分母中的值。 默认： 1e-5。"
+
+#: megengine.functional.nn.batched_matrix_mul:1 of
+msgid ""
+"Performs a batched multiplication of th batched matrices ``inp1`` and "
+"``inp2``"
+msgstr "对批矩阵 ``inp1`` 和 ``inp2`` 进行批处理乘法"
+
+#: megengine.functional.nn.batched_matrix_mul:4 of
+msgid "The first batch matrix to be multiplied (n, a, b)"
+msgstr "相乘计算中的第一个batch矩阵 (n, a, b)"
+
+#: megengine.functional.nn.batched_matrix_mul:6 of
+msgid "The second batch matrix to be multiplied (n, b, c)"
+msgstr "相乘计算中的第二个batch矩阵 (n, b, c)"
+
+#: megengine.functional.nn.batched_matrix_mul:8 of
+msgid "The output batch (n, a, c)"
+msgstr "输出batch (n, a, c)"
+
+#: megengine.functional.nn.conv2d:1 of
+msgid "2D convolution operation."
+msgstr "二维卷积运算。"
+
+#: megengine.functional.nn.conv2d:3 of
+msgid "Refer to :class:`~.Conv2d` for more information."
+msgstr "更多信息参见 :class:`~.Conv2d` 。"
+
+#: megengine.functional.nn.conv2d:6 megengine.functional.nn.conv_transpose2d:6
+#: megengine.functional.quantized.conv_bias_activation:4 of
+msgid "The feature map of the convolution operation"
+msgstr "卷积运算的特征图"
+
+#: megengine.functional.nn.conv2d:8 megengine.functional.nn.conv_transpose2d:8
+#: megengine.functional.quantized.conv_bias_activation:6 of
+msgid "The convolution kernel"
+msgstr "卷积核"
+
+#: megengine.functional.nn.conv2d:10
+#: megengine.functional.nn.conv_transpose2d:10 of
+msgid "The bias added to the result of convolution (if given)"
+msgstr "添加到卷积结果中的偏置量(如果给定该值)"
+
+#: megengine.functional.nn.conv2d:12
+#: megengine.functional.nn.conv_transpose2d:12
+#: megengine.functional.quantized.conv_bias_activation:10 of
+msgid "Stride of the 2D convolution operation. Default: 1"
+msgstr "二维卷积运算中的步长。 默认： 1"
+
+#: megengine.functional.nn.conv2d:14
+#: megengine.functional.nn.conv_transpose2d:14
+#: megengine.functional.quantized.conv_bias_activation:12 of
+msgid ""
+"Size of the paddings added to the input on both sides of its spatial "
+"dimensions. Only zero-padding is supported. Default: 0"
+msgstr "在输入值的空间维度上每一侧填充的尺寸。 仅支持用零值填充。 默认： 0"
+
+#: megengine.functional.nn.conv2d:17
+#: megengine.functional.nn.conv_transpose2d:17
+#: megengine.functional.quantized.conv_bias_activation:15 of
+msgid "Dilation of the 2D convolution operation. Default: 1"
+msgstr "二维卷积运算的扩张值(dilation)。 默认： 1"
+
+#: megengine.functional.nn.conv2d:19
+#: megengine.functional.quantized.conv_bias_activation:17 of
+msgid ""
+"number of groups to divide input and output channels into, so as to "
+"perform a \"grouped convolution\". When ``groups`` is not 1, "
+"``in_channels`` and ``out_channels`` must be divisible by ``groups``, and"
+" the shape of weight should be ``(groups, out_channel // groups, "
+"in_channels // groups, height, width)``."
+msgstr ""
+"将输入和输出通道划分成的组数, 以便执行分组卷积 \"grouped convolution\" 。 当组数 ``groups`` "
+"不为1时,输入通道 ``in_channels`` 和输出通道 ``out_channels`` 必须能被 ``groups`` 整除， "
+"权值矩阵的形状应为  ``(groups, out_channel // groups, in_channels // groups, "
+"height, width)`` 。"
+
+#: megengine.functional.nn.conv2d:25
+#: megengine.functional.nn.conv_transpose2d:25
+#: megengine.functional.quantized.conv_bias_activation:23 of
+msgid ""
+"Supports 'CROSS_CORRELATION' or 'CONVOLUTION'. Default: "
+"'CROSS_CORRELATION'."
+msgstr "支持 'CROSS_CORRELATION' 或 'CONVOLUTION'。 默认： 'CROSS_CORRELATION' 。"
+
+#: megengine.functional.nn.conv2d:29
+#: megengine.functional.nn.conv_transpose2d:29
+#: megengine.functional.quantized.conv_bias_activation:33 of
+msgid ""
+"When set to 'DEFAULT', no special requirements will be placed on the "
+"precision of intermediate results. When set to 'FLOAT32', Float32 would "
+"be used for accumulator and intermediate result, but only effective when "
+"input and output are of Float16 dtype."
+msgstr ""
+"当该值设置为 'DEFAULT' 时，对中间结果的精度不做特殊要求。当设置为 'FLOAT32' "
+"时，累加器和中间结果将使用Float32类型，但该设置仅当输入和输出为Float16类型时有效。"
+
+#: megengine.functional.nn.conv_transpose2d:1 of
+msgid "2D transposed convolution operation."
+msgstr "二维转置卷积运算。"
+
+#: megengine.functional.nn.conv_transpose2d:3 of
+msgid "Refer to :class:`~.ConvTranspose2d` for more information."
+msgstr "更多信息参见 :class:`~.ConvTranspose2d` 。"
+
+#: megengine.functional.nn.conv_transpose2d:19 of
+msgid ""
+"number of groups to divide input and output channels into, so as to "
+"perform a \"grouped convolution\". When ``groups`` is not 1, "
+"``in_channels`` and ``out_channels`` must be divisible by ``groups``, and"
+" the shape of weight should be ``(groups, out_channel // groups, "
+"in_channels // groups, height, width)``. Default: 1"
+msgstr ""
+"将输入和输出通道划分成的组数, 以便执行分组卷积 \"grouped convolution\" 。 当组数 ``groups`` "
+"不为1时,输入通道 ``in_channels`` 和输出通道 ``out_channels`` 必须能被 ``groups`` 整除， "
+"权值矩阵的形状应为  ``(groups, out_channel // groups, in_channels // groups, "
+"height, width)`` 。默认：1"
+
+#: megengine.functional.nn.dropout:1 of
+msgid ""
+"Returns a new tensor where each of the elements are randomly set to zero "
+"with probability P = ``drop_prob``. Optionally rescale the output tensor."
+msgstr "返回一个新张量，其中每个元素按概率 P = ``drop_prob`` =``drop_prob`` 随机被设置为零。可以选择是否重新缩放输出张量。"
+
+#: megengine.functional.nn.dropout:7 of
+msgid "The probability to drop (set to zero) a single element"
+msgstr "丢弃单个元素(将其设置为0)的概率"
+
+#: megengine.functional.nn.dropout:9 of
+msgid ""
+"The default behavior of ``dropout`` during training is to rescale the "
+"output, then it can be replaced by an :class:`~.Identity` during "
+"inference, default to True."
+msgstr ""
+"``dropout`` 在训练阶段的默认操作是 重新缩放输出张量, 这样它就可以在推理过程中被一个 :class:`~.Identity` 代替,"
+" 默认值为True."
+
+#: megengine.functional.nn.embedding:1 of
+msgid "Applies lookup table for embedding."
+msgstr "根据输入从给定的词向量矩阵中获取词向量"
+
+#: megengine.functional.nn.embedding:4 of
+msgid "the tensor with indices."
+msgstr "带有索引的张量。"
+
+#: megengine.functional.nn.embedding:6 of
+msgid "the learnable weights which embedding from."
+msgstr "可学习的词向量矩阵，行数为最大可能的词向量序号加一，列数等于词向量大小。"
+
+#: megengine.functional.nn.embedding:8 megengine.functional.nn.embedding:10
+#: megengine.functional.nn.embedding:12 of
+msgid "should be set to None, not support now."
+msgstr "应设置为None，当前尚不支持。"
+
+#: megengine.functional.nn.embedding:15 of
+msgid "Refer to :class:`~.Embedding` for more information."
+msgstr "更多信息参见 :class:`~.Embedding` 。"
+
+#: megengine.functional.nn.eye:1 of
+msgid "Returns a 2D tensor with ones on the diagonal and zeros elsewhere."
+msgstr "返回一个二维张量，其对角线上值均为1，其他位置值为0。"
+
+#: megengine.functional.nn.eye:4 of
+msgid "The number of rows"
+msgstr "行数"
+
+#: megengine.functional.nn.eye:6 of
+msgid "The number of columns. Default: None"
+msgstr "列数。默认：None"
+
+#: megengine.functional.nn.eye:7 of
+msgid "The data type. Default: None"
+msgstr "数据类型。默认：None"
+
+#: megengine.functional.nn.eye:9 of
+msgid "Compute node of the matrix. Default: None"
+msgstr "矩阵的计算节点。默认：None"
+
+#: megengine.functional.nn.eye:11 of
+msgid "Compute graph of the matrix. Default: None"
+msgstr "矩阵的计算图。默认：None"
+
+#: megengine.functional.nn.eye:13 of
+msgid "The eye matrix"
+msgstr "单位矩阵"
+
+#: megengine.functional.nn.flatten:1 of
+msgid ""
+"Reshapes the tensor by flattening the sub-tensor from dimension "
+"``start_axis`` to dimension ``end_axis``."
+msgstr "通过将子张量从 ``start_axis`` 维展平到 ``end_axis`` 维，实现对张量的重塑(reshape)。"
+
+#: megengine.functional.nn.flatten:6 of
+msgid "The start dimension that the sub-tensor to be flattened. Default: 0"
+msgstr "子张量被展平时的初始维数。 默认： 0"
+
+#: megengine.functional.nn.flatten:8 of
+msgid "The end dimension that the sub-tensor to be flattened. Default: -1"
+msgstr "子张量被展平时的最终维数。 默认： -1"
+
+#: megengine.functional.nn.identity:1 of
+msgid "applies an identity transform to the input tensor."
+msgstr "对输入张量进行恒等变换。"
+
+#: megengine.functional.nn.indexing_one_hot:1 of
+msgid "One-hot indexing for some axis."
+msgstr "对一些轴进行One-hot索引。"
+
+#: megengine.functional.nn.indexing_one_hot:4 of
+msgid "input data tensor."
+msgstr "输入数据张量。"
+
+#: megengine.functional.nn.indexing_one_hot:6 of
+msgid "index tensor."
+msgstr "索引张量。"
+
+#: megengine.functional.nn.indexing_one_hot:8 of
+msgid "the axis on src for which values in index index. Default: 1"
+msgstr "源数据上的轴，索引值为其索引。 默认： 1"
+
+#: megengine.functional.nn.indexing_one_hot:9 of
+msgid "whether not to remove the axis in result. Default: ``False``"
+msgstr "是否在结果数据中删除该轴。 默认： ``False`` "
+
+#: megengine.functional.nn.interpolate:1 of
+msgid ""
+"Down/up samples the input tensor to either the given :attr:`size` or the "
+"given :attr:`scale_factor`"
+msgstr "按照给定的 :attr:`size` 或 :attr:`scale_factor` 对输入张量进行向下/向上采样"
+
+#: megengine.functional.nn.interpolate:5 megengine.functional.nn.one_hot:4
+#: megengine.functional.tensor.zeros_like:4 of
+msgid "input tensor"
+msgstr "输入张量"
+
+#: megengine.functional.nn.interpolate:7 of
+msgid "size of the output tensor. Default: ``None``"
+msgstr "输出张量的尺寸。 默认： ``None``"
+
+#: megengine.functional.nn.interpolate:9 of
+msgid "scaling factor of the output tensor. Default: ``None``"
+msgstr "输出张量的比例因子。 默认： ``None``"
+
+#: megengine.functional.nn.interpolate:11 of
+msgid ""
+"interpolation methods, acceptable values are: 'BILINEAR', 'LINEAR'. "
+"Default: ``BILINEAR``"
+msgstr "插值方法，可选的值有：双线性插值 'BILINEAR' ，线性插值 'LINEAR' 。默认： ``BILINEAR`` "
+
+#: megengine.functional.nn.leaky_relu:1 of
+msgid "Applies the element-wise leaky_relu function"
+msgstr "逐元素使用leaky_relu函数"
+
+#: megengine.functional.nn.leaky_relu:3 of
+msgid "Refer to :class:`~.LeakyReLU` for more information."
+msgstr "更多信息参见 :class:`~.LeakyReLU` 。"
+
+#: megengine.functional.nn.linear:1 of
+msgid "Applies a linear transformation to the input."
+msgstr "对输入进行线性变换。"
+
+#: megengine.functional.nn.linear:3 of
+msgid "Refer to :class:`~.module.linear.Linear` for more information."
+msgstr "更多信息参见： :class:`~.module.linear.Linear` 。"
+
+#: megengine.functional.nn.linear:6 of
+msgid "the input tensor with shape `(N, in_features)`."
+msgstr "形为 `(N, in_features)` 的输入向量。"
+
+#: megengine.functional.nn.linear:8 of
+msgid "the weight with shape `(out_features, in_features)`."
+msgstr "形为 `(out_features, in_features)` 的权值矩阵。"
+
+#: megengine.functional.nn.linear:10 of
+msgid "the bias with shape `(out_features,)`. Default: ``None``"
+msgstr "形为 `(out_features,)` 的偏置值向量。 默认： ``None`` "
+
+#: megengine.functional.nn.local_conv2d:1 of
+msgid "Applies spatial 2D convolution over an image with untied kernels."
+msgstr "使用untied kernels对图像进行二维空域卷积。"
+
+#: megengine.functional.nn.local_conv2d:3 of
+msgid "Refer to :class:`~.LocalConv2d` for more information."
+msgstr "更多信息参见 :class:`~.LocalConv2d` 。"
+
+#: megengine.functional.nn.matrix_mul:1 of
+msgid "Performs a matrix multiplication of the matrices ``inp1`` and ``inp2``"
+msgstr "对矩阵 ``inp1`` 和 ``inp2`` 进行矩阵乘法"
+
+#: megengine.functional.nn.matrix_mul:4 of
+msgid "The first matrix to be multiplied (a, b)"
+msgstr "相乘计算中的第一个矩阵 (a, b)"
+
+#: megengine.functional.nn.matrix_mul:6 of
+msgid "The second matrix to be multiplied (b, c)"
+msgstr "相乘计算中的第二个矩阵 (b, c)"
+
+#: megengine.functional.nn.matrix_mul:8 of
+msgid "The output tensor (a, c)"
+msgstr "输出张量 (a, c)"
+
+#: megengine.functional.nn.max_pool2d:1 of
+msgid "Applies a 2D max pooling over an input."
+msgstr "对输入进行二维最大池化。"
+
+#: megengine.functional.nn.max_pool2d:3 of
+msgid "Refer to :class:`~.MaxPool2d` for more information."
+msgstr "更多信息参见 :class:`~.MaxPool2d` 。"
+
+#: megengine.functional.nn.one_hot:1 of
+msgid "Perform one-hot encoding for the input tensor."
+msgstr "对输入张量进行one-hot编码。"
+
+#: megengine.functional.nn.one_hot:6 of
+msgid "number of classes denotes the last dimension of the output tensor"
+msgstr "表示输出张量最后一个维度的类数"
+
+#: megengine.functional.nn.prelu:1 of
+msgid "Applies the element-wise PReLU function."
+msgstr "逐元素使用PReLU函数。"
+
+#: megengine.functional.nn.prelu:3 of
+msgid "Refer to :class:`~.PReLU` for more information."
+msgstr "更多信息参见 :class:`~.PReLU` 。"
+
+#: megengine.functional.nn.roi_align:1 of
+msgid "Apply roi align on input feature"
+msgstr "对输入特征使用roi align"
+
+#: megengine.functional.nn.roi_align:4 megengine.functional.nn.roi_pooling:4 of
+msgid "tensor that represents the input feature, (N, C, H, W) images"
+msgstr "表示输入特征的张量，形为 (N, C, H, W) 的图像"
+
+#: megengine.functional.nn.roi_align:6 of
+msgid ""
+"(N, 5) boxes. First column is the index into N. The other 4 columns are "
+"xyxy"
+msgstr "形为(N，5)的box。第一列是N的索引，其它4列分别是xyxy"
+
+#: megengine.functional.nn.roi_align:8 of
+msgid "(height, width) shape of output rois feature."
+msgstr "以(height, width)形式输出rois feature的形状。"
+
+#: megengine.functional.nn.roi_align:10 of
+msgid ""
+"\"max\" or \"average\", use max/average align just like max/average "
+"pooling. Default: ``\"average\"``"
+msgstr ""
+"\"max\" 或 \"average\", 像使用最大/平均池化一样使用 max/average align。 默认： "
+"``\"average\"`` "
+
+#: megengine.functional.nn.roi_align:12 megengine.functional.nn.roi_pooling:12
+#: of
+msgid "scale the input boxes by this number. Default: 1.0"
+msgstr "用这个数值缩放输入的box。 默认： 1.0"
+
+#: megengine.functional.nn.roi_align:14 of
+msgid ""
+"number of inputs samples to take for each output sample. 0 to take "
+"samples densely. Default: 2"
+msgstr "每个输出样本要使用的输入样本个数。该值为0则进行密集采样。 默认： 2"
+
+#: megengine.functional.nn.roi_align:17 of
+msgid ""
+"wheather align the input feature, with `aligned=True`, we first "
+"appropriately scale the ROI and then shift it by -0.5. Default: True"
+msgstr "用 `aligned=True` 来指定是否与输入特征对齐，首先适当缩放ROI，然后赋予其-0.5的偏移量。 默认： True"
+
+#: megengine.functional.nn.roi_pooling:1 of
+msgid "Apply roi pooling on input feature"
+msgstr "对输入特征使用roi池化"
+
+#: megengine.functional.nn.roi_pooling:6 of
+msgid ""
+"(K, 5) boxes. First column is the index into N. The other 4 columns are "
+"xyxy"
+msgstr "形为(K，5)的box。第一列是N的索引，其它4列分别是xyxy"
+
+#: megengine.functional.nn.roi_pooling:8 of
+msgid "(height, width) of output rois feature"
+msgstr "输出rois特征的(height, width)"
+
+#: megengine.functional.nn.roi_pooling:10 of
+msgid ""
+"\"max\" or \"average\", use max/average align just like max/average "
+"pooling. Default: ``\"max\"``"
+msgstr "\"max\" 或 \"average\", 像使用最大/平均池化一样使用 max/average align。 默认：  ``\"max\"`` "
+
+#: megengine.functional.nn.roi_pooling:14 of
+msgid "(K, C, output_shape[0], output_shape[1]) feature of rois"
+msgstr "(K, C, output_shape[0], output_shape[1]) rois的特征"
+
+#: megengine.functional.nn.softmax:1 of
+msgid "Applies a softmax function. Softmax is defined as:"
+msgstr "使用softmax函数。softmax被定义为："
+
+#: megengine.functional.nn.softmax:3 of
+msgid "\\text{Softmax}(x_{i}) = \\frac{\\exp(x_i)}{\\sum_j \\exp(x_j)}"
+msgstr "\\text{Softmax}(x_{i}) = \\frac{\\exp(x_i)}{\\sum_j \\exp(x_j)}"
+
+#: megengine.functional.nn.softmax:6 of
+msgid ""
+"It is applied to all elements along axis, and will re-scale them so that "
+"the elements lie in the range `[0, 1]` and sum to 1."
+msgstr "这将应用到该轴的所有元素上，并重新缩放这些元素使其能够处于 `[0, 1]` 的范围内并且和为1。"
+
+#: megengine.functional.nn.softmax:9 of
+msgid "See :class:`~megengine.module.activation.Softmax` for more details."
+msgstr "更多信息参见 :class:`~megengine.module.activation.Softmax` 。"
+
+#: megengine.functional.nn.softmax:14 of
+msgid ""
+"An axis along which softmax will be applied. By default, softmax will "
+"apply along the highest ranked axis."
+msgstr "在该轴上使用softmax方法。默认情况下，softmax将在序号最大的轴上使用。"
+
+#: megengine.functional.nn.softplus:1 of
+msgid "Performs the elementwise function:"
+msgstr "逐元素使用下面的函数："
+
+#: megengine.functional.nn.softplus:3 of
+msgid "\\mathsf{softplus}(x) = \\log(1+\\exp(\\beta x)) / \\beta."
+msgstr "\\mathsf{softplus}(x) = \\log(1+\\exp(\\beta x)) / \\beta."
+
+#: megengine.functional.nn.softplus:7 of
+msgid ""
+"For numerical stability the identity function is used when :math:`\\beta "
+"x > \\textrm{threshold}`."
+msgstr ""
+"为保证数值稳定性，当 :math:`\\beta x > \\textrm{threshold}` 时使用恒等函数(identity "
+"function)。"
+
+#: megengine.functional.nn.sync_batch_norm:1 of
+msgid "Applies synchronized batch normalization to the input."
+msgstr "对输入进行同步批标准化。"
+
+#: megengine.functional.nn.warp_perspective:1 of
+msgid "Applies perspective transformation to batched 2D images."
+msgstr "对按批组织的二维图像进行透视变换。"
+
+#: megengine.functional.nn.warp_perspective:3 of
+msgid ""
+"The input images are transformed to the output images by the "
+"transformation matrix:"
+msgstr "输入图像通过变换矩阵变换为输出图像："
+
+#: megengine.functional.nn.warp_perspective:5 of
+msgid ""
+"\\text{output}(n, c, h, w) = \\text{input} \\left( n, c,     "
+"\\frac{M_{00}h + M_{01}w + M_{02}}{M_{20}h + M_{21}w + M_{22}},     "
+"\\frac{M_{10}h + M_{11}w + M_{12}}{M_{20}h + M_{21}w + M_{22}}     "
+"\\right)"
+msgstr ""
+"\\text{output}(n, c, h, w) = \\text{input} \\left( n, c,     "
+"\\frac{M_{00}h + M_{01}w + M_{02}}{M_{20}h + M_{21}w + M_{22}},     "
+"\\frac{M_{10}h + M_{11}w + M_{12}}{M_{20}h + M_{21}w + M_{22}}     "
+"\\right)"
+
+#: megengine.functional.nn.warp_perspective:12 of
+msgid "input image"
+msgstr "输入图像"
+
+#: megengine.functional.nn.warp_perspective:14 of
+msgid "(batch, 3, 3) transformation matrix"
+msgstr "(batch, 3, 3) 变换矩阵"
+
+#: megengine.functional.nn.warp_perspective:16 of
+msgid "(h, w) size of the output image"
+msgstr "(h,w)形式的输出图像的大小"
+
+#: megengine.functional.nn.warp_perspective:18 of
+msgid "pixel extrapolation method. Default: ``\"REPLICATE\"``"
+msgstr "像素外推方法。 默认： ``\"REPLICATE\"`` "
+
+#: megengine.functional.nn.warp_perspective:20 of
+msgid "value used in case of a constant border. Default: ``0``"
+msgstr "边界填充值。 默认： ``0`` "
+
+#: megengine.functional.nn.warp_perspective:22 of
+msgid "interpolation methods. Default: ``\"LINEAR\"``"
+msgstr "插值方法。 默认： ``\"LINEAR\"``"
+
+#: ../../source/api_zh/megengine.functional.rst:59
+msgid "megengine.functional.quantized"
+msgstr "megengine.functional.quantized"
+
+#: megengine.functional.quantized.conv_bias_activation:1 of
+msgid "convolution bias with activation operation, only for inference."
+msgstr "带有激活操作的卷积偏置，仅用于推断(inference)。"
+
+#: megengine.functional.quantized.conv_bias_activation:8 of
+msgid "The bias added to the result of convolution"
+msgstr "添加到卷积结果中的偏置量"
+
+#: megengine.functional.quantized.conv_bias_activation:25 of
+msgid "Support for np.dtype, Default: np.int8."
+msgstr "支持np.dtype， 默认：np.int8。"
+
+#: megengine.functional.quantized.conv_bias_activation:27 of
+msgid "scale if use quantization, Default: 0.0."
+msgstr "使用量化操作后进行的缩放， 默认： 0.0。"
+
+#: megengine.functional.quantized.conv_bias_activation:29 of
+msgid "scale if use quantization quint8, Default: 0.0."
+msgstr "使用quint8量化操作后进行的缩放， 默认： 0.0。"
+
+#: ../../source/api_zh/megengine.functional.rst:67
+msgid "megengine.functional.sort"
+msgstr "megengine.functional.sort"
+
+#: megengine.functional.sort.argsort:1 megengine.functional.sort.sort:1 of
+msgid ""
+"Sort the target 2d matrix by row, return both the sorted tensor and "
+"indices."
+msgstr "对目标二维矩阵进行按行排序，返回排序后的张量及索引。"
+
+#: megengine.functional.sort.argsort:4 megengine.functional.sort.sort:4
+#: megengine.functional.sort.top_k:4 of
+msgid "The input tensor, if 2d, each row will be sorted"
+msgstr "输入张量，如果是二维的，则该张量的每行将进行排序"
+
+#: megengine.functional.sort.argsort:6 megengine.functional.sort.sort:6 of
+msgid ""
+"Sort in descending order, where the largest comes first. Default: "
+"``False``"
+msgstr "降序排列，即最大值位于第一位置。 默认： ``False`` "
+
+#: megengine.functional.sort.argsort:7 megengine.functional.sort.sort:7
+#: megengine.functional.sort.top_k:13 of
+msgid ""
+":py:data:`~typing.Tuple`\\[:py:class:`~megengine.core.tensor.Tensor`, "
+":py:class:`~megengine.core.tensor.Tensor`]"
+msgstr ""
+":py:data:`~typing.Tuple`\\[:py:class:`~megengine.core.tensor.Tensor`, "
+":py:class:`~megengine.core.tensor.Tensor`]"
+
+#: megengine.functional.sort.argsort:8 megengine.functional.sort.sort:8 of
+msgid "Tuple of two tensors (sorted_tensor, indices_of_int32)"
+msgstr "由两个张量组成的元组 (sorted_tensor, indices_of_int32)"
+
+#: megengine.functional.sort.top_k:1 of
+msgid "Selected the Top-K (by default) smallest elements of 2d matrix by row."
+msgstr "按行排序，选出二维矩阵中Top-K(默认情况下)个最小元素。"
+
+#: megengine.functional.sort.top_k:6 of
+msgid "The number of elements needed"
+msgstr "所需元素的个数"
+
+#: megengine.functional.sort.top_k:8 of
+msgid "If true, return the largest elements instead. Default: ``False``"
+msgstr "该值如果为true，则返回最大元素。 默认： ``False`` "
+
+#: megengine.functional.sort.top_k:10 of
+msgid "If true, only the k-th element will be returned. Default: ``False``"
+msgstr "该值如果为true，则只返回第k个元素。 默认： ``False`` "
+
+#: megengine.functional.sort.top_k:12 of
+msgid "If true, the returned elements can be unordered. Default: ``False``"
+msgstr "该值如果为true，则返回值可能是无序的。 默认： ``False`` "
+
+#: megengine.functional.sort.top_k:14 of
+msgid "Tuple of two tensors (topk_tensor, indices_of_int32)"
+msgstr "由两个张量组成的元组 (topk_tensor, indices_of_int32)"
+
+#: ../../source/api_zh/megengine.functional.rst:75
+msgid "megengine.functional.tensor"
+msgstr "megengine.functional.tensor"
+
+#: megengine.functional.tensor.add_axis:1 of
+msgid "Add dimension before given axis."
+msgstr "在给定的axis前添加维度。"
+
+#: megengine.functional.tensor.add_axis:4
+#: megengine.functional.tensor.dimshuffle:4
+#: megengine.functional.tensor.remove_axis:4
+#: megengine.functional.tensor.reshape:5 of
+msgid "Input tensor"
+msgstr "输入张量"
+
+#: megengine.functional.tensor.add_axis:6 of
+msgid "Place of new axes"
+msgstr "若干新轴的位置"
+
+#: megengine.functional.tensor.arange:1 of
+msgid ""
+"Returns a Tensor with values from `start` to `end` with adjacent interval"
+" `step`"
+msgstr "返回一个数值从 `start` 到  `end` ，相邻间隔为 `step` 的张量。"
+
+#: megengine.functional.tensor.arange:4 of
+msgid "starting value of the squence, shoule be scalar"
+msgstr "序列的第一个值，应为标量"
+
+#: megengine.functional.tensor.arange:6 of
+msgid "ending value of the squence, shoule be scalar"
+msgstr "序列的最后一个值，应为标量"
+
+#: megengine.functional.tensor.arange:8 of
+msgid "the gap between each pair of adjacent values. Default 1"
+msgstr "每对相邻值之间的间隔。默认：1"
+
+#: megengine.functional.tensor.arange:9 megengine.functional.tensor.linspace:9
+#: of
+msgid "result data type"
+msgstr "结果的数据类型"
+
+#: megengine.functional.tensor.arange:11
+#: megengine.functional.tensor.linspace:11 of
+msgid "The generated tensor"
+msgstr "生成的张量"
+
+#: megengine.functional.tensor.broadcast_to:1 of
+msgid "Broadcast a tensor to ``shape``"
+msgstr "将张量广播至 ``shape`` "
+
+#: megengine.functional.tensor.broadcast_to:6 of
+msgid "The target shape"
+msgstr "目标形状"
+
+#: megengine.functional.tensor.concat:1 of
+msgid "Concat some tensors"
+msgstr "拼接一些张量"
+
+#: megengine.functional.tensor.concat:4 of
+msgid "Input tensors to concat"
+msgstr "将要进行拼接的输入张量"
+
+#: megengine.functional.tensor.concat:6 of
+msgid "the dimension over which the tensors are concatenated. Default: 0"
+msgstr "对张量进行拼接的维度。默认：0"
+
+#: megengine.functional.tensor.concat:8 of
+msgid "The comp node output on. Default: None"
+msgstr "输出所在的计算节点。 默认：None"
+
+#: megengine.functional.tensor.concat:10 of
+msgid "The graph in which output is. Default: None"
+msgstr "输出所在的图。 默认：None"
+
+#: megengine.functional.tensor.cond_take:1 of
+msgid ""
+"Take elements from data if specific condition is satisfied on mask. This "
+"operator has two outputs: the first is the elements taken, and the second"
+" is the indices corresponding to those elements; they are both "
+"1-dimensional. High-dimension input would first be flattened."
+msgstr "如果在mask上满足了特定条件，则从数据中取出元素。此算子有两个输出：第一个是取出的元素，第二个是这些元素对应的索引；两个输出都是一维的。高维数据输入时将首先被展平。"
+
+#: megengine.functional.tensor.cond_take:4 of
+msgid "condition param; must be the same shape with data"
+msgstr "条件参数；必须与数据的形状相同"
+
+#: megengine.functional.tensor.cond_take:6 of
+msgid "input tensor from which to take elements"
+msgstr "将从其中取出元素的输入张量"
+
+#: megengine.functional.tensor.cond_take:7 of
+msgid "value to be compared to by mode"
+msgstr "要进行比较的mask中的值"
+
+#: megengine.functional.tensor.dimshuffle:1 of
+msgid "Swap shapes and strides according to given pattern"
+msgstr "根据给定模板交换形状和步长（stride）。"
+
+#: megengine.functional.tensor.dimshuffle:6 of
+msgid ""
+"a list of integers including 0, 1, ... , ``ndim``-1, and any number of "
+"``'x'`` char in dimensions where this tensor should be broadcasted. For "
+"examples:  * (``'x'``) -> make a 0d (scalar) into a 1d vector * (0, 1) ->"
+" identity for 2d vectors * (1, 0) -> inverts the first and second "
+"dimensions * (``'x'``, 0) -> make a row out of a 1d vector (N to 1xN) * "
+"(0, ``'x'``) -> make a column out of a 1d vector (N to Nx1) * (2, 0, 1) "
+"-> AxBxC to CxAxB * (0, ``'x'``, 1) -> AxB to Ax1xB * (1, ``'x'``, 0) -> "
+"AxB to Bx1xA * (1,) -> This remove dimensions 0. It must be a "
+"broadcastable dimension (1xA to A)"
+msgstr " "
+
+#: megengine.functional.tensor.dimshuffle:6 of
+msgid ""
+"a list of integers including 0, 1, ... , ``ndim``-1, and any number of "
+"``'x'`` char in dimensions where this tensor should be broadcasted. For "
+"examples:"
+msgstr "一个包含0, 1, ... , ``ndim`` -1的整型数(int)列表，任意数量的 ``'x'`` 字符位于张量要进行广播的维度上。例如："
+
+#: megengine.functional.tensor.dimshuffle:8 of
+msgid "(``'x'``) -> make a 0d (scalar) into a 1d vector"
+msgstr "(``'x'``) -> 将一个0维向量(标量)放入一个1维向量中"
+
+#: megengine.functional.tensor.dimshuffle:9 of
+msgid "(0, 1) -> identity for 2d vectors"
+msgstr "(0, 1) -> 等价的2维向量"
+
+#: megengine.functional.tensor.dimshuffle:10 of
+msgid "(1, 0) -> inverts the first and second dimensions"
+msgstr "(1, 0) -> 将第一维和第二维互换"
+
+#: megengine.functional.tensor.dimshuffle:11 of
+msgid "(``'x'``, 0) -> make a row out of a 1d vector (N to 1xN)"
+msgstr "(``'x'``, 0) -> 将1维向量 (N to 1xN) 中的数排成一行"
+
+#: megengine.functional.tensor.dimshuffle:12 of
+msgid "(0, ``'x'``) -> make a column out of a 1d vector (N to Nx1)"
+msgstr "(0, ``'x'``) -> 将一维向量 (N to Nx1)中的数排成一列"
+
+#: megengine.functional.tensor.dimshuffle:13 of
+msgid "(2, 0, 1) -> AxBxC to CxAxB"
+msgstr "(2, 0, 1) -> AxBxC 变为 CxAxB"
+
+#: megengine.functional.tensor.dimshuffle:14 of
+msgid "(0, ``'x'``, 1) -> AxB to Ax1xB"
+msgstr "(0, ``'x'``, 1) -> AxB 变为 Ax1xB"
+
+#: megengine.functional.tensor.dimshuffle:15 of
+msgid "(1, ``'x'``, 0) -> AxB to Bx1xA"
+msgstr "(1, ``'x'``, 0) -> AxB 变为 Bx1xA"
+
+#: megengine.functional.tensor.dimshuffle:16 of
+msgid ""
+"(1,) -> This remove dimensions 0. It must be a broadcastable dimension "
+"(1xA to A)"
+msgstr "(1,) -> 这样就删除了第0维。最终一定变为可以广播的维度 (1xA to A)"
+
+#: megengine.functional.tensor.gather:1 of
+msgid "Gather data from :attr:`inp` on :attr:`axis` using :attr:`index`."
+msgstr "使用 :attr:`index` 从 :attr:`axis` 上的 :attr:`inp` 聚合数据。"
+
+#: megengine.functional.tensor.gather:3 of
+msgid "For a 3-D tensor, the output is specified by::"
+msgstr "对于三维张量, 输出由下面内容确定::"
+
+#: megengine.functional.tensor.gather:9 of
+msgid ""
+"if :attr:`inp` is an n-dimensional tensor with size "
+":math:`(x_0,x_1,...,x_{i-1},x_i,x_{i+1},...,x_{n-1})` and axis=i, then "
+":attr:`index` must be an n-dimensional tensor with size "
+":math:`(x_0,x_1,...,x_{i-1},y,x_{i+1},...,x_{n-1})` where :math:`y\\ge 1`"
+" and output will have the same size as :attr:`index`."
+msgstr ""
+"如果 :attr:`inp` 是一个尺寸为  "
+":math:`(x_0,x_1,...,x_{i-1},x_i,x_{i+1},...,x_{n-1})` 且 axis=i的n维张量，则 "
+":attr:`index` 必须是一个尺寸为  "
+":math:`(x_0,x_1,...,x_{i-1},y,x_{i+1},...,x_{n-1})` 的n维张量，这里的 "
+":math:`y\\ge 1` 和输出的尺寸都必须必须与 :attr:`index` 的尺寸相同。"
+
+#: megengine.functional.tensor.gather:17 of
+msgid "the source tensor"
+msgstr "源张量"
+
+#: megengine.functional.tensor.gather:19 megengine.functional.tensor.scatter:32
+#: of
+msgid "the axis along which to index"
+msgstr "将要进行索引的轴"
+
+#: megengine.functional.tensor.gather:21 of
+msgid "the indices of elements to gather"
+msgstr "将要进行聚合的元素的索引"
+
+#: megengine.functional.tensor.linspace:1 of
+msgid "Return equally spaced numbers over a specified interval"
+msgstr "返回指定间隔的等距数列"
+
+#: megengine.functional.tensor.linspace:4 of
+msgid "Starting value of the squence, shoule be scalar"
+msgstr "序列的第一个值，应为标量"
+
+#: megengine.functional.tensor.linspace:6 of
+msgid "The last value of the squence, shoule be scalar"
+msgstr "序列的最后一个值，应为标量"
+
+#: megengine.functional.tensor.linspace:8 of
+msgid "number of values to generate"
+msgstr "将要产生的值的个数"
+
+#: megengine.functional.tensor.remove_axis:1 of
+msgid "Remove dimension of shape 1."
+msgstr "删除形状(shape)中下标为1的维度。"
+
+#: megengine.functional.tensor.remove_axis:6 of
+msgid "Place of axis to be removed"
+msgstr "将要被移除的轴的位置"
+
+#: megengine.functional.tensor.reshape:1 of
+msgid ""
+"Reshape a tensor to given target shape; total number of logical elements "
+"must remain unchanged"
+msgstr "将一个张量重塑为给定的目标形状；逻辑元素的总数必须保持不变"
+
+#: megengine.functional.tensor.reshape:7 of
+msgid ""
+"target shape, the components would be concatenated to form the target "
+"shape, and it can contain an element of -1 representing unspec_axis."
+msgstr "目标形状，所有组件将被连接成目标形状，其中可能包含用来表示unspec_axis的值为-1的元素。"
+
+#: megengine.functional.tensor.scatter:1 of
+msgid ""
+"Writes all values from the tensor :attr:`source` into :attr:`inp` at the "
+"indices specified in the :attr:`index` tensor."
+msgstr "把张量 :attr:`source` 中所有的值写入到 :attr:`inp` 中通过 :attr:`index` 张量指定的索引位置上。"
+
+#: megengine.functional.tensor.scatter:3 of
+msgid ""
+"For each value in :attr:`source`, its output index is specified by its "
+"index in :attr:`source` for ``axis != dimension`` and by the "
+"corresponding value in :attr:`index` for ``axis = dimension``."
+msgstr ""
+"对于 :attr:`source` 中的每个值，它的输出索引在 ``axis != dimension`` 时，为 :attr:`source` "
+"的索引或在 ``axis = dimension`` 时，为 :attr:`index` 中相对应的值。"
+
+#: megengine.functional.tensor.scatter:7 of
+msgid "For a 3-D tensor, :attr:`inp` is updated as::"
+msgstr "对于三维张量， :attr:`inp` 将更新为::"
+
+#: megengine.functional.tensor.scatter:13 of
+msgid ""
+":attr:`inp`, :attr:`index` and :attr:`source` should have same number of "
+"dimensions."
+msgstr " :attr:`inp` ， :attr:`index` 和 :attr:`source` 应当具有相同的维数。"
+
+#: megengine.functional.tensor.scatter:15 of
+msgid ""
+"It is also required that ``source.shape(d) <= inp.shape(d)`` and "
+"``index.shape(d) == source.shape(d)`` for all dimensions ``d``."
+msgstr ""
+"在所有维度上需要满足 ``source.shape(d) <= inp.shape(d)`` 以及 ``index.shape(d) == "
+"source.shape(d)`` 。"
+
+#: megengine.functional.tensor.scatter:18 of
+msgid ""
+"Moreover, the values of :attr:`index` must be between ``0`` and "
+"``inp.shape(axis) - 1`` inclusive."
+msgstr "此外， :attr:`index` 的值必须介于 ``0`` 和 ``inp.shape(axis) - 1`` 之间(包含边界)。"
+
+#: megengine.functional.tensor.scatter:21 of
+msgid ""
+"Please notice that, due to performance issues, the result is uncertain on"
+" the GPU device if scatter difference positions from source to the same "
+"destination position regard to index tensor."
+msgstr "请注意，在GPU设备上，由于性能原因，若多个源数据被 index 指定同一个目标位置时，结果会不确定。"
+
+#: megengine.functional.tensor.scatter:25 of
+msgid ""
+"Show the case using the following examples, the oup[0][2] is maybe from "
+"source[0][2] which value is 0.2256 or source[1][2] which value is 0.5339 "
+"if set the index[1][2] from 1 to 0."
+msgstr "使用以下例子展示案例，如果将index[1][2]设置为1到0，则oup[0][2]可能来自值为0.2256的source[0][2]，或值为0.5339的source[1][2]。"
+
+#: megengine.functional.tensor.scatter:30 of
+msgid "the inp tensor which to be scattered"
+msgstr "将要进行scatter操作的inp张量"
+
+#: megengine.functional.tensor.scatter:34 of
+msgid "the indices of elements to scatter"
+msgstr "将要进行scatter操作的元素的索引"
+
+#: megengine.functional.tensor.scatter:36 of
+msgid "the source element(s) to scatter"
+msgstr "将要进行scatter操作的inp张量一个或多个源元素"
+
+#: megengine.functional.tensor.shapeof:1 of
+msgid "The shape of input tensor."
+msgstr "输入张量的形状。"
+
+#: megengine.functional.tensor.transpose:1 of
+msgid "Equivalent to :func:`dimshuffle`"
+msgstr "与 :func:`dimshuffle` 等价"
+
+#: megengine.functional.tensor.where:1 of
+msgid "Select elements either from Tensor x or Tensor y, according to mask."
+msgstr "根据mask选出Tensor x或Tensor y中的元素。"
+
+#: megengine.functional.tensor.where:3 of
+msgid ""
+"\\textrm{out}_i = x_i \\textrm{ if } \\textrm{mask}_i \\textrm{ is True "
+"else } y_i"
+msgstr ""
+"\\textrm{out}_i = x_i \\textrm{ if } \\textrm{mask}_i \\textrm{ is True "
+"else } y_i"
+
+#: megengine.functional.tensor.where:8 of
+msgid "a mask used for choosing x or y"
+msgstr "用于选择x或y的mask"
+
+#: megengine.functional.tensor.where:10 of
+msgid "the first choice"
+msgstr "第一个选择"
+
+#: megengine.functional.tensor.where:12 of
+msgid "the second choice"
+msgstr "第二个选择"
+
+#: megengine.functional.tensor.zeros_like:1 of
+msgid "Returns a zero tensor with the same shape as input tensor"
+msgstr "返回一个与输入张量形状相同的零张量"
+
+#: ../../source/api_zh/megengine.functional.rst:83
+msgid "megengine.functional.utils"
+msgstr "megengine.functional.utils"
+
+#: megengine.functional.utils.accuracy:1 of
+msgid ""
+"Calculate the classification accuracy given predicted logits and ground-"
+"truth labels."
+msgstr "根据给定的预测的logits和真实值标签计算分类准确率。"
+
+#: megengine.functional.utils.accuracy:4 of
+msgid ""
+"Model predictions of shape [batch_size, num_classes], representing the "
+"probability (likelyhood) of each class."
+msgstr "模型预测值，形为 [batch_size, num_classes] ，表示其属于各类别(class)的概率。"
+
+#: megengine.functional.utils.accuracy:7 of
+msgid "Ground-truth labels, 1d tensor of int32"
+msgstr "真实值标签，int32类型的一维张量"
+
+#: megengine.functional.utils.accuracy:9 of
+msgid "Specifies the topk values, could be an int or tuple of ints. Default: 1"
+msgstr "指定前k个值，可以是整型数，也可以是整型数构成的元组。 默认： 1"
+
+#: megengine.functional.utils.accuracy:10 of
+msgid ""
+":py:data:`~typing.Union`\\[:py:class:`~megengine.core.tensor.Tensor`, "
+":py:class:`~typing.Iterable`\\[:py:class:`~megengine.core.tensor.Tensor`]]"
+msgstr ""
+":py:data:`~typing.Union`\\[:py:class:`~megengine.core.tensor.Tensor`, "
+":py:class:`~typing.Iterable`\\[:py:class:`~megengine.core.tensor.Tensor`]]"
+
+#: megengine.functional.utils.accuracy:11 of
+msgid "Tensor(s) of classification accuracy between 0.0 and 1.0"
+msgstr "表示分类准确率的张量(一个或多个)，数值介于0.0到1.0之间"
+
+#: megengine.functional.utils.zero_grad:1 of
+msgid ""
+"Returns a tensor which is treated as constant during backward gradient "
+"calcuation, i.e. its gradient is zero."
+msgstr "返回一个在反向梯度计算期间被视为常量的张量，即其梯度为0。"
+
+#: megengine.functional.utils.zero_grad:5 of
+msgid "Input tensor."
+msgstr "输入张量。"
+
+#: megengine.functional.utils.zero_grad:7 of
+msgid "See implementation of :func:`~.softmax` for example."
+msgstr "具体例子请参阅 :func:`~.softmax` 的执行。"
+
+#~ msgid "compute symbolic grad"
+#~ msgstr "计算符号梯度"
+
+#~ msgid "Returns prod of input tensor along given *axis*."
+#~ msgstr "返回输入张量在给定轴 *axis* 上各元素的乘积。"
+
+#~ msgid "param axis"
+#~ msgstr "参数 轴"
+
+#~ msgid "param keepdims"
+#~ msgstr "参数 保持矩阵二维特性"
+
+#~ msgid "return"
+#~ msgstr "返回"
+
+#~ msgid ""
+#~ "usually the :math:`C` from an input "
+#~ "of size :math:`(N, C, H, W)` or"
+#~ " the highest ranked dimension of an"
+#~ " input with less than 4D."
+#~ msgstr "通常 :math:`C` 是来自尺寸为 :math:`(N, C, H, W)` 的输入或小于四维的输入的最高维。"
+
+#~ msgid ""
+#~ "a boolean value that when set to"
+#~ " ``True``, this module has learnable "
+#~ "affine parameters. Default: ``True``"
+#~ msgstr "当该变量设置为 ``True`` 时是一个布尔值 ,此模块具有可学习的仿射参数。 默认： ``True``"
+
+#~ msgid ""
+#~ "when set to ``True``, this module "
+#~ "tracks the running mean and variance."
+#~ " When set to ``False``, this module"
+#~ " does not track such statistics and"
+#~ " always uses batch statistics in both"
+#~ " training and eval modes. Default: "
+#~ "``True``."
+#~ msgstr ""
+#~ "当设置为 ``True`` 时, 该模块可以跟踪训练过程中的均值和方差。 当设置为 "
+#~ "``False`` 时, 该模块不跟踪这些统计数据 "
+#~ "，并且在训练和验证模式下始终使用当前批处理的统计信息。 默认： ``True``。"
+
+#~ msgid ""
+#~ "Fills the 2-dimensional input "
+#~ ":class:`SymbolVar` with the identity matrix."
+#~ msgstr "用单位矩阵填充二维输入 :class:`SymbolVar` 。"
+
+#~ msgid "megengine.functional.external"
+#~ msgstr "megengine.functional.external"
+
+#~ msgid ""
+#~ "Load a serialized Cambricon subgraph "
+#~ "(i.e. cnrtModel_t) and execute the "
+#~ "operations defined in the subgraph."
+#~ msgstr "加载一个序列化的Cambricon子图（即cnrtModel_t），并执行在子图中定义的操作。"
+
+#~ msgid "List of input tensors of the subgraph."
+#~ msgstr "子图的输入张量列表。"
+
+#~ msgid "The serialized subgraph."
+#~ msgstr "序列化的子图。"
+
+#~ msgid ""
+#~ "The name of the function in the"
+#~ " subgraph. The function is corresponding"
+#~ " to a cnmlFusionOp which is added "
+#~ "to the cnmlModel_t/cnrtModel_t."
+#~ msgstr "子图中函数的名称。 该函数与添加到cnmlModel_t/cnrtModel_t中的cnmlFusionOp对应。"
+
+#~ msgid "Whether the input tensors' shapes are mutalbe in cnrtModel_t"
+#~ msgstr "cnrtModel_t中输入张量的形状是否是可变的(mutable)。"
+
+#~ msgid ":py:class:`~typing.List`\\[:py:class:`~megengine.core.tensor.Tensor`]"
+#~ msgstr ":py:class:`~typing.List`\\[:py:class:`~megengine.core.tensor.Tensor`]"
+

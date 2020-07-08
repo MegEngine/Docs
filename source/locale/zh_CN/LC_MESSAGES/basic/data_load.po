@@ -1,0 +1,257 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-17 15:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/basic/data_load.rst:4
+msgid "数据加载与处理"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:6
+msgid "在网络训练与测试中，数据的加载和预处理往往会耗费大量的精力。 MegEngine 提供了一系列接口来规范化这些处理工作。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:10
+msgid "利用 ``Dataset`` 封装一个数据集"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:12
+msgid ""
+"数据集是一组数据的集合，例如 MNIST、Cifar10等图像数据集。 :class:`~.meta_dataset.Dataset` 是 "
+"MegEngine 中表示数据集的抽象类。 我们自定义的数据集类应该继承 :class:`~.meta_dataset.Dataset` "
+"并重写下列方法："
+msgstr ""
+
+#: ../../source/basic/data_load.rst:16
+msgid ":meth:`~.MapDataset.__init__` ：一般在其中实现读取数据源文件的功能。也可以添加任何其它的必要功能；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:17
+msgid ""
+":meth:`~.MapDataset.__getitem__` ：通过索引操作来获取数据集中某一个样本，使得可以通过 for "
+"循环来遍历整个数据集；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:18
+msgid ":meth:`~.MapDataset.__len__` ：返回数据集大小；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:20
+msgid ""
+"下面是一个简单示例。 我们根据下图所示的二分类数据，创建一个 :class:`~.meta_dataset.Dataset` 。 "
+"每个数据是一个二维平面上的点，横坐标和纵坐标在 [-1, 1] 之间。共有两个类别标签（图1中的蓝色 * 和红色 "
+"+），标签为0的点处于一、三象限；标签为1的点处于二、四象限。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:28
+msgid "图1"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:30
+msgid "该数据集的创建过程如下："
+msgstr ""
+
+#: ../../source/basic/data_load.rst:32
+msgid "在 :meth:`~.MapDataset.__init__` 中利用 NumPy 随机生成 ndarray 作为数据；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:33
+msgid "在 :meth:`~.MapDataset.__getitem__` 中返回 ndarray 中的一个样本；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:34
+msgid "在 :meth:`~.MapDataset.__len__` 中返回整个数据集中样本的个数；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:79 ../../source/basic/data_load.rst:135
+#: ../../source/basic/data_load.rst:156 ../../source/basic/data_load.rst:186
+#: ../../source/basic/data_load.rst:249 ../../source/basic/data_load.rst:331
+msgid "输出："
+msgstr ""
+
+#: ../../source/basic/data_load.rst:87
+msgid ""
+"MegEngine 中也提供了一些已经继承自 :class:`~.meta_dataset.Dataset` 的数据集类，方便我们使用，比如 "
+":class:`~.meta_dataset.ArrayDataset` 。 "
+":class:`~.meta_dataset.ArrayDataset` 允许通过传入单个或多个 NumPy "
+"数组，对它进行初始化。其内部实现如下："
+msgstr ""
+
+#: ../../source/basic/data_load.rst:90
+msgid ":meth:`~.ArrayDataset.__init__` ：检查传入的多个 NumPy 数组的长度是否一致；不一致则无法成功创建；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:91
+msgid ":meth:`~.ArrayDataset.__getitem__` ：将多个 NumPy 数组相同索引位置的元素构成一个 tuple 并返回；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:92
+msgid ":meth:`~.ArrayDataset.__len__` ：返回数据集的大小；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:94
+msgid ""
+"以图1所示的数据集为例，我们可以通过坐标数据和标签数据的数组直接构造 :class:`~.meta_dataset.ArrayDataset` "
+"，无需用户自己定义数据集类。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:113
+msgid "通过 Sampler 从 Dataset 中采样"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:115
+msgid ""
+":class:`~.dataset.Dataset` 仅能通过一个固定的顺序（其 `__getitem__` 实现）访问所有样本， 而 "
+":class:`~.sampler.Sampler` 使得我们可以以所期望的方式从 :class:`~.dataset.Dataset` "
+"中采样，生成训练和测试的批（minibatch）数据。 :class:`~.sampler.Sampler` "
+"本质上是一个数据集中数据索引的迭代器，它接收 :class:`~.dataset.Dataset` 的实例 "
+"和批大小（batch_size）来进行初始化。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:119
+msgid ""
+"MegEngine 中提供各种常见的采样器，如 :class:`~.sampler.RandomSampler` （通常用于训练）、 "
+":class:`~.sampler.SequentialSampler` （通常用于测试） 等。 下面我们以它们为例，来熟悉 "
+":class:`~.sampler.Sampler` 的基本用法："
+msgstr ""
+
+#: ../../source/basic/data_load.rst:141
+msgid "可以看到，在 batch_size 为4时，每次迭代 sampler 返回的是长度为4的列表，列表中的每个元素是随机采样出的数据索引。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:143
+msgid "如果你创建的是一个序列化采样器 :class:`~.sampler.SequentialSampler` ，那么每次返回的就是顺序索引。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:162
+msgid "用户也可以继承 Sampler 自定义采样器，这里不做详述。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:165
+msgid "用 DataLoader 生成批数据"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:167
+msgid ""
+"MegEngine 中，:class:`~.dataloader.DataLoader` 本质上是一个迭代器，它通过 "
+":class:`~.meta_dataset.Dataset` 和 :class:`~.sampler.Sampler` 生成 minibatch"
+" 数据。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:169
+msgid "下列代码通过 for 循环获取每个 minibatch 的数据。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:198
+msgid "DataLoader 中的数据变换（Transform）"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:200
+msgid ""
+"在深度学习模型的训练中，我们经常需要对数据进行各种转换，比如，归一化、各种形式的数据增广等。 "
+":class:`~.meta_transform.Transform` 是数据变换的基类，其各种派生类提供了常见的数据转换功能。 "
+":class:`~.dataloader.DataLoader` 构造函数可以接收一个 "
+":class:`~.meta_transform.Transform` 参数， 在构建 minibatch 时，对该批数据进行相应的转换操作。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:205
+msgid ""
+"接下来通过 MNIST 数据集（MegEngine 提供了 MNIST Dataset）来熟悉 Transform 的使用。 首先我们构建一个不做"
+" Transform 的 MNIST DataLoader，并可视化第一个 minibatch 数据。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:255
+msgid "可视化第一批 MNIST 数据："
+msgstr ""
+
+#: ../../source/basic/data_load.rst:261
+msgid "图2"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:263
+msgid ""
+"然后，我们构建一个做 :class:`~.vision.transform.RandomResizedCrop` transform 的 "
+"MNIST DataLoader，并查看此时第一个 minibatch 的图片。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:283
+msgid "可视化第一个批数据："
+msgstr ""
+
+#: ../../source/basic/data_load.rst:289
+msgid "图3"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:291
+msgid "可以看到，此时图片经过了随机裁剪并 resize 回原尺寸。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:294
+msgid "组合变换（Compose Transform）"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:296
+msgid "我们经常需要做一系列数据变换。比如："
+msgstr ""
+
+#: ../../source/basic/data_load.rst:298
+msgid ""
+"数据归一化：我们可以通过 :class:`~.meta_transform.Transform` 中提供的 "
+":class:`~.vision.transform.Normalize` 类来实现；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:299
+msgid "Pad：对图片的每条边补零以增大图片尺寸，通过 :class:`~.transform.Pad` 类来实现；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:300
+msgid ""
+"维度转换：将 (Batch-size, Hight, Width, Channel) 维度的 minibatch 转换为 (Batch-size,"
+" Channel, Hight, Width)（因为这是 MegEngine 支持的数据格式），通过 "
+":class:`~.vision.transform.ToMode` 类来实现；"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:301
+msgid "其他的转换操作"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:303
+msgid ""
+"为了方便使用，MegEngine 中的 :class:`~.vision.transform.Compose` 类允许我们组合多个 "
+"Transform 并传递给 :class:`~.dataloader.DataLoader` 的 transform 参数。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:305
+msgid ""
+"接下来我们通过 :class:`~.vision.transform.Compose` 类将之前的 "
+":class:`~.vision.transform.RandomResizedCrop` 操作与 "
+":class:`~.vision.transform.Normalize` 、 :class:`~.vision.transform.Pad` 和"
+" :class:`~.vision.transform.ToMode` 操作组合起来， 实现多种数据转换操作的混合使用。运行如下代码查看转换 "
+"minibatch 的维度信息。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:337
+msgid "可以看到此时 minibatch 数据的 channel 维换了位置，且图片尺寸变为32。"
+msgstr ""
+
+#: ../../source/basic/data_load.rst:339
+msgid ""
+":class:`~.dataloader.DataLoader` 中其他参数的用法请参考 "
+":class:`~.dataloader.DataLoader` 文档。"
+msgstr ""
+

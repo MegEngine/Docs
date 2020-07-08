@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-27 03:15-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/autogen/megengine.random.rst:2
+msgid "megengine.random package"
+msgstr "megengine.random package"
+
+#: ../../source/autogen/megengine.random.rst:11
+msgid "megengine.random.distribution"
+msgstr "megengine.random.distribution"
+
+#: megengine.random.distribution.gaussian:1 of
+msgid "Random variable with Gaussian distribution $N(\\mu, \\sigma)$"
+msgstr "服从高斯分布的随机变量 $N(\\mu, \\sigma)$"
+
+#: megengine.random.distribution.gaussian
+#: megengine.random.distribution.uniform of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.random.distribution.gaussian:4
+#: megengine.random.distribution.uniform:4 of
+msgid "Output tensor shape"
+msgstr "输出张量的形状"
+
+#: megengine.random.distribution.gaussian:6 of
+msgid "The mean or expectation of the distribution"
+msgstr "分布的期望（平均数）"
+
+#: megengine.random.distribution.gaussian:8 of
+msgid "The standard deviation of the distribution (variance = $\\sigma ^ 2$)"
+msgstr "分布的标准差  (variance = $\\sigma ^ 2$)"
+
+#: megengine.random.distribution.gaussian:10
+#: megengine.random.distribution.uniform:10 of
+msgid "The comp node output on, default to None"
+msgstr "输出所在的计算节点，默认为None"
+
+#: megengine.random.distribution.gaussian:12
+#: megengine.random.distribution.uniform:12 of
+msgid "The graph in which output is, default to None"
+msgstr "输出所在的计算图，默认为None"
+
+#: megengine.random.distribution.gaussian
+#: megengine.random.distribution.uniform of
+msgid "Return type"
+msgstr "返回类型"
+
+#: megengine.random.distribution.gaussian:13
+#: megengine.random.distribution.uniform:13 of
+msgid ":py:class:`~megengine.core.tensor.Tensor`"
+msgstr ":py:class:`~megengine.core.tensor.Tensor`"
+
+#: megengine.random.distribution.gaussian
+#: megengine.random.distribution.uniform of
+msgid "Returns"
+msgstr "返回"
+
+#: megengine.random.distribution.gaussian:14
+#: megengine.random.distribution.uniform:14 of
+msgid "The output tensor"
+msgstr "输出张量"
+
+#: megengine.random.distribution.gaussian:16
+#: megengine.random.distribution.uniform:16 of
+msgid "Examples:"
+msgstr "示例代码："
+
+#: megengine.random.distribution.uniform:1 of
+msgid "Random variable with uniform distribution $U(0, 1)$"
+msgstr "服从均匀分布 $ U（0,1）$ 的随机变量"
+
+#: megengine.random.distribution.uniform:6 of
+msgid "Lower range"
+msgstr "范围下界"
+
+#: megengine.random.distribution.uniform:8 of
+msgid "Upper range"
+msgstr "范围上界"
+
+#: ../../source/autogen/megengine.random.rst:19
+msgid "megengine.random.rng"
+msgstr "megengine.random.rng"

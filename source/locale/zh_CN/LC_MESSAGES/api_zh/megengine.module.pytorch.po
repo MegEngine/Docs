@@ -1,0 +1,320 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-11 18:27+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/autogen/megengine.module.pytorch.rst:2
+msgid "megengine.module.pytorch package"
+msgstr "megengine.module.pytorch package"
+
+#: ../../source/autogen/megengine.module.pytorch.rst:11
+msgid "megengine.module.pytorch.pytorch"
+msgstr "megengine.module.pytorch.pytorch"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule:1 of
+msgid "Bases: :class:`megengine.module.module.Module`"
+msgstr "基类： :class:`megengine.module.module.Module`"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule:1 of
+msgid "Wrap a pytorch module as megengine module"
+msgstr "把一个pytorch模块包装为megengine模块"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule
+#: megengine.module.pytorch.pytorch.PyTorchModule.get_param_by_name
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.execute
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.grad
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.infer_shape
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.setup
+#: megengine.module.pytorch.pytorch.inp_mem_fwd
+#: megengine.module.pytorch.pytorch.oup_mem_fwd
+#: megengine.module.pytorch.pytorch.torch_param_to_mge
+#: megengine.module.pytorch.utils.device_to_torch_device
+#: megengine.module.pytorch.utils.torch_device_to_device
+#: megengine.module.pytorch.utils.torch_dtype_to_numpy_dtype of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule:3 of
+msgid "torch module to be wrapped"
+msgstr "待封装的torch模块"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule:4 of
+msgid "target device this module would be in"
+msgstr "该模块将位于的目标设备"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule:5 of
+msgid "output count of this module"
+msgstr "该模块的输出计数"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule:6 of
+msgid "input shape inferrer"
+msgstr "输入形状推断器"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule:7 of
+msgid "target comp_graph on which this module would be in"
+msgstr "此模块将位于的目标计算图comp_graph"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.device:1
+#: megengine.module.pytorch.pytorch.PyTorchModule.get_device:1 of
+msgid "get the device this module belongs to"
+msgstr "得到这个模块的所属设备"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.forward:1 of
+msgid "apply the module on given inputs"
+msgstr "在给定的输入上应用该模块"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.forward
+#: megengine.module.pytorch.pytorch.PyTorchModule.get_param_by_name
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.grad
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.infer_shape
+#: megengine.module.pytorch.pytorch.torch_param_to_mge
+#: megengine.module.pytorch.utils.device_to_torch_device
+#: megengine.module.pytorch.utils.torch_device_to_device
+#: megengine.module.pytorch.utils.torch_dtype_to_numpy_dtype of
+msgid "Returns"
+msgstr "返回"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.forward:3 of
+msgid "output vars"
+msgstr "输出变量"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.get_param_by_name:1 of
+msgid "find parameter by its name"
+msgstr "通过参数名找到参数"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.get_param_by_name:4 of
+msgid "name of parameter"
+msgstr "参数名"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.get_param_by_name
+#: megengine.module.pytorch.pytorch.inp_mem_fwd
+#: megengine.module.pytorch.pytorch.oup_mem_fwd
+#: megengine.module.pytorch.pytorch.torch_param_to_mge of
+msgid "Return type"
+msgstr "返回类型"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.get_param_by_name:5
+#: megengine.module.pytorch.pytorch.torch_param_to_mge:11 of
+msgid ":py:class:`~megengine.core.tensor_nn.Parameter`"
+msgstr ":py:class:`~megengine.core.tensor_nn.Parameter`"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.get_param_by_name:6 of
+msgid "the parameter"
+msgstr "参数"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.init_params:1 of
+msgid ""
+"forward torch parameters to megengine parameters and store, would be called "
+"in constructor and setter of device"
+msgstr "将torch参数送至megengine参数并存储。该方法会在设备的构造器（constructor）和设置器（setter）中被调用。"
+
+#: megengine.module.pytorch.pytorch.PyTorchModule.set_device:1 of
+msgid "set the device and move torch module to corresponding device"
+msgstr "设置并移动torch模块到该设备。"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr:1 of
+msgid "Bases: :class:`megengine._internal.craniotome.CraniotomeBase`"
+msgstr "基类： :class:`megengine._internal.craniotome.CraniotomeBase`"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr:1 of
+msgid "This is a pytorch module wrapper to operator"
+msgstr "pytorch模块包装器，用于封装算子"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.copy:1 of
+msgid ""
+"copy this craniotome descriptor; the default implementation creates a new "
+"object, and copies object ``__dict__``"
+msgstr "决定描述符（descriptor）将如何被复制;默认实现是创建一个新对象，并复制对象的 ``__dict__`` 。"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.execute:1 of
+msgid ""
+"execute the operator, read values from *inputs*, forward them to torch "
+"tensor and do execution by self.func and forward results to outputs"
+msgstr "执行算子。从 *inputs* 中读值，送至torch张量然后由self.func执行，最后将结果送至输出"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.execute:6 of
+msgid "values for each input var"
+msgstr "每个输入变量的值"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.execute:8 of
+msgid "values for each output var"
+msgstr "每个输出变量的值"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.grad:1 of
+msgid ""
+"generate a grad opr which calculates grad by torch.autograd.grad and cache "
+"it"
+msgstr "生成梯度算子，它使用torch.autograd.grad计算梯度并缓存。"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.grad:3 of
+msgid "the input var with respect to which the gradient should be computed"
+msgstr "梯度计算相应的输入变量"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.grad:6 of
+msgid "operator inputs"
+msgstr "算子输入"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.grad:8 of
+msgid "operator outputs"
+msgstr "算子输出"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.grad:10 of
+msgid "gradients of each output var"
+msgstr "每个输出变量对应的梯度"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.grad:11 of
+msgid "an initialized grad opr"
+msgstr "已初始化的梯度算子"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.infer_shape:1 of
+msgid "infer output shape from input shapes"
+msgstr "从输入的形状推断输出形状"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.infer_shape:3 of
+msgid "input shapes as tuple"
+msgstr "元组形式的输入形状"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.infer_shape:4 of
+msgid "output shapes"
+msgstr "输出形状"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.setup:1 of
+msgid "Setup the operator by accepted kwargs"
+msgstr "通过接受kwargs参数设置算子"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.setup:3 of
+msgid "input count of torch module"
+msgstr "torch模块的输入计数"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.setup:4 of
+msgid "output count of torch module"
+msgstr "torch模块的输出计数"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.setup:5 of
+msgid ""
+"a callable object accept inputs and returns outputs usually a torch module "
+"itself"
+msgstr "一个可调用对象，接受输入并返回输出。通常是一个torch模块本身"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.setup:7 of
+msgid "parameters of the torch module"
+msgstr "torch模块的参数"
+
+#: megengine.module.pytorch.pytorch.PyTorchSubgraphImplOpr.setup:8 of
+msgid "a callable infers output shapes from input shapes, defaults to None"
+msgstr "一个可调用对象，从输入的形状推断输出形状，默认为None"
+
+#: megengine.module.pytorch.pytorch.inp_mem_fwd:1 of
+msgid "Forward a MegBrain tensor to torch tensor"
+msgstr "将MegBrain张量送至torch张量。"
+
+#: megengine.module.pytorch.pytorch.inp_mem_fwd:4 of
+msgid "pointer to MegBrain tensor"
+msgstr "指向MegBrain张量的指针"
+
+#: megengine.module.pytorch.pytorch.inp_mem_fwd:7 of
+msgid ":py:class:`~torch.Tensor`"
+msgstr ":py:class:`~torch.Tensor`"
+
+#: megengine.module.pytorch.pytorch.oup_mem_fwd:1 of
+msgid "Forward a torch tensor to a contiguous MegBrain tensor"
+msgstr "将torch张量送至连续型（contiguous）MegBrain张量"
+
+#: megengine.module.pytorch.pytorch.oup_mem_fwd:4 of
+msgid "Pointer to the MegBrain tensor"
+msgstr "指向MegBrain张量的指针"
+
+#: megengine.module.pytorch.pytorch.oup_mem_fwd:6 of
+msgid "The input torch tensor"
+msgstr "输入torch张量"
+
+#: megengine.module.pytorch.pytorch.oup_mem_fwd:8 of
+msgid ""
+"if True, memory copy is not allowed here, thus the input torch tensor must "
+"be contiguous also. defaults to True"
+msgstr "如果True，则此处不允许使用内存复制。因此输入torch张量必须为连续型（contiguous）。默认为True"
+
+#: megengine.module.pytorch.pytorch.oup_mem_fwd:13 of
+msgid "``None``"
+msgstr "``None``"
+
+#: megengine.module.pytorch.pytorch.torch_param_to_mge:1 of
+msgid "Convert a torch parameter to a megengine parameter"
+msgstr "将torch参数转换为megengine参数"
+
+#: megengine.module.pytorch.pytorch.torch_param_to_mge:4 of
+msgid "parametr name"
+msgstr "参数名称"
+
+#: megengine.module.pytorch.pytorch.torch_param_to_mge:6 of
+msgid "torch parameter"
+msgstr "torch参数"
+
+#: megengine.module.pytorch.pytorch.torch_param_to_mge:7 of
+msgid ""
+"the device on which the megengine parameter is, should be physically the "
+"same as the one on torch parameter"
+msgstr "megengine参数所在的设备，应与torch参数所在设备物理上一致"
+
+#: megengine.module.pytorch.pytorch.torch_param_to_mge:10 of
+msgid "the owner graph of megengine parameter"
+msgstr "megengine参数的所属的图"
+
+#: megengine.module.pytorch.pytorch.torch_param_to_mge:12 of
+msgid "megengine parameter"
+msgstr "megengine参数"
+
+#: ../../source/autogen/megengine.module.pytorch.rst:19
+msgid "megengine.module.pytorch.utils"
+msgstr "megengine.module.pytorch.utils"
+
+#: megengine.module.pytorch.utils.device_to_torch_device:1 of
+msgid "map device to torch device"
+msgstr "将device映射到torch设备"
+
+#: megengine.module.pytorch.utils.device_to_torch_device:4 of
+msgid "megbrain compute node"
+msgstr "megbrain计算节点"
+
+#: megengine.module.pytorch.utils.device_to_torch_device:5 of
+msgid "corresponding torch device"
+msgstr "相应的torch设备"
+
+#: megengine.module.pytorch.utils.torch_device_to_device:1 of
+msgid "map torch device to device"
+msgstr "映射torch设备到device"
+
+#: megengine.module.pytorch.utils.torch_device_to_device:4 of
+msgid "torch device"
+msgstr "torch设备"
+
+#: megengine.module.pytorch.utils.torch_device_to_device:5 of
+msgid "device"
+msgstr "设备"
+
+#: megengine.module.pytorch.utils.torch_dtype_to_numpy_dtype:1 of
+msgid "map torch dtype to numpy dtype"
+msgstr "将torch dtype映射到numpy dtype"
+
+#: megengine.module.pytorch.utils.torch_dtype_to_numpy_dtype:4 of
+msgid "torch dtype"
+msgstr "torch dtype"
+
+#: megengine.module.pytorch.utils.torch_dtype_to_numpy_dtype:5 of
+msgid "numpy dtype"
+msgstr "numpy dtype"

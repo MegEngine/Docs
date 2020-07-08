@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-15 09:28-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/api_zh/megengine.test.rst:2
+msgid "megengine.test package"
+msgstr "megengine.test package"
+
+#: megengine.test.assertTensorClose of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.test.assertTensorClose:2 of
+msgid ""
+"whether to allow :attr:`v0` and :attr:`v1` to contain inf and nan values."
+msgstr "是否允许 :attr:`v0` 和 :attr:`v1` 包含inf和NaN值。"
+
+#: megengine.test.assertTensorClose:4 of
+msgid "relative error"
+msgstr "相对误差"
+
+#~ msgid "max_err: relative error"
+#~ msgstr "max_err：相对误差"

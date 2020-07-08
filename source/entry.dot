@@ -1,0 +1,31 @@
+digraph entry{
+
+    subgraph cluster_1{
+        label = "entry.sh"
+        "build.sh(with language = English)"->"copy Megbrain files to source/include";
+        "copy Megbrain files to source/include"->"build.sh(with language = Chinese)";
+    }
+
+    subgraph cluster_2{
+        label = "output documents";
+        "English documents";
+        "C++ document";
+        "Chinese python document";
+        "Tutorial";
+    }
+
+    subgraph cluster_3{
+        label = "discard";
+        "English python document(with bug)";
+    }
+
+    "build.sh(with language = English)"->"English documents";
+    "build.sh(with language = Chinese)"->"English python document(with bug)";
+    "build.sh(with language = Chinese)"->"C++ document";
+    "build.sh(with language = Chinese)"->"Chinese python document";
+    "build.sh(with language = Chinese)"->"Tutorial";
+    "English documents"->"final document";
+    "C++ document"->"final document";
+    "Chinese python document"->"final document";
+    "Tutorial"->"final document";
+}

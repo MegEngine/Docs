@@ -21,13 +21,13 @@
 通信机制简介
 ''''''''''''''''''''''''''''''
 
-在 MegEngine 中，对多 GPU 的管理基于 Python 自带的多进程库 :py:mod:`~.multiprocess` 。假设一台机器上有 8 张显卡，那么我们需要通过 :py:class:`.multiprocess.Process` 创建 8 个进程，与显卡一一对应。而为了能让这 8 个各自独立的进程能一同进行模型训练，我们需要管理它们之间的通信。
+在 MegEngine 中，对多 GPU 的管理基于 Python 自带的多进程库 :py:mod:`~.multiprocessing` 。假设一台机器上有 8 张显卡，那么我们需要通过 :py:class:`.multiprocessing.Process` 创建 8 个进程，与显卡一一对应。而为了能让这 8 个各自独立的进程能一同进行模型训练，我们需要管理它们之间的通信。
 
-首先我们会给每个进程分配一个进程序号（rank），从 0 到 7，作为每个进程的身份标识。通过 :py:class:`.multiprocess.Process` 的 ``target`` 参数指明所有进程需要执行的目标函数，同时在函数参数中指明每个进程自己的序号，从而使得所有进程执行同一段代码却能分工合作，完成不重复的任务，如下代码所示：
+首先我们会给每个进程分配一个进程序号（rank），从 0 到 7，作为每个进程的身份标识。通过 :py:class:`.multiprocessing.Process` 的 ``target`` 参数指明所有进程需要执行的目标函数，同时在函数参数中指明每个进程自己的序号，从而使得所有进程执行同一段代码却能分工合作，完成不重复的任务，如下代码所示：
 
 .. code-block::
 
-    import multiprocess as mp
+    import multiprocessing as mp
 
     for rank in range(num_devices):
         p = mp.Process(
@@ -167,3 +167,22 @@
         dist.init_process_group(server, port, world_size, global_rank, local_rank)
 
 其它部分与单机版本完全相同。最终只需在每个机器上执行相同的 Python 程序，即可实现多机多卡的分布式训练。
+
+参数打包
+---------------------------
+
+单机多卡或者多机多卡训练的时候，都可以用参数打包来加速训练速度，只需在训练的模型外包一层参数打包模块。
+参数打包会将模型中的参数打包成连续的内存，在反传梯度的过程中可以减少通信次数，明显提升梯度同步的速度，达到训练加速的目的。
+另外，ParamPack有几个可以调整的参数，对加速效果有一定影响，具体看 :class:`~.module.ParamPack` 中的描述。
+
+用法：
+
+.. code-block::
+
+    from megengine.module import ParamPack
+
+    net = Le_Net()
+    net = ParamPack(net)
+    opt = SGD(net.parameters(), lr=0.01, momentum=0.9, weight_decay=5e-4)
+
+    # training code

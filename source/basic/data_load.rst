@@ -72,7 +72,7 @@ MegEngine 提供了一系列接口来规范化这些处理工作。
     # 通过 for 遍历数据集中的每一个样本
     for cor, tag in xor_train_dataset:
         print("The first data point is: {}, {}".format(cor, tag))
-        break;
+        break
 
     print("The second data point is: {}".format(xor_train_dataset[1]))
 
@@ -130,7 +130,7 @@ MegEngine 中提供各种常见的采样器，如 :class:`~.sampler.RandomSample
     # 获取迭代sampler时每次返回的数据集索引
     for indices in random_sampler:
         print(indices)
-        break;
+        break
 
 输出：
 
@@ -151,7 +151,7 @@ MegEngine 中提供各种常见的采样器，如 :class:`~.sampler.RandomSample
     # 获取迭代sampler时返回的数据集索引信息
     for indices in sequential_sampler:
         print(indices)
-        break;
+        break
 
 输出：
 
@@ -181,7 +181,7 @@ MegEngine 中，:class:`~.dataloader.DataLoader` 本质上是一个迭代器，�
     # 从 DataLoader 中迭代地获取每批数据
     for idx, (cor, tag) in enumerate(xor_dataloader):
         print("iter %d : " % (idx), cor, tag)
-        break;
+        break
 
 输出：
 
@@ -210,7 +210,7 @@ DataLoader 中的数据变换（Transform）
     # 从 MegEngine 中导入 MNIST 数据集
     from megengine.data.dataset import MNIST
 
-    # 若你是一次下载 MNIST 数据集，download 需设置成 True
+    # 若你是第一次下载 MNIST 数据集，download 需设置成 True
     # 若你已经下载 MNIST 数据集，通过 root 指定 MNIST数据集 raw 路径
     # 通过 设置 train=True/False 获取训练集或测试集
     mnist_train_dataset = MNIST(root="./dataset/MNIST", train=True, download=True)
@@ -276,7 +276,7 @@ DataLoader 中的数据变换（Transform）
 
     for i, batch_sample in enumerate(dataloader):
         batch_image, batch_label = batch_sample[0], batch_sample[1]
-        break;
+        break
 
     show(batch_image, batch_label)
 
@@ -318,13 +318,14 @@ DataLoader 中的数据变换（Transform）
             # mean 和 std 分别是 MNIST 数据的均值和标准差，图片数值范围是 0~255
             Normalize(mean=0.1307*255, std=0.3081*255),
             Pad(2),
+            # 'CHW'表示把图片由 (height, width, channel) 格式转换成 (channel, height, width) 格式
             ToMode('CHW'),
         ])
     )
 
     for i, batch_sample in enumerate(dataloader):
         batch_image, batch_label = batch_sample[0], batch_sample[1]
-        break;
+        break
 
     print("The shape of the batch is now: {}".format(batch_image.shape))
 

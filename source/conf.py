@@ -13,6 +13,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+import textwrap
 
 # -- Project information -----------------------------------------------------
 
@@ -35,7 +36,34 @@ extensions = [
     'sphinxcontrib.jupyter',
     'sphinx_autodoc_typehints',
     'nbsphinx',
+    'breathe',
+    'exhale',
 ]
+
+# Setup the breathe extension
+breathe_projects = {
+    "MegEngine Doc": "./doxyoutput/xml"
+}
+breathe_default_project = "MegEngine Doc"
+
+# Setup the exhale extension
+exhale_args = {
+    # These arguments are required
+    "containmentFolder":     "./cpp_api",
+    "rootFileName":          "library_root.rst",
+    "rootFileTitle":         "C++ API",
+    "doxygenStripFromPath":  "include",
+    # Suggested optional arguments
+    "createTreeView":        True,
+    # TIP: if using the sphinx-bootstrap-theme, you need
+    # "treeViewIsBootstrap": True,
+    "exhaleExecutesDoxygen": True,
+    "exhaleDoxygenStdin": textwrap.dedent('''
+        INPUT      = include
+    '''),
+    # "createTreeView": True,
+    "verboseBuild": True,
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -46,8 +74,7 @@ locale_dirs = ['locale/']
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'en'
-
+gettext_compact = False
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
@@ -69,7 +96,7 @@ html_theme = 'pydata_sphinx_theme'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+#html_static_path = ['_static']
 
 # --  Options for jupyter output ---------------------------------------------------
 

@@ -1,0 +1,214 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-17 15:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/basic/train_and_evaluation.rst:4
+msgid "网络的训练和测试"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:6
+msgid ""
+"本章我们以 :ref:`network_build` 中的 ``LeNet`` 为例介绍网络的训练和测试。 ``LeNet`` "
+"的实例化代码如下所示："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:15
+msgid "网络的训练和保存"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:16
+msgid ""
+"在此我们仿照 :ref:`data_load` 中的方式读取 `MNIST "
+"<http://yann.lecun.com/exdb/mnist/>`_ 数据。 下面的代码和之前基本一样，我们删除了注释并去掉了 "
+"``RandomResizedCrop`` （MNIST 数据集通常不需要此数据增广）。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:38
+msgid "损失函数"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:39
+msgid "有了数据之后通过前向传播可以得到网络的输出，我们用 **损失函数** （loss function）来度量网络输出与训练目标之间的差距。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:41
+msgid ""
+"MegEngine 提供了各种常见损失函数，具体可见API文档中的 :mod:`~.functional.loss` 部分。 "
+"例如，分类任务经常使用 :func:`交叉熵损失 <.cross_entropy>` （cross entropy），而回归任务一般使用 "
+":func:`均方误差损失 <.square_loss>` （square loss）。此处我们以交叉熵损失为例进行说明。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:43
+msgid "用 :math:`p(x)` 表示真实的数据分布， :math:`q(x)` 表示网络输出的数据分布，交叉熵损失的计算公式如下："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:45
+msgid "Loss_{cross-entropy} = \\sum_{x} p(x)\\log(q(x))"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:48
+msgid "如下代码展示了如何使用交叉熵损失："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:66
+msgid "优化器"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:67
+msgid "**网络训练** 即通过更新网络参数来最小化损失函数的过程，这个过程由 MegEngine 中的 **优化器** （optimizer）来完成。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:69
+msgid "优化器首先通过反向传播获取所有网络参数相对于损失函数的梯度，然后根据具体的优化策略和梯度值来更新参数。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:71
+msgid ""
+"MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.adam.Adam` 和 :class:`~.sgd.SGD` 。"
+" 它们都继承自 :class:`~.Optimizer` 基类，主要包含参数梯度的计算（ :meth:`~.Optimizer.backward`"
+" ）和参数更新（ :meth:`~.Optimizer.step` ）这两个方法。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:73
+msgid "下面我们通过一个最简单的优化策略来示例说明，参数更新公式如下："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:75
+msgid "weight = weight - learning\\_rate * gradient"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:78
+msgid ""
+"此处的 ``learning_rate`` 代表学习速率，用来控制参数每次更新的幅度。在 MegEngine 中此更新方式对应的优化器是 "
+":class:`~.sgd.SGD` 。 我们首先创建一个优化器："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:88
+msgid "然后通过 ``dataloader`` 读取一遍训练数据，并利用优化器对网络参数进行更新，这样的一轮更新我们称为一个epoch："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:107
+msgid "训练示例"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:109
+msgid "完整的训练流程通常需要运行多个epoch，代码如下所示："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:139
+msgid "训练输出如下："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:155
+msgid "GPU和CPU切换"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:156
+msgid ""
+"MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以调用 "
+":func:`~.core.device.set_default_device` 来根据自身需求设置默认计算设备。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:158
+msgid "如下代码设置默认设备为CPU："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:167
+msgid "如下代码设置默认设备为GPU:"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:174
+msgid "更多用法可见 :func:`~.core.device.set_default_device` API 文档。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:176
+msgid "如果不想修改代码，用户也可通过环境变量 ``MGE_DEFAULT_DEVICE`` 来设置默认计算设备："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:187
+msgid "网络的保存"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:188
+msgid ""
+"网络训练完成之后需要保存，以便后续使用。在之前 :ref:`network_build` 部分，我们介绍了网络模块 Module 中  "
+":meth:`~.Module.state_dict`  的功能： :meth:`~.Module.state_dict` "
+"遍历网络的所有参数，将其组成一个有序字典并返回。 我们通过 MegEngine 中的 :func:`~.serialization.save` "
+"保存这些网络参数。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:196
+msgid "网络的加载和测试"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:199
+msgid "网络的加载"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:200
+msgid ""
+"测试时我们可以通过 :func:`~.serialization.load` 来读取 ``lenet.mge`` ，它会返回 "
+":meth:`~.Module.state_dict` 字典对象，其中保存了模型中的模块名称和对应参数。 接着，我们可以通过 Module 的 "
+":meth:`~.Module.load_state_dict` 方法将该字典对象加载到 ``le_net`` 模型。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:209
+msgid ":meth:`~.Module.eval` 和  :meth:`~.Module.train`"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:211
+msgid ""
+"有少数算子训练和测试时行为不一致，例如 :class:`~.module.dropout.Dropout` 和 "
+":class:`~.module.batchnorm.BatchNorm2d` 。 "
+":class:`~.module.dropout.Dropout` "
+"在训练时会以一定的概率概率将指定层的部分输出置零而在测试时则不会对输出进行任何更改。 "
+":class:`~.module.batchnorm.BatchNorm2d` "
+"在训练时会不断统计更新对应张量的均值和标准差，测试时则不会更新这两个值。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:213
+msgid ""
+"为了保证训练和测试行为的正确，MegEngine 通过 :meth:`~.Module.eval` 和 "
+":meth:`~.Module.train` 来设置算子的状态。在 MegEngine 当中网络默认为训练模式，所以上述训练代码未调用 "
+":meth:`~.Module.train` 函数来设置状态。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:215
+msgid "在此我们以 :class:`~.module.dropout.Dropout` 为例展示这两个函数的作用："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:240
+msgid ""
+"从输出可以看到训练时 :class:`~.module.dropout.Dropout` "
+"将原始数据中的20%的值（两个）置0，其余值则乘了1.25（ :math:`\\frac{1}{1-0.2}` ）；测试时 "
+":class:`~.module.dropout.Dropout` 未对原始数据进行任何处理。"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:243
+msgid "测试代码示例"
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:245
+msgid "在此我们使用 MNIST 测试数据集对训好的网络进行测试。 具体测试代码如下所示，和训练代码相比主要是去掉了优化器的相关代码："
+msgstr ""
+
+#: ../../source/basic/train_and_evaluation.rst:274
+msgid "测试输出如下，可以看到经过训练的 ``LeNet`` 在 MNIST 测试数据集上的准确率已经达到98.84%："
+msgstr ""
+

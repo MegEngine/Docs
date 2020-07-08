@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-08 14:22+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/api_zh/megengine.jit.rst:2
+msgid "megengine.jit package"
+msgstr "megengine.jit package"
+
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:1
+#: megengine.jit.trace:1 megengine.jit.unset:1 of
+msgid "Bases: :class:`object`"
+msgstr "Bases: :class:`object`"
+
+#: megengine.jit.trace:1 of
+msgid "Wrap a callable and provide:"
+msgstr "包装一个可调用对象，并提供以下功能："
+
+#: megengine.jit.trace:3 of
+msgid "tracing via :meth:`.trace` and :meth:`.dump`"
+msgstr "通过 :meth:`.trace` 和 :meth:`.dump` 实现追溯（tracing）"
+
+#: megengine.jit.trace:4 of
+msgid "accelerated evalutaion via :meth:`.__call__`"
+msgstr "通过调用 :meth:`.__call__` 加速执行"
+
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig
+#: megengine.jit.trace megengine.jit.trace.dump of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.jit.trace:7 of
+msgid "Positional only argument."
+msgstr "位置型参数(Positional only argument)"
+
+#: megengine.jit.trace:9 of
+msgid "Whether to use symbolic tensor. Default: False"
+msgstr "是否使用符号型张量（symbolic tensor）。默认：False。"
+
+#: megengine.jit.trace:11 of
+msgid "Optimization level for compiling trace."
+msgstr "编译追踪函数时的优化级别。"
+
+#: megengine.jit.trace:13 of
+msgid "Log level."
+msgstr "日志级别。"
+
+#: megengine.jit.trace:15 of
+msgid ""
+"Configuration for sublinear memory optimization. If not None, it enables "
+"sublinear memory optimization with given setting."
+msgstr "配置次线性内存优化。如果不是None，则使用给定设置进行次线性内存优化。"
+
+#: megengine.jit.trace:18 of
+msgid ""
+"Maximum size of an allreduce pack in MB. If not None, multiple gradients "
+"will be packed and synchronized together"
+msgstr "单个allreduce包的最大容量，以MB为单位。如果非None，则多个梯度将会被打包并一起同步"
+
+#: megengine.jit.trace:21 of
+msgid "Whether to profile compiled trace. Default: False"
+msgstr "是否对编译好的函数追溯（trace）进行性能评估（profile）。"
+
+#: megengine.jit.trace.__call__:1 of
+msgid ""
+"Evaluate on provided arguments, using compiled trace instead of the "
+"original callable if applicable."
+msgstr "对编译好的函数追溯（trace）在给定参数下执行，而不评估原来的可调用对象（如果适用）。"
+
+#: megengine.jit.trace.__call__ megengine.jit.trace.get_profile of
+msgid "Returns"
+msgstr "返回"
+
+#: megengine.jit.trace.__call__:4 of
+msgid ""
+"``None`` or :class:`~.Tensor` or tuple of :class:`~.Tensor`, depending on"
+" the return value of wrapped callable."
+msgstr ""
+"``None`` 或 :class:`~.Tensor` 或 tuple of :class:`~.Tensor` "
+"。需要根据包装后的可调用对象返回的值来确定类型。"
+
+#: megengine.jit.trace.dump:1 of
+msgid "Serialize trace to file system."
+msgstr "序列化被追溯 (trace) 的模型并保存到文件。"
+
+#: megengine.jit.trace.dump:3 of
+msgid "positional only argument. Path of output file."
+msgstr "仅作为位置参数（positional only argument）。输出文件所在路径。"
+
+#: megengine.jit.trace.dump:4 of
+msgid "names of the input tensors in the traced function."
+msgstr "被追溯（traced）函数的输入张量的名字。"
+
+#: megengine.jit.trace.dump:5 of
+msgid "whether output is appended to ``fpath``."
+msgstr "是否在 ``fpath`` 后追加输出。"
+
+#: megengine.jit.trace.dump:6 of
+msgid "whether to enable optimize_for_inference pass before dump."
+msgstr "是否在模型转储之前打开 ``optimize_for_inference`` 开关。"
+
+#: megengine.jit.trace.dump:9 of
+msgid ""
+"whether to use float16 for I/O between oprs and use float32 as internal "
+"computation precision. Note the output var would be changed to float16."
+msgstr "是否使用float16作为算子间I/O的数据精度，同时float32作为内部计算的数据精度。注意输出变量的类型也随之更改为float16。"
+
+#: megengine.jit.trace.dump:12 of
+msgid "whether to use float16 for both I/O and computation precision."
+msgstr "是否使用float16同时作为算子间I/O和内部计算的数据精度。"
+
+#: megengine.jit.trace.dump:15 of
+msgid "whether to use NHWCD4 data layout. This is faster on some OpenCL backend."
+msgstr "是否使用NHWCD4数据格式。在某些OpenCL设备上，会提高计算速度。"
+
+#: megengine.jit.trace.dump:17 of
+msgid "whether to use NCHW4 data layout. it currently used in X86 AVX backend."
+msgstr "是否使用NCHW88数据格式。当前用于X86 AVX后端。"
+
+#: megengine.jit.trace.dump:19 of
+msgid "whether to use NCHW4 data layout. it currently used in arm backend."
+msgstr "是否使用NCHW44数据格式。当前用于arm后端。"
+
+#: megengine.jit.trace.dump:21 of
+msgid ""
+"whether to use NCHW4 data layout. it currently used in armv8.2+dotprod "
+"backend."
+msgstr "是否使用NCHW4_dot数据格式。当前用于armv8.2+dotprod后端。"
+
+#: megengine.jit.trace.dump:23 of
+msgid ""
+"whether to use NCHW4 data layout. it currently used in nvidia "
+"backend(based on cudnn)."
+msgstr "是否使用NCHW4数据格式。当前用于nvidia后端（基于cudnn）。"
+
+#: megengine.jit.trace.dump:25 of
+msgid ""
+"whether to use NCHW32 data layout. it currently used in nvidia backend "
+"with tensorcore(based on cudnn)."
+msgstr "是否使用NCHW32数据格式。当前与tensorcore用于nvidia后端（基于cudnn）。"
+
+#: megengine.jit.trace.dump:27 of
+msgid ""
+"whether to use CHWN4 data layout. it currently used in nvidia backend "
+"with tensorcore."
+msgstr "是否使用CHWN4数据格式。当前与tensorcore用于nvidia后端。"
+
+#: megengine.jit.trace.dump:30 of
+msgid "whether to fuse conv+bias+nonlinearty into one opr."
+msgstr "是否融合 CONV + bias + 非线性激活成一个算子。"
+
+#: megengine.jit.trace.dump:32 of
+msgid ""
+"whether to fuse conv_bias with z input for inference on nvidia "
+"backend(this optimization pass will result in mismatch of the precision "
+"of output of training and inference)"
+msgstr "推理阶段是否在nvidia后端对输入z融合 CONV + bias 成一个算子（这个优化会导致训练和推理的输出精度不一致）"
+
+#: megengine.jit.trace.get_profile:1 of
+msgid "Get profiling result for compiled trace."
+msgstr "获取被追溯（trace）函数在编译后运行的性能结果。"
+
+#: megengine.jit.trace.get_profile:3 of
+msgid "a json compatible object."
+msgstr "一个兼容json的对象。"
+
+#: megengine.jit.trace.trace:1 of
+msgid "Trace wrapped callable with provided arguments."
+msgstr "使用提供的参数，追溯（trace）包装后的可调用对象。"
+
+#: ../../source/api_zh/megengine.jit.rst:11
+msgid "megengine.jit.sublinear\\_memory\\_config"
+msgstr "megengine.jit.sublinear\\_memory\\_config"
+
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:1 of
+msgid "Configuration for sublinear memory optimization."
+msgstr "次线性内存优化的配置。"
+
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:4 of
+msgid ""
+"number of samples both for searching in linear space and around current "
+"thresh in sublinear memory optimization. Default: 10. It can also be set "
+"through the environmental variable 'MGB_SUBLINEAR_MEMORY_THRESH_NR_TRY'."
+msgstr ""
+"线性空间中以及次线性内存优化的当前范围中搜索的样本数目。默认：10。也可以通过环境变量 "
+"'MGB_SUBLINEAR_MEMORY_THRESH_NR_TRY' 进行设置。"
+
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:8 of
+msgid ""
+"number of iterations to find the best checkpoints in genetic algorithm. "
+"Default: 0. It can also be set through the environmental variable "
+"'MGB_SUBLINEAR_MEMORY_GENETIC_NR_ITER'."
+msgstr ""
+"使用遗传算法寻找最优切分策略时的迭代轮数。默认：0。也可以通过环境变量 "
+"'MGB_SUBLINEAR_MEMORY_GENETIC_NR_ITER' 进行设置。"
+
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:12 of
+msgid ""
+"number of samples for the crossover random selection during genetic "
+"optimization. Default: 20. It can also be set through the environmental "
+"variable 'MGB_SUBLINEAR_MEMORY_GENETIC_POOL_SIZE'."
+msgstr ""
+"遗传优化算法进行交叉随机选择（crossover）时所使用的样本数。默认：20。也可以通过环境变量 "
+"'MGB_SUBLINEAR_MEMORY_GENETIC_POOL_SIZE' 进行设置。"
+
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:16 of
+msgid ""
+"memory lower bound of bottleneck size in MB for sublinear memory "
+"optimization. It can be used to perform manual tradeoff between memory "
+"and speed. Default: 0. It can also be set through the environmental "
+"variable 'MGB_SUBLINEAR_MEMORY_LOWER_BOUND_MB'."
+msgstr ""
+"次线性内存优化瓶颈大小的下界（以MB为单位）。它可用于在内存和速度之间进行手动权衡。默认：0。也可以通过设置环境变量 "
+"'MGB_SUBLINEAR_MEMORY_LOWER_BOUND_MB' 来实现。"
+
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:20 of
+msgid ""
+"number of thread workers to search the optimum checkpoints in sublinear "
+"memory optimization. Default: half of cpu number in the system. Note: the"
+" value must be greater or equal to one. It can also be set through the "
+"environmental variable 'MGB_SUBLINEAR_MEMORY_WORKERS'."
+msgstr ""
+"搜索次线性内存优化最优切分策略时使用的线程数。默认：当前系统中CPU数目的一半。注意：该参数值需要大于等于1。也可以通过设置环境变量 "
+"'MGB_SUBLINEAR_MEMORY_WORKERS'来实现。"
+
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:25 of
+msgid ""
+"Note that the environmental variable MGB_COMP_GRAPH_OPT must be set to "
+"'enable_sublinear_memory_opt=1' in order for the above environmental "
+"variable to be effective."
+msgstr ""
+"注意，为了使上述环境变量生效，需要将环境变量 MGB_COMP_GRAPH_OPT 设置为 "
+"'enable_sublinear_memory_opt=1' 。"

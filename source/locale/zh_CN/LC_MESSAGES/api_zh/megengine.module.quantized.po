@@ -1,0 +1,164 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-15 09:28-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/api_zh/megengine.module.quantized.rst:2
+msgid "megengine.module.quantized package"
+msgstr "megengine.module.quantized package"
+
+#: ../../source/api_zh/megengine.module.quantized.rst:11
+msgid "megengine.module.quantized.concat"
+msgstr "megengine.module.quantized.concat"
+
+#: megengine.module.quantized.concat.Concat:1
+#: megengine.module.quantized.elemwise.Elemwise:1
+#: megengine.module.quantized.linear.Linear:1
+#: megengine.module.quantized.quant_dequant.DequantStub:1
+#: megengine.module.quantized.quant_dequant.QuantStub:1 of
+msgid "Bases: :class:`megengine.module.quantized.module.QuantizedModule`"
+msgstr "基类： :class:`megengine.module.quantized.module.QuantizedModule`"
+
+#: megengine.module.quantized.concat.Concat:1 of
+msgid "A :class:`~.QuantizedModule` to do quantized concat, inference only."
+msgstr "量化（quantized）版本concat的 :class:`~.QuantizedModule` ，仅用于推理阶段。"
+
+#: megengine.module.quantized.concat.Concat.from_qat_module:1
+#: megengine.module.quantized.conv.Conv2d.from_qat_module:1
+#: megengine.module.quantized.elemwise.Elemwise.from_qat_module:1
+#: megengine.module.quantized.linear.Linear.from_qat_module:1
+#: megengine.module.quantized.module.QuantizedModule.from_qat_module:1
+#: megengine.module.quantized.quant_dequant.DequantStub.from_qat_module:1
+#: megengine.module.quantized.quant_dequant.QuantStub.from_qat_module:1 of
+msgid ""
+"return a :class:`~.QuantizedModule` instance converted from a "
+":class:`~.QATModule` instance."
+msgstr "返回从 :class:`~.QATModule` 实例转换而来的 :class:`~.QuantizedModule` 实例。"
+
+#: ../../source/api_zh/megengine.module.quantized.rst:19
+msgid "megengine.module.quantized.conv"
+msgstr "megengine.module.quantized.conv"
+
+#: megengine.module.quantized.conv.Conv2d:1 of
+msgid ""
+"Bases: :class:`megengine.module.conv.Conv2d`, "
+":class:`megengine.module.quantized.module.QuantizedModule`"
+msgstr ""
+"基类： :class:`megengine.module.conv.Conv2d`, "
+":class:`megengine.module.quantized.module.QuantizedModule`"
+
+#: megengine.module.quantized.conv.Conv2d:1 of
+msgid "quantized version of :class:`~.qat.conv.Conv2d`."
+msgstr "量化（quantized）版本 :class:`~.qat.conv.Conv2d` 。"
+
+#: megengine.module.quantized.conv.ConvRelu2d:1 of
+msgid "Bases: :class:`megengine.module.quantized.conv.Conv2d`"
+msgstr "基类： :class:`megengine.module.quantized.conv.Conv2d`"
+
+#: megengine.module.quantized.conv.ConvRelu2d:1 of
+msgid "quantized version of :class:`~.qat.conv.ConvRelu2d`."
+msgstr "量化（quantized）版本 :class:`~.qat.conv.ConvRelu2d` 。"
+
+#: ../../source/api_zh/megengine.module.quantized.rst:27
+msgid "megengine.module.quantized.conv\\_bn"
+msgstr "megengine.module.quantized.conv\\_bn"
+
+#: megengine.module.quantized.conv_bn.ConvBn2d:1
+#: megengine.module.quantized.conv_bn.ConvBnRelu2d:1 of
+msgid "Bases: :class:`megengine.module.quantized.conv_bn._ConvBnActivation2d`"
+msgstr "基类： :class:`megengine.module.quantized.conv_bn._ConvBnActivation2d`"
+
+#: megengine.module.quantized.conv_bn.ConvBn2d:1 of
+msgid "quantized version of :class:`~.qat.conv_bn.ConvBn2d`."
+msgstr "量化（quantized）版本 :class:`~.qat.conv_bn.ConvBn2d` 。"
+
+#: megengine.module.quantized.conv_bn.ConvBnRelu2d:1 of
+msgid "quantized version of :class:`~.qat.conv_bn.ConvBnRelu2d`."
+msgstr "量化（quantized）版本 :class:`~.qat.conv_bn.ConvBnRelu2d` 。"
+
+#: ../../source/api_zh/megengine.module.quantized.rst:35
+msgid "megengine.module.quantized.elemwise"
+msgstr "megengine.module.quantized.elemwise"
+
+#: megengine.module.quantized.elemwise.Elemwise:1 of
+msgid "quantized version of :class:`~.qat.elemwise.Elemwise`."
+msgstr "量化（quantized）版本 :class:`~.qat.elemwise.Elemwise` 。"
+
+#: ../../source/api_zh/megengine.module.quantized.rst:43
+msgid "megengine.module.quantized.linear"
+msgstr "megengine.module.quantized.linear"
+
+#: megengine.module.quantized.linear.Linear:1 of
+msgid "quantized version of :class:`~.qat.linear.Linear`."
+msgstr "量化（quantized）版本 :class:`~.qat.linear.Linear` 。"
+
+#: ../../source/api_zh/megengine.module.quantized.rst:51
+msgid "megengine.module.quantized.module"
+msgstr "megengine.module.quantized.module"
+
+#: megengine.module.quantized.module.QuantizedModule:1 of
+msgid "Bases: :class:`megengine.module.module.Module`"
+msgstr "基类: :class:`megengine.module.module.Module`"
+
+#: megengine.module.quantized.module.QuantizedModule:1 of
+msgid ""
+"Base class of quantized Module, which should be converted from QATModule and"
+" not support traning."
+msgstr "量化（quantized）版本Module的基类。应从QATModule转换而来，不支持训练。"
+
+#: ../../source/api_zh/megengine.module.quantized.rst:59
+msgid "megengine.module.quantized.quant\\_dequant"
+msgstr "megengine.module.quantized.quant\\_dequant"
+
+#: megengine.module.quantized.quant_dequant.DequantStub:1 of
+msgid ""
+"quantized version of :class:`~.qat.quant_dequant.DequantStub`, will restore "
+"quantized input to float32 dtype."
+msgstr "量化（quantized）版本 :class:`~.qat.quant_dequant.DequantStub` ， 可将量化后的输入重置为float32类型。"
+
+#: megengine.module.quantized.quant_dequant.QuantStub:1 of
+msgid ""
+"quantized version of :class:`~.qat.quant_dequant.QuantStub`, will convert "
+"input to quantized dtype."
+msgstr "量化（quantized）版本 :class:`~.qat.quant_dequant.QuantStub` ，可将输入转化为量化数据类型。"
+
+#~ msgid ""
+#~ "Replace :class:`~.module.QATModule`'s ``to_quantized`` method. implemented "
+#~ "here to avoid circular import."
+#~ msgstr ""
+#~ "将 :class:`~.module.QATModule` 的 ``to_quantized`` 方法替换掉。为了避免循环import而实现在这里。"
+
+#~ msgid "quantized module for elemwise operator, inference only."
+#~ msgstr "elemwise算子的量化Module，仅用于推理阶段。"
+
+#~ msgid "Parameters"
+#~ msgstr "参数"
+
+#~ msgid ""
+#~ "the elemwise method, supported string refer to "
+#~ ":class:`~.module.elemwise.Elemwise`. it will do quantized operator with "
+#~ "specified output quantized dtype."
+#~ msgstr ""
+#~ "elemwise方法，其支持的字符串可以参考 :class:`~.module.elemwise.Elemwise` "
+#~ "。该Module将按照输出指定的量化数据类型做相应的量化操作。"
+
+#~ msgid "A helper de-quantize operation and inference only."
+#~ msgstr "辅助反量化操作，仅用于推理阶段。"
+
+#~ msgid "A helper quantize operation on input and inference only."
+#~ msgstr "对输入数据进行量化的辅助函数，仅用于推理阶段。"

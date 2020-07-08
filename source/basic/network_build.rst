@@ -7,7 +7,7 @@
 
 
 基于 :mod:`~.megengine.functional` 搭建网络
-------------------------------
+--------------------------------------------------
 
 :mod:`~.megengine.functional` 包提供了常用的算子函数（如 :func:`~.functional.nn.conv2d` 、 :func:`~.functional.nn.linear` 等）。这些函数接受参与计算的张量并返回计算结果。参与计算的张量通常包括两类：输入数据和该算子自身的参数，其中后者是网路中需要学习的变量。比如，二维卷积（ :func:`~.functional.nn.conv2d` ）接受多通道的二维图像作为输入数据，把卷积核作为参数，输出经卷积操作后的多通道二维图像。
 
@@ -41,7 +41,7 @@
 
 
 基于 :class:`~.Module` 搭建网络
-------------------------------
+--------------------------------------------------
 
 在上面的代码中，对于每一个需要参数的算子，都需要单独定义其网络参数。由于“ conv + relu ”这样的组合出现了两次，代码显得臃肿。对于更加复杂的网络，这样的写法可读性、可复用性和可维护性会比较差。
 
@@ -53,7 +53,7 @@
 
 * :meth:`~.Module.forward` ： 该方法定义前向传播计算流程。它接受输入数据并返回前向传播的计算结果。注意， :class:`~.Module` 对象是可被调用的 （ callable ），其实现就是 :meth:`~.Module.forward` 。
 
-:mod:`megengine.module` 包提供了常用的网络基本模块，如 :class:`~.conv.Conv2d` 、:class:`~.linear.Linear` 等。以 :class:`~.conv.Conv2d` 为例，该类的 :class:`__init__() <.conv.Conv2d>` 方法定义并初始化卷积核参数，其 :meth:`~.conv.Conv2d.forward` 方法执行卷积操作。
+:mod:`megengine.module` 包提供了常用的网络基本模块，如 :class:`~.module.conv.Conv2d` 、:class:`~.module.linear.Linear` 等。以 :class:`~.module.conv.Conv2d` 为例，该类的 :class:`__init__() <.module.conv.Conv2d>` 方法定义并初始化卷积核参数，其 :meth:`~.module.conv.Conv2d.forward` 方法执行卷积操作。
 
 基于各种常用的网络模块，我们可以方便地搭建非常复杂的网络。例如，上一个例子的网络定义可以简化成如下写法：
 

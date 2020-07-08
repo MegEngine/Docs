@@ -1,0 +1,1263 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Megvii
+# This file is distributed under the same license as the MegEngine Documents
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MegEngine Documents\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-27 03:15-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/autogen/megengine.data.rst:2
+msgid "megengine.data package"
+msgstr "megengine.data package"
+
+#: ../../source/autogen/megengine.data.rst:11
+msgid "megengine.data.collator"
+msgstr "megengine.data.collator"
+
+#: megengine.data.collator.Collator:1 megengine.data.dataloader.DataLoader:1
+#: of
+msgid "Bases: :class:`object`"
+msgstr "基类: :class:`object`"
+
+#: megengine.data.collator.Collator:1 of
+msgid ""
+"Used for merge a list of samples to form a mini-batch of Tenor(s). Used when"
+" using batched loading from a dataset. modified from "
+"https://github.com/pytorch/pytorch/blob/master/torch/utils/data/_utils/collate.py"
+msgstr ""
+"用于将一个列表中的样本合并成一个mini-batch的张量。当使用按批从数据集中加载数据时使用。该类是在 "
+"https://github.com/pytorch/pytorch/blob/master/torch/utils/data/_utils/collate.py"
+" 的基础上进行修改实现的。"
+
+#: megengine.data.collator.Collator.apply:1 of
+msgid "input : sequence_N(tuple(CHW, C, CK)) output : tuple(NCHW, NC, NCK)"
+msgstr "输入 : sequence_N(tuple(CHW, C, CK)) 输出 : tuple(NCHW, NC, NCK)"
+
+#: ../../source/autogen/megengine.data.rst:19
+msgid "megengine.data.dataloader"
+msgstr "megengine.data.dataloader"
+
+#: megengine.data.dataloader.DataLoader.__init__:1 of
+msgid "Provides a convenient way to iterate on a given dataset."
+msgstr "可用于在给定数据集上遍历并取得数据。"
+
+#: megengine.data.dataloader.DataLoader.__init__:3 of
+msgid ""
+"`DataLoader` combines a dataset with sampler, transform and collator, make "
+"it flexible to get minibatch continually from a dataset."
+msgstr ""
+"`DataLoader` 将数据集与sampler 、transform 、 "
+"collator结合起来，从而能够灵活地从数据集中连续获得拼成minibatch的数据。"
+
+#: megengine.data.dataloader.DataLoader.__init__
+#: megengine.data.dataset.vision.folder.ImageFolder.__init__
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__
+#: megengine.data.dataset.vision.mnist.MNIST.__init__
+#: megengine.data.sampler.ReplacementSampler.__init__
+#: megengine.data.sampler.Sampler.__init__
+#: megengine.data.transform.vision.functional.flip
+#: megengine.data.transform.vision.functional.pad
+#: megengine.data.transform.vision.functional.resize
+#: megengine.data.transform.vision.functional.to_bgr
+#: megengine.data.transform.vision.functional.to_gray
+#: megengine.data.transform.vision.transform.BrightnessTransform
+#: megengine.data.transform.vision.transform.CenterCrop
+#: megengine.data.transform.vision.transform.ColorJitter
+#: megengine.data.transform.vision.transform.Compose
+#: megengine.data.transform.vision.transform.ContrastTransform
+#: megengine.data.transform.vision.transform.GaussianNoise
+#: megengine.data.transform.vision.transform.HueTransform
+#: megengine.data.transform.vision.transform.Normalize
+#: megengine.data.transform.vision.transform.Pad
+#: megengine.data.transform.vision.transform.RandomCrop
+#: megengine.data.transform.vision.transform.RandomHorizontalFlip
+#: megengine.data.transform.vision.transform.RandomResize
+#: megengine.data.transform.vision.transform.RandomResizedCrop
+#: megengine.data.transform.vision.transform.RandomVerticalFlip
+#: megengine.data.transform.vision.transform.Resize
+#: megengine.data.transform.vision.transform.SaturationTransform
+#: megengine.data.transform.vision.transform.ToMode
+#: megengine.data.transform.vision.transform.TorchTransformCompose
+#: megengine.data.transform.vision.transform.VisionTransform of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.data.dataloader.DataLoader.__init__:8 of
+msgid "dataset from which to load the minibatch."
+msgstr "用来加载minibatch的数据集"
+
+#: megengine.data.dataloader.DataLoader.__init__:11 of
+msgid ""
+"defines the strategy to sample data from the dataset. If specified, "
+":attr:`shuffle` must be ``False``."
+msgstr "定义了从数据集取得样本数据的策略。如果指定了该策略， :attr:`shuffle` 必须是 ``False`` 。"
+
+#: megengine.data.dataloader.DataLoader.__init__:15 of
+msgid ""
+"defined the transforming strategy for a sampled batch. (default: ``None``)"
+msgstr "定义对拼成batch的样本的数据增强策略。 （默认： ``None`` ）"
+
+#: megengine.data.dataloader.DataLoader.__init__:19 of
+msgid ""
+"defined the merging strategy for a transformed batch. (default: ``None``)"
+msgstr "定义对已变换batch的合并策略。 （默认： ``None`` ）"
+
+#: megengine.data.dataloader.DataLoader.__init__:23 of
+msgid ""
+"the number of sub-process to load, transform and collate the batch. ``0`` "
+"means using single-process. (default: ``0``)"
+msgstr "加载，变换，整理（collate）batch数据的子进程数，``0`` 表示使用单个进程。（默认： ``0`` ）"
+
+#: megengine.data.dataloader.DataLoader.__init__:27 of
+msgid ""
+"if positive, means the timeout value(second) for collecting a batch from "
+"workers. (default: 0)"
+msgstr "如果为正数，表示从worker收集一个batch的超时值（秒）。 （默认：0）"
+
+#: megengine.data.dataloader.DataLoader.__init__:31 of
+msgid ""
+"define the paralleling strategy in multi-processing mode. ``True`` means one"
+" batch is divided into :attr:`num_workers` pieces, and the workers will "
+"process these pieces parallelly. ``False`` means different sub-process will "
+"process different batch. (default: ``False``)"
+msgstr ""
+"定义多进程模式并行策略。 ``True`` 表示一个batch会被分为 :attr:`num_workers` "
+"个切片，workers会随之并行地处理这些切片。 ``False`` 表示不同的子进程会处理不同的batch。（默认： ``False`` ）"
+
+#: ../../source/autogen/megengine.data.rst:27
+msgid "megengine.data.sampler"
+msgstr "megengine.data.sampler"
+
+#: megengine.data.sampler.Infinite:1 megengine.data.sampler.RandomSampler:1
+#: megengine.data.sampler.ReplacementSampler:1
+#: megengine.data.sampler.SequentialSampler:1 of
+msgid "Bases: :class:`megengine.data.sampler.Sampler`"
+msgstr "基类： :class:`megengine.data.sampler.Sampler`"
+
+#: megengine.data.sampler.Infinite:1 of
+msgid "Infinite Sampler warper for basic sampler"
+msgstr "无限采样装饰器，可以包装普通的采样器。"
+
+#: megengine.data.sampler.Infinite.sample:1
+#: megengine.data.sampler.RandomSampler.sample:1
+#: megengine.data.sampler.ReplacementSampler.sample:1
+#: megengine.data.sampler.Sampler.sample:1 of
+msgid "return a list contains all sample indices"
+msgstr "返回一个列表，包含了所有样本的索引"
+
+#: megengine.data.sampler.RandomSampler.__init__:1 of
+msgid "Sample elements randomly without replacement"
+msgstr "不放回（不重复选取）地随机采样"
+
+#: megengine.data.dataset.vision.folder.ImageFolder.collect_class
+#: megengine.data.dataset.vision.folder.ImageFolder.collect_samples
+#: megengine.data.dataset.vision.imagenet.ImageNet.check_raw_file
+#: megengine.data.sampler.RandomSampler.sample
+#: megengine.data.sampler.ReplacementSampler.sample
+#: megengine.data.sampler.Sampler.batch megengine.data.sampler.Sampler.scatter
+#: megengine.data.sampler.SequentialSampler.sample of
+msgid "Return type"
+msgstr "返回类型"
+
+#: megengine.data.dataset.vision.folder.ImageFolder.collect_samples:2
+#: megengine.data.sampler.RandomSampler.sample:4
+#: megengine.data.sampler.ReplacementSampler.sample:4
+#: megengine.data.sampler.Sampler.scatter:6 of
+msgid ":py:class:`~typing.List`"
+msgstr ":py:class:`~typing.List`"
+
+#: megengine.data.sampler.ReplacementSampler.__init__:1 of
+msgid "Sample elements randomly with replacement"
+msgstr "有放回（可重复选取）地进行随机采样"
+
+#: megengine.data.sampler.ReplacementSampler.__init__:4 of
+msgid "weights for sampling indices, it could be unnormalized weights"
+msgstr "样本索引的权重，可以是未归一化的权重"
+
+#: megengine.data.dataset.meta_dataset.Dataset:1
+#: megengine.data.sampler.Sampler:1
+#: megengine.data.transform.meta_transform.Transform:1 of
+msgid "Bases: :class:`abc.ABC`"
+msgstr "基类： :class:`abc.ABC`"
+
+#: megengine.data.sampler.Sampler.__init__:1 of
+msgid "An abstract class for all sampler"
+msgstr "所有采样器的抽象类"
+
+#: megengine.data.sampler.Sampler.__init__:4 of
+msgid "dataset to sample from"
+msgstr "待采样的目标数据集"
+
+#: megengine.data.sampler.Sampler.__init__:6 of
+msgid "batch size for batch method"
+msgstr "使用batch方法时指定batch大小"
+
+#: megengine.data.sampler.Sampler.__init__:8 of
+msgid ""
+"set ``True`` to drop the last incomplete batch, if the dataset size is not "
+"divisible by the batch size. If ``False`` and  the size of dataset is not "
+"divisible by the batch_size, then the last batch will be smaller. (default: "
+"``False``)"
+msgstr ""
+"如果batch大小不能整除数据集大小时，为 ``True`` 则放弃最后一个不完整的batch; 为 ``False`` "
+"则最后一个batch可能比较小。 （默认： ``False`` ）"
+
+#: megengine.data.sampler.Sampler.__init__:13 of
+msgid "number of samples assigned to one rank"
+msgstr "分配给一个进程的样本数"
+
+#: megengine.data.sampler.Sampler.__init__:15 of
+msgid "number of ranks"
+msgstr "进程数"
+
+#: megengine.data.sampler.Sampler.__init__:17 of
+msgid "rank id, non-negative interger within 0 and ``world_size``"
+msgstr "进程号，在0与 ``world_size`` 范围内的非负整数"
+
+#: megengine.data.sampler.Sampler.__init__:19 of
+msgid "seed for random operators"
+msgstr "随机算子的种子"
+
+#: megengine.data.sampler.Sampler.batch:1 of
+msgid "batch method provides a batch indices generator"
+msgstr "batch方法提供了一个batch索引生成器"
+
+#: megengine.data.sampler.Sampler.batch:4 of
+msgid ""
+":py:class:`~typing.Iterator`\\[:py:class:`~typing.List`\\[:py:data:`~typing.Any`]]"
+msgstr ""
+":py:class:`~typing.Iterator`\\[:py:class:`~typing.List`\\[:py:data:`~typing.Any`]]"
+
+#: megengine.data.sampler.Sampler.scatter:1 of
+msgid ""
+"scatter method is used for splitting indices into subset, each subset will "
+"be assigned to a rank. Indices are evenly splitted by default. If customized"
+" indices assignment method is needed, please rewrite this method"
+msgstr ""
+"scatter方法用于将batch索引集合分割成若干子集，每个子​​集将会随之分配给一个进程。默认采用均匀分割的方式分割batch索引集合。如果需要自定义索引分配方法，请重写这个方法"
+
+#: megengine.data.sampler.SequentialSampler.__init__:1 of
+msgid "Sample elements sequentially"
+msgstr "按序列顺序对元素进行采样"
+
+#: megengine.data.sampler.SequentialSampler.sample:1 of
+msgid "return a generator"
+msgstr "返回一个生成器"
+
+#: megengine.data.sampler.SequentialSampler.sample:4 of
+msgid ":py:class:`~typing.Iterator`\\[:py:data:`~typing.Any`]"
+msgstr ":py:class:`~typing.Iterator`\\[:py:data:`~typing.Any`]"
+
+#: ../../source/autogen/megengine.data.rst:41
+msgid "megengine.data.transform.meta\\_transform"
+msgstr "megengine.data.transform.meta\\_transform"
+
+#: megengine.data.transform.meta_transform.PseudoTransform:1
+#: megengine.data.transform.vision.transform.VisionTransform:1 of
+msgid "Bases: :class:`megengine.data.transform.meta_transform.Transform`"
+msgstr "基类： :class:`megengine.data.transform.meta_transform.Transform`"
+
+#: megengine.data.transform.meta_transform.Transform:1 of
+msgid "rewrite apply method in subclass"
+msgstr "在子类中重写apply方法"
+
+#: ../../source/autogen/megengine.data.rst:55
+msgid "megengine.data.transform.vision.functional"
+msgstr "megengine.data.transform.vision.functional"
+
+#: megengine.data.transform.vision.functional.flip:1 of
+msgid "Accordding to the flipCode (the type of flip), flip the input image"
+msgstr "根据flipCode（翻转的类型），翻转输入图像"
+
+#: megengine.data.transform.vision.functional.flip:3 of
+msgid "Input image, with (H, W, C) shape"
+msgstr "输入图像，形为(H，W，C)"
+
+#: megengine.data.transform.vision.functional.flip:4 of
+msgid ""
+"code that indicates the type of flip. 1 : Flip horizontally 0 : Flip "
+"vertically -1 : Flip horizontally and vertically"
+msgstr "指示翻转的类型的代码。 1：水平翻转 0：垂直翻转 -1：同时沿水平和垂直方向翻转"
+
+#: megengine.data.transform.vision.functional.flip
+#: megengine.data.transform.vision.functional.pad
+#: megengine.data.transform.vision.functional.resize
+#: megengine.data.transform.vision.functional.to_bgr
+#: megengine.data.transform.vision.functional.to_gray of
+msgid "Returns"
+msgstr "返回"
+
+#: megengine.data.transform.vision.functional.flip:8
+#: megengine.data.transform.vision.functional.to_bgr:4 of
+msgid "BGR format image, with (H, W, C) shape"
+msgstr "BGR格式的图像，形为(H,W,C)"
+
+#: megengine.data.transform.vision.functional.pad:1 of
+msgid "Pad input data with *value* and given *size*"
+msgstr "使用 *value* 值和给定 *size* 大小填充（pad）输入数据"
+
+#: megengine.data.transform.vision.functional.pad:3 of
+msgid "Input data, with (H, W, C) shape"
+msgstr "输入数据，形为(H,W,C)"
+
+#: megengine.data.transform.vision.functional.pad:4 of
+msgid ""
+"Padding size of input data, it could be integer or sequence. If it's an "
+"integer, the input data will be padded in four directions. If it's a "
+"sequence contains two integer, the bottom and right side of input data will "
+"be padded. If it's a sequence contains four integer, the top, bottom, left, "
+"right side of input data will be padded with given size."
+msgstr ""
+"对输入数据填充（padding）的尺寸，可以是单个整数或序列。如果它是一个整数，输入数据将在上下左右四个方向填充同样大小。如果它是包含两个整数的序列，输入数据的底部和右侧会被填充。如果它是包含四个整数的序列，输入数据的上，下，左，右都会使用给定大小进行填充。"
+
+#: megengine.data.transform.vision.functional.pad:10 of
+msgid ""
+"Padding value of data, could be a sequence of int or float. if it's float "
+"value, the dtype of image will be casted to float32 also."
+msgstr "对数据进行填充（padding）时填入的值，可以是整数或浮点数的序列。如果它为浮点值，图像的dtype也会被转换为float32。"
+
+#: megengine.data.transform.vision.functional.pad:12 of
+msgid "Padded image"
+msgstr "填充后的（Padded）图像"
+
+#: megengine.data.transform.vision.functional.resize:1 of
+msgid "resize the input data to given size"
+msgstr "根据给定尺寸（size）放缩输入数据"
+
+#: megengine.data.transform.vision.functional.resize:3 of
+msgid "Input data, could be image or masks, with (H, W, C) shape"
+msgstr "输入数据，可以是图像或mask，形为(H,W,C)"
+
+#: megengine.data.transform.vision.functional.resize:4 of
+msgid "Target size of input data, with (height, width) shape."
+msgstr "输入数据的目标尺寸，形为(height, width)。"
+
+#: megengine.data.transform.vision.functional.resize:5 of
+msgid "Interpolation method."
+msgstr "插值方法。"
+
+#: megengine.data.transform.vision.functional.resize:6 of
+msgid "Resized data, with (H, W, C) shape"
+msgstr "调整尺寸后的数据，形为(H, W, C)"
+
+#: megengine.data.transform.vision.functional.to_bgr:1 of
+msgid "Change gray format image's color space to BGR"
+msgstr "将灰度图像的色彩空间变为BGR"
+
+#: megengine.data.transform.vision.functional.to_bgr:3 of
+msgid "input Gray format image, with (H, W, C) shape"
+msgstr "输入灰度图像，形为（H，W，C）"
+
+#: megengine.data.transform.vision.functional.to_gray:1 of
+msgid "Change BGR format image's color space to gray"
+msgstr "更改BGR格式图像的色彩空间为灰度"
+
+#: megengine.data.transform.vision.functional.to_gray:3 of
+msgid "Input BGR format image, with (H, W, C) shape"
+msgstr "输入BGR格式的图像，形为(H,W,C)"
+
+#: megengine.data.transform.vision.functional.to_gray:4 of
+msgid "Gray format image, with (H, W, C) shape"
+msgstr "灰度格式的图像，形为 (H, W, C) "
+
+#: megengine.data.transform.vision.functional.wrap_keepdims:1 of
+msgid "Wraper to keep the dimension of input images unchanged"
+msgstr "装饰器，可以保持输入图像的维度恒定不变"
+
+#: ../../source/autogen/megengine.data.rst:63
+msgid "megengine.data.transform.vision.transform"
+msgstr "megengine.data.transform.vision.transform"
+
+#: megengine.data.transform.vision.transform.VisionTransform:1 of
+msgid ""
+"Base class of all transforms used in computer vision. calling logic: "
+"apply_batch() -> apply() -> _apply_image() and other _apply_*() method. If "
+"you want to implement a self-defined transform method for image, rewrite "
+"_apply_image method in subclass."
+msgstr ""
+"计算机视觉（vision）中所有transform(数据增强)类函数的基类。\n"
+"调用逻辑：apply_batch() -> apply() -> _apply_image() 以及其他类似 _apply_*() 的类方法。\n"
+"如果需要自定义处理图像的transform函数的实现，在子类中重写 _apply_image 方法。"
+
+#: megengine.data.transform.vision.transform.VisionTransform:6 of
+msgid ""
+"Input type order. Input is a tuple contains different structures, order is "
+"used to specify the order of structures. For example, if your input is "
+"(image, boxes) type, then the order should be (\"image\", \"boxes\"). "
+"Current available strings & data type are describe below:  * \"image\": "
+"input image, with shape of (H, W, C) * \"coords\": coordinates, with shape "
+"of (N, 2) * \"boxes\": bounding boxes, with shape of (N, 4), \"xyxy\" "
+"format,   the 1st \"xy\" represents top left point of a box,   the 2nd "
+"\"xy\" represents right bottom point. * \"mask\": map used for segmentation,"
+" with shape of (H, W, 1) * \"keypoints\": keypoints with shape of (N, K, 3),"
+" N for number of instances,   and K for number of keypoints in one instance."
+" The first two dimensions   of last axis is coordinate of keypoints and the "
+"the 3rd dimension is   the label of keypoints. * \"polygons\": A sequence "
+"contains numpy array, its length is number of instances.   Each numpy array "
+"represents polygon coordinate of one instance. * \"category\": categories "
+"for some data type. For example, \"image_category\"   means category of the "
+"input image and \"boxes_category\" means categories of   bounding boxes. * "
+"\"info\": information for images such as image shapes and image path.  You "
+"can also customize your data types only if you implement the corresponding "
+"_apply_*() methods, otherwise ``NotImplementedError`` will be raised."
+msgstr " "
+
+#: megengine.data.transform.vision.transform.VisionTransform:6 of
+msgid ""
+"Input type order. Input is a tuple contains different structures, order is "
+"used to specify the order of structures. For example, if your input is "
+"(image, boxes) type, then the order should be (\"image\", \"boxes\"). "
+"Current available strings & data type are describe below:"
+msgstr ""
+"输入数据中各类型的顺序。输入数据是由不同类型数据组成元组，order则可以用来指明其中\n"
+"各类数据类型出现的顺序。比如，如果输入为(image, boxes)类型，那么order应该相应地设为(\"image\", \"boxes\")。目前支持的字符串类型与数据类型有："
+
+#: megengine.data.transform.vision.transform.VisionTransform:11 of
+msgid "\"image\": input image, with shape of (H, W, C)"
+msgstr "\"image\": 输入图像，形为(H, W, C)。"
+
+#: megengine.data.transform.vision.transform.VisionTransform:12 of
+msgid "\"coords\": coordinates, with shape of (N, 2)"
+msgstr "\"coords\": 坐标，形为(N, 2)。"
+
+#: megengine.data.transform.vision.transform.VisionTransform:13 of
+msgid ""
+"\"boxes\": bounding boxes, with shape of (N, 4), \"xyxy\" format, the 1st "
+"\"xy\" represents top left point of a box, the 2nd \"xy\" represents right "
+"bottom point."
+msgstr "\"boxes\": bounding boxes，形为(N, 4)，采用 \"xyxy\" 格式，第一个\"xy\"代表box的左上角，第二个\"xy\"代表右下角。"
+
+#: megengine.data.transform.vision.transform.VisionTransform:16 of
+msgid "\"mask\": map used for segmentation, with shape of (H, W, 1)"
+msgstr "\"mask\": 用于图像分割的mask map，形为(H, W, 1)。"
+
+#: megengine.data.transform.vision.transform.VisionTransform:17 of
+msgid ""
+"\"keypoints\": keypoints with shape of (N, K, 3), N for number of instances,"
+" and K for number of keypoints in one instance. The first two dimensions of "
+"last axis is coordinate of keypoints and the the 3rd dimension is the label "
+"of keypoints."
+msgstr ""
+"\"keypoints\": keypoints特征点，形为 (N, K, 3)，其中N为实例数量, "
+"K为一个实例中的keypoints数量。最后一轴对应的数据前两维是keypoints的坐标，第三维则是keypoints的标签。"
+
+#: megengine.data.transform.vision.transform.VisionTransform:21 of
+msgid ""
+"\"polygons\": A sequence contains numpy array, its length is number of "
+"instances. Each numpy array represents polygon coordinate of one instance."
+msgstr "\"polygons\": 包含numpy数组的序列。其长为实例的数目，每个numpy数组代表一个实例的多边形坐标。"
+
+#: megengine.data.transform.vision.transform.VisionTransform:23 of
+msgid ""
+"\"category\": categories for some data type. For example, \"image_category\""
+" means category of the input image and \"boxes_category\" means categories "
+"of bounding boxes."
+msgstr ""
+"\"category\": "
+"某些数据类型的标签。比如，\"image_category\"表示输入图像的类别，\"boxes_category\"表示bounding "
+"box的类别。"
+
+#: megengine.data.transform.vision.transform.VisionTransform:26 of
+msgid "\"info\": information for images such as image shapes and image path."
+msgstr "\"info\": 关于图像的信息，比如图像形状与图像路径。"
+
+#: megengine.data.transform.vision.transform.VisionTransform:28 of
+msgid ""
+"You can also customize your data types only if you implement the "
+"corresponding _apply_*() methods, otherwise ``NotImplementedError`` will be "
+"raised."
+msgstr "只有自定义实现了对应的_apply_*()，才支持自定义数据类型，否则抛出 ``NotImplementedError`` 错误。"
+
+#: megengine.data.transform.vision.transform.CenterCrop.apply:1
+#: megengine.data.transform.vision.transform.ColorJitter.apply:1
+#: megengine.data.transform.vision.transform.Compose.apply:1
+#: megengine.data.transform.vision.transform.RandomCrop.apply:1
+#: megengine.data.transform.vision.transform.RandomHorizontalFlip.apply:1
+#: megengine.data.transform.vision.transform.RandomResize.apply:1
+#: megengine.data.transform.vision.transform.RandomResizedCrop.apply:1
+#: megengine.data.transform.vision.transform.RandomVerticalFlip.apply:1
+#: megengine.data.transform.vision.transform.Resize.apply:1
+#: megengine.data.transform.vision.transform.ShortestEdgeResize.apply:1
+#: megengine.data.transform.vision.transform.VisionTransform.apply:1 of
+msgid "Apply transform on single input data"
+msgstr "对单个输入数据实施数据增强。"
+
+#: megengine.data.transform.vision.transform.Compose.apply_batch:1
+#: megengine.data.transform.vision.transform.VisionTransform.apply_batch:1 of
+msgid "Apply transform on batch input data"
+msgstr "对一批（batch）的输入数据实施数据增强。"
+
+#: megengine.data.transform.vision.transform.BrightnessTransform:1
+#: megengine.data.transform.vision.transform.CenterCrop:1
+#: megengine.data.transform.vision.transform.ColorJitter:1
+#: megengine.data.transform.vision.transform.Compose:1
+#: megengine.data.transform.vision.transform.ContrastTransform:1
+#: megengine.data.transform.vision.transform.GaussianNoise:1
+#: megengine.data.transform.vision.transform.HueTransform:1
+#: megengine.data.transform.vision.transform.Lighting:1
+#: megengine.data.transform.vision.transform.Normalize:1
+#: megengine.data.transform.vision.transform.Pad:1
+#: megengine.data.transform.vision.transform.RandomCrop:1
+#: megengine.data.transform.vision.transform.RandomHorizontalFlip:1
+#: megengine.data.transform.vision.transform.RandomResize:1
+#: megengine.data.transform.vision.transform.RandomResizedCrop:1
+#: megengine.data.transform.vision.transform.RandomVerticalFlip:1
+#: megengine.data.transform.vision.transform.Resize:1
+#: megengine.data.transform.vision.transform.SaturationTransform:1
+#: megengine.data.transform.vision.transform.ShortestEdgeResize:1
+#: megengine.data.transform.vision.transform.ToMode:1
+#: megengine.data.transform.vision.transform.TorchTransformCompose:1 of
+msgid ""
+"Bases: :class:`megengine.data.transform.vision.transform.VisionTransform`"
+msgstr ""
+"基类： :class:`megengine.data.transform.vision.transform.VisionTransform`"
+
+#: megengine.data.transform.vision.transform.ToMode:1 of
+msgid ""
+"Change input data to a target mode. For example, most transforms use HWC "
+"mode image, while the Neural Network might use CHW mode input tensor"
+msgstr "将输入数据变换到目标模式。例如，大多数变换使用HWC模式图像，而神经网络可能使用CHW模式的输入张量"
+
+#: megengine.data.transform.vision.transform.ToMode:5 of
+msgid "Output mode of input. Use \"CHW\" mode by default."
+msgstr "输入的输出模式。默认情况下使用\"CHW\"模式。"
+
+#: megengine.data.transform.vision.transform.BrightnessTransform:5
+#: megengine.data.transform.vision.transform.CenterCrop:4
+#: megengine.data.transform.vision.transform.ColorJitter:15
+#: megengine.data.transform.vision.transform.Compose:10
+#: megengine.data.transform.vision.transform.ContrastTransform:5
+#: megengine.data.transform.vision.transform.GaussianNoise:6
+#: megengine.data.transform.vision.transform.HueTransform:5
+#: megengine.data.transform.vision.transform.Normalize:8
+#: megengine.data.transform.vision.transform.Pad:12
+#: megengine.data.transform.vision.transform.RandomCrop:8
+#: megengine.data.transform.vision.transform.RandomHorizontalFlip:4
+#: megengine.data.transform.vision.transform.RandomResize:4
+#: megengine.data.transform.vision.transform.RandomResizedCrop:9
+#: megengine.data.transform.vision.transform.RandomVerticalFlip:4
+#: megengine.data.transform.vision.transform.Resize:11
+#: megengine.data.transform.vision.transform.SaturationTransform:5
+#: megengine.data.transform.vision.transform.ToMode:6
+#: megengine.data.transform.vision.transform.TorchTransformCompose:6 of
+msgid "The same with :class:`VisionTransform`"
+msgstr "与 :class:`VisionTransform` 一致"
+
+#: megengine.data.transform.vision.transform.Compose:1 of
+msgid "Composes several transforms together."
+msgstr "将若干变换组合在一起。"
+
+#: megengine.data.transform.vision.transform.Compose:3 of
+msgid "List of :class:`VisionTransform` to compose."
+msgstr "待组合的 :class:`VisionTransform` 列表"
+
+#: megengine.data.transform.vision.transform.Compose:4 of
+msgid ""
+"Whether use shuffle_indices for batch data or not. If True, use original "
+"input sequence. Otherwise, the shuffle_indices will be used for transforms."
+msgstr ""
+"是否对批数据（batch）的数据增强方法进行shuffle。如果为True，使用原始的数据增强顺序。否则，按照shuffle_indices中给定的顺序对数据增强方法进行shuffle。"
+
+#: megengine.data.transform.vision.transform.Compose:7 of
+msgid ""
+"Indices used for random shuffle, start at 1. For example, if shuffle_indices"
+" is [(1, 3), (2, 4)], then the 1st and 3rd transform will be random "
+"shuffled, the 2nd and 4th transform will also be shuffled."
+msgstr ""
+"用于随机排序（random shuffle）的索引，从1开始。例如，若shuffle_indices 为[(1, 3), (2, "
+"4)]，则序列中的第一个数据增强方法和第三个数据增强方法有可能进行shuffle，同时第二和第四个有可能进行shuffle。"
+
+#: megengine.data.transform.vision.transform.Compose:12 of
+msgid "Example:"
+msgstr "实例代码："
+
+#: megengine.data.transform.vision.transform.Compose:14 of
+msgid "..testcode::"
+msgstr " "
+
+#: megengine.data.transform.vision.transform.TorchTransformCompose:1 of
+msgid ""
+"Compose class used for transforms in torchvision, only support PIL image, "
+"some transforms with tensor in torchvision are not supported, such as "
+"Normalize and ToTensor in torchvision."
+msgstr ""
+"torchvision中变换的Compose类，仅支持PIL图像，但不支持某些torchvision中张量上的变换，比如Normalize和ToTensor。"
+
+#: megengine.data.transform.vision.transform.TorchTransformCompose:5 of
+msgid "The same with ``Compose``"
+msgstr "与 ``Compose`` 一致"
+
+#: megengine.data.transform.vision.transform.Pad:1 of
+msgid "Pad the input data."
+msgstr "填充（pad）输入数据。"
+
+#: megengine.data.transform.vision.transform.Pad:3 of
+msgid ""
+"Padding size of input image, it could be integer or sequence. If it's an "
+"integer, the input image will be padded in four directions. If it's a "
+"sequence contains two integer, the bottom and right side of image will be "
+"padded. If it's a sequence contains four integer, the top, bottom, left, "
+"right side of image will be padded with given size."
+msgstr ""
+"输入图像的填充尺寸，它可以是单个int型或序列。如果它是一个整数，则在四个方向上填充输入图像。如果它是包含两个整数的序列，则仅填充图像的下侧和右侧。如果它是一个包含四个整数的序列，则按给定大小依次填充图像的上，下，左，右侧。"
+
+#: megengine.data.transform.vision.transform.Pad:9 of
+msgid ""
+"Padding value of image, could be a sequence of int or float. if it's float "
+"value, the dtype of image will be casted to float32 also."
+msgstr "填充图像的值，可以是一个整型（int）或浮点型（float）序列。如果为float浮点值，图像的dtype也会随之被转换为float32."
+
+#: megengine.data.transform.vision.transform.Pad:11 of
+msgid "Padding value of segmentation map."
+msgstr "填充分割图（segmentation map）的值。"
+
+#: megengine.data.transform.vision.transform.Resize:1 of
+msgid "Resize the input data."
+msgstr "调整输入数据大小。"
+
+#: megengine.data.transform.vision.transform.Resize:3 of
+msgid "Target size of image, with (height, width) shape."
+msgstr "图像的目标尺寸，形为(height, width)。"
+
+#: megengine.data.transform.vision.transform.Resize:4 of
+msgid ""
+"Interpolation method. All methods are listed below:  * cv2.INTER_NEAREST – a"
+" nearest-neighbor interpolation. * cv2.INTER_LINEAR – a bilinear "
+"interpolation (used by default). * cv2.INTER_AREA – resampling using pixel "
+"area relation. * cv2.INTER_CUBIC – a bicubic interpolation over 4×4 pixel "
+"neighborhood. * cv2.INTER_LANCZOS4 – a Lanczos interpolation over 8×8 pixel "
+"neighborhood."
+msgstr " "
+
+#: megengine.data.transform.vision.transform.Resize:4 of
+msgid "Interpolation method. All methods are listed below:"
+msgstr "插值方法。所有方法如下所示："
+
+#: megengine.data.transform.vision.transform.Resize:6 of
+msgid "cv2.INTER_NEAREST – a nearest-neighbor interpolation."
+msgstr "cv2.INTER_NEAREST  - 最近邻插值。"
+
+#: megengine.data.transform.vision.transform.Resize:7 of
+msgid "cv2.INTER_LINEAR – a bilinear interpolation (used by default)."
+msgstr "cv2.INTER_LINEAR  - 双线性插值（默认使用此方法）。"
+
+#: megengine.data.transform.vision.transform.Resize:8 of
+msgid "cv2.INTER_AREA – resampling using pixel area relation."
+msgstr "cv2.INTER_AREA  - 使用像素局部空域关系进行重采样。"
+
+#: megengine.data.transform.vision.transform.Resize:9 of
+msgid "cv2.INTER_CUBIC – a bicubic interpolation over 4×4 pixel neighborhood."
+msgstr "cv2.INTER_CUBIC  - 基于4×4像素邻域的双三次插值。"
+
+#: megengine.data.transform.vision.transform.Resize:10 of
+msgid ""
+"cv2.INTER_LANCZOS4 – a Lanczos interpolation over 8×8 pixel neighborhood."
+msgstr "cv2.INTER_LANCZOS4  - 基于8×8邻域的Lanczos插值。"
+
+#: megengine.data.transform.vision.transform.RandomResize:1 of
+msgid "Resize the input data randomly."
+msgstr "随机调整输入数据的尺寸（size）。"
+
+#: megengine.data.transform.vision.transform.RandomResize:3 of
+msgid "."
+msgstr "。"
+
+#: megengine.data.transform.vision.transform.RandomCrop:1 of
+msgid ""
+"Crop the input data randomly. Before applying the crop transform, pad the "
+"image first. And if target size is still bigger than the size of padded "
+"image, pad the image size to target size."
+msgstr "随机裁剪（crop）输入数据。裁剪之前首先填充（pad）图像。如果目标尺寸仍大于填充图像，继续填充图像至目标尺寸。"
+
+#: megengine.data.transform.vision.transform.CenterCrop:3
+#: megengine.data.transform.vision.transform.RandomCrop:5
+#: megengine.data.transform.vision.transform.RandomResizedCrop:6 of
+msgid "Target size of output image, with (height, width) shape."
+msgstr "输出图像的目标尺寸，形为(height,width)。"
+
+#: megengine.data.transform.vision.transform.RandomCrop:6 of
+msgid "The same with `size` in ``Pad``"
+msgstr "与在 ``Pad`` 中的 `size` 功能一致"
+
+#: megengine.data.transform.vision.transform.RandomCrop:7 of
+msgid "The same with `value` in ``Pad``"
+msgstr "与在 ``Pad`` 中的 `value` 一致"
+
+#: megengine.data.transform.vision.transform.RandomResizedCrop:1 of
+msgid ""
+"Crop the input data to random size and aspect ratio. A crop of random size "
+"(default: of 0.08 to 1.0) of the original size and a random aspect ratio "
+"(default: of 3/4 to 1.33) of the original aspect ratio is made. After "
+"applying crop transfrom, the input data will be resized to given size."
+msgstr ""
+"将输入数据按随机尺寸和纵横比进行裁剪。产生的随机裁剪图像尺寸，默认为原始尺寸的0.08到1.0之间，同时具有随机纵横比，默认为原始纵横比的3/4到1.33之间。使用裁剪变换后，输入数据将按给定尺寸进行放缩。"
+
+#: megengine.data.transform.vision.transform.RandomResizedCrop:7 of
+msgid "Range of size of the origin size cropped. Default: (0.08, 1.0)"
+msgstr "对原始尺寸图像裁剪的大小范围。 默认： (0.08, 1.0)"
+
+#: megengine.data.transform.vision.transform.RandomResizedCrop:8 of
+msgid ""
+"Range of aspect ratio of the origin aspect ratio cropped. Default: (0.75, "
+"1.33)"
+msgstr "裁剪原始纵横比的范围。默认：（0.75，1.33）"
+
+#: megengine.data.transform.vision.transform.CenterCrop:1 of
+msgid "Crops the given the input data at the center."
+msgstr "在中心处裁剪给定的输入数据。"
+
+#: megengine.data.transform.vision.transform.RandomHorizontalFlip:1 of
+msgid "Horizontally flip the input data randomly with a given probability."
+msgstr "按给定的概率，随机水平翻转输入数据。"
+
+#: megengine.data.transform.vision.transform.RandomHorizontalFlip:3
+#: megengine.data.transform.vision.transform.RandomVerticalFlip:3 of
+msgid "probability of the input data being flipped. Default: 0.5"
+msgstr "输入数据被翻转的概率。默认：0.5"
+
+#: megengine.data.transform.vision.transform.RandomVerticalFlip:1 of
+msgid "Vertically flip the input data randomly with a given probability."
+msgstr "按给定概率，随机垂直翻转输入数据。"
+
+#: megengine.data.transform.vision.transform.Normalize:1 of
+msgid ""
+"Normalize the input data with mean and standard deviation. Given mean: "
+"``(M1,...,Mn)`` and std: ``(S1,..,Sn)`` for ``n`` channels, this transform "
+"will normalize each channel of the input data. ``output[channel] = "
+"(input[channel] - mean[channel]) / std[channel]``"
+msgstr ""
+"用均值和标准差将输入数据正则化。给定  ``n`` 通道上的均值 ``(M1,...,Mn)`` 和标准差 ``(S1,..,Sn)`` "
+"该变换可以对输入数据的每一个通道都进行正则化 ``output[channel] = (input[channel] - mean[channel]) "
+"/ std[channel]``"
+
+#: megengine.data.transform.vision.transform.Normalize:6 of
+msgid "Sequence of means for each channel."
+msgstr "由每个通道的均值组成的序列"
+
+#: megengine.data.transform.vision.transform.Normalize:7 of
+msgid "Sequence of standard deviations for each channel."
+msgstr "由每个通道的标准差组成的序列"
+
+#: megengine.data.transform.vision.transform.GaussianNoise:1 of
+msgid ""
+"Add random gaussian noise to the input data. Gaussian noise is generated "
+"with given mean and std."
+msgstr "向输入数据添加随机高斯噪声。高斯噪声按照给定的平均值和标准差产生。"
+
+#: megengine.data.transform.vision.transform.GaussianNoise:4 of
+msgid "Gaussian mean used to generate noise."
+msgstr "高斯均值，用于产生噪声。"
+
+#: megengine.data.transform.vision.transform.GaussianNoise:5 of
+msgid "Gaussian standard deviation used to generate noise."
+msgstr "高斯标准差，用于产生随机噪声。"
+
+#: megengine.data.transform.vision.transform.BrightnessTransform:1 of
+msgid "Adjust brightness of the input data."
+msgstr "调整输入数据的亮度。"
+
+#: megengine.data.transform.vision.transform.BrightnessTransform:3 of
+msgid ""
+"How much to adjust the brightness. Can be any non negative number. 0 gives "
+"the original image"
+msgstr "亮度调节的程度。可以是任何非负数。 为0则输出原始图像"
+
+#: megengine.data.transform.vision.transform.SaturationTransform:1 of
+msgid "Adjust saturation of the input data."
+msgstr "调整输入数据的饱和度。"
+
+#: megengine.data.transform.vision.transform.SaturationTransform:3 of
+msgid ""
+"How much to adjust the saturation. Can be any non negative number. 0 gives "
+"the original image"
+msgstr "饱和度调节的程度。可以是任何非负数。 为0则输出原始图像"
+
+#: megengine.data.transform.vision.transform.ContrastTransform:1 of
+msgid "Adjust contrast of the input data."
+msgstr "调整输入数据的对比度。"
+
+#: megengine.data.transform.vision.transform.ContrastTransform:3 of
+msgid ""
+"How much to adjust the contrast. Can be any non negative number. 0 gives the"
+" original image"
+msgstr "对比度调节的程度。可以是任何非负数。 为0则输出原始图像"
+
+#: megengine.data.transform.vision.transform.HueTransform:1 of
+msgid "Adjust hue of the input data."
+msgstr "调整输入数据的色调。"
+
+#: megengine.data.transform.vision.transform.HueTransform:3 of
+msgid ""
+"How much to adjust the hue. Can be any number between 0 and 0.5, 0 gives the"
+" original image"
+msgstr "色调调节的程度。可以是0到0.5之间的任意数字。为0则输出原始图像"
+
+#: megengine.data.transform.vision.transform.ColorJitter:1 of
+msgid ""
+"Randomly change the brightness, contrast, saturation and hue of an image."
+msgstr "随机改变图像的亮度、对比度、饱和度和色调。"
+
+#: megengine.data.transform.vision.transform.ColorJitter:3 of
+msgid ""
+"How much to jitter brightness. Chosen uniformly from [max(0, 1 - "
+"brightness), 1 + brightness] or the given [min, max]. Should be non negative"
+" numbers."
+msgstr ""
+"亮度抖动的程度。从[max(0, 1 - brightness), 1 + brightness]或给定的[min, "
+"max]区间上的均匀分布中采样。应为非负数。"
+
+#: megengine.data.transform.vision.transform.ColorJitter:6 of
+msgid ""
+"How much to jitter contrast. Chosen uniformly from [max(0, 1 - contrast), 1 "
+"+ contrast] or the given [min, max]. Should be non negative numbers."
+msgstr ""
+"对比度抖动程度。从 [max(0, 1 - contrast), 1 + contrast] 或给定 [min, max] "
+"区间上的均匀分布采样。应为非负数。"
+
+#: megengine.data.transform.vision.transform.ColorJitter:9 of
+msgid ""
+"How much to jitter saturation. Chosen uniformly from [max(0, 1 - "
+"saturation), 1 + saturation] or the given [min, max]. Should be non negative"
+" numbers."
+msgstr ""
+"饱和度抖动的程度。从 [max(0, 1 - saturation), 1 + saturation] 或给定 [min, max] "
+"区间上的均匀分布中采样。应为非负数。"
+
+#: megengine.data.transform.vision.transform.ColorJitter:12 of
+msgid ""
+"How much to jitter hue. Chosen uniformly from [-hue, hue] or the given [min,"
+" max]. Should have 0<= hue <= 0.5 or -0.5 <= min <= max <= 0.5."
+msgstr ""
+"色调抖动的程度。从 [-hue, hue] 或给定 [min, max] 区间上的均匀分布中采样。应满足 0<= hue <= 0.5 或 -0.5 "
+"<= min <= max <= 0.5."
+
+#: ../../source/autogen/megengine.data.rst:77
+msgid "megengine.data.dataset.meta\\_dataset"
+msgstr "megengine.data.dataset.meta\\_dataset"
+
+#: megengine.data.dataset.meta_dataset.ArrayDataset:1
+#: megengine.data.dataset.vision.meta_vision.VisionDataset:1 of
+msgid "Bases: :class:`megengine.data.dataset.meta_dataset.MapDataset`"
+msgstr "基类： :class:`megengine.data.dataset.meta_dataset.MapDataset`"
+
+#: megengine.data.dataset.meta_dataset.ArrayDataset.__init__:2 of
+msgid ""
+"ArrayDataset is a dataset for numpy array data, one or more numpy arrays"
+msgstr "ArrayDataset是承载numpy array数据的数据集。需要至少一个numpy array数据进行初始化"
+
+#: megengine.data.dataset.meta_dataset.ArrayDataset.__init__:2 of
+msgid ""
+"are needed to initiate the dataset. And the dimensions represented sample "
+"number are expected to be the same."
+msgstr "来初始化数据集，且其中表示样本数的维度应一致。"
+
+#: megengine.data.dataset.meta_dataset.Dataset:1 of
+msgid "An abstract class for all Datasets"
+msgstr "所有数据集类Datasets的抽象类"
+
+#: megengine.data.dataset.meta_dataset.MapDataset:1
+#: megengine.data.dataset.meta_dataset.StreamDataset:1 of
+msgid "Bases: :class:`megengine.data.dataset.meta_dataset.Dataset`"
+msgstr "基类： :class:`megengine.data.dataset.meta_dataset.Dataset`"
+
+#: megengine.data.dataset.meta_dataset.MapDataset:1 of
+msgid ""
+"An abstract class for map data __getitem__ and __len__ method are "
+"aditionally needed"
+msgstr "映射类型数据集（map-style dataset）类的抽象类。 需要进一步提供 __getitem__ 和 __len__ 方法"
+
+#: megengine.data.dataset.meta_dataset.StreamDataset:1 of
+msgid ""
+"An abstract class for stream data __iter__ method is aditionally needed"
+msgstr "流型数据集(stream data)的抽象类。额外需要 __iter__ 方法。"
+
+#: ../../source/autogen/megengine.data.rst:91
+msgid "megengine.data.dataset.vision.cifar"
+msgstr "megengine.data.dataset.vision.cifar"
+
+#: megengine.data.dataset.vision.cifar.CIFAR10:1
+#: megengine.data.dataset.vision.cityscapes.Cityscapes:1
+#: megengine.data.dataset.vision.coco.COCO:1
+#: megengine.data.dataset.vision.folder.ImageFolder:1
+#: megengine.data.dataset.vision.mnist.MNIST:1
+#: megengine.data.dataset.vision.objects365.Objects365:1
+#: megengine.data.dataset.vision.voc.PascalVOC:1 of
+msgid ""
+"Bases: :class:`megengine.data.dataset.vision.meta_vision.VisionDataset`"
+msgstr "基类： :class:`megengine.data.dataset.vision.meta_vision.VisionDataset`"
+
+#: megengine.data.dataset.vision.cifar.CIFAR10:1 of
+msgid "``Dataset`` for CIFAR10 meta data"
+msgstr "CIFAR10元数据的 ``Dataset`` 。"
+
+#: megengine.data.dataset.vision.cifar.CIFAR100:1 of
+msgid "Bases: :class:`megengine.data.dataset.vision.cifar.CIFAR10`"
+msgstr "基类： :class:`megengine.data.dataset.vision.cifar.CIFAR10`"
+
+#: ../../source/autogen/megengine.data.rst:99
+msgid "megengine.data.dataset.vision.cityscapes"
+msgstr "megengine.data.dataset.vision.cityscapes"
+
+#: megengine.data.dataset.vision.cityscapes.Cityscapes:1 of
+msgid "`Cityscapes <http://www.cityscapes-dataset.com/>`_ Dataset."
+msgstr "`Cityscapes <http://www.cityscapes-dataset.com/>`_ Dataset."
+
+#: ../../source/autogen/megengine.data.rst:107
+msgid "megengine.data.dataset.vision.coco"
+msgstr "megengine.data.dataset.vision.coco"
+
+#: megengine.data.dataset.vision.coco.COCO:1 of
+msgid "`MS COCO <http://cocodataset.org/#home>`_ Dataset."
+msgstr "`MS COCO <http://cocodataset.org/#home>`_ Dataset."
+
+#: ../../source/autogen/megengine.data.rst:115
+msgid "megengine.data.dataset.vision.folder"
+msgstr "megengine.data.dataset.vision.folder"
+
+#: megengine.data.dataset.vision.folder.ImageFolder.__init__:1 of
+msgid ""
+"ImageFolder is a class for loading image data and labels from a organized "
+"folder."
+msgstr "ImageFolder是一个类，可从有组织的文件夹中加载图像数据和标签。"
+
+#: megengine.data.dataset.vision.folder.ImageFolder.__init__:3 of
+msgid ""
+"the folder is expected to be organized as followed root/cls/xxx.img_ext"
+msgstr "该文件夹组织结构应为：root/cls/xxx.img_ext\n"
+
+#: megengine.data.dataset.vision.folder.ImageFolder.__init__:6 of
+msgid "labels are indices of sorted classes in the root directory"
+msgstr "标签（label）值是在根目录中类排序后的索引"
+
+#: megengine.data.dataset.vision.folder.ImageFolder.__init__:9 of
+msgid "root directory of an image folder"
+msgstr "图像文件夹（image folder）的根目录"
+
+#: megengine.data.dataset.vision.folder.ImageFolder.__init__:10 of
+msgid ""
+"a function used to load image from path, if ``None``, default function that "
+"loads images with PILwill be called"
+msgstr "从路径中加载图像的函数。如果为``None``，则调用PIL加载图像的默认函数。"
+
+#: megengine.data.dataset.vision.folder.ImageFolder.__init__:13 of
+msgid ""
+"a function used to check if files in folder are expected image files, if "
+"``None``, default function that checks file extensions will be called"
+msgstr "用来检查文件夹中的文件是否为期望图像文件的函数。如果为 ``None`` ，则默认调用检查文件扩展名的函数。"
+
+#: megengine.data.dataset.vision.folder.ImageFolder.__init__:17 of
+msgid "if ``True``, return class name instead of class index"
+msgstr "如果为 ``True`` ，那么返回类名称，而不是类索引"
+
+#: megengine.data.dataset.vision.folder.ImageFolder.collect_class:2 of
+msgid ":py:class:`~typing.Dict`"
+msgstr ":py:class:`~typing.Dict`"
+
+#: ../../source/autogen/megengine.data.rst:123
+msgid "megengine.data.dataset.vision.imagenet"
+msgstr "megengine.data.dataset.vision.imagenet"
+
+#: megengine.data.dataset.vision.imagenet.ImageNet:1 of
+msgid "Bases: :class:`megengine.data.dataset.vision.folder.ImageFolder`"
+msgstr "基类： :class:`megengine.data.dataset.vision.folder.ImageFolder`"
+
+#: megengine.data.dataset.vision.imagenet.ImageNet:1 of
+msgid "Load ImageNet from raw files or folder, expected folder looks like"
+msgstr "从原始文件或文件夹中加载ImageNet，期望的文件夹形如："
+
+#: megengine.data.dataset.vision.imagenet.ImageNet:16 of
+msgid ""
+"If the image folders don't exist, raw tar files are required to get "
+"extracted and processed."
+msgstr "如果期望的图片文件夹不存在，则需要原始tar文件来进行抽取和处理。"
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:1 of
+msgid "initialization:"
+msgstr "初始化："
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:3 of
+msgid "if ``root`` contains ``self.target_folder`` depent on ``train``:"
+msgstr "如果 ``root`` 包含依赖于 ``train`` 的 ``self.target_folder`` ："
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:5 of
+msgid "initialize ImageFolder with target_folder"
+msgstr "使用target_folder初始化ImageFolder"
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:7
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:14 of
+msgid "else:"
+msgstr "否则："
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:9 of
+msgid "if all raw files are in ``root``:"
+msgstr "如果所有的原始文件都在 ``root`` ："
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:11 of
+msgid "parse ``self.target_folder`` from raw files"
+msgstr "从原始文件解析 ``self.target_folder`` "
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:12 of
+msgid "initialize ImageFolder with ``self.target_folder``"
+msgstr "使用 ``self.target_folder`` 初始化ImageFolder"
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:16 of
+msgid "raise error"
+msgstr "报错"
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:19 of
+msgid ""
+"root directory of imagenet data, if root is ``None``, used "
+"default_dataset_root"
+msgstr "Imagenet数据的根目录。如果root为 ``None`` ，则使用default_dataset_root"
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.__init__:21 of
+msgid "if ``True``, load the train split, otherwise load the validation split"
+msgstr "如果为 ``True`` ，那么加载train分块（split），否则加载validation分块（split）"
+
+#: megengine.data.dataset.vision.imagenet.ImageNet.check_raw_file:2 of
+msgid ":py:class:`bool`"
+msgstr ":py:class:`bool`"
+
+#: ../../source/autogen/megengine.data.rst:131
+msgid "megengine.data.dataset.vision.meta\\_vision"
+msgstr "megengine.data.dataset.vision.meta\\_vision"
+
+#: ../../source/autogen/megengine.data.rst:139
+msgid "megengine.data.dataset.vision.mnist"
+msgstr "megengine.data.dataset.vision.mnist"
+
+#: megengine.data.dataset.vision.mnist.MNIST:1 of
+msgid "``Dataset`` for MNIST meta data"
+msgstr "承载MNIST元数据的 ``Dataset`` 。"
+
+#: megengine.data.dataset.vision.mnist.MNIST.__init__:2 of
+msgid ""
+"path for mnist dataset downloading or loading, if ``None``, set ``root`` to "
+"the ``_default_root``"
+msgstr "MNIST数据集下载或加载的路径。如果为 ``None`` ，``root`` 将被设置为 ``_default_root`` 。"
+
+#: megengine.data.dataset.vision.mnist.MNIST.__init__:5 of
+msgid "if ``True``, loading trainingset, else loading test set"
+msgstr "如果为 ``True`` ，则加载训练集，否则加载测试集"
+
+#: megengine.data.dataset.vision.mnist.MNIST.__init__:7 of
+msgid ""
+"if raw files do not exists and download sets to ``True``, download raw files"
+" and process, otherwise raise ValueError, default is True"
+msgstr ""
+"如果原始文件不存在，且download设置为 ``True`` ，则下载原始文件并处理，否则抛出ValueError异常，默认为 ``True`` 。"
+
+#: megengine.data.dataset.vision.mnist.MNIST.raw_file_md5:1 of
+msgid "md5 for checking raw files"
+msgstr "用于检查原始文件的md5"
+
+#: megengine.data.dataset.vision.mnist.MNIST.raw_file_name:1 of
+msgid "raw file names of both training set and test set (10k)"
+msgstr "训练集和测试集（10K）原始文件的文件名"
+
+#: megengine.data.dataset.vision.mnist.MNIST.url_path:1 of
+msgid "url prefix for downloading raw file"
+msgstr "用于下载原始文件的url前缀"
+
+#: ../../source/autogen/megengine.data.rst:147
+msgid "megengine.data.dataset.vision.objects365"
+msgstr "megengine.data.dataset.vision.objects365"
+
+#: megengine.data.dataset.vision.objects365.Objects365:1 of
+msgid "`Objects365 <https://www.objects365.org/overview.html>`_ Dataset."
+msgstr "`Objects365 <https://www.objects365.org/overview.html>`_ Dataset."
+
+#: ../../source/autogen/megengine.data.rst:155
+msgid "megengine.data.dataset.vision.utils"
+msgstr "megengine.data.dataset.vision.utils"
+
+#: ../../source/autogen/megengine.data.rst:163
+msgid "megengine.data.dataset.vision.voc"
+msgstr "megengine.data.dataset.vision.voc"
+
+#: megengine.data.dataset.vision.voc.PascalVOC:1 of
+msgid "`Pascal VOC <http://host.robots.ox.ac.uk/pascal/VOC/>`_ Dataset."
+msgstr "`Pascal VOC <http://host.robots.ox.ac.uk/pascal/VOC/>`_ Dataset."
+
+#~ msgid ""
+#~ "Input type order. Input is a tuple contains different structures, order is "
+#~ "used to specify the order of structures. For example, if your input is "
+#~ "(image, boxes) type, then the order should be (\"image\", \"boxes\").  "
+#~ "Current available strings & data type are describe below:     \"image\":"
+#~ "          input image, with shape of (H, W, C)     \"coords\":          "
+#~ "coordinates, with shape of (N, 2)     \"boxes\":          bounding boxes, "
+#~ "with shape of (N, 4), \"xyxy\" format,         the 1st \"xy\" represents top"
+#~ " left point of a box,         the 2nd \"xy\" represents right bottom point."
+#~ "     \"mask\":          map used for segmentation, with shape of (H, W, 1)"
+#~ "     \"keypoints\":          keypoints with shape of (N, K, 3), N for number"
+#~ " of instances, and K for number of keypoints in one instance. The first two "
+#~ "dimensions         of last axis is coordinate of keypoints and the the 3rd "
+#~ "dimension is         the label of keypoints.     \"polygons\": A sequence "
+#~ "contains numpy array, its length is number of instances.         Each numpy "
+#~ "array represents polygon coordinate of one instance.     \"category\": "
+#~ "categories for some data type. For example, \"image_category\"         means"
+#~ " category of the input image and \"boxes_category\" means categories of"
+#~ "         bounding boxes.     \"info\":          information for images such "
+#~ "as image shapes and image path.  You can also customize your data types only"
+#~ " if you implement the corresponding _apply_*() methods, otherwise "
+#~ "``NotImplementedError`` will be raised."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Input type order. Input is a tuple contains different structures, order is "
+#~ "used to specify the order of structures. For example, if your input is "
+#~ "(image, boxes) type, then the order should be (\"image\", \"boxes\").  "
+#~ "Current available strings & data type are describe below:"
+#~ msgstr ""
+
+#~ msgid "\"image\":"
+#~ msgstr ""
+
+#~ msgid "input image, with shape of (H, W, C)"
+#~ msgstr ""
+
+#~ msgid "\"coords\":"
+#~ msgstr ""
+
+#~ msgid "coordinates, with shape of (N, 2)"
+#~ msgstr ""
+
+#~ msgid "\"boxes\":"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "bounding boxes, with shape of (N, 4), \"xyxy\" format, the 1st \"xy\" "
+#~ "represents top left point of a box, the 2nd \"xy\" represents right bottom "
+#~ "point."
+#~ msgstr ""
+
+#~ msgid "\"mask\":"
+#~ msgstr ""
+
+#~ msgid "map used for segmentation, with shape of (H, W, 1)"
+#~ msgstr ""
+
+#~ msgid "\"keypoints\":"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "keypoints with shape of (N, K, 3), N for number of instances, and K for "
+#~ "number of keypoints in one instance. The first two dimensions of last axis "
+#~ "is coordinate of keypoints and the the 3rd dimension is the label of "
+#~ "keypoints."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "\"polygons\": A sequence contains numpy array, its length is number of "
+#~ "instances."
+#~ msgstr ""
+
+#~ msgid "Each numpy array represents polygon coordinate of one instance."
+#~ msgstr ""
+
+#~ msgid "\"category\": categories for some data type. For example, \"image_category\""
+#~ msgstr ""
+
+#~ msgid ""
+#~ "means category of the input image and \"boxes_category\" means categories of"
+#~ " bounding boxes."
+#~ msgstr ""
+
+#~ msgid "\"info\":"
+#~ msgstr ""
+
+#~ msgid "information for images such as image shapes and image path."
+#~ msgstr ""
+
+#~ msgid "The same with ``VisionTransform``"
+#~ msgstr ""
+
+#~ msgid "List of ``VisionTransform`` to compose."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "raw files situation (optional): root/ILSVRC2012_img_train.tar "
+#~ "root/ILSVRC2012_img_val.tar root/ILSVRC2012_devkit_t12.tar.gz"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "image folder situation (required): root/train/cls/xxx.${img_ext} "
+#~ "root/val/cls/xxx.${img_ext} root/ILSVRC2012_devkit_t12/data/meta.mat "
+#~ "root/ILSVRC2012_devkit_t12/data/ILSVRC2012_validation_ground_truth.txt"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If the required folders don't exist, raw files are required to get extracted"
+#~ " and processed."
+#~ msgstr ""
+
+#~ msgid "initilization"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "parse ``self.target_folder`` from raw files initialize ImageFolder with "
+#~ "``self.target_folder``"
+#~ msgstr ""
+
+#~ msgid "other keyword arguments for ImageFolder init"
+#~ msgstr ""
+
+#~ msgid "directory of devkit"
+#~ msgstr ""
+
+#~ msgid "directory of train data"
+#~ msgstr ""
+
+#~ msgid "directory of val data"
+#~ msgstr ""
+
+#~ msgid "raw files of ImageNet (train, val, devkit)"
+#~ msgstr ""
+
+#~ msgid "check root path and target file (train or test)"
+#~ msgstr ""
+
+#~ msgid "check target file exists"
+#~ msgstr ""
+
+#~ msgid "if exists:"
+#~ msgstr ""
+
+#~ msgid "load pickle file as meta-data and data in MNIST dataset"
+#~ msgstr ""
+
+#~ msgid "if download:"
+#~ msgstr ""
+
+#~ msgid "load all raw datas (both train and test set) by url"
+#~ msgstr ""
+
+#~ msgid "process raw data ( idx3/idx1 -> dict (meta-data) ,numpy.array (data) )"
+#~ msgstr ""
+
+#~ msgid "save meta-data and data as pickle file"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "after checking the target files existence, if target files do not exists and"
+#~ " download sets to ``True``, download raw files and process, then load, "
+#~ "otherwise raise ValueError, default is True"
+#~ msgstr ""
+
+#~ msgid "default pickle file name of test set and its meta data"
+#~ msgstr ""
+
+#~ msgid "default pickle file name of training set and its meta data"
+#~ msgstr ""

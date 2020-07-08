@@ -206,7 +206,7 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
     le_net.load_state_dict(state_dict)
 
 :meth:`~.Module.eval` 和  :meth:`~.Module.train`
-``````````````````````````````
+--------------------------------------------------
 
 有少数算子训练和测试时行为不一致，例如 :class:`~.module.dropout.Dropout` 和 :class:`~.module.batchnorm.BatchNorm2d` 。 :class:`~.module.dropout.Dropout` 在训练时会以一定的概率概率将指定层的部分输出置零而在测试时则不会对输出进行任何更改。 :class:`~.module.batchnorm.BatchNorm2d` 在训练时会不断统计更新对应张量的均值和标准差，测试时则不会更新这两个值。
 
@@ -261,16 +261,14 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
 
     le_net.eval() # 设置为测试模式
     data = mge.tensor()
-    label = mge.tensor(dtype="int32")
     correct = 0
     total = 0
     for idx, (batch_data, batch_label) in enumerate(dataloader_test):
         data.set_value(batch_data)
-        label.set_value(batch_label)
         logits = le_net(data)
-        predicted = F.argmax(logits, axis=1)
-        correct += (predicted==label).sum().numpy().item()
-        total += label.shape[0]
+        predicted = logits.numpy().argmax(axis=1)
+        correct += (predicted==batch_label).sum()
+        total += batch_label.shape[0]
     print("correct: {}, total: {}, accuracy: {}".format(correct, total, float(correct)/total))
 
 测试输出如下，可以看到经过训练的 ``LeNet`` 在 MNIST 测试数据集上的准确率已经达到98.84%：
