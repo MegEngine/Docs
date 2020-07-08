@@ -1,5 +1,5 @@
 =======================================
-Android推理示例
+Android 推理示例
 =======================================
 
 
@@ -7,7 +7,7 @@ ShuffleNet V2 ARM-Android 示例快速入门
 ---------------------------------------
 
 这是一个简单的图像分类应用，基于 MegEngine C++接口、Android JNI及Camera API，帮助大家快速在Android平台实现一个图像分类的App。
-在这个例子中所使用的模型，为MegEngine官方预训练的 `ShuffleNet V2模型`_ ，用于做简单的图像分类任务。
+在这个例子中所使用的模型，为 MegEngine 官方预训练的 `ShuffleNet V2模型`_ ，用于做简单的图像分类任务。
 
 1. 安装MegEngine python库
 ''''''''''''''''''''''''''
@@ -29,7 +29,7 @@ ShuffleNet V2 ARM-Android 示例快速入门
 
    git clone https://github.com/MegEngine/MegEngine.git
 
-MegEngine的依赖组件都位于 third_party 目录下，在有网络支持的条件下，使用如下脚本进行安装。
+MegEngine的依赖组件都位于 third_party 目录下，请在有网络支持的条件下，使用如下脚本进行安装。
 
 ::
 
@@ -42,7 +42,7 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 在ubuntu(16.04/18.04)上进行 ARM-Android的交叉编译:
 
 1. 到Android的官网下载NDK的相关工具，这里推荐 *android-ndk-r21* 以上的版本： `NDK下载`_ 
-2. 在bash中设置NDK_ROOT 环境变量：export NDK_ROOT=NDK_DIR
+2. 在bash中设置 NDK_ROOT 环境变量：export NDK_ROOT=NDK_DIR
 3. 使用以下脚本进行ARM-Android的交叉编译：
 
    ::
@@ -59,7 +59,7 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 
 3. 准备预训练模型
 '''''''''''''''''
-想要使用MegEngine C++ API来加载模型，我们还需要做一些准备工作
+想要使用MegEngine C++ API 来加载模型，我们还需要做一些准备工作
 
 #. 获取基于python接口预训练好的神经网络
 #. 将基于动态图的神经网络转换成静态图后，再转换成MegEngine C++ API可以加载的 mge文件
@@ -100,14 +100,14 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
       fun.trace(data,net=net)
       fun.dump("shufflenet_deploy.mge", arg_names=["data"], optimize_for_inference=True)
 
-执行脚本，并完成模型转换后，我们就获得了可以通过MegEngine C++ API加载的预训练模型文件 **shufflenet_deploy.mge**。
+执行脚本，并完成模型转换后，我们就获得了可以通过 MegEngine C++ API 加载的预训练模型文件 **shufflenet_deploy.mge**。
 
 *这里需要注意，dump函数定义了input 为 "data"，在后续使用推理接口传入数据时，需要保持名称一致。*
 *另外，dump参数 "optimize_for_inference=True" 可以对dump出的模型进行优化，具体信息可以参考* :meth:`dump optimize API <megengine.jit.trace.dump>` 
 
 4. ShuffleNet V2 C++ 实现示例
 ''''''''''''''''''''''''''''''''
-基于官方的 xor net C++ 案例 `xor net 部署`_ ，我们可以实现自己的基于ShuffleNet V2的推理代码。
+基于官方的 xor net C++ 案例 `xor net 部署`_ ，我们可以实现自己的基于 ShuffleNet V2 的推理代码。
 代码的任务分成四步：
 
 1. 参考官网对于 `ShuffleNet V2模型`_ 要求, 需要先将图像数据转换为指定格式的tensor
@@ -121,10 +121,10 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 现在需要将真实的图像数据填充到input层，以完成对图像的推理。在这个例子中，模型要求的输入数据为 **CHW:3*224*224**。
 根据 `ShuffleNet V2模型`_ 的说明，我们需要对图像做以下的预处理
 
-1. 将图像格式转换为BGR,
-2. 先将图像缩放到256*256，避免在后续的裁切中有更多的信息损失，
-3. 将图像中心裁切到 224*224 的大小，保留ROI区域，并适配模型输入要求，
-4. 将裁切后的图像做归一化处理, 这里用到的mean和std为： 
+1. 将图像格式转换为 BGR
+2. 先将图像缩放到 256*256，避免在后续的裁切中有更多的信息损失
+3. 将图像中心裁切到 224*224 的大小，保留ROI区域，并适配模型输入要求
+4. 将裁切后的图像做归一化处理, 根据 ModelHub 上的说明，这里用到的 mean 和 std 为：
   
    mean: [103.530, 116.280, 123.675]
 
@@ -146,11 +146,11 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
       ]
    )
 
-具体到C++代码的实现，也同样分成三步，我们以opencv为例：
+具体到 C++ 代码的实现，也同样分成三步，我们以 OpenCV 为例：
 
-1. 宽高resize到256*256，
-2. 中心裁切为224*224，
-3. 对图像做归一化处理。
+1. 宽高 resize到 256*256
+2. 中心裁切为 224*224
+3. 对图像做归一化处理
 
 
 *代码片段:*
