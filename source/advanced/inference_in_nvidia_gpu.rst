@@ -3,9 +3,9 @@
 NVIDIA GPU测试量化模型性能
 ===================================
 
-MegEngine 在 NVIDIA GPU方面做了很多深度优化，保证了模型推理高性能的执行，同时支持 NVIDIA 多种GPU硬件，如服务器端常用的 P4, T4，以及嵌入式端的 Jetson TX2、TX1 等。
+MegEngine 在 NVIDIA GPU 方面做了很多深度优化，保证了模型推理高性能的执行，同时支持 NVIDIA 多种 GPU 硬件，如服务器端常用的 P4、 T4，以及嵌入式端的 Jetson TX2、TX1 等。
 
-Turing 架构是 NVIDIA 推出的最新计算架构，Turing 架构的芯片引入了 TensorCore int8 计算单元，能够对 int8 量化模型进行进一步加速。目前 Turing 架构的 GPU 显卡型号有 2080Ti，T4 等，如果是在这些平台进行深度学习的推理部署，可以采用 TensorCore 来加速。
+Turing 架构是 NVIDIA 推出的最新计算架构，Turing 架构的芯片引入了 TensorCore int8 计算单元，能够对 int8 量化模型进行进一步加速。目前 Turing 架构的 GPU 显卡型号有 2080Ti、T4 等，如果是在这些平台进行深度学习的推理部署，可以采用 TensorCore 来加速。
 
 下文基于 load_and_run 工具(详见: :ref:`how_to_use_load_and_run`)，在 2080Ti 平台上阐述 MegEngine 量化模型的推理步骤。
 
@@ -17,6 +17,8 @@ MegEngine 提供了自动转换工具来使用 int8 的 TensorCore。用户首�
 1. 基于 `TensorRT <https://developer.nvidia.com/tensorrt>`_ 子图方式
 2. 基于 `cuDNN <https://developer.nvidia.com/cudnn>`_
 3. 基于自研的CHWN4 layout的算法
+
+以上三种方案在不同模型上性能各有优劣，用户可以自行尝试自己的网络在哪种模式下运行的更快，来决定使用哪种模型来运行。
 
 模型准备
 ------------------------------------
@@ -169,7 +171,7 @@ load_and_run 可以通过 ``--enable-nchw32`` 这个选项开启layout转换。
 基于自研的 CHWN4
 -----------------------------------------
 
-除了前面两种基于 NVIDIA 的 sdk 来加速 CUDA 上推理，MegEngine 内部针对 Tensorcore 自研了 CHWN4 的 layout 的算法，这种 layout 主要针对 MegEngine 内部自定义或者非标准的算子（如 BatchConv, GroupLocal 等）开发的，同时也支持标准的卷积算子。因为这种格式优先存放 batch 维的数据。在 batch size 较大的情况下，能很好地提升算子在 GPU 平台的性能。
+除了前面两种基于 NVIDIA 的 SDK 来加速 CUDA 上推理，MegEngine 内部针对 Tensorcore 自研了 CHWN4 的 layout 的算法，这种 layout 主要针对 MegEngine 内部自定义或者非标准的算子（如 BatchConv, GroupLocal 等）开发的，同时也支持标准的卷积算子。因为这种格式优先存放 batch 维的数据。在 batch size 较大的情况下，能很好地提升算子在 GPU 平台的性能。
 
 开启方式类似，只需要传入 ``--enable-chwn4`` 即可。
 
