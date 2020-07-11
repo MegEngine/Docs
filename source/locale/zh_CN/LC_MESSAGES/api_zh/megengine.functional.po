@@ -1243,15 +1243,15 @@ msgstr "单位矩阵"
 msgid ""
 "Reshapes the tensor by flattening the sub-tensor from dimension "
 "``start_axis`` to dimension ``end_axis``."
-msgstr "通过将子张量从 ``start_axis`` 维展平到 ``end_axis`` 维，实现对张量的重塑(reshape)。"
+msgstr "通过将从 ``start_axis`` 维到 ``end_axis`` 维的子张量进行展平，实现对张量的重塑(reshape)。"
 
 #: megengine.functional.nn.flatten:6 of
 msgid "The start dimension that the sub-tensor to be flattened. Default: 0"
-msgstr "子张量被展平时的初始维数。 默认： 0"
+msgstr "需要被展平的子张量的起始维数。 默认： 0"
 
 #: megengine.functional.nn.flatten:8 of
 msgid "The end dimension that the sub-tensor to be flattened. Default: -1"
-msgstr "子张量被展平时的最终维数。 默认： -1"
+msgstr "需要被展平的子张量的最终维数。 默认： -1"
 
 #: megengine.functional.nn.identity:1 of
 msgid "applies an identity transform to the input tensor."
