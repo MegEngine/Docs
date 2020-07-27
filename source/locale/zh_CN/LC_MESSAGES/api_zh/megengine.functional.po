@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 14:11+0800\n"
+"POT-Creation-Date: 2020-07-27 10:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,8 +35,8 @@ msgid "See :func:`~.set_conv_execution_strategy` for possible return values"
 msgstr "参考 :func:`~.set_conv_execution_strategy` 的相关说明了解可能返回的值"
 
 #: megengine.functional.debug_param.get_conv_execution_strategy
-#: megengine.functional.elemwise.isinf megengine.functional.elemwise.isnan
-#: megengine.functional.graph.grad
+#: megengine.functional.elemwise.clamp megengine.functional.elemwise.isinf
+#: megengine.functional.elemwise.isnan megengine.functional.graph.grad
 #: megengine.functional.loss.binary_cross_entropy
 #: megengine.functional.loss.cross_entropy
 #: megengine.functional.loss.cross_entropy_with_softmax
@@ -84,7 +84,8 @@ msgid "Sets the execuation strategy of :class:`~.Conv2d`."
 msgstr "设置 :class:`~.Conv2d` 的执行策略。"
 
 #: megengine.functional.debug_param.set_conv_execution_strategy
-#: megengine.functional.graph.add_update megengine.functional.graph.grad
+#: megengine.functional.elemwise.clamp megengine.functional.graph.add_update
+#: megengine.functional.graph.grad
 #: megengine.functional.loss.binary_cross_entropy
 #: megengine.functional.loss.cross_entropy
 #: megengine.functional.loss.cross_entropy_with_softmax
@@ -208,48 +209,41 @@ msgstr "逐元素计算反正弦值。"
 msgid "Return the ceil of the input, element-wise."
 msgstr "逐元素返回输入值向上取整后的值。"
 
-#: megengine.functional.elemwise.cos:1 of
-msgid "Cosine, element-wise."
-msgstr "逐元素计算余弦值。"
+#: megengine.functional.elemwise.clamp:1 of
+msgid ""
+"Clamp all elements in :attr:`inp` into the range `[` :attr:`lower`, "
+":attr:`upper` `]` and return a resulting tensor:"
+msgstr "将 ``inp`` 中的所有元素裁剪到 `[` :attr:`lower`, "
+":attr:`upper` `]` 范围内，并返回结果张量："
 
-#: megengine.functional.elemwise.divide:1 of
-msgid "Return (x / y) element-wise."
-msgstr "返回逐元素表达式 (x / y) 的值。"
+#: megengine.functional.elemwise.clamp:4 of
+msgid ""
+"y_i = \\begin{cases}     \\text{lower} & \\text{if } x_i < \\text{lower} "
+"\\\\     x_i & \\text{if } \\text{lower} \\leq x_i \\leq \\text{upper} "
+"\\\\     \\text{upper} & \\text{if } x_i > \\text{upper} \\end{cases}"
+msgstr ""
+"y_i = \\begin{cases}     \\text{lower} & \\text{if } x_i < \\text{lower} "
+"\\\\     x_i & \\text{if } \\text{lower} \\leq x_i \\leq \\text{upper} "
+"\\\\     \\text{upper} & \\text{if } x_i > \\text{upper} \\end{cases}"
 
-#: megengine.functional.elemwise.equal:1 of
-msgid "Return (x == y) element-wise."
-msgstr "返回逐元素表达式 (x == y) 的值。"
+#: megengine.functional.elemwise.clamp:12 of
+msgid "the input tensor."
+msgstr "输入张量。"
 
-#: megengine.functional.elemwise.exp:1 of
-msgid "Calculate the exponential element-wise"
-msgstr "逐元素计算指数。"
+#: megengine.functional.elemwise.clamp:13 of
+msgid "lower-bound of the range to be clamped to"
+msgstr "要限制的范围的下限"
 
-#: megengine.functional.elemwise.floor:1 of
-msgid "Return the floor of the input, element-wise"
-msgstr "返回逐元素输入值向下取整后的值。"
+#: megengine.functional.elemwise.clamp:14 of
+msgid "upper-bound of the range to be clamped to"
+msgstr "要限制的范围的上限"
 
-#: megengine.functional.elemwise.greater:1 of
-msgid "Return (x > y) element-wise."
-msgstr "返回逐元素表达式 (x > y) 的值。"
+#: megengine.functional.elemwise.clamp:16 of
+msgid "Example:"
+msgstr "例如："
 
-#: megengine.functional.elemwise.greater_equal:1 of
-msgid "Return (x >= y) element-wise"
-msgstr "返回逐元素表达式 (x >= y) 的值。"
-
-#: megengine.functional.elemwise.isinf:1 of
-msgid "Returns a new tensor representing if each element is Inf or not."
-msgstr "返回一个张量，它表示每个元素是否是无穷大值(Inf)。"
-
-#: megengine.functional.elemwise.isinf megengine.functional.elemwise.isnan of
-msgid "param"
-msgstr "参数"
-
-#: megengine.functional.elemwise.isinf:3 megengine.functional.elemwise.isnan:3
-#: of
-msgid "inp"
-msgstr "inp"
-
-#: megengine.functional.elemwise.isinf:4 megengine.functional.elemwise.isnan:4
+#: megengine.functional.elemwise.clamp:39 megengine.functional.elemwise.isinf:4
+#: megengine.functional.elemwise.isnan:4
 #: megengine.functional.loss.binary_cross_entropy:10
 #: megengine.functional.loss.cross_entropy:37
 #: megengine.functional.loss.cross_entropy_with_softmax:22
@@ -294,6 +288,47 @@ msgstr "inp"
 #: megengine.functional.utils.zero_grad:10 of
 msgid ":py:class:`~megengine.core.tensor.Tensor`"
 msgstr ":py:class:`~megengine.core.tensor.Tensor`"
+
+#: megengine.functional.elemwise.cos:1 of
+msgid "Cosine, element-wise."
+msgstr "逐元素计算余弦值。"
+
+#: megengine.functional.elemwise.divide:1 of
+msgid "Return (x / y) element-wise."
+msgstr "返回逐元素表达式 (x / y) 的值。"
+
+#: megengine.functional.elemwise.equal:1 of
+msgid "Return (x == y) element-wise."
+msgstr "返回逐元素表达式 (x == y) 的值。"
+
+#: megengine.functional.elemwise.exp:1 of
+msgid "Calculate the exponential element-wise"
+msgstr "逐元素计算指数。"
+
+#: megengine.functional.elemwise.floor:1 of
+msgid "Return the floor of the input, element-wise"
+msgstr "返回逐元素输入值向下取整后的值。"
+
+#: megengine.functional.elemwise.greater:1 of
+msgid "Return (x > y) element-wise."
+msgstr "返回逐元素表达式 (x > y) 的值。"
+
+#: megengine.functional.elemwise.greater_equal:1 of
+msgid "Return (x >= y) element-wise"
+msgstr "返回逐元素表达式 (x >= y) 的值。"
+
+#: megengine.functional.elemwise.isinf:1 of
+msgid "Returns a new tensor representing if each element is Inf or not."
+msgstr "返回一个张量，它表示每个元素是否是无穷大值(Inf)。"
+
+#: megengine.functional.elemwise.isinf megengine.functional.elemwise.isnan of
+msgid "param"
+msgstr "参数"
+
+#: megengine.functional.elemwise.isinf:3 megengine.functional.elemwise.isnan:3
+#: of
+msgid "inp"
+msgstr "inp"
 
 #: megengine.functional.elemwise.isinf megengine.functional.elemwise.isnan
 #: megengine.functional.graph.grad megengine.functional.math.argmax

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-08 14:22+0800\n"
+"POT-Creation-Date: 2020-07-27 10:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,17 +129,17 @@ msgid "whether to use NHWCD4 data layout. This is faster on some OpenCL backend.
 msgstr "是否使用NHWCD4数据格式。在某些OpenCL设备上，会提高计算速度。"
 
 #: megengine.jit.trace.dump:17 of
-msgid "whether to use NCHW4 data layout. it currently used in X86 AVX backend."
+msgid "whether to use NCHW88 data layout. it currently used in X86 AVX backend."
 msgstr "是否使用NCHW88数据格式。当前用于X86 AVX后端。"
 
 #: megengine.jit.trace.dump:19 of
-msgid "whether to use NCHW4 data layout. it currently used in arm backend."
+msgid "whether to use NCHW44 data layout. it currently used in arm backend."
 msgstr "是否使用NCHW44数据格式。当前用于arm后端。"
 
 #: megengine.jit.trace.dump:21 of
 msgid ""
-"whether to use NCHW4 data layout. it currently used in armv8.2+dotprod "
-"backend."
+"whether to use NCHW44_dot data layout. it currently used in "
+"armv8.2+dotprod backend."
 msgstr "是否使用NCHW4_dot数据格式。当前用于armv8.2+dotprod后端。"
 
 #: megengine.jit.trace.dump:23 of
@@ -246,3 +246,4 @@ msgid ""
 msgstr ""
 "注意，为了使上述环境变量生效，需要将环境变量 MGB_COMP_GRAPH_OPT 设置为 "
 "'enable_sublinear_memory_opt=1' 。"
+

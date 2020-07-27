@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 14:11+0800\n"
+"POT-Creation-Date: 2020-07-27 10:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,10 +34,13 @@ msgstr "创建 all_gather 算子，用于聚合通信（collective communication
 #: megengine.distributed.functional.all_reduce_max
 #: megengine.distributed.functional.all_reduce_min
 #: megengine.distributed.functional.all_reduce_sum
+#: megengine.distributed.functional.all_to_all
 #: megengine.distributed.functional.bcast_param
 #: megengine.distributed.functional.broadcast
+#: megengine.distributed.functional.gather
 #: megengine.distributed.functional.reduce_scatter_sum
 #: megengine.distributed.functional.reduce_sum
+#: megengine.distributed.functional.scatter
 #: megengine.distributed.helper.collective_comm_symvar
 #: megengine.distributed.util.init_process_group of
 msgid "Parameters"
@@ -47,9 +50,12 @@ msgstr "参数"
 #: megengine.distributed.functional.all_reduce_max:4
 #: megengine.distributed.functional.all_reduce_min:4
 #: megengine.distributed.functional.all_reduce_sum:4
+#: megengine.distributed.functional.all_to_all:4
 #: megengine.distributed.functional.broadcast:4
+#: megengine.distributed.functional.gather:4
 #: megengine.distributed.functional.reduce_scatter_sum:4
-#: megengine.distributed.functional.reduce_sum:4 of
+#: megengine.distributed.functional.reduce_sum:4
+#: megengine.distributed.functional.scatter:4 of
 msgid "input tensor"
 msgstr "输入张量"
 
@@ -57,10 +63,13 @@ msgstr "输入张量"
 #: megengine.distributed.functional.all_reduce_max:6
 #: megengine.distributed.functional.all_reduce_min:6
 #: megengine.distributed.functional.all_reduce_sum:6
+#: megengine.distributed.functional.all_to_all:6
 #: megengine.distributed.functional.bcast_param:6
 #: megengine.distributed.functional.broadcast:6
+#: megengine.distributed.functional.gather:6
 #: megengine.distributed.functional.reduce_scatter_sum:6
 #: megengine.distributed.functional.reduce_sum:6
+#: megengine.distributed.functional.scatter:6
 #: megengine.distributed.helper.collective_comm_symvar:6 of
 msgid "unique identifier for collective communication"
 msgstr "聚合通信的唯一标识符"
@@ -69,27 +78,47 @@ msgstr "聚合通信的唯一标识符"
 #: megengine.distributed.functional.all_reduce_max:8
 #: megengine.distributed.functional.all_reduce_min:8
 #: megengine.distributed.functional.all_reduce_sum:8
+#: megengine.distributed.functional.all_to_all:8
 #: megengine.distributed.functional.bcast_param:8
 #: megengine.distributed.functional.broadcast:8
+#: megengine.distributed.functional.gather:8
 #: megengine.distributed.functional.reduce_scatter_sum:8
 #: megengine.distributed.functional.reduce_sum:8
+#: megengine.distributed.functional.scatter:8
 #: megengine.distributed.helper.collective_comm_symvar:10 of
 msgid "number of ranks, use util.get_world_size() as default"
 msgstr "进程数目， 默认使用 util.get_world_size() "
 
 #: megengine.distributed.functional.all_gather:10
-#: megengine.distributed.functional.reduce_scatter_sum:10 of
+#: megengine.distributed.functional.all_to_all:10
+#: megengine.distributed.functional.gather:12
+#: megengine.distributed.functional.reduce_scatter_sum:10
+#: megengine.distributed.functional.scatter:12
+#: megengine.distributed.helper.collective_comm_symvar:14 of
 msgid "rank of this node"
 msgstr "该节点的编号"
+
+#: megengine.distributed.functional.all_gather:12
+#: megengine.distributed.functional.all_reduce_max:10
+#: megengine.distributed.functional.all_reduce_min:10
+#: megengine.distributed.functional.all_reduce_sum:10
+#: megengine.distributed.functional.all_to_all:12
+#: megengine.distributed.functional.reduce_scatter_sum:12
+#: megengine.distributed.helper.collective_comm_symvar:16 of
+msgid "whether use local grad"
+msgstr "是否使用本地梯度"
 
 #: megengine.distributed.functional.all_gather
 #: megengine.distributed.functional.all_reduce_max
 #: megengine.distributed.functional.all_reduce_min
 #: megengine.distributed.functional.all_reduce_sum
+#: megengine.distributed.functional.all_to_all
 #: megengine.distributed.functional.bcast_param
 #: megengine.distributed.functional.broadcast
+#: megengine.distributed.functional.gather
 #: megengine.distributed.functional.reduce_scatter_sum
 #: megengine.distributed.functional.reduce_sum
+#: megengine.distributed.functional.scatter
 #: megengine.distributed.helper.collective_comm_symvar
 #: megengine.distributed.util.get_backend
 #: megengine.distributed.util.get_free_ports
@@ -104,13 +133,16 @@ msgstr "该节点的编号"
 msgid "Return type"
 msgstr "返回类型"
 
-#: megengine.distributed.functional.all_gather:13
-#: megengine.distributed.functional.all_reduce_max:11
-#: megengine.distributed.functional.all_reduce_min:11
-#: megengine.distributed.functional.all_reduce_sum:11
+#: megengine.distributed.functional.all_gather:15
+#: megengine.distributed.functional.all_reduce_max:13
+#: megengine.distributed.functional.all_reduce_min:13
+#: megengine.distributed.functional.all_reduce_sum:13
+#: megengine.distributed.functional.all_to_all:15
 #: megengine.distributed.functional.broadcast:13
-#: megengine.distributed.functional.reduce_scatter_sum:13
-#: megengine.distributed.functional.reduce_sum:13 of
+#: megengine.distributed.functional.gather:15
+#: megengine.distributed.functional.reduce_scatter_sum:15
+#: megengine.distributed.functional.reduce_sum:13
+#: megengine.distributed.functional.scatter:15 of
 msgid ":py:class:`~megengine.core.tensor.Tensor`"
 msgstr ":py:class:`~megengine.core.tensor.Tensor`"
 
@@ -126,6 +158,10 @@ msgstr "创建用于聚合通信（collective communication）的all_reduce_min�
 msgid "Create all_reduce_sum operator for collective communication"
 msgstr "创建用于聚合通信（collective communication）的all_reduce_sum算子"
 
+#: megengine.distributed.functional.all_to_all:1 of
+msgid "Create all_to_all operator for collective communication"
+msgstr "创建 all_to_all 算子，用于聚合通信（collective communication）"
+
 #: megengine.distributed.functional.bcast_param:1 of
 msgid "Broadcast parameters among devices"
 msgstr "向多个设备广播参数"
@@ -136,7 +172,9 @@ msgstr "待同步的输入Buffer或者Parameter"
 
 #: megengine.distributed.functional.bcast_param:10
 #: megengine.distributed.functional.broadcast:10
-#: megengine.distributed.functional.reduce_sum:10 of
+#: megengine.distributed.functional.gather:10
+#: megengine.distributed.functional.reduce_sum:10
+#: megengine.distributed.functional.scatter:10 of
 msgid "whether this is a root node"
 msgstr "该节点是否为根节点"
 
@@ -150,6 +188,10 @@ msgstr "``None``"
 msgid "Create broadcast operator for collective communication"
 msgstr "创建聚合通信（collective communication）的广播算子"
 
+#: megengine.distributed.functional.gather:1 of
+msgid "Create gather operator for collective communication"
+msgstr "创建 gather 算子，用于聚合通信（collective communication）"
+
 #: megengine.distributed.functional.reduce_scatter_sum:1 of
 msgid "Create reduce_scatter_sum operator for collective communication"
 msgstr "创建聚合通信（collective communication）的reduce_scatter_sum算子"
@@ -157,6 +199,10 @@ msgstr "创建聚合通信（collective communication）的reduce_scatter_sum算
 #: megengine.distributed.functional.reduce_sum:1 of
 msgid "Create reduce_sum operator for collective communication"
 msgstr "创建聚合通信（collective communication）的reduce_sum算子"
+
+#: megengine.distributed.functional.scatter:1 of
+msgid "Create scatter operator for collective communication"
+msgstr "创建 scatter 算子，用于聚合通信（collective communication）"
 
 #: ../../source/api_zh/megengine.distributed.rst:19
 msgid "megengine.distributed.helper"
@@ -178,19 +224,19 @@ msgstr "聚合通信模式"
 msgid "whether this node is root node"
 msgstr "该节点是否为根节点"
 
-#: megengine.distributed.helper.collective_comm_symvar:14 of
+#: megengine.distributed.helper.collective_comm_symvar:18 of
 msgid "output data type, use dtype of inp as default"
 msgstr "输出数据的类型，默认使用inp的dtype"
 
-#: megengine.distributed.helper.collective_comm_symvar:16 of
+#: megengine.distributed.helper.collective_comm_symvar:20 of
 msgid "output comp node, use comp node of inp as default"
 msgstr "输出的计算节点，默认使用inp的计算节点"
 
-#: megengine.distributed.helper.collective_comm_symvar:18 of
+#: megengine.distributed.helper.collective_comm_symvar:22 of
 msgid "output comp graph, use comp graph of inp as default"
 msgstr "输出的计算图，默认使用inp的计算图"
 
-#: megengine.distributed.helper.collective_comm_symvar:21 of
+#: megengine.distributed.helper.collective_comm_symvar:25 of
 msgid ":py:class:`~megengine._internal.mgb.SymbolVar`"
 msgstr ":py:class:`~megengine._internal.mgb.SymbolVar`"
 
