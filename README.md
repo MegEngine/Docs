@@ -110,3 +110,9 @@ find the file and copy its name and replace the doc with
 
 ## Process of generate document
 !["entry.sh process"](source/entry.png)
+
+## Preview link
+
+Run CI to generate preview link. Manually trigger is required.
+
+https://oss.iap.hh-b.brainpp.cn/megengine-doc/doc/
