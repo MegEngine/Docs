@@ -1,4 +1,5 @@
 build
+build_api
 gen_cpp_docs/xml
 source/autogen
 source/autogen_zh
@@ -8,6 +9,15 @@ source/cpp_api
 source/locale
 source/doxyoutput
 source/include/file
+source_api/autogen
+source_api/autogen_zh
+source_api/zh/api
+source_api/en/api
+source_api/locale
+source_api/cpp_api
+source_api/doxyoutput
+source_api/include/file
 *.pyc
 *.state_dict
 *.swp
+

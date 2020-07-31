@@ -38,7 +38,7 @@
 ``````````````````````````````
 有了数据之后通过前向传播可以得到网络的输出，我们用 **损失函数** （loss function）来度量网络输出与训练目标之间的差距。
 
-MegEngine 提供了各种常见损失函数，具体可见API文档中的 :mod:`~.functional.loss` 部分。 例如，分类任务经常使用 :func:`交叉熵损失 <.cross_entropy>` （cross entropy），而回归任务一般使用 :func:`均方误差损失 <.square_loss>` （square loss）。此处我们以交叉熵损失为例进行说明。
+MegEngine 提供了各种常见损失函数，具体可见API文档中的 :mod:`~.megengine.functional.loss` 部分。 例如，分类任务经常使用 :func:`交叉熵损失 <.megengine.functional.loss.cross_entropy>` （cross entropy），而回归任务一般使用 :func:`均方误差损失 <.megengine.functional.loss.square_loss>` （square loss）。此处我们以交叉熵损失为例进行说明。
 
 用 :math:`p(x)` 表示真实的数据分布， :math:`q(x)` 表示网络输出的数据分布，交叉熵损失的计算公式如下：
 
@@ -68,14 +68,14 @@ MegEngine 提供了各种常见损失函数，具体可见API文档中的 :mod:`
 
 优化器首先通过反向传播获取所有网络参数相对于损失函数的梯度，然后根据具体的优化策略和梯度值来更新参数。
 
-MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.adam.Adam` 和 :class:`~.sgd.SGD` 。 它们都继承自 :class:`~.Optimizer` 基类，主要包含参数梯度的计算（ :meth:`~.Optimizer.backward` ）和参数更新（ :meth:`~.Optimizer.step` ）这两个方法。
+MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.megengine.optimizer.adam.Adam` 和 :class:`~.megengine.optimizer.sgd.SGD` 。 它们都继承自 :class:`~.megengine.optimizer.optimizer.Optimizer` 基类，主要包含参数梯度的计算（ :meth:`~.megengine.optimizer.optimizer.Optimizer.backward` ）和参数更新（ :meth:`~.megengine.optimizer.optimizer.Optimizer.step` ）这两个方法。
 
 下面我们通过一个最简单的优化策略来示例说明，参数更新公式如下：
 
 .. math::
     weight = weight - learning\_rate * gradient
 
-此处的 ``learning_rate`` 代表学习速率，用来控制参数每次更新的幅度。在 MegEngine 中此更新方式对应的优化器是 :class:`~.sgd.SGD` 。 我们首先创建一个优化器：
+此处的 ``learning_rate`` 代表学习速率，用来控制参数每次更新的幅度。在 MegEngine 中此更新方式对应的优化器是 :class:`~.megengine.optimizer.sgd.SGD` 。 我们首先创建一个优化器：
 
 .. testcode::
 
@@ -153,7 +153,7 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.ad
 
 GPU和CPU切换
 ``````````````````````````````
-MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以调用 :func:`~.core.device.set_default_device` 来根据自身需求设置默认计算设备。
+MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以调用 :func:`~.megengine.core.device.set_default_device` 来根据自身需求设置默认计算设备。
 
 如下代码设置默认设备为CPU：
 
@@ -171,7 +171,7 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
     # 默认使用GPU
     mge.set_default_device('gpux')
 
-更多用法可见 :func:`~.core.device.set_default_device` API 文档。
+更多用法可见 :func:`~.megengine.core.device.set_default_device` API 文档。
 
 如果不想修改代码，用户也可通过环境变量 ``MGE_DEFAULT_DEVICE`` 来设置默认计算设备：
 
@@ -185,7 +185,7 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
 
 网络的保存
 ``````````````````````````````
-网络训练完成之后需要保存，以便后续使用。在之前 :ref:`network_build` 部分，我们介绍了网络模块 Module 中  :meth:`~.Module.state_dict`  的功能： :meth:`~.Module.state_dict` 遍历网络的所有参数，将其组成一个有序字典并返回。 我们通过 MegEngine 中的 :func:`~.serialization.save` 保存这些网络参数。
+网络训练完成之后需要保存，以便后续使用。在之前 :ref:`network_build` 部分，我们介绍了网络模块 Module 中  :meth:`~.megengine.module.module.Module.state_dict`  的功能： :meth:`~.megengine.module.module.Module.state_dict` 遍历网络的所有参数，将其组成一个有序字典并返回。 我们通过 MegEngine 中的 :func:`~.megengine.core.serialization.save` 保存这些网络参数。
 
 .. testcode::
 
@@ -197,7 +197,7 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
 
 网络的加载
 ``````````````````````````````
-测试时我们可以通过 :func:`~.serialization.load` 来读取 ``lenet.mge`` ，它会返回 :meth:`~.Module.state_dict` 字典对象，其中保存了模型中的模块名称和对应参数。 接着，我们可以通过 Module 的 :meth:`~.Module.load_state_dict` 方法将该字典对象加载到 ``le_net`` 模型。
+测试时我们可以通过 :func:`~.megengine.core.serialization.load` 来读取 ``lenet.mge`` ，它会返回 :meth:`~.megengine.module.module.Module.state_dict` 字典对象，其中保存了模型中的模块名称和对应参数。 接着，我们可以通过 Module 的 :meth:`~.megengine.module.module.Module.load_state_dict` 方法将该字典对象加载到 ``le_net`` 模型。
 
 .. testcode::
 
@@ -205,14 +205,14 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
     # 将参数加载到网络
     le_net.load_state_dict(state_dict)
 
-:meth:`~.Module.eval` 和  :meth:`~.Module.train`
---------------------------------------------------
+:meth:`~.megengine.module.module.Module.eval` 和  :meth:`~.megengine.module.module.Module.train`
+----------------------------------------------------------------------------------------------------
 
-有少数算子训练和测试时行为不一致，例如 :class:`~.module.dropout.Dropout` 和 :class:`~.module.batchnorm.BatchNorm2d` 。 :class:`~.module.dropout.Dropout` 在训练时会以一定的概率概率将指定层的部分输出置零而在测试时则不会对输出进行任何更改。 :class:`~.module.batchnorm.BatchNorm2d` 在训练时会不断统计更新对应张量的均值和标准差，测试时则不会更新这两个值。
+有少数算子训练和测试时行为不一致，例如 :class:`~.megengine.module.dropout.Dropout` 和 :class:`~.megengine.module.batchnorm.BatchNorm2d` 。 :class:`~.megengine.module.dropout.Dropout` 在训练时会以一定的概率概率将指定层的部分输出置零而在测试时则不会对输出进行任何更改。 :class:`~.megengine.module.batchnorm.BatchNorm2d` 在训练时会不断统计更新对应张量的均值和标准差，测试时则不会更新这两个值。
 
-为了保证训练和测试行为的正确，MegEngine 通过 :meth:`~.Module.eval` 和 :meth:`~.Module.train` 来设置算子的状态。在 MegEngine 当中网络默认为训练模式，所以上述训练代码未调用 :meth:`~.Module.train` 函数来设置状态。
+为了保证训练和测试行为的正确，MegEngine 通过 :meth:`~.megengine.module.module.Module.eval` 和 :meth:`~.megengine.module.module.Module.train` 来设置算子的状态。在 MegEngine 当中网络默认为训练模式，所以上述训练代码未调用 :meth:`~.megengine.module.module.Module.train` 函数来设置状态。
 
-在此我们以 :class:`~.module.dropout.Dropout` 为例展示这两个函数的作用：
+在此我们以 :class:`~.megengine.module.dropout.Dropout` 为例展示这两个函数的作用：
 
 .. testcode::
 
@@ -237,7 +237,7 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
 
     eval: Tensor([ 0.1939 -0.1846 -1.1319 -0.8897  0.7057  1.3106  1.6901 -0.8686 -0.2685 -0.6046])
 
-从输出可以看到训练时 :class:`~.module.dropout.Dropout` 将原始数据中的20%的值（两个）置0，其余值则乘了1.25（ :math:`\frac{1}{1-0.2}` ）；测试时 :class:`~.module.dropout.Dropout` 未对原始数据进行任何处理。
+从输出可以看到训练时 :class:`~.megengine.module.dropout.Dropout` 将原始数据中的20%的值（两个）置0，其余值则乘了1.25（ :math:`\frac{1}{1-0.2}` ）；测试时 :class:`~.megengine.module.dropout.Dropout` 未对原始数据进行任何处理。
 
 测试代码示例
 ``````````````````````````````

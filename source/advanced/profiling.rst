@@ -12,7 +12,7 @@
 ------------------------------
 
 
-我们在 :class:`~.trace` 接口中传入 ``profiling=True`` ， 然后调用被 trace 函数的 :meth:`~.trace.get_profile` 方法即可得到性能数据。
+我们在 :class:`~.megengine.jit.trace` 接口中传入 ``profiling=True`` ， 然后调用被 trace 函数的 :meth:`~.megengine.jit.trace.get_profile` 方法即可得到性能数据。
 返回的性能数据以 ``dict`` 的形式描述了各个算子的输入、输出、耗时、存储占用等。
 
 示例代码如下：

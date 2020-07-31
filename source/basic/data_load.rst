@@ -10,15 +10,15 @@ MegEngine 提供了一系列接口来规范化这些处理工作。
 -----------------------------------------
 
 数据集是一组数据的集合，例如 MNIST、Cifar10等图像数据集。
-:class:`~.meta_dataset.Dataset` 是 MegEngine 中表示数据集的抽象类。
-我们自定义的数据集类应该继承 :class:`~.meta_dataset.Dataset` 并重写下列方法：
+:class:`~.megengine.data.dataset.meta_dataset.Dataset` 是 MegEngine 中表示数据集的抽象类。
+我们自定义的数据集类应该继承 :class:`~.megengine.data.dataset.meta_dataset.Dataset` 并重写下列方法：
 
 * :meth:`~.MapDataset.__init__` ：一般在其中实现读取数据源文件的功能。也可以添加任何其它的必要功能；
 * :meth:`~.MapDataset.__getitem__` ：通过索引操作来获取数据集中某一个样本，使得可以通过 for 循环来遍历整个数据集；
 * :meth:`~.MapDataset.__len__` ：返回数据集大小；
 
 下面是一个简单示例。
-我们根据下图所示的二分类数据，创建一个 :class:`~.meta_dataset.Dataset` 。
+我们根据下图所示的二分类数据，创建一个 :class:`~.megengine.data.dataset.meta_dataset.Dataset` 。
 每个数据是一个二维平面上的点，横坐标和纵坐标在 [-1, 1] 之间。共有两个类别标签（图1中的蓝色 * 和红色 +），标签为0的点处于一、三象限；标签为1的点处于二、四象限。
 
 .. figure::
@@ -84,14 +84,14 @@ MegEngine 提供了一系列接口来规范化这些处理工作。
     The first data point is: [0.97255366 0.74678389], 0
     The second data point is: (array([ 0.01949105, -0.45632857]), 1)
 
-MegEngine 中也提供了一些已经继承自 :class:`~.meta_dataset.Dataset` 的数据集类，方便我们使用，比如 :class:`~.meta_dataset.ArrayDataset` 。
-:class:`~.meta_dataset.ArrayDataset` 允许通过传入单个或多个 NumPy 数组，对它进行初始化。其内部实现如下：
+MegEngine 中也提供了一些已经继承自 :class:`~.megengine.data.dataset.meta_dataset.Dataset` 的数据集类，方便我们使用，比如 :class:`~.megengine.data.dataset.meta_dataset.ArrayDataset` 。
+:class:`~.megengine.data.dataset.meta_dataset.ArrayDataset` 允许通过传入单个或多个 NumPy 数组，对它进行初始化。其内部实现如下：
 
 * :meth:`~.ArrayDataset.__init__` ：检查传入的多个 NumPy 数组的长度是否一致；不一致则无法成功创建；
 * :meth:`~.ArrayDataset.__getitem__` ：将多个 NumPy 数组相同索引位置的元素构成一个 tuple 并返回；
 * :meth:`~.ArrayDataset.__len__` ：返回数据集的大小；
 
-以图1所示的数据集为例，我们可以通过坐标数据和标签数据的数组直接构造 :class:`~.meta_dataset.ArrayDataset` ，无需用户自己定义数据集类。
+以图1所示的数据集为例，我们可以通过坐标数据和标签数据的数组直接构造 :class:`~.megengine.data.dataset.meta_dataset.ArrayDataset` ，无需用户自己定义数据集类。
 
 .. code-block::
 
@@ -112,12 +112,12 @@ MegEngine 中也提供了一些已经继承自 :class:`~.meta_dataset.Dataset` �
 通过 Sampler 从 Dataset 中采样
 -----------------------------------------
 
-:class:`~.dataset.Dataset` 仅能通过一个固定的顺序（其 `__getitem__` 实现）访问所有样本，
-而 :class:`~.sampler.Sampler` 使得我们可以以所期望的方式从 :class:`~.dataset.Dataset` 中采样，生成训练和测试的批（minibatch）数据。
-:class:`~.sampler.Sampler` 本质上是一个数据集中数据索引的迭代器，它接收 :class:`~.dataset.Dataset` 的实例 和批大小（batch_size）来进行初始化。
+:class:`~.megengine.data.dataset.meta_dataset.Dataset` 仅能通过一个固定的顺序（其 `__getitem__` 实现）访问所有样本，
+而 :class:`~.megengine.data.sampler.Sampler` 使得我们可以以所期望的方式从 :class:`~.megengine.data.dataset.meta_dataset.Dataset` 中采样，生成训练和测试的批（minibatch）数据。
+:class:`~.megengine.data.sampler.Sampler` 本质上是一个数据集中数据索引的迭代器，它接收 :class:`~.megengine.data.dataset.meta_dataset.Dataset` 的实例 和批大小（batch_size）来进行初始化。
 
-MegEngine 中提供各种常见的采样器，如 :class:`~.sampler.RandomSampler` （通常用于训练）、 :class:`~.sampler.SequentialSampler` （通常用于测试） 等。
-下面我们以它们为例，来熟悉 :class:`~.sampler.Sampler` 的基本用法：
+MegEngine 中提供各种常见的采样器，如 :class:`~.megengine.data.sampler.RandomSampler` （通常用于训练）、 :class:`~.megengine.data.sampler.SequentialSampler` （通常用于测试） 等。
+下面我们以它们为例，来熟悉 :class:`~.megengine.data.sampler.Sampler` 的基本用法：
 
 .. code-block::
 
@@ -140,7 +140,7 @@ MegEngine 中提供各种常见的采样器，如 :class:`~.sampler.RandomSample
 
 可以看到，在 batch_size 为4时，每次迭代 sampler 返回的是长度为4的列表，列表中的每个元素是随机采样出的数据索引。
 
-如果你创建的是一个序列化采样器 :class:`~.sampler.SequentialSampler` ，那么每次返回的就是顺序索引。
+如果你创建的是一个序列化采样器 :class:`~.megengine.data.sampler.SequentialSampler` ，那么每次返回的就是顺序索引。
 
 .. code-block::
 
@@ -164,7 +164,7 @@ MegEngine 中提供各种常见的采样器，如 :class:`~.sampler.RandomSample
 用 DataLoader 生成批数据
 ------------------------------------------
 
-MegEngine 中，:class:`~.dataloader.DataLoader` 本质上是一个迭代器，它通过 :class:`~.meta_dataset.Dataset` 和 :class:`~.sampler.Sampler` 生成 minibatch 数据。
+MegEngine 中，:class:`~.megengine.data.dataloader.DataLoader` 本质上是一个迭代器，它通过 :class:`~.megengine.data.dataset.meta_dataset.Dataset` 和 :class:`~.megengine.data.sampler.Sampler` 生成 minibatch 数据。
 
 下列代码通过 for 循环获取每个 minibatch 的数据。
 
@@ -198,8 +198,8 @@ DataLoader 中的数据变换（Transform）
 -------------------------------------------
 
 在深度学习模型的训练中，我们经常需要对数据进行各种转换，比如，归一化、各种形式的数据增广等。
-:class:`~.meta_transform.Transform` 是数据变换的基类，其各种派生类提供了常见的数据转换功能。
-:class:`~.dataloader.DataLoader` 构造函数可以接收一个 :class:`~.meta_transform.Transform` 参数，
+:class:`~.megengine.data.transform.meta_transform.Transform` 是数据变换的基类，其各种派生类提供了常见的数据转换功能。
+:class:`~.megengine.data.dataloader.DataLoader` 构造函数可以接收一个 :class:`~.megengine.data.transform.meta_transform.Transform` 参数，
 在构建 minibatch 时，对该批数据进行相应的转换操作。
 
 接下来通过 MNIST 数据集（MegEngine 提供了 MNIST Dataset）来熟悉 Transform 的使用。
@@ -260,7 +260,7 @@ DataLoader 中的数据变换（Transform）
 
     图2
 
-然后，我们构建一个做 :class:`~.vision.transform.RandomResizedCrop` transform 的 MNIST DataLoader，并查看此时第一个 minibatch 的图片。
+然后，我们构建一个做 :class:`~.megengine.data.transform.vision.transform.RandomResizedCrop` transform 的 MNIST DataLoader，并查看此时第一个 minibatch 的图片。
 
 .. code-block::
 
@@ -295,14 +295,14 @@ DataLoader 中的数据变换（Transform）
 
 我们经常需要做一系列数据变换。比如：
 
-* 数据归一化：我们可以通过 :class:`~.meta_transform.Transform` 中提供的 :class:`~.vision.transform.Normalize` 类来实现；
-* Pad：对图片的每条边补零以增大图片尺寸，通过 :class:`~.transform.Pad` 类来实现；
-* 维度转换：将 (Batch-size, Hight, Width, Channel) 维度的 minibatch 转换为 (Batch-size, Channel, Hight, Width)（因为这是 MegEngine 支持的数据格式），通过 :class:`~.vision.transform.ToMode` 类来实现；
+* 数据归一化：我们可以通过 :class:`~.megengine.data.transform.meta_transform.Transform` 中提供的 :class:`~.megengine.data.transform.vision.transform.Normalize` 类来实现；
+* Pad：对图片的每条边补零以增大图片尺寸，通过 :class:`~.megengine.data.transform.vision.transform.Pad` 类来实现；
+* 维度转换：将 (Batch-size, Hight, Width, Channel) 维度的 minibatch 转换为 (Batch-size, Channel, Hight, Width)（因为这是 MegEngine 支持的数据格式），通过 :class:`~.megengine.data.transform.vision.transform.ToMode` 类来实现；
 * 其他的转换操作
 
-为了方便使用，MegEngine 中的 :class:`~.vision.transform.Compose` 类允许我们组合多个 Transform 并传递给 :class:`~.dataloader.DataLoader` 的 transform 参数。
+为了方便使用，MegEngine 中的 :class:`~.megengine.data.transform.vision.transform.Compose` 类允许我们组合多个 Transform 并传递给 :class:`~.megengine.data.dataloader.DataLoader` 的 transform 参数。
 
-接下来我们通过 :class:`~.vision.transform.Compose` 类将之前的 :class:`~.vision.transform.RandomResizedCrop` 操作与 :class:`~.vision.transform.Normalize` 、 :class:`~.vision.transform.Pad` 和 :class:`~.vision.transform.ToMode` 操作组合起来，
+接下来我们通过 :class:`~.megengine.data.transform.vision.transform.Compose` 类将之前的 :class:`~.megengine.data.transform.vision.transform.RandomResizedCrop` 操作与 :class:`~.megengine.data.transform.vision.transform.Normalize` 、 :class:`~.megengine.data.transform.vision.transform.Pad` 和 :class:`~.megengine.data.transform.vision.transform.ToMode` 操作组合起来，
 实现多种数据转换操作的混合使用。运行如下代码查看转换 minibatch 的维度信息。
 
 .. code-block::
@@ -337,4 +337,4 @@ DataLoader 中的数据变换（Transform）
 
 可以看到此时 minibatch 数据的 channel 维换了位置，且图片尺寸变为32。
 
-:class:`~.dataloader.DataLoader` 中其他参数的用法请参考 :class:`~.dataloader.DataLoader` 文档。
+:class:`~.megengine.data.dataloader.DataLoader` 中其他参数的用法请参考 :class:`~.megengine.data.dataloader.DataLoader` 文档。

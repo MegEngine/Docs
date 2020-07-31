@@ -53,7 +53,7 @@ MegEngine 提供了很方便的动静态图转换的方法，几乎无需代码�
 我们可以通过以下两步将上面的动态图转换为静态图：
 
 1. 将循环内的网络计算和优化代码（共5行）提取成一个单独的训练函数，并返回任意你需要的结果（如计算图的结果和损失函数值），如下面例子中的 ``train_func`` ；
-2. 用 :mod:`~.megengine.jit` 包中的 :class:`~.trace` `装饰器 <https://docs.python.org/zh-cn/3/glossary.html#term-decorator>`_ 来装饰这个函数，将其中的代码变为静态图代码。
+2. 用 :mod:`~.megengine.jit` 包中的 :class:`~.megengine.jit.trace` `装饰器 <https://docs.python.org/zh-cn/3/glossary.html#term-decorator>`_ 来装饰这个函数，将其中的代码变为静态图代码。
 
 代码如下：
 
@@ -73,7 +73,7 @@ MegEngine 提供了很方便的动静态图转换的方法，几乎无需代码�
 
 * **jit** ： `即时编译 <https://zh.wikipedia.org/wiki/%E5%8D%B3%E6%99%82%E7%B7%A8%E8%AD%AF>`_ （Just-in-time compilation）的缩写，这里作为整个静态图相关 Package 的名字。
 * **trace** ：得到静态图的一种方式，直译为“ `追溯 <https://en.wikipedia.org/wiki/Tracing_just-in-time_compilation>`_ ”。它通过追溯输出（比如损失值、预测值等）所依赖的网络结构，得到整体的计算图，再进行编译。
-* **参数列表** ： :class:`~.trace` 在编译静态图时会根据传入参数是位置参数还是关键字参数来采取不同的处理方式。位置参数用于传入网络的输入如数据和标签，关键字参数用于传入其它变量，如网络和优化器等。
+* **参数列表** ： :class:`~.megengine.jit.trace` 在编译静态图时会根据传入参数是位置参数还是关键字参数来采取不同的处理方式。位置参数用于传入网络的输入如数据和标签，关键字参数用于传入其它变量，如网络和优化器等。
 
 .. note::
     一般来说，静态图不支持依赖于运行时信息的条件语句。
@@ -81,7 +81,7 @@ MegEngine 提供了很方便的动静态图转换的方法，几乎无需代码�
 静态图转动态图
 ------------------------------
 
-经过 :class:`~.trace` 装饰的静态图代码可以通过停用 :class:`~.trace` 变为动态图代码，有两种方式：
+经过 :class:`~.megengine.jit.trace` 装饰的静态图代码可以通过停用 :class:`~.megengine.jit.trace` 变为动态图代码，有两种方式：
 
 1. 修改环境变量：对于完整运行一个 ``.py`` 文件的情况，MegEngine 建议使用环境变量进行控制，这样 **无需对代码进行修改就可以自由的实现动静态图的切换** ：
 
@@ -89,7 +89,7 @@ MegEngine 提供了很方便的动静态图转换的方法，几乎无需代码�
 
     export MGE_DISABLE_TRACE=1
 
-2. 修改 :class:`~.trace` 的类属性：如果是 notebook 等难以切换环境变量的环境，可以在调用 trace 装饰的函数之前设置 trace 的 :attr:`~.trace.enabled` 属性为False：
+2. 修改 :class:`~.megengine.jit.trace` 的类属性：如果是 notebook 等难以切换环境变量的环境，可以在调用 trace 装饰的函数之前设置 trace 的 :attr:`~.megengine.jit.trace.enabled` 属性为False：
 
 .. code-block::
 
@@ -145,7 +145,7 @@ MegEngine 提供了很方便的动静态图转换的方法，几乎无需代码�
 静态图下的测试
 ------------------------------
 
-静态图模式下网络的测试同样需要将测试过程提取成一个单独的测试函数并使用 :class:`~.trace` 进行装饰。测试函数如下所示，接收测试数据和网络作为参数并返回网络输出：
+静态图模式下网络的测试同样需要将测试过程提取成一个单独的测试函数并使用 :class:`~.megengine.jit.trace` 进行装饰。测试函数如下所示，接收测试数据和网络作为参数并返回网络输出：
 
 .. code-block::
 

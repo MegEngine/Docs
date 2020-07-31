@@ -21,9 +21,9 @@
 不同参数使用不同的学习速率
 ------------------------------
 
-:class:`~.Optimizer` 支持将网络的参数进行分组，不同的参数组可以采用不同的学习速率进行训练。 一个参数组由一个字典表示，这个字典中必然有键值对： ``'params': param_list`` ，用来指定参数组包含的参数。该字典还可以包含 ``'lr':learning_rate`` 来指定此参数组的学习速率。此键值对有时可省略，省略后参数组的学习速率由优化器指定。所有待优化参数组的字典会组成一个列表作为 :class:`~.Optimizer` 实例化时的第一个参数传入。
+:class:`~.megengine.optimizer.optimizer.Optimizer` 支持将网络的参数进行分组，不同的参数组可以采用不同的学习速率进行训练。 一个参数组由一个字典表示，这个字典中必然有键值对： ``'params': param_list`` ，用来指定参数组包含的参数。该字典还可以包含 ``'lr':learning_rate`` 来指定此参数组的学习速率。此键值对有时可省略，省略后参数组的学习速率由优化器指定。所有待优化参数组的字典会组成一个列表作为 :class:`~.megengine.optimizer.optimizer.Optimizer` 实例化时的第一个参数传入。
 
-为了更好的说明参数组，我们首先使用 :class:`~.Module` 提供的 :meth:`~.Module.named_parameters` 函数来对网络参数进行分组。这个函数返回一个包含网络所有参数并且以参数名字为键、参数变量为值的字典：
+为了更好的说明参数组，我们首先使用 :class:`~.megengine.module.module.Module` 提供的 :meth:`~.megengine.module.module.Module.named_parameters` 函数来对网络参数进行分组。这个函数返回一个包含网络所有参数并且以参数名字为键、参数变量为值的字典：
 
 .. testcode::
 
@@ -71,7 +71,7 @@
         lr=0.05,  # 参数组例表中未指定学习速率的参数组服从此设置，如所有卷积参数
     )
 
-优化器中设置的参数组列表对应于 :attr:`~.Optimizer.param_groups` 属性。我们可以通过其获取不同参数组的学习速率。
+优化器中设置的参数组列表对应于 :attr:`~.megengine.optimizer.optimizer.Optimizer.param_groups` 属性。我们可以通过其获取不同参数组的学习速率。
 
 .. testcode::
 

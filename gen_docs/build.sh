@@ -1,12 +1,13 @@
 #!/bin/bash -e
 
 cd $(dirname $0)
-rm -rf ../build/html
+rm -rf ../build_api/html
 
 ROOT_PATH=$1
-API_DIR=${API_DIR:-api}
+API_DIR=${API_DIR:-en/api}
 
-AUTOGEN=../source/${API_DIR}
+AUTOGEN=../source_api/${API_DIR}
+
 rm -rf $AUTOGEN
 
 export SPHINX_APIDOC_OPTIONS="members,undoc-members,show-inheritance"
@@ -27,4 +28,4 @@ rm -f $AUTOGEN/modules.rst
 
 cd ..
 
-sphinx-build ${BUILDLANG} -j$(nproc) source build/html
+sphinx-build ${BUILDLANG} -j$(nproc) source_api build_api/html  

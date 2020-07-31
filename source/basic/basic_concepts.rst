@@ -61,7 +61,7 @@ MegEngine 是基于计算图的深度神经网络学习框架。
 
     Tensor([1. 2. 3.])
 
-我们可以通过 :meth:`~.Tensor.set_value` 来更改 Tensor 的值。
+我们可以通过 :meth:`~.megengine.core.tensor.Tensor.set_value` 来更改 Tensor 的值。
 
 .. testcode::
 
@@ -80,8 +80,8 @@ MegEngine 是基于计算图的深度神经网络学习框架。
     Tensor([[0.68   0.9126 0.7312 0.3037 0.8082]
      [0.1965 0.0413 0.395  0.6975 0.9103]])
 
-通过 :meth:`dtype <.Tensor.dtype>` 属性我们可以获取 Tensor 的数据类型；
-通过 :meth:`~.Tensor.astype` 方法我们可以拷贝创建一个指定数据类型的新 Tensor ，原 Tensor 不变。
+通过 :meth:`dtype <.megengine.core.tensor.Tensor.dtype>` 属性我们可以获取 Tensor 的数据类型；
+通过 :meth:`~.megengine.core.tensor.Tensor.astype` 方法我们可以拷贝创建一个指定数据类型的新 Tensor ，原 Tensor 不变。
 
 .. testcode::
 
@@ -96,7 +96,7 @@ MegEngine 是基于计算图的深度神经网络学习框架。
     <class 'numpy.float32'>
     <class 'numpy.float16'>
 
-通过 :meth:`shape <.Tensor.shape>` 属性，我们可以获取 Tensor 的形状：
+通过 :meth:`shape <.megengine.core.tensor.Tensor.shape>` 属性，我们可以获取 Tensor 的形状：
 
 .. testcode::
 
@@ -109,7 +109,7 @@ MegEngine 是基于计算图的深度神经网络学习框架。
     (2, 5)
 
 
-通过 :meth:`~.Tensor.numpy` 方法，我们可以将 Tensor 转换为 numpy.ndarray：
+通过 :meth:`~.megengine.core.tensor.Tensor.numpy` 方法，我们可以将 Tensor 转换为 numpy.ndarray：
 
 .. testcode::
 
@@ -189,7 +189,7 @@ Tensor 形状的更改：
      [0.0468 0.5756]
      [0.3852 0.2363]])
 
-:meth:`~.Tensor.reshape` 的参数允许存在单个维度的缺省值，用 -1 表示。此时，reshape 会自动推理该维度的值：
+:meth:`~.megengine.core.tensor.Tensor.reshape` 的参数允许存在单个维度的缺省值，用 -1 表示。此时，reshape 会自动推理该维度的值：
 
 .. testcode::
 
@@ -239,7 +239,7 @@ Tensor 的矩阵乘：
 ----------------------------
 
 创建的Tensor可以位于不同device，这根据当前的环境决定。
-通过 :meth:`device <.Tensor.device>` 属性查询当前 Tensor 所在的设备。
+通过 :meth:`device <.megengine.core.tensor.Tensor.device>` 属性查询当前 Tensor 所在的设备。
 
 .. testcode::
 
@@ -252,7 +252,7 @@ Tensor 的矩阵乘：
     # 如果你是在一个GPU环境下
     gpu0:0
 
-通过 :meth:`~.Tensor.to` 可以在另一个 device 上生成当前 Tensor 的拷贝，比如我们将刚刚在 GPU 上创建的 Tensor ``a`` 迁移到 CPU 上：
+通过 :meth:`~.megengine.core.tensor.Tensor.to` 可以在另一个 device 上生成当前 Tensor 的拷贝，比如我们将刚刚在 GPU 上创建的 Tensor ``a`` 迁移到 CPU 上：
 
 .. testcode::
 
@@ -299,7 +299,7 @@ Tensor 的矩阵乘：
     p = F.matrix_mul(x, w)
     y = p + b
 
-我们可以直接调用 :func:`~.graph.grad` 方法来计算输出 :math:`y` 关于 :math:`w` 的偏导数：:math:`\partial y  / \partial w` 。
+我们可以直接调用 :func:`~megengine.functional.graph.grad` 方法来计算输出 :math:`y` 关于 :math:`w` 的偏导数：:math:`\partial y  / \partial w` 。
 
 .. testcode::
 

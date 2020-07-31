@@ -1,6 +1,6 @@
-.. _api:
+.. _api_zh:
 
-API Reference
+API 文档
 =============
 
 .. _example_reference:

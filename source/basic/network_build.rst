@@ -3,15 +3,15 @@
 网络搭建
 ==============================
 
-在 :ref:`basic_concepts` 中我们介绍了计算图、张量和算子，神经网络可以看成一个计算图。在 MegEngine 中，我们按照计算图的拓扑结构，将张量和算子连接起来，即可完成对网络的搭建。MegEngine 提供了基于 :mod:`~.megengine.functional` 和基于 :class:`~.Module` 的两种方式搭建网络。 :mod:`~.megengine.functional` 仅提供最基本的算子功能，数据连接的工作完全由用户完成； :class:`~.Module` 对网络模块（包含若干算子及其参数的基本单元）进行了进一步的封装，代码更易复用和维护。
+在 :ref:`basic_concepts` 中我们介绍了计算图、张量和算子，神经网络可以看成一个计算图。在 MegEngine 中，我们按照计算图的拓扑结构，将张量和算子连接起来，即可完成对网络的搭建。MegEngine 提供了基于 :mod:`~.megengine.functional` 和基于 :class:`~.megengine.module.module.Module` 的两种方式搭建网络。 :mod:`~.megengine.functional` 仅提供最基本的算子功能，数据连接的工作完全由用户完成； :class:`~.megengine.module.module.Module` 对网络模块（包含若干算子及其参数的基本单元）进行了进一步的封装，代码更易复用和维护。
 
 
 基于 :mod:`~.megengine.functional` 搭建网络
 --------------------------------------------------
 
-:mod:`~.megengine.functional` 包提供了常用的算子函数（如 :func:`~.functional.nn.conv2d` 、 :func:`~.functional.nn.linear` 等）。这些函数接受参与计算的张量并返回计算结果。参与计算的张量通常包括两类：输入数据和该算子自身的参数，其中后者是网路中需要学习的变量。比如，二维卷积（ :func:`~.functional.nn.conv2d` ）接受多通道的二维图像作为输入数据，把卷积核作为参数，输出经卷积操作后的多通道二维图像。
+:mod:`~.megengine.functional` 包提供了常用的算子函数（如 :func:`~.megengine.functional.nn.conv2d` 、 :func:`~.megengine.functional.nn.linear` 等）。这些函数接受参与计算的张量并返回计算结果。参与计算的张量通常包括两类：输入数据和该算子自身的参数，其中后者是网路中需要学习的变量。比如，二维卷积（ :func:`~.megengine.functional.nn.conv2d` ）接受多通道的二维图像作为输入数据，把卷积核作为参数，输出经卷积操作后的多通道二维图像。
 
-算子的输入和输出数据都是 :class:`~.Tensor` 类型。算子的参数通常由 :class:`~.Parameter` 类表示。 :class:`~.Parameter` 是 :class:`~.Tensor` 的子类，其对象（即网络参数）可以被优化器更新。更多内容参见 :ref:`train_and_evaluation` 。
+算子的输入和输出数据都是 :class:`~.megengine.core.tensor.Tensor` 类型。算子的参数通常由 :class:`~.megengine.core.tensor_nn.Parameter` 类表示。 :class:`~.megengine.core.tensor_nn.Parameter` 是 :class:`~.megengine.core.tensor.Tensor` 的子类，其对象（即网络参数）可以被优化器更新。更多内容参见 :ref:`train_and_evaluation` 。
 
 下面的例子实现了一个两层卷积网络（使用 `ReLU <https://en.wikipedia.org/wiki/Rectifier_(neural_networks)>`_ 作为激活函数）：
 
@@ -40,20 +40,20 @@
     print(out.shape)  # 输出： (2, 16, 28, 28)
 
 
-基于 :class:`~.Module` 搭建网络
---------------------------------------------------
+基于 :class:`~.megengine.module.module.Module` 搭建网络
+-------------------------------------------------------
 
 在上面的代码中，对于每一个需要参数的算子，都需要单独定义其网络参数。由于“ conv + relu ”这样的组合出现了两次，代码显得臃肿。对于更加复杂的网络，这样的写法可读性、可复用性和可维护性会比较差。
 
 为了更好的封装和复用算子， MegEngine 在 :mod:`~.megengine.functional` 基础上提供了 :mod:`~.megengine.module` 包。
 
-:mod:`megengine.module` 包定义了抽象的网络模块基类 :class:`~.Module` 。它是构造网络的基本单元，可以被组合和叠加。它定义了网络模块的基本接口和属性，如“前向传播"等。所有 :class:`~.Module` 子类都需要实现 :class:`~.Module` 定义的两个抽象方法，介绍如下：
+:mod:`megengine.module` 包定义了抽象的网络模块基类 :class:`~.megengine.module.module.Module` 。它是构造网络的基本单元，可以被组合和叠加。它定义了网络模块的基本接口和属性，如“前向传播"等。所有 :class:`~.megengine.module.module.Module` 子类都需要实现 :class:`~.megengine.module.module.Module` 定义的两个抽象方法，介绍如下：
 
-* :class:`__init__() <.Module>` ：在构造方法中创建这个模块，包括定义网络参数、构造和连接其子模块等工作。
+* :class:`__init__() <.megengine.module.module.Module>` ：在构造方法中创建这个模块，包括定义网络参数、构造和连接其子模块等工作。
 
-* :meth:`~.Module.forward` ： 该方法定义前向传播计算流程。它接受输入数据并返回前向传播的计算结果。注意， :class:`~.Module` 对象是可被调用的 （ callable ），其实现就是 :meth:`~.Module.forward` 。
+* :meth:`~.megengine.module.module.Module.forward` ： 该方法定义前向传播计算流程。它接受输入数据并返回前向传播的计算结果。注意， :class:`~.megengine.module.module.Module` 对象是可被调用的 （ callable ），其实现就是 :meth:`~.megengine.module.module.Module.forward` 。
 
-:mod:`megengine.module` 包提供了常用的网络基本模块，如 :class:`~.module.conv.Conv2d` 、:class:`~.module.linear.Linear` 等。以 :class:`~.module.conv.Conv2d` 为例，该类的 :class:`__init__() <.module.conv.Conv2d>` 方法定义并初始化卷积核参数，其 :meth:`~.module.conv.Conv2d.forward` 方法执行卷积操作。
+:mod:`megengine.module` 包提供了常用的网络基本模块，如 :class:`~.megengine.module.conv.Conv2d` 、:class:`~.megengine.module.linear.Linear` 等。以 :class:`~.megengine.module.conv.Conv2d` 为例，该类的 :class:`__init__() <.megengine.module.conv.Conv2d>` 方法定义并初始化卷积核参数，其 :meth:`~.megengine.module.conv.Conv2d.forward` 方法执行卷积操作。
 
 基于各种常用的网络模块，我们可以方便地搭建非常复杂的网络。例如，上一个例子的网络定义可以简化成如下写法：
 
@@ -97,15 +97,15 @@
     out = two_layer_conv_module(x)
     print(out.shape)  # 输出： (2, 16, 28, 28)
 
-使用 :class:`~.Module` 定义的网络比使用 :mod:`~.megengine.functional` 进一步封装了内部实现，更易复用，统一的接口使得代码更易维护。 我们推荐使用 :class:`~.Module` 搭建网络。
+使用 :class:`~.megengine.module.module.Module` 定义的网络比使用 :mod:`~.megengine.functional` 进一步封装了内部实现，更易复用，统一的接口使得代码更易维护。 我们推荐使用 :class:`~.megengine.module.module.Module` 搭建网络。
 
-此外， :class:`~.Module` 其它常用的方法如下：
+此外， :class:`~.megengine.module.module.Module` 其它常用的方法如下：
 
-* :meth:`~.Module.parameters` ： 该方法返回包含网络参数的迭代器。
+* :meth:`~.megengine.module.module.Module.parameters` ： 该方法返回包含网络参数的迭代器。
 
-* :meth:`~.Module.named_parameters` ： 该方法返回包含参数名称及对应网络参数的迭代器。
+* :meth:`~.megengine.module.module.Module.named_parameters` ： 该方法返回包含参数名称及对应网络参数的迭代器。
 
-* :meth:`~.Module.state_dict`：返回以参数名称和网络参数为键值对的有序字典，可用于保存训练好的模型。比如，对于上面定义的 ``ConvReLU`` 模块，打印它的一个实例的 ``state_dict`` ：
+* :meth:`~.megengine.module.module.Module.state_dict`：返回以参数名称和网络参数为键值对的有序字典，可用于保存训练好的模型。比如，对于上面定义的 ``ConvReLU`` 模块，打印它的一个实例的 ``state_dict`` ：
 
 .. testcode::
 
@@ -154,7 +154,7 @@
 
     图1 LeNet ( http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf )
 
-使用 :class:`~.Module` 搭建 LeNet 的代码如下：
+使用 :class:`~.megengine.module.module.Module` 搭建 LeNet 的代码如下：
 
 .. testcode::
 

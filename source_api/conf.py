@@ -14,7 +14,6 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import textwrap
-import os
 
 # -- Project information -----------------------------------------------------
 
@@ -36,17 +35,35 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinxcontrib.jupyter',
     'sphinx_autodoc_typehints',
-    'sphinx.ext.intersphinx',
-    'nbsphinx'
+    'nbsphinx',
+    'breathe',
+    'exhale',
 ]
 
-api_url = "/api/latest"
+# Setup the breathe extension
+breathe_projects = {
+    "MegEngine Doc": "./doxyoutput/xml"
+}
+breathe_default_project = "MegEngine Doc"
 
-if 'API_DOC_URL' in os.environ:
-    api_url = os.environ['API_DOC_URL']
-
-
-intersphinx_mapping = {'python': (api_url,'../build_api/html/objects.inv')}
+# Setup the exhale extension
+exhale_args = {
+    # These arguments are required
+    "containmentFolder":     "./cpp_api",
+    "rootFileName":          "library_root.rst",
+    "rootFileTitle":         "C++ API",
+    "doxygenStripFromPath":  "include",
+    # Suggested optional arguments
+    "createTreeView":        True,
+    # TIP: if using the sphinx-bootstrap-theme, you need
+    # "treeViewIsBootstrap": True,
+    "exhaleExecutesDoxygen": True,
+    "exhaleDoxygenStdin": textwrap.dedent('''
+        INPUT      = include
+    '''),
+    # "createTreeView": True,
+    "verboseBuild": True,
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

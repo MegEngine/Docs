@@ -44,7 +44,7 @@
 初始化分布式训练
 ''''''''''''''''''''''''''''''
 
-在 MegEngine 中，我们通过 :func:`~.init_process_group` 来初始化分布式训练。其接收以下参数
+在 MegEngine 中，我们通过 :func:`~.megengine.distributed.util.init_process_group` 来初始化分布式训练。其接收以下参数
 
 * ``master_ip`` (str) – 主节点的 IP 地址；
 * ``master_port`` (int) – 所有进程通信使用的端口；
@@ -91,11 +91,11 @@
 训练状态同步
 ''''''''''''''''''''''''''''''
 
-在目标函数中每个进程的训练流程与单机单卡的训练并没有差异。之所以可以这样，是因为 MegEngine 将多进程间参数状态的同步隐藏在了 :class:`~.Optimizer` 中。
+在目标函数中每个进程的训练流程与单机单卡的训练并没有差异。之所以可以这样，是因为 MegEngine 将多进程间参数状态的同步隐藏在了 :class:`~.megengine.optimizer.optimizer.Optimizer` 中。
 
-具体来说， :class:`~.Optimizer` 通过 :func:`~.util.is_distributed` 得知当前处于分布式训练状态，会在构造函数和 :meth:`~.Optimizer.step` 中自动完成多进程间参数的同步，即调用 :func:`~.distributed.functional.bcast_param` 。
+具体来说， :class:`~.megengine.optimizer.optimizer.Optimizer` 通过 :func:`~.megengine.distributed.util.is_distributed` 得知当前处于分布式训练状态，会在构造函数和 :meth:`~.megengine.optimizer.optimizer.Optimizer.step` 中自动完成多进程间参数的同步，即调用 :func:`~.megengine.distributed.functional.bcast_param` 。
 
-所以每个进程在执行训练代码阶段，定义 :class:`~.Optimizer` 以及每个迭代中调用 :meth:`~.Optimizer.step` 修改参数值时，都会自动广播自己进程当时的参数值，实现所有进程在开始训练时以及每轮迭代之后的训练状态是统一的。
+所以每个进程在执行训练代码阶段，定义 :class:`~.megengine.optimizer.optimizer.Optimizer` 以及每个迭代中调用 :meth:`~.megengine.optimizer.optimizer.Optimizer.step` 修改参数值时，都会自动广播自己进程当时的参数值，实现所有进程在开始训练时以及每轮迭代之后的训练状态是统一的。
 
 模型保存与加载
 ''''''''''''''''''''''''''''''
@@ -104,7 +104,7 @@
 
 具体来说，由于我们在定义优化器时会进行参数同步，所以我们只需在定义优化器之前，在主进程（rank 0 进程）中加载模型参数，那么其它进程便会被自动更新为加载后的参数。
 
-同理，保存参数只需要在每个迭代执行完 :meth:`~.Optimizer.step` 之后进行，也能保证此时保存的状态是所有进程相同的。
+同理，保存参数只需要在每个迭代执行完 :meth:`~.megengine.optimizer.optimizer.Optimizer.step` 之后进行，也能保证此时保存的状态是所有进程相同的。
 
 可以参考以下示例代码实现：
 
@@ -131,19 +131,19 @@
 使用 DataLoader 进行数据加载
 -----------------------------------------
 
-在上一节，为了简单起见，我们将整个数据集全部载入内存，实际中，我们可以通过 :class:`~.dataloader.DataLoader` 来更高效地加载数据。关于 :class:`~.dataloader.DataLoader` 的基本用法可以参考基础学习的 :ref:`data_load` 部分。
+在上一节，为了简单起见，我们将整个数据集全部载入内存，实际中，我们可以通过 :class:`~.megengine.data.dataloader.DataLoader` 来更高效地加载数据。关于 :class:`~.megengine.data.dataloader.DataLoader` 的基本用法可以参考基础学习的 :ref:`data_load` 部分。
 
-:class:`~.dataloader.DataLoader` 会自动帮我们处理分布式训练时数据相关的问题，可以实现使用单卡训练时一样的数据加载代码，具体来说：
+:class:`~.megengine.data.dataloader.DataLoader` 会自动帮我们处理分布式训练时数据相关的问题，可以实现使用单卡训练时一样的数据加载代码，具体来说：
 
-* 所有采样器 :class:`~.sampler.Sampler` 都会自动地做类似上文中数据切分的操作，使得所有进程都能获取互不重复的数据。
-* 每个进程的 :class:`~.dataloader.DataLoader` 还会自动调用分布式相关接口实现内存共享，避免不必要的内存占用，从而显著加速数据读取。
+* 所有采样器 :class:`~.megengine.data.sampler.Sampler` 都会自动地做类似上文中数据切分的操作，使得所有进程都能获取互不重复的数据。
+* 每个进程的 :class:`~.megengine.data.dataloader.DataLoader` 还会自动调用分布式相关接口实现内存共享，避免不必要的内存占用，从而显著加速数据读取。
 
-总结一下，在分布式训练时，你无需对使用 :class:`~.dataloader.DataLoader` 的方式进行任何修改，一切都能无缝地切换。完整的例子见 `MegEngine/models <https://github.com/MegEngine/models/blob/master/official/vision/classification/resnet/train.py>`_ 。
+总结一下，在分布式训练时，你无需对使用 :class:`~.megengine.data.dataloader.DataLoader` 的方式进行任何修改，一切都能无缝地切换。完整的例子见 `MegEngine/models <https://github.com/MegEngine/models/blob/master/official/vision/classification/resnet/train.py>`_ 。
 
 多机多卡
 ------------------------------
 
-在 MegEngine 中，我们能很方便地将上面单机多卡的代码修改为多机多卡，只需修改传给 :func:`~.init_process_group` 的总共进程数目 ``world_size`` 和当前进程序号 ``rank`` 参数。即只需在计算每台机器中每个进程的序号时，考虑到机器节点 ID （ ``node_id`` ）即可。另外选择其中一台机器作为主节点（master node），将其 IP 地址和通信端口提供给所有机器即可。
+在 MegEngine 中，我们能很方便地将上面单机多卡的代码修改为多机多卡，只需修改传给 :func:`~.megengine.distributed.util.init_process_group` 的总共进程数目 ``world_size`` 和当前进程序号 ``rank`` 参数。即只需在计算每台机器中每个进程的序号时，考虑到机器节点 ID （ ``node_id`` ）即可。另外选择其中一台机器作为主节点（master node），将其 IP 地址和通信端口提供给所有机器即可。
 
 首先需要修改目标函数传入的参数：
 
