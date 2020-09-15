@@ -27,6 +27,7 @@
 
 9. :ref:`how_to_use_load_and_run` ：介绍如何使用load_and_run对模型推理测速。
 10. :ref:`inference_in_nvidia_gpu`: 介绍如何使用load_and_run在nvidia GPU上测速。
+11. :ref:`how_to_use_codegen` ：介绍如何使用codegen。
 
 .. toctree::
     :maxdepth: 2
@@ -42,3 +43,4 @@
     profiling
     how_to_use_load_and_run
     inference_in_nvidia_gpu
+    how_to_use_codegen
