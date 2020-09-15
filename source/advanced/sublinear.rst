@@ -14,7 +14,7 @@
     config = SublinearMemoryConfig()
 
     @trace(symbolic=True, sublinear_memory_config=config)
-    def train_func(data, label, *, net, optimizer):
+    def train_func(data, label, *, net, optimizer, gm):
         ...
 
 使用亚线性内存在编译计算图和训练模型时有少量的额外时间开销，但是可以大幅减少显存的开销。下面我们以 `ResNet50 <https://arxiv.org/abs/1512.03385>`_ 为例，说明如何使用亚线性内存优化技术，突破显存瓶颈来训练更大batch size的模型。
@@ -32,6 +32,7 @@
         import megengine.optimizer as optim
         from megengine import tensor
         from megengine.jit import trace, SublinearMemoryConfig
+        from megengine.autodiff import GradManager
         import numpy as np
 
         print(
@@ -41,46 +42,38 @@
         )
         # 使用GPU运行这个例子
         assert mge.is_cuda_available(), "Please run with GPU"
-        try:
-            # 我们从 megengine hub 中加载一个 resnet50 模型。
-            resnet = hub.load("megengine/models", "resnet50")
+        import resnet as models
+        resnet = models.__dict__['resnet50'](pretrained=False)
 
-            optimizer = optim.SGD(resnet.parameters(), lr=0.1,)
+        optimizer = optim.SGD(resnet.parameters(), lr=0.1,)
+        gm = GradManager().attach(resnet.parameters())
+        config = None
+        if enable_sublinear:
+            config = SublinearMemoryConfig(genetic_nr_iter=genetic_nr_iter)
 
-            config = None
-            if enable_sublinear:
-                config = SublinearMemoryConfig(genetic_nr_iter=genetic_nr_iter)
-
-            @trace(symbolic=True, sublinear_memory_config=config)
-            def train_func(data, label, *, net, optimizer):
+        @trace(symbolic=True, sublinear_memory_config=config)
+        def train_func(data, label, *, net, optimizer, gm):
+            with gm:
                 pred = net(data)
                 loss = F.cross_entropy_with_softmax(pred, label)
-                optimizer.backward(loss)
+                gm.backward(loss)
 
-            data = mge.tensor()
-            label = mge.tensor(dtype="int32")
-            resnet.train()
-            for i in range(10):
-                batch_data = np.random.randn(batch_size, 3, 224, 224).astype(np.float32)
-                batch_label = np.random.randint(1000, size=(batch_size,)).astype(np.int32)
-                data.set_value(batch_data)
-                label.set_value(batch_label)
-                optimizer.zero_grad()
-                train_func(data, label, net=resnet, optimizer=optimizer)
-                optimizer.step()
-        except:
-            print("Failed")
-            return
-
-        print("Success")
-
+        resnet.train()
+        for i in range(10):
+            batch_data = np.random.randn(batch_size, 3, 224, 224).astype(np.float32)
+            batch_label = np.random.randint(1000, size=(batch_size,)).astype(np.int32)
+            optimizer.clear_grad()
+            train_func(tensor(batch_data), tensor(batch_label), net=resnet, optimizer=optimizer, gm=gm)
+            optimizer.step()
+        
 
     # 以下示例结果在2080Ti GPU运行得到，显存容量为 11 GB
 
     # 不使用亚线性内存优化，允许的batch_size最大为 100 左右
-    p = Process(target=train_resnet_demo, args=(100, False))
+    p = Process(target=train_resnet_demo, args=(200, True, 20))
     p.start()
     p.join()
+    
     # 报错显存不足
     p = Process(target=train_resnet_demo, args=(200, False))
     p.start()

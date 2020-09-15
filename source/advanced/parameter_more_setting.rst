@@ -9,8 +9,8 @@
 
     import megengine.optimizer as optim
     optimizer = optim.SGD(
-        le_net.parameters(), # 参数列表，将指定参数与优化器绑定
-        lr=0.05,  # 学习速率
+        le_net.parameters(),    # 参数列表，将指定参数与优化器绑定
+        lr=0.05,                # 学习速率
     )
 
 这个优化器对所有参数都使用同一学习速率进行优化，而在本章中我们将介绍如何做到对不同的参数采用不同的学习速率。
@@ -65,8 +65,8 @@
     optimizer = optim.SGD(
         # 参数组列表即param_groups，每个参数组都可以自定义学习速率，也可不自定义，统一使用优化器设置的学习速率
         [
-            {'params': conv_param_list},  # 卷积参数所属的参数组，未自定义学习速率
-            {'params': fc_param_list, 'lr': 0.01} # 全连接层参数所属的参数组，自定义学习速率为0.01
+            {'params': conv_param_list},            # 卷积参数所属的参数组，未自定义学习速率
+            {'params': fc_param_list, 'lr': 0.01}   # 全连接层参数所属的参数组，自定义学习速率为0.01
         ],
         lr=0.05,  # 参数组例表中未指定学习速率的参数组服从此设置，如所有卷积参数
     )
@@ -92,21 +92,13 @@ MegEngine 也支持在训练过程中对学习速率进行修改，比如部分�
 
 .. testcode::
 
-    import megengine as mge
-
-    data = mge.tensor()
-    label = mge.tensor(dtype="int32") # 交叉熵损失函数的标签数据需要是整型类型
-
-    # 输出参数的初始值
     print("original parameter: {}".format(optimizer.param_groups[1]['params'][0]))
     for epoch in range(4):
         for step, (batch_data, batch_label) in enumerate(dataloader):
-            data.set_value(batch_data)
-            label.set_value(batch_label)
-            optimizer.zero_grad() # 将参数的梯度置零
-            logits = le_net(data)
-            loss = F.cross_entropy_with_softmax(logits, label)
-            optimizer.backward(loss) # 反传计算梯度
+            batch_data = tensor(batch_data)
+            batch_label = tensor(batch_label)
+            optimizer.clear_grad() # 将参数的梯度置零
+            _, loss = train_func(batch_data, batch_label, le_net, gm)
             optimizer.step()  # 根据梯度更新参数值
 
         # 输出 LeNet 中全连接层的部分参数值
@@ -119,14 +111,14 @@ MegEngine 也支持在训练过程中对学习速率进行修改，比如部分�
 
 .. testoutput::
 
-    original parameter: Tensor([0. 0. 0. 0. 0. 0. 0. 0. 0. 0.])
-    epoch: 0, parameter: Tensor([-0.0037  0.0245 -0.0075 -0.0002 -0.0063  0.007   0.0036  0.0009 -0.0128 -0.0053])
-    epoch: 1, parameter: Tensor([-0.0028  0.0246 -0.0083 -0.0007 -0.0068  0.007   0.0033  0.0001 -0.0116 -0.0047])
+    original parameter: Tensor([0. 0. 0. 0. 0. 0. 0. 0. 0. 0.], device=xpux:0)
+    epoch: 0, parameter: Tensor([-0.0102  0.0082  0.0062 -0.0093 -0.0018  0.0132 -0.0064  0.0077 -0.0005 -0.007 ], device=xpux:0)
+    epoch: 1, parameter: Tensor([-0.0094  0.008   0.0066 -0.0105 -0.0026  0.0141 -0.008   0.0073  0.0015 -0.0071], device=xpux:0)
 
     set lr zero
 
-    epoch: 2, parameter: Tensor([-0.0028  0.0246 -0.0083 -0.0007 -0.0068  0.007   0.0033  0.0001 -0.0116 -0.0047])
-    epoch: 3, parameter: Tensor([-0.0028  0.0246 -0.0083 -0.0007 -0.0068  0.007   0.0033  0.0001 -0.0116 -0.0047])
+    epoch: 2, parameter: Tensor([-0.0094  0.008   0.0066 -0.0105 -0.0026  0.0141 -0.008   0.0073  0.0015 -0.0071], device=xpux:0)
+    epoch: 3, parameter: Tensor([-0.0094  0.008   0.0066 -0.0105 -0.0026  0.0141 -0.008   0.0073  0.0015 -0.0071], device=xpux:0)
 
 从输出可以看到在学习速率设为0之前参数值是在不断更新的，但是在设为0之后参数值就不再变化。
 
@@ -146,12 +138,13 @@ MegEngine 也支持在训练过程中对学习速率进行修改，比如部分�
 固定部分参数不优化
 ------------------------------
 
-除了将不训练的参数分为一组并将学习速率设为零外，MegEngine 还提供了其他途径来固定参数不进行优化：仅将需要优化的参数与优化器绑定即可。如下代码所示，我们仅对 ``LeNet`` 中的卷积参数进行优化：
+除了将不训练的参数分为一组并将学习速率设为零外，MegEngine 还提供了其他途径来固定参数不进行优化：仅将需要优化的参数与求导器和优化器绑定即可。如下代码所示，我们仅对 ``LeNet`` 中的卷积参数进行优化：
 
 .. testcode::
 
     import megengine.optimizer as optim
-
+    from megengine.autodiff import GradManager
+    
     le_net = LeNet()
     param_list = []
     for (name, param) in le_net.named_parameters():
@@ -160,30 +153,28 @@ MegEngine 也支持在训练过程中对学习速率进行修改，比如部分�
 
     optimizer = optim.SGD(
         param_list, # 参数
-        lr=0.05,  # 学习速率
+        lr=0.05,    # 学习速率
     )
+
+    gm = GradManager().attach(param_list)
 
 下述代码将上面的设置加入到了具体训练当中，能够更加直观的看到各个参数的梯度差异：
 
 .. testcode::
 
     learning_rate = 0.05
-    data = mge.tensor()
-    label = mge.tensor(dtype="int32") # 交叉熵损失函数的标签数据需要是整型类型
-    total_epochs = 1 # 为例减少输出，本次训练仅训练一个epoch
+    total_epochs = 1 # 为了减少输出，本次训练仅训练一个epoch
     for epoch in range(total_epochs):
         # 设置当前epoch的学习速率
         for param_group in optimizer.param_groups:
-            param_group["lr"] = learning_rate * (1-float(epoch)/total_epochs)
+            param_group["lr"] = learning_rate * (1 - float(epoch) / total_epochs)
 
         total_loss = 0
         for step, (batch_data, batch_label) in enumerate(dataloader):
-            data.set_value(batch_data)
-            label.set_value(batch_label)
-            optimizer.zero_grad() # 将参数的梯度置零
-            logits = le_net(data)
-            loss = F.cross_entropy_with_softmax(logits, label)
-            optimizer.backward(loss) # 反传计算梯度
+            batch_data = tensor(batch_data)
+            batch_label = tensor(batch_label)
+            optimizer.clear_grad() # 将参数的梯度置零
+            _, loss = train_func(batch_data, batch_label, le_net, gm)
             optimizer.step()  # 根据梯度更新参数值
             total_loss += loss.numpy().item()
 
@@ -194,14 +185,15 @@ MegEngine 也支持在训练过程中对学习速率进行修改，比如部分�
             else:
                 print(name, param.grad.sum())
 
+
 .. testoutput::
 
-    classifer.bias None
-    classifer.weight None
-    conv1.bias Tensor([0.1187])
-    conv1.weight Tensor([-0.8661])
-    conv2.bias Tensor([-0.0737])
-    conv2.weight Tensor([-27.0589])
+    classifier.bias None
+    classifier.weight None
+    conv1.bias Tensor([-0.0432], device=xpux:0)
+    conv1.weight Tensor([0.1256], device=xpux:0)
+    conv2.bias Tensor([0.0147], device=xpux:0)
+    conv2.weight Tensor([5.0205], device=xpux:0)
     fc1.bias None
     fc1.weight None
     fc2.bias None

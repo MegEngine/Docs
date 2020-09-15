@@ -37,7 +37,13 @@
     # 输入形状为 (2, 3, 32, 32) 的张量
     x = mge.tensor(np.random.randn(2, 3, 32, 32).astype(np.float32))
     out = two_layer_conv(x)
-    print(out.shape)  # 输出： (2, 16, 28, 28)
+    print(out.shape)
+    
+输出： 
+
+.. testoutput::
+
+    (2, 16, 28, 28)
 
 
 基于 :class:`~.megengine.module.module.Module` 搭建网络
@@ -95,7 +101,13 @@
     x = mge.tensor(np.random.randn(2, 3, 32, 32).astype(np.float32))
     two_layer_conv_module = TwoLayerConv()
     out = two_layer_conv_module(x)
-    print(out.shape)  # 输出： (2, 16, 28, 28)
+    print(out.shape) 
+
+输出： 
+
+.. testoutput::
+
+    (2, 16, 28, 28)
 
 使用 :class:`~.megengine.module.module.Module` 定义的网络比使用 :mod:`~.megengine.functional` 进一步封装了内部实现，更易复用，统一的接口使得代码更易维护。 我们推荐使用 :class:`~.megengine.module.module.Module` 搭建网络。
 
@@ -193,4 +205,10 @@
     le_net = LeNet()
     # 调用网络，即执行 le_net 的 forward 成员方法，返回网络处理结果
     out = le_net(x)
-    print(out.shape)  # 输出： (2, 10)
+    print(out.shape)
+
+输出： 
+
+.. testoutput::
+
+    (2, 10)

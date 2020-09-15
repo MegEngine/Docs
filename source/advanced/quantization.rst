@@ -63,16 +63,12 @@ Observer 继承自 :class:`~.megengine.module.module.Module` ，也会参与网�
 
     # forward of MinMaxObserver
     def forward(self, x_orig):
-        # stop gradient
-        x = F.zero_grad(x_orig)
-        # find max and min
-        tmp_min, _ = F.cond_take(
-            self.first_flag, F.concat([x.min(), F.minimum(self.min_val, x.min())])
-        )
-        tmp_max, _ = F.cond_take(
-            self.first_flag, F.concat([x.max(), F.maximum(self.max_val, x.max())])
-        )
-        self.set_min_max(tmp_min, tmp_max)
+        if self.enabled:
+            # stop gradient
+            x = x_orig.detach()
+            # find max and min
+            self.min_val._reset(F.minimum(self.min_val, x.min()))
+            self.max_val._reset(F.maximum(self.max_val, x.max()))
         return x_orig
 
 
@@ -80,14 +76,16 @@ Observer 继承自 :class:`~.megengine.module.module.Module` ，也会参与网�
 
 .. code-block::
 
-    def forward(self, inp, q_dict):
-        scale = q_dict['scale']
-        zero_point = q_dict['zero_point']
+    def fake_quant_tensor(inp: Tensor, qmin: int, qmax: int, q_dict: Dict) -> Tensor:
+        scale = q_dict["scale"]
+        zero_point = 0
+        if q_dict["mode"] == QuantMode.ASYMMERTIC:
+            zero_point = q_dict["zero_point"]
         # Quant
         oup = Round()(inp / scale) + zero_point
-        # clip
-        oup = F.minimum(F.maximum(oup, self.qmin), self.qmax)
-        # DeQuant
+        # Clip
+        oup = F.minimum(F.maximum(oup, qmin), qmax)
+        # Dequant
         oup = (oup - zero_point) * scale
         return oup
 
@@ -96,9 +94,10 @@ Observer 继承自 :class:`~.megengine.module.module.Module` ，也会参与网�
 .. code-block::
 
     ema_fakequant_qconfig = QConfig(
-        weight_observer=MinMaxObserver,
-        act_observer=ExponentialMovingAverageObserver,
-        fake_quant=FakeQuantize,
+        weight_observer=partial(MinMaxObserver, dtype="qint8", narrow_range=True),
+        act_observer=partial(ExponentialMovingAverageObserver, dtype="qint8", narrow_range=False),
+        weight_fake_quant=partial(FakeQuantize, dtype="qint8", narrow_range=True),
+        act_fake_quant=partial(FakeQuantize, dtype="qint8", narrow_range=False),
     )
 
 鉴于 FakeQuantize 不存在算法选择的问题，所以 weight 和 activation 会使用统一的 fake_quant 选项。
@@ -108,9 +107,10 @@ Observer 继承自 :class:`~.megengine.module.module.Module` ，也会参与网�
 .. code-block::
 
     calibration_qconfig = QConfig(
-        weight_observer=MinMaxObserver,
-        act_observer=HistogramObserver,
-        fake_quant=None,
+        weight_observer=partial(MinMaxObserver, dtype="qint8", narrow_range=True),
+        act_observer=partial(HistogramObserver, dtype="qint8", narrow_range=False),
+        weight_fake_quant=None,
+        act_fake_quant=None,
     )
 
 除了使用在 :mod:`.megengine.quantization.qconfig` 里提供的预设 QConfig，也可以根据需要灵活选择 Observer 实现自己的 QConfig。目前提供的 Observer 包括：
@@ -179,6 +179,7 @@ QConfig 提供了一系列如何对模型做量化的接口，而要使用这些
             return out
 
 
+
 然后对该模型进行若干轮迭代训练，并保存检查点，这里省略细节：
 
 .. code-block::
@@ -189,13 +190,13 @@ QConfig 提供了一系列如何对模型做量化的接口，而要使用这些
         learning_rate = adjust_learning_rate(step, epoch)
 
         image, label = next(train_queue)
-        image = image.astype("float32")
-        label = label.astype("int32")
+        image = tensor(image.astype("float32"))
+        label = tensor(label.astype("int32"))
 
         n = image.shape[0]
 
-        optimizer.zero_grad()
-        loss, acc1, acc5 = train_func(image, label)
+        optimizer.clear_grad()
+        loss, acc1, acc5 = train_func(image, label, net, gm)
         optimizer.step()
 
 再调用 :func:`~.megengine.quantization.quantize.quantize_qat` 来将网络转换为 QATModule：

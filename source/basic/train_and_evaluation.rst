@@ -17,9 +17,8 @@
 
 .. testcode::
 
-    from megengine.data import DataLoader
+    from megengine.data import DataLoader, RandomSampler
     from megengine.data.transform import ToMode, Pad, Normalize, Compose
-    from megengine.data import RandomSampler
     from megengine.data.dataset import MNIST
 
     # 读取训练数据并进行预处理
@@ -52,56 +51,57 @@ MegEngine 提供了各种常见损失函数，具体可见API文档中的 :mod:`
     import megengine as mge
     import megengine.functional as F
 
-    data = mge.tensor()
-    label = mge.tensor(dtype="int32") # 交叉熵损失函数的标签数据需要是整型类型
     for step, (batch_data, batch_label) in enumerate(dataloader):
-        data.set_value(batch_data)
-        label.set_value(batch_label)
+        data = mge.tensor(batch_data)
+        label = mge.tensor(batch_label)
         logits = le_net(data)
 
-        # logits为网络的输出结果，label是数据的真实标签即训练目标
+        # logits 为网络的输出结果，label 是数据的真实标签即训练目标
         loss = F.cross_entropy_with_softmax(logits, label) # 交叉熵损失函数
 
-优化器
+求导器和优化器
 ``````````````````````````````
-**网络训练** 即通过更新网络参数来最小化损失函数的过程，这个过程由 MegEngine 中的 **优化器** （optimizer）来完成。
+**网络训练** 即通过更新网络参数来最小化损失函数的过程，这个过程由 MegEngine 中的 **求导器** (GradManager) 和 **优化器** （Optimizer）来完成。
 
-优化器首先通过反向传播获取所有网络参数相对于损失函数的梯度，然后根据具体的优化策略和梯度值来更新参数。
+求导器首先通过反向传播获取所有网络参数相对于损失函数的梯度，然后由优化器根据具体的优化策略和梯度值来更新参数。
 
-MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.megengine.optimizer.adam.Adam` 和 :class:`~.megengine.optimizer.sgd.SGD` 。 它们都继承自 :class:`~.megengine.optimizer.optimizer.Optimizer` 基类，主要包含参数梯度的计算（ :meth:`~.megengine.optimizer.optimizer.Optimizer.backward` ）和参数更新（ :meth:`~.megengine.optimizer.optimizer.Optimizer.step` ）这两个方法。
+在 MegEngine 中，:class:`~.megengine.autodiff.grad_manager.GradManager` 负责做自动求导和管理求导所需的资源。需要注意的是，在 :class:`~.megengine.autodiff.grad_manager.GradManager` 开始 :meth:`~.megengine.autodiff.grad_manager.GradManager.record` 计算图之前，求导是默认关闭的。在之前 :ref:`basic_concepts` 部分，我们介绍了一个简单的自动求导的例子。 
+
+MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.megengine.optimizer.adam.Adam` 和 :class:`~.megengine.optimizer.sgd.SGD` 。 它们都继承自 :class:`~.megengine.optimizer.optimizer.Optimizer` 基类，主要包含参数梯度的置零（ :meth:`~.megengine.optimizer.optimizer.Optimizer.clear_grad` ）和参数更新（ :meth:`~.megengine.optimizer.optimizer.Optimizer.step` ）这两个方法。
+
 
 下面我们通过一个最简单的优化策略来示例说明，参数更新公式如下：
 
 .. math::
     weight = weight - learning\_rate * gradient
 
-此处的 ``learning_rate`` 代表学习速率，用来控制参数每次更新的幅度。在 MegEngine 中此更新方式对应的优化器是 :class:`~.megengine.optimizer.sgd.SGD` 。 我们首先创建一个优化器：
+此处的 ``learning_rate`` 代表学习速率，用来控制参数每次更新的幅度。在 MegEngine 中此更新方式对应的优化器是 :class:`~.megengine.optimizer.sgd.SGD` 。 我们首先创建一个求导器和一个优化器：
 
 .. testcode::
 
     import megengine.optimizer as optim
+    from megengine.autodiff import GradManager
+
+    gm = GradManager().attach(le_net.parameters()) # 定义一个求导器，将指定参数与求导器绑定
+
     optimizer = optim.SGD(
-        le_net.parameters(), # 参数列表，将指定参数与优化器绑定
-        lr=0.05,  # 学习速率
+        le_net.parameters(),    # 参数列表，将指定参数与优化器绑定
+        lr=0.05,                # 学习速率
     )
 
 然后通过 ``dataloader`` 读取一遍训练数据，并利用优化器对网络参数进行更新，这样的一轮更新我们称为一个epoch：
 
 .. testcode::
 
-    data = mge.tensor()
-    label = mge.tensor(dtype="int32") # 交叉熵损失函数的标签数据需要是整型类型
     for step, (batch_data, batch_label) in enumerate(dataloader):
-        data.set_value(batch_data)
-        label.set_value(batch_label)
-
-        optimizer.zero_grad() # 将参数的梯度置零
-
-        logits = le_net(data)
-        loss = F.cross_entropy_with_softmax(logits, label)
-
-        optimizer.backward(loss) # 反传计算梯度
-        optimizer.step()  # 根据梯度更新参数值
+        data = mge.tensor(batch_data)
+        label = mge.tensor(batch_label)
+        optimizer.clear_grad()      # 将参数的梯度置零
+        with gm:                    # 记录计算图
+            logits = le_net(data)
+            loss = F.cross_entropy_with_softmax(logits, label)
+            gm.backward(loss)       # 反向传播计算梯度
+        optimizer.step()            # 根据梯度更新参数值
 
 训练示例
 ``````````````````````````````
@@ -113,26 +113,23 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
     import megengine as mge
     import megengine.optimizer as optim
 
-    # 网络和优化器的创建
+    # 网络、求导器和优化器的创建
     le_net = LeNet()
-    optimizer = optim.SGD(
-        le_net.parameters(), # 参数列表
-        lr=0.05,  # 学习速率
-    )
+    gm = GradManager().attach(le_net.parameters())
+    optimizer = optim.SGD(le_net.parameters(), lr=0.05)
 
-    data = mge.tensor()
-    label = mge.tensor(dtype="int32") # 交叉熵损失函数的标签数据需要是整型类型
     total_epochs = 10
     for epoch in range(total_epochs):
         total_loss = 0
         for step, (batch_data, batch_label) in enumerate(dataloader):
-            data.set_value(batch_data)
-            label.set_value(batch_label)
-            optimizer.zero_grad() # 将参数的梯度置零
-            logits = le_net(data)
-            loss = F.cross_entropy_with_softmax(logits, label)
-            optimizer.backward(loss) # 反传计算梯度
-            optimizer.step()  # 根据梯度更新参数值
+            data = mge.tensor(batch_data)
+            label = mge.tensor(batch_label)
+            optimizer.clear_grad()      # 将参数的梯度置零
+            with gm:                    # 记录计算图
+                logits = le_net(data)
+                loss = F.cross_entropy_with_softmax(logits, label)
+                gm.backward(loss)       # 反向传播计算梯度
+            optimizer.step()            # 根据梯度更新参数值
             total_loss += loss.numpy().item()
         print("epoch: {}, loss {}".format(epoch, total_loss/len(dataloader)))
 
@@ -140,16 +137,16 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
 
 .. testoutput::
 
-    epoch: 0, loss 0.22623900164399877
-    epoch: 1, loss 0.07118050173928966
-    epoch: 2, loss 0.050515039509092044
-    epoch: 3, loss 0.0389270530823056
-    epoch: 4, loss 0.0309853484441587
-    epoch: 5, loss 0.025080320053271498
-    epoch: 6, loss 0.02029314023363145
-    epoch: 7, loss 0.016173969717602186
-    epoch: 8, loss 0.013455517796447727
-    epoch: 9, loss 0.010755786676661053
+    epoch: 0, loss 0.2308941539426671
+    epoch: 1, loss 0.06989227452344214
+    epoch: 2, loss 0.049157347533232636
+    epoch: 3, loss 0.03910528820466743
+    epoch: 4, loss 0.03159718035562252
+    epoch: 5, loss 0.025921350232607027
+    epoch: 6, loss 0.021213000623189735
+    epoch: 7, loss 0.01862140639083046
+    epoch: 8, loss 0.01511287806855861
+    epoch: 9, loss 0.012423654125569995
 
 GPU和CPU切换
 ``````````````````````````````
@@ -217,25 +214,24 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
 .. testcode::
 
     import megengine as mge
+    import numpy as np 
     from megengine.module import Dropout
 
     dropout = Dropout(drop_prob=0.2) # 创建一个Dropout实例，每个值有0.2的概率置零
-    data = mge.tensor(np.random.randn(10).astype('float32')) # 原始数据
+    data = mge.tensor([0.5, -0.1, 0.2, 0.8, -0.4]) # 原始数据
     print("origin:", data)
+    dropout.train()     # 训练时
+    print("train :", dropout(data))
 
-    dropout.train() # 训练时
-    print("\ntrain:", dropout(data))
-
-    dropout.eval() # 测试时
-    print("\neval:", dropout(data))
+    data = mge.tensor([0.5, -0.1, 0.2, 0.8, -0.4]) # 重置为原始数据
+    dropout.eval()      # 测试时
+    print("eval  :", dropout(data))
 
 .. testoutput::
 
-    origin: Tensor([ 0.1939 -0.1846 -1.1319 -0.8897  0.7057  1.3106  1.6901 -0.8686 -0.2685 -0.6046])
-
-    train: Tensor([ 0.2423 -0.2307 -0. -1.1121  0.8821  1.6383  2.1127 -0. -0.3357 -0.7557])
-
-    eval: Tensor([ 0.1939 -0.1846 -1.1319 -0.8897  0.7057  1.3106  1.6901 -0.8686 -0.2685 -0.6046])
+    origin: Tensor([ 0.5 -0.1  0.2  0.8 -0.4], device=xpux:0)
+    train : Tensor([ 0.625 -0.125  0.25   1.    -0.   ], device=xpux:0)
+    eval  : Tensor([ 0.5 -0.1  0.2  0.8 -0.4], device=xpux:0)
 
 从输出可以看到训练时 :class:`~.megengine.module.dropout.Dropout` 将原始数据中的20%的值（两个）置0，其余值则乘了1.25（ :math:`\frac{1}{1-0.2}` ）；测试时 :class:`~.megengine.module.dropout.Dropout` 未对原始数据进行任何处理。
 
@@ -245,8 +241,6 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
 在此我们使用 MNIST 测试数据集对训好的网络进行测试。 具体测试代码如下所示，和训练代码相比主要是去掉了优化器的相关代码：
 
 .. testcode::
-
-    import megengine as mge
 
     # 读取测试数据并进行预处理
     mnist_test_dataset = MNIST(root="./dataset/MNIST", train=False, download=True)
@@ -260,20 +254,23 @@ MegEngine 在GPU和CPU同时存在时默认使用GPU进行训练。用户可以�
     )
 
     le_net.eval() # 设置为测试模式
-    data = mge.tensor()
     correct = 0
     total = 0
     for idx, (batch_data, batch_label) in enumerate(dataloader_test):
-        data.set_value(batch_data)
+        data = mge.tensor(batch_data)
         logits = le_net(data)
         predicted = logits.numpy().argmax(axis=1)
         correct += (predicted==batch_label).sum()
         total += batch_label.shape[0]
     print("correct: {}, total: {}, accuracy: {}".format(correct, total, float(correct)/total))
 
-测试输出如下，可以看到经过训练的 ``LeNet`` 在 MNIST 测试数据集上的准确率已经达到98.84%：
+测试输出如下，可以看到经过训练的 ``LeNet`` 在 MNIST 测试数据集上的准确率已经达到98.99%：
 
 .. testoutput::
 
-    correct: 9884, total: 10000, accuracy: 0.9884
+    correct: 9899, total: 10000, accuracy: 0.9899
 
+支持模型
+------------------------------
+
+    如需了解MegEngine实现的各种主流深度学习模型代码，请访问 `Github <https://github.com/MegEngine/Models>`_ 。

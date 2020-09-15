@@ -57,28 +57,9 @@ MegEngine 是基于计算图的深度神经网络学习框架。
 .. testoutput::
 
     Tensor([[0.2976 0.4078 0.5957 0.3945 0.9413]
-    [0.7519 0.3313 0.0913 0.3345 0.3256]])
+    [0.7519 0.3313 0.0913 0.3345 0.3256]], device=xpux:0)
 
-    Tensor([1. 2. 3.])
-
-我们可以通过 :meth:`~.megengine.core.tensor.Tensor.set_value` 来更改 Tensor 的值。
-
-.. testcode::
-
-    c = mge.tensor()
-    # 此时 Tensor 尚未被初始化，值为 None
-    print(c)
-    c.set_value(np.random.random((2,5)).astype("float32"))
-    # 此时我们将 Tensor c 进行了赋值
-    print(c)
-
-输出：
-
-.. testoutput::
-
-    Tensor(None)
-    Tensor([[0.68   0.9126 0.7312 0.3037 0.8082]
-     [0.1965 0.0413 0.395  0.6975 0.9103]])
+    Tensor([1. 2. 3.], device=xpux:0)
 
 通过 :meth:`dtype <.megengine.core.tensor.Tensor.dtype>` 属性我们可以获取 Tensor 的数据类型；
 通过 :meth:`~.megengine.core.tensor.Tensor.astype` 方法我们可以拷贝创建一个指定数据类型的新 Tensor ，原 Tensor 不变。
@@ -113,7 +94,7 @@ MegEngine 是基于计算图的深度神经网络学习框架。
 
 .. testcode::
 
-    a = mge.tensor(np.random.random((2,5)).astype('float32'))
+    a = mge.tensor(np.arange(12)).reshape(2, 6).astype("float32")
     print(a)
 
     b = a.numpy()
@@ -123,11 +104,44 @@ MegEngine 是基于计算图的深度神经网络学习框架。
 
 .. testoutput::
 
-    Tensor([[0.2477 0.9139 0.8685 0.5265 0.341 ]
-     [0.6463 0.0599 0.555  0.1881 0.4283]])
+    Tensor([[ 0.  1.  2.  3.  4.  5.]
+    [ 6.  7.  8.  9. 10. 11.]], device=xpux:0)
+    
+    [[ 0.  1.  2.  3.  4.  5.]
+    [ 6.  7.  8.  9. 10. 11.]]
 
-    [[0.2477342  0.9139376  0.8685143  0.526512   0.34099308]
-     [0.64625365 0.05993681 0.5549845  0.18809062 0.42833906]]
+通过 :meth:`device <.megengine.core.tensor.Tensor.device>` 属性，我们可以查询当前 Tensor 所在的设备。创建的Tensor可以位于不同device，这根据当前的环境决定。一般地，如果在创建Tensor时不指定device，其device属性默认为 xpux，表示当前任意一个可用的设备。如果存在 GPU 则优先使用 GPU，否则为 CPU。
+
+.. testcode::
+
+    print(a.device)
+
+输出：
+
+.. testoutput::
+
+    xpux:0
+
+你也可以在创建Tensor时，指定device为 cpu0, cpu1, ..., gpu0, gpu1, ... ，也可以是 cpux 或 gpux，表示当前任意一个可用的 CPU 或 GPU。
+
+通过 :meth:`~.megengine.core.tensor.Tensor.to` 方法可以在另一个 device 上生成当前 Tensor 的拷贝，比如我们将刚刚创建的 Tensor ``a`` 迁移到 CPU 上，再迁移到 GPU 上：
+
+.. testcode::
+
+    # 下面代码是否能正确执行取决于你当前所在的环境
+    b = a.to("cpu0")
+    print(b.device)
+
+    c = b.to("gpu0")
+    print(c.device)
+
+输出：
+
+.. testoutput::
+
+    cpu0:0
+    gpu0:0
+
 
 
 算子（Operator）
@@ -141,24 +155,26 @@ Tensor 的加法：
 
 .. testcode::
 
-    a = mge.tensor(np.random.random((2,5)).astype('float32'))
+    a = mge.tensor([[1., 2., 2.], [5., 1., 8.]])
     print(a)
-    b = mge.tensor(np.random.random((2,5)).astype('float32'))
+
+    b = mge.tensor([[1., 9., 1.], [1., 7., 9.]])
     print(b)
+
     print(a + b)
 
 输出：
 
 .. testoutput::
 
-    Tensor([[0.119  0.5816 0.5693 0.3495 0.4687]
-     [0.4559 0.524  0.3877 0.0287 0.9086]])
+    Tensor([[1. 2. 2.]
+    [5. 1. 8.]], device=xpux:0)
 
-    Tensor([[0.2488 0.5017 0.0975 0.2759 0.3443]
-     [0.8404 0.7221 0.5179 0.5839 0.1876]])
-
-    Tensor([[0.3678 1.0833 0.6667 0.6254 0.813 ]
-     [1.2963 1.2461 0.9056 0.6126 1.0962]])
+    Tensor([[1. 9. 1.]
+    [1. 7. 9.]], device=xpux:0)
+    
+    Tensor([[ 2. 11.  3.]
+    [ 6.  8. 17.]], device=xpux:0)
 
 
 Tensor 的切片：
@@ -171,29 +187,27 @@ Tensor 的切片：
 
 .. testoutput::
 
-    Tensor([0.4559 0.524  0.3877 0.0287 0.9086])
+    Tensor([5. 1. 8.], device=xpux:0)
 
 Tensor 形状的更改：
 
 .. testcode::
 
-    a.reshape(5, 2)
+    a.reshape(3, 2)
 
 输出：
 
 .. testoutput::
 
-    Tensor([[0.4228 0.2097]
-     [0.9081 0.5133]
-     [0.2152 0.7341]
-     [0.0468 0.5756]
-     [0.3852 0.2363]])
+    Tensor([[1. 2.]
+    [2. 5.]
+    [1. 8.]], device=xpux:0)
 
 :meth:`~.megengine.core.tensor.Tensor.reshape` 的参数允许存在单个维度的缺省值，用 -1 表示。此时，reshape 会自动推理该维度的值：
 
 .. testcode::
 
-    # 原始维度是 (2, 5)，当给出 -1的缺省维度值时，可以推理出另一维度为10
+    # 原始维度是 (2, 3)，当给出 -1 的缺省维度值时，可以推理出另一维度为 6
     a = a.reshape(1, -1)
     print(a.shape)
 
@@ -201,7 +215,7 @@ Tensor 形状的更改：
 
 .. testoutput::
 
-    (1, 10)
+    (1, 6)
 
 
 MegEngine 的 :mod:`~.megengine.functional` 提供了更多的算子，比如深度学习中常用的矩阵乘操作、卷积操作等。
@@ -210,61 +224,31 @@ Tensor 的矩阵乘：
 
 .. testcode::
 
+    import megengine as mge
     import megengine.functional as F
 
-    a = mge.tensor(np.random.random((2,3)).astype('float32'))
+    a = mge.tensor(np.arange(6).reshape(2, 3)).astype('float32')
     print(a)
-    b = mge.tensor(np.random.random((3,2)).astype('float32'))
+    b = mge.tensor(np.arange(6, 12).reshape(3, 2)).astype('float32')
     print(b)
-    c = F.matrix_mul(a, b)
+    c = F.matmul(a, b)
     print(c)
 
 输出：
 
 .. testoutput::
 
-    Tensor([[0.8021 0.5511 0.7935]
-    [0.6992 0.9318 0.8736]])
+    Tensor([[0. 1. 2.]
+    [3. 4. 5.]], device=xpux:0)
 
-    Tensor([[0.6989 0.3184]
-     [0.5645 0.0286]
-     [0.2932 0.2545]])
+    Tensor([[ 6.  7.]
+    [ 8.  9.]
+    [10. 11.]], device=xpux:0)
 
-    Tensor([[1.1044 0.4731]
-     [1.2708 0.4716]])
+    Tensor([[ 28.  31.]
+    [100. 112.]], device=xpux:0)
 
 更多算子可以参见 :mod:`~.megengine.functional` 部分的文档。
-
-不同设备上的 Tensor
-----------------------------
-
-创建的Tensor可以位于不同device，这根据当前的环境决定。
-通过 :meth:`device <.megengine.core.tensor.Tensor.device>` 属性查询当前 Tensor 所在的设备。
-
-.. testcode::
-
-    print(a.device)
-
-输出：
-
-.. testoutput::
-
-    # 如果你是在一个GPU环境下
-    gpu0:0
-
-通过 :meth:`~.megengine.core.tensor.Tensor.to` 可以在另一个 device 上生成当前 Tensor 的拷贝，比如我们将刚刚在 GPU 上创建的 Tensor ``a`` 迁移到 CPU 上：
-
-.. testcode::
-
-    # 下面代码是否能正确执行取决于你当前所在的环境
-    b = a.to("cpu0")
-    print(b.device)
-
-输出：
-
-.. testoutput::
-
-    cpu0:0
 
 
 反向传播和自动求导
@@ -291,30 +275,31 @@ Tensor 的矩阵乘：
 
 .. testcode::
 
+    import megengine as mge
     import megengine.functional as F
+    from megengine.autodiff import GradManager
 
-    x = mge.tensor(np.random.normal(size=(1, 3)).astype('float32'))
-    w = mge.tensor(np.random.normal(size=(3, 1)).astype('float32'))
-    b = mge.tensor(np.random.normal(size=(1, )).astype('float32'))
-    p = F.matrix_mul(x, w)
-    y = p + b
+    x = mge.tensor([1., 3., 5.]).reshape(1, 3)
+    w = mge.tensor([2., 4., 6.]).reshape(3, 1)
+    b = mge.tensor(-1.)
 
-我们可以直接调用 :func:`~megengine.functional.graph.grad` 方法来计算输出 :math:`y` 关于 :math:`w` 的偏导数：:math:`\partial y  / \partial w` 。
+    gm = GradManager().attach([w, b])   # 新建一个求导器，绑定需要求导的变量
+    with gm:                            # 开始记录计算图
+        p = F.matmul(x, w) 
+        y = p + b
+        gm.backward(y)                  # 计算 y 的导数
 
-.. testcode::
-
-    import megengine.functional as F
-    # 在调用 F.grad() 进行梯度计算时，第一个参数（target）须为标量，y 是 (1, 1) 的向量，通过索引操作 y[0] 将其变成维度为 (1, ) 的标量
-    # use_virtual_grad 是一个涉及动静态图机制的参数，这里可以先不做了解
-    grad_w = F.grad(y[0], w, use_virtual_grad=False)
-    print(grad_w)
+    print(w.grad)
+    print(b.grad)
 
 输出：
 
 .. testoutput::
 
-    Tensor([[-1.5197]
-     [-1.1563]
-     [ 1.0447]])
+    Tensor([[1.]
+    [3.]
+    [5.]], device=xpux:0)
+
+    Tensor([1.], device=xpux:0)
 
 可以看到，求出的梯度本身也是 Tensor。

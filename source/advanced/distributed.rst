@@ -62,7 +62,7 @@
         # 由于仅一台机器，所以设备数与进程数一一对应，进程的序号等于设备ID
         dist.init_process_group(
             master_ip=server,
-            master_port=port,
+            port=port,
             world_size=num_devices,
             rank=rank,
             dev=rank
