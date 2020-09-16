@@ -55,7 +55,7 @@
 QConfig
 ''''''''''''''''''''''''''''''
 
-QConfig 包括了 :class:`~.megengine.quantization.observer.Observer` 和 :class:`~.megengine.quantization.fake_quant.FakeQuantize` 两部分。我们知道，对模型转换为低比特量化模型一般分为两步：统计待量化模型中参数和 activation 的数值范围（scale）和零点（zero_point），根据 scale 和 zero_point 将模型转换成指定的数值类型。而为了统计这两个值，我们需要使用 Observer。
+QConfig 包括了 :class:`~.megengine.quantization.observer.Observer` 和 :class:`~.megengine.quantization.fake_quant.FakeQuantize` 两部分。我们知道，对模型转换为低比特量化模型一般分为两步：一是统计待量化模型中参数和 activation 的数值范围（scale）和零点（zero_point），二是根据 scale 和 zero_point 将模型转换成指定的数值类型。而为了统计这两个值，我们需要使用 Observer。
 
 Observer 继承自 :class:`~.megengine.module.module.Module` ，也会参与网络的前向传播，但是其 forward 的返回值就是输入，所以不会影响网络的反向梯度传播。其作用就是在前向时拿到输入的值，并统计其数值范围，并通过 :meth:`~.megengine.quantization.observer.Observer.get_qparams` 来获取。所以在搭建网络时把需要统计数值范围的的 Tensor 作为 Observer 的输入即可。
 
@@ -72,7 +72,7 @@ Observer 继承自 :class:`~.megengine.module.module.Module` ，也会参与网�
         return x_orig
 
 
-另外如果只观察而不 finetune 会导致模型掉点，于是我们需要有 FakeQuantize 来根据 Observer 观察到的数值范围模拟量化时的截断，使得参数在训练时就能提前“适应“这种操作。FakeQuantize 在前向时会根据传入的 scale 和 zero_point 对输入 Tensor 做模拟量化的操作，即先做一遍数值转换再转换后的值还原成原类型，如下所示：
+另外如果只观察而不模拟量化会导致模型掉点，于是我们需要有 FakeQuantize 来根据 Observer 观察到的数值范围模拟量化时的截断，使得参数在训练时就能提前“适应“这种操作。FakeQuantize 在前向时会根据传入的 scale 和 zero_point 对输入 Tensor 做模拟量化的操作，即先做一遍数值转换再转换后的值还原成原类型，如下所示：
 
 .. code-block::
 
@@ -100,9 +100,9 @@ Observer 继承自 :class:`~.megengine.module.module.Module` ，也会参与网�
         act_fake_quant=partial(FakeQuantize, dtype="qint8", narrow_range=False),
     )
 
-鉴于 FakeQuantize 不存在算法选择的问题，所以 weight 和 activation 会使用统一的 fake_quant 选项。
+这里使用了两种 Observer 来统计信息，而 FakeQuantize 使用了默认的算子。
 
-另外对于后量化，或者说 Calibration，由于无需进行 FakeQuantize，故而其 fake_quant 属性为 None 即可：
+如果是后量化，或者说 Calibration，由于无需进行 FakeQuantize，故而其 fake_quant 属性为 None 即可：
 
 .. code-block::
 
@@ -113,11 +113,13 @@ Observer 继承自 :class:`~.megengine.module.module.Module` ，也会参与网�
         act_fake_quant=None,
     )
 
-除了使用在 :mod:`.megengine.quantization.qconfig` 里提供的预设 QConfig，也可以根据需要灵活选择 Observer 实现自己的 QConfig。目前提供的 Observer 包括：
+除了使用在 :mod:`.megengine.quantization.qconfig` 里提供的预设 QConfig，也可以根据需要灵活选择 Observer 和 FakeQuantize  实现自己的 QConfig。目前提供的 Observer 包括：
 
 * :class:`~.megengine.quantization.observer.MinMaxObserver` ，使用最简单的算法统计 min/max，对见到的每批数据取 min/max 跟当前存的值比较并替换，基于 min/max 得到 scale 和 zero_point；
 * :class:`~.megengine.quantization.observer.ExponentialMovingAverageObserver` ，引入动量的概念，对每批数据的 min/max 与现有 min/max 的加权和跟现有值比较；
 * :class:`~.megengine.quantization.observer.HistogramObserver` ，更加复杂的基于直方图分布的 min/max 统计算法，且在 forward 时持续更新该分布，并根据该分布计算得到 scale 和 zero_point。
+
+对于 FakeQuantize，目前还提供了 :class:`~.megengine.quantization.fake_quant.TQT` 算子，另外还可以继承 ``_FakeQuant`` 基类实现自定义的假量化算子。
 
 在实际使用过程中，可能需要在训练时让 Observer 统计并更新参数，但是在推理时则停止更新。 Observer 和 FakeQuantize 都支持 :meth:`~.megengine.quantization.observer.Observer.enable` 和 :meth:`~.megengine.quantization.observer.Observer.disable` 功能，且 Observer 会在 :meth:`~.megengine.module.module.Module.train` 和 :meth:`~.megengine.module.module.Module.train` 时自动分别调用 enable/disable。
 
@@ -128,7 +130,7 @@ Observer 继承自 :class:`~.megengine.module.module.Module` ，也会参与网�
 
 QConfig 提供了一系列如何对模型做量化的接口，而要使用这些接口，需要网络的 Module 能够在 forward 时给参数、activation 加上 Observer 和进行 FakeQuantize。转换模块的作用就是将模型中的普通 Module 替换为支持这一系列操作的 :class:`~.megengine.module.qat.module.QATModule` ，并能支持进一步替换成无法训练、专用于部署的 :class:`~.megengine.module.quantized.module.QuantizedModule` 。
 
-基于三种基类实现的 Module 是一一对应的关系，通过转换接口可以依次替换为不同实现的同名 Module。同时考虑到量化与算子融合（Fuse）的高度关联，我们提供了一系列预先融合好的 Module，比如 :class:`~.megengine.module.conv.ConvRelu2d` 、 :class:`~.megengine.module.conv_bn.ConvBn2d` 和 :class:`~.megengine.module.conv_bn.ConvBnRelu2d` 等。除此之外还提供专用于量化的 :class:`~.megengine.module.quant_dequant.QuantStub` 、 :class:`~.megengine.module.quant_dequant.DeQuantStub` 等辅助模块。
+基于三种基类实现的 Module 是一一对应的关系，通过转换接口可以依次替换为不同实现的同名 Module。同时考虑到量化与算子融合（Fuse）的高度关联，我们提供了一系列预先融合好的 Module，比如 :class:`~.megengine.module.conv.ConvRelu2d` 、 :class:`~.megengine.module.conv_bn.ConvBn2d` 和 :class:`~.megengine.module.conv_bn.ConvBnRelu2d` 等。除此之外还提供专用于量化的 :class:`~.megengine.module.quant_dequant.QuantStub` 、 :class:`~.megengine.module.quant_dequant.DequantStub` 等辅助模块。
 
 转换的原理很简单，就是将父 Module 中可被量化（Quantable）的子 Module 替换为对应的新 Module。但是有一些 Quantable Module 还包含 Quantable 子 Module，比如 ConvBn 就包含一个 Conv2d 和一个 BatchNorm2d，转换过程并不会对这些子 Module 进一步转换，原因是父 Module 被替换之后，其 forward 计算过程已经完全不同了，不会再依赖于这些子 Module。
 
@@ -234,8 +236,8 @@ QConfig 提供了一系列如何对模型做量化的接口，而要使用这些
 
     from megengine.quantization.quantize import quantize
 
-    # 定义trace函数
-    @jit.trace(symbolic=True)
+    # 定义trace函数，打开capture_as_const以进行dump
+    @jit.trace(capture_as_const=True)
     def infer_func(processed_img):
         model.eval()
         logits = model(processed_img)
@@ -253,11 +255,8 @@ QConfig 提供了一系列如何对模型做量化的接口，而要使用这些
     elif args.mode == "quantized":
         processed_img = processed_img.astype("int8")
 
-    # 视情况执行一遍evaluation或者只通过trace进行编译
-    if infer:
-        probs = infer_func(processed_img)
-    else:
-        infer_func(processed_img).trace()
+    # 执行一遍evaluation
+    probs = infer_func(processed_img)
 
     # 将模型 dump 导出
     infer_func.dump(output_file, arg_names=["data"])
