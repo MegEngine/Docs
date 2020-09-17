@@ -110,7 +110,7 @@ MegEngine 是基于计算图的深度神经网络学习框架。
     [[ 0.  1.  2.  3.  4.  5.]
     [ 6.  7.  8.  9. 10. 11.]]
 
-通过 :meth:`device <.megengine.core.tensor.Tensor.device>` 属性，我们可以查询当前 Tensor 所在的设备。创建的Tensor可以位于不同device，这根据当前的环境决定。一般地，如果在创建Tensor时不指定device，其device属性默认为 xpux，表示当前任意一个可用的设备。如果存在 GPU 则优先使用 GPU，否则为 CPU。
+通过 :meth:`device <.megengine.core.tensor.Tensor.device>` 属性，我们可以查询当前 Tensor 所在的设备。创建的 Tensor 可以位于不同 device，这根据当前的环境决定。一般地，如果在创建 Tensor 时不指定 device，其 device 属性默认为 xpux，表示当前任意一个可用的设备。如果存在 GPU 则优先使用 GPU，否则为 CPU。
 
 .. testcode::
 
@@ -122,7 +122,7 @@ MegEngine 是基于计算图的深度神经网络学习框架。
 
     xpux:0
 
-你也可以在创建Tensor时，指定device为 cpu0, cpu1, ..., gpu0, gpu1, ... ，也可以是 cpux 或 gpux，表示当前任意一个可用的 CPU 或 GPU。
+你也可以在创建 Tensor 时，指定 device 为 cpu0, cpu1, ..., gpu0, gpu1, ... ，也可以是 cpux 或 gpux，表示当前任意一个可用的 CPU 或 GPU。
 
 通过 :meth:`~.megengine.core.tensor.Tensor.to` 方法可以在另一个 device 上生成当前 Tensor 的拷贝，比如我们将刚刚创建的 Tensor ``a`` 迁移到 CPU 上，再迁移到 GPU 上：
 

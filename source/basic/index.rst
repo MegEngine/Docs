@@ -32,4 +32,3 @@
     network_build
     data_load
     train_and_evaluation
-    dynamic_and_static_graph

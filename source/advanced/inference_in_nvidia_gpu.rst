@@ -3,7 +3,7 @@
 NVIDIA GPU测试量化模型性能
 ===================================
 
-MegEngine 在 NVIDIA GPU 方面做了很多深度优化，保证了模型推理高性能的执行，同时支持 NVIDIA 多种 GPU 硬件，如服务器端常用的 P4、 T4，以及嵌入式端的 Jetson TX2、TX1 等。
+MegEngine 在 NVIDIA GPU 方面做了很多深度优化，一方面保证高效地进行模型推理，另一方面可以支持 NVIDIA 多种 GPU 硬件，如服务器端常用的 P4、 T4，以及嵌入式端的 Jetson TX2、TX1 等。
 
 Turing 架构是 NVIDIA 推出的最新计算架构，Turing 架构的芯片引入了 TensorCore int8 计算单元，能够对 int8 量化模型进行进一步加速。目前 Turing 架构的 GPU 显卡型号有 2080Ti、T4 等，如果是在这些平台进行深度学习的推理部署，可以采用 TensorCore 来加速。
 
@@ -18,12 +18,12 @@ MegEngine 提供了自动转换工具来使用 int8 的 TensorCore。用户首�
 2. 基于 `cuDNN <https://developer.nvidia.com/cudnn>`_
 3. 基于自研的CHWN4 layout的算法
 
-以上三种方案在不同模型上性能各有优劣，用户可以自行尝试自己的网络在哪种模式下运行的更快，来决定使用哪种模型来运行。
+以上三种方案在不同模型上性能各有优劣，用户可以自行尝试自己的网络在哪种模式下运行更快，来决定使用哪种模式。
 
 模型准备
 ------------------------------------
 
-将 mge 模型序列化并导出到文件, 我们以 `ResNet18 <https://github.com/MegEngine/Models/blob/master/official/quantization/models/resnet.py>`_ 为例。因为 MegEngine 的模型都是动态图形式(详细见: :ref:`dynamic_and_static_graph` ) ，所以我们需要先将模型转成静态图然后再部署。
+将 mge 模型序列化并导出到文件, 我们以 `ResNet18 <https://github.com/MegEngine/Models/blob/master/official/quantization/models/resnet.py>`_ 为例。因为 MegEngine 的模型训练都是动态图形式，所以我们需要先将模型转成静态图然后再部署。
 
 具体可参考如下代码片段:
 
@@ -49,19 +49,19 @@ MegEngine 提供了自动转换工具来使用 int8 的 TensorCore。用户首�
         pred_normalized = F.softmax(pred)
         return pred_normalized
 
-    data = tensor(np.random.random([128, 3, 224,
+    data = tensor(np.random.random([1, 3, 224,
                             224]).astype(np.float32))
 
     fun(data,net=net)
     fun.dump("resnet18.mge", arg_names=["data"])
 
-执行脚本，并完成模型转换后，我们就获得了可以通过 MegEngine c++ api 加载的预训练模型文件 ``resnet18.mge``, 这里我们选取 batchsize=128。
+执行脚本，完成模型转换后，就获得了可以通过 MegEngine C++ API 加载的预训练模型文件 ``resnet18.mge``, 这里我们选取 batchsize=1。
 
 
 输入准备
 ---------------------------------------
 
-load_and_run 可以用 ``--input`` 选项直接设置模型文件的输入数据, 它支持 .ppm/.pgm/.json/.npy 等多种格式输入。
+load_and_run 可以用 ``--input`` 选项直接设置模型文件的输入, 它支持 .ppm/.pgm/.json/.npy 等多种格式。
 
 测试输入图片如下:
 
@@ -71,7 +71,7 @@ load_and_run 可以用 ``--input`` 选项直接设置模型文件的输入数据
     图1 猫
 
 
-因为模型的输入是 float32, 且是 NCHW, 需要先将图片转成 npy 格式。
+因为模型的输入是 float32, 且为 NCHW, 需要先将图片转成 npy 格式。
 
 .. code-block:: python
    :linenos:
@@ -95,11 +95,11 @@ load_and_run 可以用 ``--input`` 选项直接设置模型文件的输入数据
 基于 TensorRT 子图
 -------------------------------------
 
-NVIDIA `TensorRT <https://developer.nvidia.com/tensorrt>`_ 是一个高性能的深度学习推理库，MegEngine 可以基于子图的方式对 TensorRT 进行集成。在模型加载的时候，通过图优化的方式遍历全图，识别出适用于 TensorRT 执行的算子，构成一个个连通子图，将这些子图转换成 TensorRT 算子，在运行期间，对于 TensorRT 算子自动调用TensorRT来执行。
+NVIDIA `TensorRT <https://developer.nvidia.com/tensorrt>`_ 是一个高性能的深度学习推理库，MegEngine 可以用子图的方式集成 TensorRT。在模型加载的时候，通过图优化的方式遍历全图，识别出适用于 TensorRT 执行的算子，构成一个个连通子图，将这些子图转换成 TensorRT 算子，在运行期间，对于 TensorRT 算子自动调用 TensorRT 来执行。
 
 因为目前 TensorRT 子图优化 pass 是针对 NCHW4 的 layout 开发的，所以对于 NCHW 的网络，需要额外带上 ``--enable-nchw4`` 将 NCHW 网络转成 NCHW4，然后再转成 TensorRT 子图。
 
-下面所有的实验都开启了fastrun，关于 fastrun 的详细原理见: :ref:`how_to_use_load_and_run` 。
+下面所有的实验都开启了 fastrun，关于 fastrun 的详细原理见: :ref:`how_to_use_load_and_run` 。
 
 
 .. code-block:: bash
@@ -138,7 +138,7 @@ NVIDIA `TensorRT <https://developer.nvidia.com/tensorrt>`_ 是一个高性能的
 
 `cuDNN <https://developer.nvidia.com/cudnn>`_ 是 NVIDIA 针对 GPU 开发深度学习原语库，它提供了很多高度优化的算子如前向卷积，后向卷积，池化等等。为了充分利用 Tensorcore，cuDNN 定义了 `NC/32HW32 <https://docs.nvidia.com/deeplearning/sdk/cudnn-developer-guide/index.html#nc32hw32-layout-x32>`_ ，为此我们原始的 NCHW 的网络需要转换到对应的 layout 才能调用 cuDNN 的算子。
 
-load_and_run 可以通过 ``--enable-nchw32`` 这个选项开启layout转换。
+load_and_run 可以通过 ``--enable-nchw32`` 这个选项开启 layout 转换。
 
 .. code-block:: bash
 

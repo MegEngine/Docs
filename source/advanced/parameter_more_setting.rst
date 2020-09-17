@@ -95,8 +95,6 @@ MegEngine 也支持在训练过程中对学习速率进行修改，比如部分�
     print("original parameter: {}".format(optimizer.param_groups[1]['params'][0]))
     for epoch in range(4):
         for step, (batch_data, batch_label) in enumerate(dataloader):
-            batch_data = tensor(batch_data)
-            batch_label = tensor(batch_label)
             optimizer.clear_grad() # 将参数的梯度置零
             _, loss = train_func(batch_data, batch_label, le_net, gm)
             optimizer.step()  # 根据梯度更新参数值

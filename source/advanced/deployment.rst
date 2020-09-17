@@ -31,16 +31,14 @@ MegEngine 的一大核心优势是“训练推理一体化”，其中“训练�
         pred_normalized = F.softmax(pred)
         return pred_normalized
 
-    data = tensor(np.random.random([1, 3, 224, 224]).astype(np.float32))
+    data = tensor(np.random.random([64, 2]).astype(np.float32))
 
     pred_fun(data, net=xor_net)
 
     # 使用 trace 类的 dump 接口进行部署
     pred_fun.dump("xornet_deploy.mge", arg_names=["data"])
 
-这里再解释一下编译与序列化相关的一些操作。编译会将被 :class:`~.megengine.jit.trace` 装饰的函数（这里的 ``pred_fun`` ）视为计算图的全部流程，计算图的输入严格等于 ``pred_fun`` 的位置参数（positional arguments，即参数列表中星号 ``*`` 前的部分，这里的 ``data`` 变量），计算图的输出严格等于函数的返回值（这里的 ``pred_normalized`` ）。而这也会进一步影响到部署时模型的输入和输出，即如果运行部署后的该模型，会需要一个 ``data`` 格式的输入，返回一个 ``pred_normalized`` 格式的值。
-
-为了便于我们在 C++ 代码中给序列化之后的模型传入输入数据，我们需要给输入赋予一个名字，即代码中的 ``arg_names`` 参数。由于该示例中 ``pred_fun`` 只有一个位置参数，即计算图只有一个输入，所以传给 ``arg_names`` 的列表也只需一个字符串值即可，可以是任意名字，用于在 C++ 代码中引用，详情见下节内容。另外传递 ``optimize_for_inference=True`` （默认为 Flase）标志将在 ``dump()`` 方法中对模型针对 inference 进行优化，提高 inference 时候的模型运行效率。
+为了便于在 C++ 代码中给序列化模型传输入数据，需要给输入赋予一个名字，即代码中的 ``arg_names`` 参数。由于该示例中 ``pred_fun`` 只有一个位置参数，即计算图只有一个输入，所以传给 ``arg_names`` 的列表也只需一个字符串值即可，可以是任意名字，用于在 C++ 代码中引用，详情见下节内容。
 
 总结一下，我们对在静态图模式下训练得到的模型，可以使用 :meth:`~.megengine.jit.trace.dump` 方法直接序列化，而无需对模型代码做出任何修改，这就是“训练推理一体化”的由来。
 
@@ -72,15 +70,15 @@ MegEngine 的一大核心优势是“训练推理一体化”，其中“训练�
 
 .. code-block:: bash
 
-    $CXX -o xor_deploy -I$MGE_INSTALL_PATH/include xor_deploy.cpp -L$MGE_INSTALL_PATH/lib64/ -lmegengine
+    $CXX -o xor_deploy -I$MGE_INSTALL_PATH/include xor_deploy.cpp -L$MGE_INSTALL_PATH/lib/ -lmegengine
 
 上面的 ``$MGE_INSTALL_PATH`` 指代了编译安装时通过 ``CMAKE_INSTALL_PREFIX`` 指定的安装路径。编译完成之后，通过以下命令执行即可：
 
 .. code-block:: bash
 
-    LD_LIBRARY_PATH=$MGE_INSTALL_PATH:$LD_LIBRARY_PATH ./xor_deploy xornet_deploy.mge 0.6 0.9
+    LD_LIBRARY_PATH=$MGE_INSTALL_PATH/lib:$LD_LIBRARY_PATH ./xor_deploy xornet_deploy.mge 0.6 0.9
 
-这里将 ``$MGE_INSTALL_PATH`` 加进 ``LD_LIBRARY_PATH`` 环境变量，确保 MegEngine 库可以被编译器找到。上面命令对应的输出如下：
+这里将 ``$MGE_INSTALL_PATH/lib`` 加进 ``LD_LIBRARY_PATH`` 环境变量，确保 MegEngine 库可以被编译器找到。上面命令对应的输出如下：
 
 .. code-block:: none
 

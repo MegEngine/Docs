@@ -8,7 +8,6 @@ API 文档
 .. toctree::
     :maxdepth: 2
 
-    api/megengine.core
     api/megengine.functional
     api/megengine.module
     api/megengine.module.qat

@@ -1,22 +1,22 @@
 .. _how_to_use_load_and_run:
 
-如何使用load_and_run
+如何使用 load_and_run
 ======================================
 
 load_and_run 是 MegEngine 中的加载并运行模型的工具，主要用来做模型正确性验证，速度验证及性能调试，源代码在 `load-and-run <https://github.com/MegEngine/MegEngine/tree/master/sdk/load-and-run>`_ 。
 
 load_and_run 有以下功能：
 
-1. 编译出对应各个平台的版本，可以对比相同模型的速度；
-2. 测试验证不同模型优化方法的效果，可以直接跑 ./load_and_run 得到对应的帮助文档；
+1. 编译出对应各个平台的版本，可对比相同模型的速度；
+2. 测试验证不同模型优化方法的效果，直接执行 ./load_and_run 可得到对应的帮助文档；
 3. `dump_with_testcase_mge.py <https://github.com/MegEngine/MegEngine/blob/master/sdk/load-and-run/dump_with_testcase_mge.py>`_ 会把输入数据、运行脚本时计算出的结果都打包到模型里，便于比较相同模型在不同平台下的计算结果差异；
-4. 同时支持 ``--input`` 选项直接设置 mge c++ 模型的输入，输入格式支持 .ppm/.pgm/.json/.npy 和命令行方式。
+4. 同时支持 ``--input`` 选项直接设置 mge C++ 模型的输入，输入格式支持 .ppm/.pgm/.json/.npy 等文件格式和命令行。
 
 模型准备
 ---------------------------------------
 
-将mge模型序列化并导出到文件, 我们以 `ResNet50 <https://github.com/MegEngine/models/tree/master/official/vision/classification/resnet>`_ 为例。
-因为MegEngine的模型都是动态图形式(详细见: :ref:`dynamic_and_static_graph` ) ，所以我们需要先将模型转成静态图然后再部署。
+将 mge 模型序列化并导出到文件, 我们以 `ResNet50 <https://github.com/MegEngine/models/tree/master/official/vision/classification/resnet>`_ 为例。
+因为 MegEngine 的模型训练都是动态图形式 ，所以我们需要先将模型转成静态图然后再部署。
 
 具体可参考如下代码片段:
 
@@ -46,12 +46,12 @@ load_and_run 有以下功能：
         fun(data, net=net)
         fun.dump("resnet50.mge", arg_names=["data"])
 
-执行脚本，并完成模型转换后，我们就获得了可以通过MegEngine c++ api加载的预训练模型文件 ``resnet50.mge``。
+执行脚本，并完成模型转换后，我们就获得了 MegEngine C++ API 可识别的预训练模型文件 ``resnet50.mge``。
 
 输入准备
 ---------------------------------------
 
-load_and_run 可以用 ``--input`` 选项直接设置模型文件的输入数据, 它支持.ppm/.pgm/.json/.npy等多种格式输入
+load_and_run 可以用 ``--input`` 选项直接设置模型文件的输入, 它支持 .ppm/.pgm/.json/.npy 等多种格式
 
 测试输入图片如下:
 
@@ -61,7 +61,7 @@ load_and_run 可以用 ``--input`` 选项直接设置模型文件的输入数据
     图1 猫
 
 
-因为模型的输入是float32, 且是nchw, 需要先将图片转成npy格式。
+因为模型的输入是 float32, 且是 nchw, 需要先将图片转成 npy 格式。
 
 .. code-block:: python
    :linenos:
@@ -75,16 +75,16 @@ load_and_run 可以用 ``--input`` 选项直接设置模型文件的输入数据
 
    np.save('cat.npy', np.float32(cat))
 
-编译load_and_run
+编译 load_and_run
 ---------------------------------------
 
 .. note::
 
     目前发布的版本我们开放了对 cpu（x86, x64, arm, armv8.2）和 gpu（cuda）平台的支持。
 
-我们在这里以x86和arm交叉编译为例，来阐述一下如何编译一个x86和arm的load_and_run。
+我们在这里以 x86 和 arm 交叉编译为例，来阐述一下如何编译一个 x86 和 arm 的 load_and_run。
 
-linux x86平台编译load_and_run
+linux x86 平台编译 load_and_run
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
@@ -96,23 +96,23 @@ linux x86平台编译load_and_run
 
 编译完成后，我们可以在 ``build/sdk/load_and_run`` 目录找到 ``load_and_run`` 。
 
-linux下交叉编译arm版本load_and_run
+linux 下交叉编译 arm 版本 load_and_run
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-在ubuntu(16.04/18.04)上进行 arm-android的交叉编译:
+在 ubuntu(16.04/18.04) 上进行 arm-android 的交叉编译:
 
-1. 到android的官网下载ndk的相关工具，这里推荐 *android-ndk-r21* 以上的版本：https://developer.android.google.cn/ndk/downloads/
-2. 在bash中设置NDK_ROOT环境变量：``export NDK_ROOT=ndk_dir``
-3. 使用以下脚本进行arm-android的交叉编译
+1. 到 android 的官网下载 ndk 的相关工具，这里推荐 *android-ndk-r21* 以上的版本：https://developer.android.google.cn/ndk/downloads/
+2. 在 bash 中设置 NDK_ROOT 环境变量：``export NDK_ROOT=ndk_dir``
+3. 使用以下脚本进行 arm-android 的交叉编译
 
 .. code-block:: bash
 
    ./scripts/cmake-build/cross_build_android_arm_inference.sh
 
-编译完成后，我们可以在 ``build_dir/android/arm64-v8a/release/install/bin/load_and_run`` 目录下找到编译生成 ``load_and_run``。
-默认没有开启armv8.2-a+dotprod的新指令集支持，如果在一些支持的设备，如cortex-a76等设备，可以开启相关选项(更多选项开关，可以直接看该脚本文件)。
+编译完成后，我们可以在 ``build_dir/android/arm64-v8a/release/install/bin/load_and_run`` 目录下找到编译生成的可执行文件 ``load_and_run``。
+默认没有开启 armv8.2-a+dotprod 的新指令集支持，如果在一些支持的设备，如 cortex-a76 等设备，可以开启相关选项(更多选项开关，可以直接看该脚本文件)。
 
-开启armv8.2-a+dotprod的代码如下:
+开启 armv8.2-a+dotprod 的代码如下:
 
 .. code-block:: bash
 
@@ -121,11 +121,11 @@ linux下交叉编译arm版本load_and_run
 代码执行
 ----------------------------------------
 
-下面的实验是在某android平台，未开启armv8.2指令集(当前测试模型为float模型，量化模型推荐开启armv8.2+dotprod支持，能够充分利用dotprod指令集硬件加速)。
+下面的实验是在某 android 平台，未开启 armv8.2 指令集(当前测试模型为 float 模型，量化模型推荐开启 armv8.2+dotprod 支持，能够充分利用 dotprod 指令集硬件加速)。
 
 用 ``load_and_run`` 加载之前 dump 好的 ``resnet50.mge`` 模型，可以看到类似这样的输出：
 
-先将模型和load_and_run(依赖megengine.so)传到手机。
+先将模型和 load_and_run (依赖 megengine.so )传到手机。
 
 .. code-block:: bash
 
@@ -135,7 +135,7 @@ linux下交叉编译arm版本load_and_run
     adb push resnet50.mge /data/local/tmp
     adb shell && cd /data/local/tmp/ && export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 
-之后直接在手机上运行load_and_run， 可以得到如下输出:
+之后直接在手机上运行 load_and_run， 可以得到如下输出:
 
 .. code-block:: bash
 
@@ -157,20 +157,20 @@ linux下交叉编译arm版本load_and_run
      iter 9/10: 236.964ms (exec=6.605,device=235.727)
      === finished test #0: time=2376.339ms avg_time=237.634ms sd=2.668ms minmax=236.321,245.185
 
-平台相关layout优化
+平台相关 layout 优化
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-目前MegEngine的网络是nchw的layout，但是这种layout不利于充分利用simd特性，且边界处理异常复杂。
-为此，我们针对arm开发了nchw44的layout。
+目前 MegEngine 的网络是 nchw 的 layout，但是这种 layout 不利于充分利用 simd 特性，且边界处理异常复杂。
+为此，我们针对 arm 开发了 nchw44 的 layout。
 
-这个命名主要是针对conv来定的。
+这个命名主要是针对 conv 来定的。
 
-1. nchw: conv的feature map为(n, c, h, w), weights为(oc, ic, fh, fw)。
-2. nchw44: conv的feature map为(n, c/4, h, w, 4), weights为(oc/4, ic/4, fh, fw, 4(ic), 4(oc))。
+1. nchw: conv 的 feature map 为 (n, c, h, w), weights 为 (oc, ic, fh, fw)。
+2. nchw44: conv 的 feature map 为 (n, c/4, h, w, 4), weights 为 (oc/4, ic/4, fh, fw, 4(ic), 4(oc))。
 
-这里从channel上取4个数排成连续主要方便利用neon优化，由于neon指令是128bit，刚好是4个32bit，所以定义nchw44，对于x86 avx下，我们同样定义了nchw88的layout优化。
+这里从 channel 上取 4 个数排成连续主要方便利用 neon 优化，由于 neon 指令是 128 bit，刚好是 4 个 32 bit，所以定义 nchw44，对于 x86 avx 下，我们同样定义了 nchw88 的 layout 优化。
 
-下面是开启nchw44的优化后的结果:
+下面是开启 nchw44 的优化后的结果:
 
 .. code-block:: bash
 
@@ -193,15 +193,15 @@ linux下交叉编译arm版本load_and_run
     iter 9/10: 222.711ms (exec=4.715,device=222.109)
     === finished test #0: time=2233.580ms avg_time=223.358ms sd=4.083ms minmax=221.741,234.949
 
-fastrun模式
+fastrun 模式
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-目前在MegEngine中，针对某些opr，尤其是conv，我们内部存在很多种不同的算法，如direct, winograd, 或者 im2col 等，这些算法在不同的shape或者不同的硬件平台上，其性能表现不同，导致很难写出一个比较有效的启发式搜索算法，在执行的时候跑到合适的最快的算法。为此，我们MegEngine集成了fastrun的模式，也就是在执行模型的时候会将每个opr的可选所有算法都执行一遍，然后选择一个最优的算法记录下来。
+目前在 MegEngine 中，针对某些 opr，尤其是 conv ，存在很多种不同的算法，如 direct, winograd, 或者 im2col 等。这些算法在不同的 shape 或者不同的硬件平台上，其性能表现差别极大，导致很难写出一个有效的搜索算法，在执行时选择到最快的执行方式。为此，我们 MegEngine 集成了 fastrun 模式，也就是在执行模型的时候会将每个 opr 的可选所有算法都执行一遍，然后选择一个最优的算法记录下来。
 
 一般分为两个阶段，搜参和运行。
 
-1. 搜参阶段: 开启fastrun模式，同时将输出的结果存储到一个cache文件中
-2. 执行阶段: 带上cache再次执行
+1. 搜参阶段: 开启 fastrun 模式，同时将输出的结果存储到一个 cache 文件中
+2. 执行阶段: 带上 cache 再次执行
 
 搜参阶段:
 
@@ -251,16 +251,16 @@ fastrun模式
     === finished test #0: time=2008.163ms avg_time=200.816ms sd=0.471ms minmax=200.210,201.882
 
 
-整体来讲fastrun大概有10%的性能提速。
+整体来讲 fastrun 大概有10%的性能提速。
 
-如何开winograd优化
+如何开 winograd 优化
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-winograd在channel较大的时候，能够有效提升卷积的计算速度，核心思想是加法换乘法。详细原理参考 `fast algorithms for convolutional neural networks <https://arxiv.org/pdf/1509.09308.pdf>`_。
-其在ResNet或者VGG16等网络, winograd 有非常大的加速效果。
+winograd 在 channel 较大的时候，能够有效提升卷积的计算速度，核心思想是加法换乘法。详细原理参考 `fast algorithms for convolutional neural networks <https://arxiv.org/pdf/1509.09308.pdf>`_。
+其在 ResNet 或者 VGG16 等网络, winograd 有非常大的加速效果。
 
-因为对于3x3的卷积，有多种winograd算法，如f(2,3), f(4,3), f(6,3)，从理论加速比来讲，f(6,3) > f(4,3) > f(2,3)，
-但是f(6, 3)的预处理开销更大，因为MegEngine内部是基于分块来处理的，对于featuremap比较小的情况，f(6,3)可能会引入比较多的冗余计算，其性能可能不如f(2,3)，所有我们将winograd变换和fastrun模式结合，基于fastrun模式搜索的结果来决定走哪种winograd变换。
+因为对于 3x3 的卷积，有多种 winograd 算法，如 f(2,3), f(4,3), f(6,3)，从理论加速比来讲，f(6,3) > f(4,3) > f(2,3)，
+但是 f(6, 3) 的预处理开销更大，因为 MegEngine 内部是基于分块来处理的，feature map 比较小的情况下，f(6,3) 可能会引入比较多的冗余计算，导致其性能不如 f(2,3)，所以可将 winograd 变换和 fastrun 模式结合，基于 fastrun 模式搜索的结果来决定做哪种 winograd 变换。
 
 具体命令如下:
 
@@ -292,18 +292,18 @@ winograd在channel较大的时候，能够有效提升卷积的计算速度，�
 
 MegEngine 内置了多种正确性验证的方法，方便检查网络计算正确性。
 
-开启asserteq验证正确性
+开启 asserteq 验证正确性
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-可以基于脚本 `dump_with_testcase_mge.py <https://github.com/MegEngine/MegEngine/blob/master/sdk/load-and-run/dump_with_testcase_mge.py>`_ 将输入数据和运行脚本时使用当前默认的计算设备计算出的模型结果都打包到模型里， 这样在不同平台下就比较方便比较结果差异了。
+可以基于脚本 `dump_with_testcase_mge.py <https://github.com/MegEngine/MegEngine/blob/master/sdk/load-and-run/dump_with_testcase_mge.py>`_ 将输入数据和运行脚本时使用当前默认的计算设备计算出的模型结果都打包到模型里， 这样在不同平台下就方便比较结果差异了。
 
 .. code-block:: bash
 
     python3 $MGE/sdk/load_and_run/dump_with_testcase_mge.py ./resnet50.mge --optimize -d cat.jpg -o resnet50.mdl
 
-在执行load_and_run的时候就不需要额外带上 ``--input``，因为输入已经打包进 ``resnet50.mdl``, 同时在执行 ``dump_with_testcase_mge.py`` 脚本的时候，会在xpu(如果有gpu，就在gpu上执行，如果没有就在cpu上执行)执行整个网络，将结果作为 ``ground-truth`` 写入模型中。
+在执行 load_and_run 的时候就不需要再带上 ``--input``，因为输入已经打包进 ``resnet50.mdl``, 同时在执行 ``dump_with_testcase_mge.py`` 脚本的时候，会在 xpu (如果有 gpu，就在 gpu 上执行，如果没有就在 cpu 上执行)执行整个网络，将结果作为 ``ground-truth`` 写入模型中。
 
-我们在执行load_and_run的时候会看到:
+我们在执行 load_and_run 的时候会看到:
 
 .. code-block:: bash
 
@@ -339,9 +339,9 @@ MegEngine 内置了多种正确性验证的方法，方便检查网络计算正�
 
     === total time: 2416.913ms
 
-可以看到最大误差是3.86273e-05.
+可以看到最大误差是 3.86273e-05.
 
-dump输出结果
+dump 输出结果
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 同时，我们可以使用 ``--bin-out-dump`` 在指定的文件夹内保存输出结果。这样就可以用 load-and-run 在目标设备上跑数据集了：
@@ -362,12 +362,12 @@ dump输出结果
     in [23]: v1 = mge.utils.load_tensor_binary('out/run1-var1602')
 
 
-dump每层结果
+dump 每层结果
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-我们很多时候会遇到这种情况，就是模型输出结果不对，这个时候就需要打出网络每一层的结果作比对，看看是哪一层导致。目前有两中展现方式，一个是io-dump, 另一个是bin-io-dump.
+我们很多时候会遇到这种情况，就是模型输出结果不对，这个时候就需要打出网络每一层的结果作比对，看看是哪一层导致。目前有两中展现方式，一个是 io-dump, 另一个是 bin-io-dump.
 
-为了对比结果，需要假定一个平台结果为 ``ground-truth`` ，下面假定以x86的结果为 ``ground-truth`` ，验证x86和cuda上的误差产生的原因（下面会使用 ``host_build.sh`` 编译出来的 ``load_and_run`` 来演示）。
+为了对比结果，需要假定一个平台结果为 ``ground-truth`` ，下面假定以x86的结果为 ``ground-truth`` ，验证 x86 和 cuda 上的误差产生的原因（下面会使用 ``host_build.sh`` 编译出来的 ``load_and_run`` 来演示）。
 
 文本形式对比结果
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -378,7 +378,7 @@ dump每层结果
     ./load_and_run ./resnet50.mge --input cat.npy --iter 10 --io-dump cuda.txt # 默认跑在cuda上
     vimdiff cpu.txt cuda.txt
 
-文档形式只是显示了部分信息，比如tensor的前几个输出结果，整个tensor的平均值，标准差之类的，如果需要具体到哪个值错误，需要用bin-io-dump 会将每一层的结果都输出到一个文件。
+文档形式只是显示了部分信息，比如 tensor 的前几个输出结果，整个 tensor 的平均值，标准差之类的，如果需要具体到哪个值错误，需要用 bin-io-dump 会将每一层的结果都输出到一个文件。
 
 raw形式对比结果
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -400,9 +400,9 @@ load-and-run 可以进行 profiling 并产生一个 json 文件：
 
     ./load_and_run ./resnet50.mge --input cat.npy --iter 10 --profile model.json
 
-这个model.json文件可以后续用于profile_analyze.py 分析。
+这个 model.json 文件可以后续用于 profile_analyze.py 分析。
 
-profile_analyze.py的示例用法：
+profile_analyze.py 的示例用法：
 
     .. code-block:: bash
 
@@ -464,7 +464,7 @@ profile_analyze.py的示例用法：
 
 这个表格打印了前五个耗时最多的算子。每列的含义如下：
 
-* ``device self time`` 是算子在计算设备上（例如GPU）的运行时间
+* ``device self time`` 是算子在计算设备上（例如 GPU ）的运行时间
 
 * ``cumulative`` 累加前面所有算子的时间
 
@@ -474,7 +474,7 @@ profile_analyze.py的示例用法：
 
 * ``FLOPS`` 是算子每秒执行的浮点操作数目，由 ``computation`` 除以 ``device self time`` 并转换单位得到
 
-* ``memory`` 是算子使用的存储（例如GPU显存）大小
+* ``memory`` 是算子使用的存储（例如 GPU 显存）大小
 
 * ``bandwidth`` 是算子的带宽，由 ``memory`` 除以 ``device self time`` 并转换单位得到
 
