@@ -20,22 +20,23 @@ MegEngine 的一大核心优势是“训练推理一体化”，其中“训练�
 
 .. code-block::
 
-    from megengine.jit import trace
+    import megengine.functional as F
+    from megengine import tensor, jit
 
-    # 使用 trace 装饰该函数，详情见“动态图与静态图”、“静态图的两种模式”章节
-    # pred_fun 经过装饰之后已经变成了 trace 类的一个实例，而不仅仅是一个函数
-    @trace(symbolic=True)
+    # 通过 trace 转换为静态图
+    @jit.trace(symbolic=True)
     def pred_fun(data, *, net):
         net.eval()
         pred = net(data)
         pred_normalized = F.softmax(pred)
         return pred_normalized
 
-    # 使用 trace 类的 trace 接口无需运行直接编译
-    pred_fun.trace(data, net=xor_net)
+    data = tensor(np.random.random([1, 3, 224, 224]).astype(np.float32))
+
+    pred_fun(data, net=xor_net)
 
     # 使用 trace 类的 dump 接口进行部署
-    pred_fun.dump("xornet_deploy.mge", arg_names=["data"], optimize_for_inference=True)
+    pred_fun.dump("xornet_deploy.mge", arg_names=["data"])
 
 这里再解释一下编译与序列化相关的一些操作。编译会将被 :class:`~.megengine.jit.trace` 装饰的函数（这里的 ``pred_fun`` ）视为计算图的全部流程，计算图的输入严格等于 ``pred_fun`` 的位置参数（positional arguments，即参数列表中星号 ``*`` 前的部分，这里的 ``data`` 变量），计算图的输出严格等于函数的返回值（这里的 ``pred_normalized`` ）。而这也会进一步影响到部署时模型的输入和输出，即如果运行部署后的该模型，会需要一个 ``data`` 格式的输入，返回一个 ``pred_normalized`` 格式的值。
 

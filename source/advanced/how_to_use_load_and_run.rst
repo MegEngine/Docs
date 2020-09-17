@@ -25,31 +25,26 @@ load_and_run 有以下功能：
 .. code-block:: python
    :linenos:
 
-   import megengine.module as m
-   import megengine.functional as f
-   import numpy as np
+    import numpy as np
 
-   if __name__ == '__main__':
+    import megengine.functional as F
+    import megengine.hub
+    from megengine import jit, tensor
 
-      import megengine.hub
-      import megengine.functional as f
-      from megengine.jit import trace
+    if __name__ == "__main__":
+        net = megengine.hub.load("megengine/models", "resnet50", pretrained=True)
+        net.eval()
 
-      net = megengine.hub.load("megengine/models", "resnet50", pretrained=True)
-      net.eval()
+        @jit.trace(symbolic=True, capture_as_const=True)
+        def fun(data, *, net):
+            pred = net(data)
+            pred_normalized = F.softmax(pred)
+            return pred_normalized
 
-      @trace(symbolic=True)
-      def fun(data,*, net):
-         pred = net(data)
-         pred_normalized = f.softmax(pred)
-         return pred_normalized
+        data = tensor(np.random.random([1, 3, 224, 224]).astype(np.float32))
 
-      data = np.random.random([1, 3, 224,
-                              224]).astype(np.float32)
-
-
-      fun.trace(data,net=net)
-      fun.dump("resnet50.mge", arg_names=["data"], optimize_for_inference=True)
+        fun(data, net=net)
+        fun.dump("resnet50.mge", arg_names=["data"])
 
 执行脚本，并完成模型转换后，我们就获得了可以通过MegEngine c++ api加载的预训练模型文件 ``resnet50.mge``。
 
@@ -262,7 +257,7 @@ fastrun模式
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 winograd在channel较大的时候，能够有效提升卷积的计算速度，核心思想是加法换乘法。详细原理参考 `fast algorithms for convolutional neural networks <https://arxiv.org/pdf/1509.09308.pdf>`_。
-其在在ResNet或者VGG16等网络, winograd 有非常大的加速效果。
+其在ResNet或者VGG16等网络, winograd 有非常大的加速效果。
 
 因为对于3x3的卷积，有多种winograd算法，如f(2,3), f(4,3), f(6,3)，从理论加速比来讲，f(6,3) > f(4,3) > f(2,3)，
 但是f(6, 3)的预处理开销更大，因为MegEngine内部是基于分块来处理的，对于featuremap比较小的情况，f(6,3)可能会引入比较多的冗余计算，其性能可能不如f(2,3)，所有我们将winograd变换和fastrun模式结合，基于fastrun模式搜索的结果来决定走哪种winograd变换。
@@ -372,7 +367,7 @@ dump每层结果
 
 我们很多时候会遇到这种情况，就是模型输出结果不对，这个时候就需要打出网络每一层的结果作比对，看看是哪一层导致。目前有两中展现方式，一个是io-dump, 另一个是bin-io-dump.
 
-为了对比结果，需要假定一个平台结果为 ``ground-truth`` ，下面假定以x86的结果为 ``ground-truth`` ，验证x86和cuda上的误差产生的原因。
+为了对比结果，需要假定一个平台结果为 ``ground-truth`` ，下面假定以x86的结果为 ``ground-truth`` ，验证x86和cuda上的误差产生的原因（下面会使用 ``host_build.sh`` 编译出来的 ``load_and_run`` 来演示）。
 
 文本形式对比结果
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -405,4 +400,84 @@ load-and-run 可以进行 profiling 并产生一个 json 文件：
 
     ./load_and_run ./resnet50.mge --input cat.npy --iter 10 --profile model.json
 
-这个model.json文件可以后续用于profile_analyze.py 分析。详细操作见 :ref:`profiling`
+这个model.json文件可以后续用于profile_analyze.py 分析。
+
+profile_analyze.py的示例用法：
+
+    .. code-block:: bash
+
+        # MGE_ROOT 是 MegEngine 的安装目录
+        MGE_ROOT=`python3 -c "import os; \
+                            import megengine; \
+                            print(os.path.dirname(megengine.__file__))"`
+        # 输出详细帮助信息
+        python3 $MGE_ROOT/utils/profile_analyze.py -h
+
+        # 输出前 5 慢的算子
+        python3 $MGE_ROOT/utils/profile_analyze.py ./profiling.json -t 5
+
+        # 输出总耗时前 5 大的算子的类型
+        python3 $MGE_ROOT/utils/profile_analyze.py ./profiling.json -t 5 --aggregate-by type --aggregate sum
+
+        # 按 memory 排序输出用时超过 0.1ms 的 ConvolutionForward 算子
+        python3 $MGE_ROOT/utils/profile_analyze.py ./profiling.json -t 5 --order-by memory --min-time 1e-4  --type ConvolutionForward
+
+
+示例输出：
+
+    .. code-block:: bash
+
+        > python3 $MGE_ROOT/imperative/python/megengine/utils/profile_analyze.py ./model.json -t 5
+        -----------------  ---------
+        total device time  0.0118007
+        total host time    0.012106
+        -----------------  ---------
+
+        ╒════════════════════╤══════════════╤════════════════════════════════╤═══════════════╤═════════╤══════════╤═════════════╤═════════════════╤═══════════════╕
+        │ device self time   │ cumulative   │ operator info                  │ computation   │ FLOPS   │ memory   │ bandwidth   │ in_shapes       │ out_shapes    │
+        ╞════════════════════╪══════════════╪════════════════════════════════╪═══════════════╪═════════╪══════════╪═════════════╪═════════════════╪═══════════════╡
+        │ #0                 │ 0.000383     │ conv(FUSE_ADD_RELU[351],multi_ │ 231.21        │ 604.00  │ 9.48     │ 24.18       │ {1,512,14,14}   │ {1,512,7,7}   │
+        │ 0.000383           │ 3.2%         │ -  dv[0]:o89)[353]             │ MFLO          │ GFLOPS  │ MiB      │ GiB/s       │ {512,512,3,3}   │               │
+        │ 3.2%               │              │ ConvolutionForward             │               │         │          │             │                 │               │
+        │                    │              │ 353                            │               │         │          │             │                 │               │
+        ├────────────────────┼──────────────┼────────────────────────────────┼───────────────┼─────────┼──────────┼─────────────┼─────────────────┼───────────────┤
+        │ #1                 │ 0.000697     │ conv(FUSE_ADD_RELU[383],multi_ │ 102.76        │ 327.08  │ 4.48     │ 13.92       │ {1,2048,7,7}    │ {1,512,7,7}   │
+        │ 0.000314           │ 5.9%         │ -  dv[0]:o100)[385]            │ MFLO          │ GFLOPS  │ MiB      │ GiB/s       │ {512,2048,1,1}  │               │
+        │ 2.7%               │              │ ConvolutionForward             │               │         │          │             │                 │               │
+        │                    │              │ 385                            │               │         │          │             │                 │               │
+        ├────────────────────┼──────────────┼────────────────────────────────┼───────────────┼─────────┼──────────┼─────────────┼─────────────────┼───────────────┤
+        │ #2                 │ 0.000949     │ conv(FUSE_ADD_RELU[246],multi_ │ 231.21        │ 917.84  │ 3.21     │ 12.43       │ {1,256,28,28}   │ {1,256,14,14} │
+        │ 0.000252           │ 8.0%         │ -  dv[0]:o59)[248]             │ MFLO          │ GFLOPS  │ MiB      │ GiB/s       │ {256,256,3,3}   │               │
+        │ 2.1%               │              │ ConvolutionForward             │               │         │          │             │                 │               │
+        │                    │              │ 248                            │               │         │          │             │                 │               │
+        ├────────────────────┼──────────────┼────────────────────────────────┼───────────────┼─────────┼──────────┼─────────────┼─────────────────┼───────────────┤
+        │ #3                 │ 0.00119      │ conv(FUSE_ADD_RELU[366],multi_ │ 102.76        │ 417.64  │ 4.48     │ 17.78       │ {1,2048,7,7}    │ {1,512,7,7}   │
+        │ 0.000246           │ 10.1%        │ -  dv[0]:o95)[368]             │ MFLO          │ GFLOPS  │ MiB      │ GiB/s       │ {512,2048,1,1}  │               │
+        │ 2.1%               │              │ ConvolutionForward             │               │         │          │             │                 │               │
+        │                    │              │ 368                            │               │         │          │             │                 │               │
+        ├────────────────────┼──────────────┼────────────────────────────────┼───────────────┼─────────┼──────────┼─────────────┼─────────────────┼───────────────┤
+        │ #4                 │ 0.00143      │ conv(FUSE_ADD_RELU[346],multi_ │ 205.52        │ 881.88  │ 9.15     │ 38.34       │ {1,1024,14,14}  │ {1,2048,7,7}  │
+        │ 0.000233           │ 12.1%        │ -  dv[0]:o91)[361]             │ MFLO          │ GFLOPS  │ MiB      │ GiB/s       │ {2048,1024,1,1} │               │
+        │ 2.0%               │              │ ConvolutionForward             │               │         │          │             │                 │               │
+        │                    │              │ 361                            │               │         │          │             │                 │               │
+        ╘════════════════════╧══════════════╧════════════════════════════════╧═══════════════╧═════════╧══════════╧═════════════╧═════════════════╧═══════════════╛
+
+这个表格打印了前五个耗时最多的算子。每列的含义如下：
+
+* ``device self time`` 是算子在计算设备上（例如GPU）的运行时间
+
+* ``cumulative`` 累加前面所有算子的时间
+
+* ``operator info`` 打印算子的基本信息
+
+* ``computation`` 是算子需要的浮点数操作数目
+
+* ``FLOPS`` 是算子每秒执行的浮点操作数目，由 ``computation`` 除以 ``device self time`` 并转换单位得到
+
+* ``memory`` 是算子使用的存储（例如GPU显存）大小
+
+* ``bandwidth`` 是算子的带宽，由 ``memory`` 除以 ``device self time`` 并转换单位得到
+
+* ``in_shapes`` 是算子输入张量的形状
+
+* ``out_shapes`` 是算子输出张量的形状

@@ -32,31 +32,28 @@ MegEngine 提供了自动转换工具来使用 int8 的 TensorCore。用户首�
 .. code-block:: python
    :linenos:
 
-   import megengine.module as m
-   import megengine.functional as f
-   import numpy as np
+    import numpy as np
 
-   if __name__ == '__main__':
+    import megengine.functional as F
+    import megengine.hub
+    from megengine import jit, tensor
 
-      import megengine.hub
-      import megengine.functional as f
-      from megengine.jit import trace
+    if __name__ == '__main__':
 
-      net = megengine.hub.load("megengine/models", "quantized_resnet18", pretrained=True)
-      net.eval()
+    net = megengine.hub.load("megengine/models", "quantized_resnet18", pretrained=True)
+    net.eval()
 
-      @trace(symbolic=True)
-      def fun(data,*, net):
-         pred = net(data)
-         pred_normalized = f.softmax(pred)
-         return pred_normalized
+    @jit.trace(symbolic=True, capture_as_const=True)
+    def fun(data, *, net):
+        pred = net(data)
+        pred_normalized = F.softmax(pred)
+        return pred_normalized
 
-      data = np.random.random([128, 3, 224,
-                              224]).astype(np.float32)
+    data = tensor(np.random.random([128, 3, 224,
+                            224]).astype(np.float32))
 
-
-      fun.trace(data,net=net)
-      fun.dump("resnet18.mge", arg_names=["data"], optimize_for_inference=True)
+    fun(data,net=net)
+    fun.dump("resnet18.mge", arg_names=["data"])
 
 执行脚本，并完成模型转换后，我们就获得了可以通过 MegEngine c++ api 加载的预训练模型文件 ``resnet18.mge``, 这里我们选取 batchsize=128。
 
