@@ -14,3 +14,8 @@ source_api/include/file
 *.state_dict
 *.swp
 *.mo
+source_api/locale/zh_CN/LC_MESSAGES/cpp_api
+source_api/locale/zh_CN/LC_MESSAGES/en
+source_api/locale/zh_CN/LC_MESSAGES/zh/api/megengine.core*.po
+source_api/locale/en/
+source_api/locale/zh_CN/LC_MESSAGES/index.po
