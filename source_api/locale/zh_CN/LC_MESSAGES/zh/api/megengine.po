@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-17 15:24+0800\n"
+"POT-Creation-Date: 2020-10-15 12:39+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,159 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/autogen/megengine.rst:2
+#: ../../source_api/zh/api/megengine.rst:2
 msgid "megengine package"
 msgstr "megengine package"
 
-#: ../../source/autogen/megengine.rst:11
+#: ../../source_api/zh/api/megengine.rst:11
+msgid "megengine.device"
+msgstr "megengine.device"
+
+#: ../../source_api/docstring megengine.device.DeviceType:1 of
+msgid "Bases: :class:`pybind11_builtins.pybind11_object`"
+msgstr "基类：:class:`pybind11_builtins.pybind11_object`"
+
+#: ../../source_api/docstring megengine.device.DeviceType:1 of
+msgid "Members:"
+msgstr "成员："
+
+#: ../../source_api/docstring megengine.device.DeviceType:3 of
+msgid "UNSPEC"
+msgstr "UNSPEC"
+
+#: ../../source_api/docstring megengine.device.DeviceType:5 of
+msgid "CUDA"
+msgstr "CUDA"
+
+#: ../../source_api/docstring megengine.device.DeviceType:7 of
+msgid "CPU"
+msgstr "CPU"
+
+#: ../../source_api/docstring megengine.device.DeviceType:9 of
+msgid "MULTITHREAD"
+msgstr "MULTITHREAD"
+
+#: ../../source_api/docstring megengine.device.DeviceType:11 of
+msgid "MAX_DEVICE_ID"
+msgstr "MAX_DEVICE_ID"
+
+#: megengine.device.get_default_device:1 of
+msgid "Gets default computing node."
+msgstr "查询默认的计算结点。"
+
+#: megengine.device.get_default_device:3 of
+msgid "It returns the value set by :func:`~.set_default_device`."
+msgstr "返回被 :func:`~.set_default_device` 设置的值。"
+
+#: megengine.device.get_default_device megengine.device.get_device_count
+#: megengine.device.is_cuda_available of
+msgid "Return type"
+msgstr "返回值类型"
+
+#: megengine.device.get_default_device:6 of
+msgid ":py:class:`str`"
+msgstr ":py:class:`str`"
+
+#: megengine.device.get_device_count:1 of
+msgid "Gets number of devices installed on this system."
+msgstr "获取当前系统中的设备数量。"
+
+#: megengine.device.get_device_count megengine.device.set_default_device
+#: megengine.device.set_prealloc_config megengine.logger.replace_mgb_log_level
+#: megengine.logger.set_log_file megengine.logger.set_log_level
+#: megengine.logger.set_mgb_log_level megengine.serialization.load
+#: megengine.serialization.save megengine.tensor.Tensor.detach of
+msgid "Parameters"
+msgstr "参数"
+
+#: megengine.device.get_device_count:4 of
+msgid "device type, one of 'gpu' or 'cpu'"
+msgstr "设备类型，'gpu' 和 'cpu' 中的一个"
+
+#: megengine.device.get_device_count:7 of
+msgid ":py:class:`int`"
+msgstr ":py:class:`int`"
+
+#: megengine.device.is_cuda_available:1 of
+msgid "Returns whether cuda device is available on this system."
+msgstr "cuda设备是否在当前机器可用。"
+
+#: megengine.device.is_cuda_available:6 of
+msgid ":py:class:`bool`"
+msgstr ":py:class:`bool`"
+
+#: megengine.device.set_default_device:1 of
+msgid "Sets default computing node."
+msgstr "设置默认的计算节点。"
+
+#: megengine.device.set_default_device:4 of
+msgid ""
+"default device type. The type can be 'cpu0', 'cpu1', etc., or 'gpu0', "
+"'gpu1', etc., to specify the particular cpu or gpu to use. 'cpux' and  "
+"'gpux' can also be used to specify any number of cpu or gpu devices.  "
+"'multithread' device type is avaliable when inference, which implements "
+"multi-threading parallelism at the operator level. For example, "
+"'multithread4' will compute with 4 threads.  The default value is 'xpux' "
+"to specify any device available. The priority of using gpu is higher when"
+" both gpu and cpu are available.  It can also be set by environment "
+"variable `MGE_DEFAULT_DEVICE`."
+msgstr ""
+"默认设备类型。类型可以是 'cpu0'，'cpu1' 等，或 'gpu0'，'gpu1' 等，用以指定要使用的特定 cpu 或 "
+"gpu。'cpux' 和'gpux' 也可以用于指定任意数量的 cpu 或 gpu 设备。'multithread' "
+"设备类型在推理时可用，它实现了操作员级别的多线程并行性。例如，'multithread4' 将使用4个线程进行计算。默认值是 "
+"'xpux'，以指定任何可用的设备。当gpu和cpu都可用时，优先使用gpu。也可以通过以下方式设置环境变量`MGE_DEFAULT_DEVICE`。"
+
+#: megengine.device.set_default_device:4 of
+msgid ""
+"default device type. The type can be 'cpu0', 'cpu1', etc., or 'gpu0', "
+"'gpu1', etc., to specify the particular cpu or gpu to use. 'cpux' and  "
+"'gpux' can also be used to specify any number of cpu or gpu devices."
+msgstr ""
+"默认设备类型。类型可以是 'cpu0'，'cpu1' 等，或 'gpu0'，'gpu1' 等，用以指定要使用的特定 cpu 或 "
+"gpu。'cpux' 和'gpux' 也可以用于指定任意数量的 cpu 或 gpu 设备。"
+
+#: megengine.device.set_default_device:8 of
+msgid ""
+"'multithread' device type is avaliable when inference, which implements "
+"multi-threading parallelism at the operator level. For example, "
+"'multithread4' will compute with 4 threads."
+msgstr "'multithread'设备类型在推理时可用，它实现了操作员级别的多线程并行性。例如，'multithread4' 将使用4个线程进行计算。"
+
+#: megengine.device.set_default_device:12 of
+msgid ""
+"The default value is 'xpux' to specify any device available. The priority"
+" of using gpu is higher when both gpu and cpu are available."
+msgstr "默认值是 'xpux'，以指定任何可用的设备。当gpu和cpu都可用时，优先使用gpu。"
+
+#: megengine.device.set_default_device:14 of
+msgid "It can also be set by environment variable `MGE_DEFAULT_DEVICE`."
+msgstr "也可以通过以下方式设置环境变量`MGE_DEFAULT_DEVICE`。"
+
+#: megengine.device.set_prealloc_config:1 of
+msgid "Specifies how to pre-allocate from raw device allocator."
+msgstr "对原始设备的内存分配器指定预先分配的方案。"
+
+#: megengine.device.set_prealloc_config:4 of
+msgid "specifies the alignment in bytes."
+msgstr "指定对齐的字节数。"
+
+#: megengine.device.set_prealloc_config:6 of
+msgid "min request size in bytes."
+msgstr "最小的需要的字节数。"
+
+#: megengine.device.set_prealloc_config:8 of
+msgid "max overhead above required size in bytes."
+msgstr "为满足需要的字节数花费的开销上限（单位：字节）。"
+
+#: megengine.device.set_prealloc_config:9 of
+msgid "`request size / cur allocated`"
+msgstr "需要的大小和目前分配的大小的比值"
+
+#: megengine.device.set_prealloc_config:10 of
+msgid "the device type"
+msgstr "设备类别"
+
+#: ../../source_api/zh/api/megengine.rst:19
 msgid "megengine.logger"
 msgstr "megengine.logger"
 
@@ -41,15 +189,14 @@ msgstr "将指定的记录格式化为文本。"
 #: megengine.logger.MegEngineLogFormatter.format:3 of
 msgid ""
 "The record's attribute dictionary is used as the operand to a string "
-"formatting operation which yields the returned string. Before formatting the"
-" dictionary, a couple of preparatory steps are carried out. The message "
-"attribute of the record is computed using LogRecord.getMessage(). If the "
-"formatting string uses the time (as determined by a call to usesTime(), "
-"formatTime() is called to format the event time. If there is exception "
-"information, it is formatted using formatException() and appended to the "
-"message."
-msgstr ""
-"record的属性字典用作字符串格式化操作中的操作数，该操作产生返回的字符串。在格式化字典之前，需要执行几个准备步骤。使用LogRecord.getMessage()计算record的消息属性。如果格式化字符串使用时间(通过调用usesTime()来确定)，则将调用formatTime()来格式化事件时间。如果存在异常信息，则使用formatException()将其格式化并附加到消息中。"
+"formatting operation which yields the returned string. Before formatting "
+"the dictionary, a couple of preparatory steps are carried out. The "
+"message attribute of the record is computed using LogRecord.getMessage()."
+" If the formatting string uses the time (as determined by a call to "
+"usesTime(), formatTime() is called to format the event time. If there is "
+"exception information, it is formatted using formatException() and "
+"appended to the message."
+msgstr "record的属性字典用作字符串格式化操作中的操作数，该操作产生返回的字符串。在格式化字典之前，需要执行几个准备步骤。使用LogRecord.getMessage()计算record的消息属性。如果格式化字符串使用时间(通过调用usesTime()来确定)，则将调用formatTime()来格式化事件时间。如果存在异常信息，则使用formatException()将其格式化并附加到消息中。"
 
 #: megengine.logger.enable_debug_log:1 of
 msgid "Sets logging level to debug for all components."
@@ -63,11 +210,6 @@ msgstr "按照给定名称获取megengine日志。"
 msgid "Replaces megbrain log level in a block and restore after exiting."
 msgstr "替换block中megbrain的日志级别，并在退出后恢复。"
 
-#: megengine.logger.replace_mgb_log_level megengine.logger.set_log_file
-#: megengine.logger.set_log_level megengine.logger.set_mgb_log_level of
-msgid "Parameters"
-msgstr "参数"
-
 #: megengine.logger.replace_mgb_log_level:4
 #: megengine.logger.set_mgb_log_level:4 of
 msgid "new log level"
@@ -78,8 +220,7 @@ msgid "Sets log output file."
 msgstr "设置日志的输出文件。"
 
 #: megengine.logger.set_log_file:4 of
-msgid ""
-"file-like object that supports write and flush, or string for the filename"
+msgid "file-like object that supports write and flush, or string for the filename"
 msgstr "支持写操作和flush操作的文件对象，或文件名的字符串"
 
 #: megengine.logger.set_log_file:7 of
@@ -110,6 +251,146 @@ msgstr "返回值"
 msgid "original log level"
 msgstr "初始的日志级别"
 
-#: ../../source/autogen/megengine.rst:19
+#: ../../source_api/zh/api/megengine.rst:27
+msgid "megengine.serialization"
+msgstr "megengine.serialization"
+
+#: megengine.serialization.dmap:1 of
+msgid "Bases: :class:`object`"
+msgstr "基类: :class:`object`"
+
+#: megengine.serialization.load:1 of
+msgid "Load an object saved with save() from a file."
+msgstr "从文件中加载用save()保存的对象。"
+
+#: megengine.serialization.load:4 of
+msgid "a string of file name or a text file object from which to load."
+msgstr "文件名字符串或一个需要加载的文件对象。"
+
+#: megengine.serialization.load:6 of
+msgid "Default: ``None``."
+msgstr "默认值：None"
+
+#: megengine.serialization.load:10 of
+msgid "map_location defines device mapping. See examples for usage."
+msgstr "map_location 定义了设备的映射。用法请参考示例。"
+
+#: megengine.serialization.load:13 megengine.serialization.save:8 of
+msgid "Default: ``pickle``."
+msgstr "默认值： ``pickle``"
+
+#: megengine.serialization.load:17 of
+msgid ""
+"If you will call :func:`mge.set_default_device()`, please do it before "
+":func:`mge.load()`."
+msgstr "如果你要调用 :func:`mge.set_default_device()`，请在调用 :func:`mge.load()` 前完成。"
+
+#: megengine.serialization.load:20 of
+msgid "Examples:"
+msgstr "例如："
+
+#: megengine.serialization.save:1 of
+msgid "Save an object to disk file."
+msgstr "把对象保存成磁盘文件。"
+
+#: megengine.serialization.save:4 of
+msgid "object to save. Only ``module`` or ``state_dict`` are allowed."
+msgstr "要保存的对象。只支持 ``module`` 和 ``state_dict`` 。"
+
+#: megengine.serialization.save:6 of
+msgid "a string of file name or a text file object to which ``obj`` is saved to."
+msgstr "文件名字符串或一个需要保存的文件对象。"
+
+#: megengine.serialization.save:10 of
+msgid "Default: ``pickle.HIGHEST_PROTOCOL``."
+msgstr "默认值： ``pickle.HIGHEST_PROTOCOL``"
+
+#: ../../source_api/zh/api/megengine.rst:35
+msgid "megengine.tensor"
+msgstr "megengine.tensor"
+
+#: megengine.tensor.Parameter:1 of
+msgid "Bases: :class:`megengine.tensor.Tensor`"
+msgstr "基类: :class:`megengine.tensor.Tensor`"
+
+#: megengine.tensor.Parameter:1 of
+msgid "A kind of Tensor that is to be considered a module parameter."
+msgstr "一类表示模块参数的张量。"
+
+#: megengine.tensor.Tensor:1 of
+msgid "Bases: :class:`megengine.core.tensor.tensor_wrapper.TensorWrapper`"
+msgstr "基类: :class:`megengine.core.tensor.tensor_wrapper.TensorWrapper`"
+
+#: megengine.tensor.Tensor.__getstate__:1 of
+msgid "__getstate__ will be called for pickle serialization or deep copy"
+msgstr "__getstate__ 会在pickle序列化或深拷贝时被调用"
+
+#: megengine.tensor.Tensor.detach:1 of
+msgid ""
+"Returns a new tensor which is treated as constant during backward "
+"gradient calcuation, i.e. its gradient is zero."
+msgstr "返回一个新的张量，它在反向梯度计算的时候会被当作常量。即，它的梯度是零。"
+
+#: megengine.tensor.Tensor.detach:4 of
+msgid "input tensor"
+msgstr "输入张量"
+
+#: megengine.tensor.Tensor.reset_zero:2 of
+msgid "use *= 0 instead"
+msgstr "请使用 *= 0"
+
+#: megengine.tensor.Tensor.set_value:2 of
+msgid "no need to reuse an existing tensor since 1.0"
+msgstr "在1.0版本后不需要重复使用一个存在的张量"
+
+#: ../../source_api/zh/api/megengine.rst:43
 msgid "megengine.version"
 msgstr "megengine.version"
+
+#~ msgid ""
+#~ "'multithread' device type is avaliable "
+#~ "when inference, which implements multi-"
+#~ "threading parallelism at the operator "
+#~ "level. For example, 'multithread4' will "
+#~ "compute with 4 threads. which implements"
+#~ msgstr ""
+
+#~ msgid "It can also be set by environmental variable `MGE_DEFAULT_DEVICE`."
+#~ msgstr ""
+
+#~ msgid "specifies how to pre-allocate from raw dev allocator"
+#~ msgstr ""
+
+#~ msgid "growth_factor"
+#~ msgstr ""
+
+#~ msgid "request size / cur allocated"
+#~ msgstr ""
+
+#~ msgid "device_type"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Default: ``None``.  .. note::      "
+#~ "map_location defines device mapping. See "
+#~ "examples for usage."
+#~ msgstr ""
+
+#~ msgid "CAMBRICON"
+#~ msgstr "CAMBRICON"
+
+#~ msgid "FPGA"
+#~ msgstr "FPGA"
+
+#~ msgid "OPENCL"
+#~ msgstr "OPENCL"
+
+#~ msgid "HEXAGON"
+#~ msgstr "HEXAGON"
+
+#~ msgid "CADENCE"
+#~ msgstr "CADENCE"
+
+#~ msgid "ROCM"
+#~ msgstr "ROCM"
+

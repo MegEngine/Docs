@@ -8,16 +8,17 @@ API 文档
 .. toctree::
     :maxdepth: 2
 
+    api/megengine
+    api/megengine.data
+    api/megengine.distributed
     api/megengine.functional
+    api/megengine.hub
+    api/megengine.jit
     api/megengine.module
+    api/megengine.module.pytorch
     api/megengine.module.qat
     api/megengine.module.quantized
-    api/megengine.module.pytorch
     api/megengine.optimizer
-    api/megengine.data
-    api/megengine.jit
     api/megengine.quantization
-    api/megengine.distributed
     api/megengine.random
     api/megengine.utils
-    api/megengine.hub

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 09:28-0700\n"
+"POT-Creation-Date: 2020-10-09 10:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/api_zh/megengine.module.qat.rst:2
+#: ../../source_api/zh/api/megengine.module.qat.rst:2
 msgid "megengine.module.qat package"
 msgstr "megengine.module.qat package"
 
-#: ../../source/api_zh/megengine.module.qat.rst:11
+#: ../../source_api/zh/api/megengine.module.qat.rst:11
 msgid "megengine.module.qat.concat"
 msgstr "megengine.module.qat.concat"
 
@@ -36,8 +36,8 @@ msgstr ""
 
 #: megengine.module.qat.concat.Concat:1 of
 msgid ""
-"A :class:`~.QATModule` to do functional concat with QAT support. Could be "
-"applied with :class:`~.Observer` and :class:`~.FakeQuantize`."
+"A :class:`~.QATModule` to do functional concat with QAT support. Could be"
+" applied with :class:`~.Observer` and :class:`~.FakeQuantize`."
 msgstr ""
 "支持QAT，实现concat函数计算的 :class:`~.QATModule` 。可搭配使用 :class:`~.Observer` 与 "
 ":class:`~.FakeQuantize` 。"
@@ -54,7 +54,7 @@ msgid ""
 ":class:`~.Module` instance."
 msgstr "返回从浮点型 :class:`~.Module` 实例转换而来的 :class:`~.QATModule` 实例。"
 
-#: ../../source/api_zh/megengine.module.qat.rst:19
+#: ../../source_api/zh/api/megengine.module.qat.rst:19
 msgid "megengine.module.qat.conv"
 msgstr "megengine.module.qat.conv"
 
@@ -80,13 +80,13 @@ msgstr "基类： :class:`megengine.module.qat.conv.Conv2d`"
 
 #: megengine.module.qat.conv.ConvRelu2d:1 of
 msgid ""
-"A :class:`~.QATModule` include Conv2d and Relu with QAT support. Could be "
-"applied with :class:`~.Observer` and :class:`~.FakeQuantize`."
+"A :class:`~.QATModule` include Conv2d and Relu with QAT support. Could be"
+" applied with :class:`~.Observer` and :class:`~.FakeQuantize`."
 msgstr ""
 "支持QAT的包含Conv2d与Relu的 :class:`~.QATModule` 。可搭配使用 :class:`~.Observer` 与 "
 ":class:`~.FakeQuantize` 。"
 
-#: ../../source/api_zh/megengine.module.qat.rst:27
+#: ../../source_api/zh/api/megengine.module.qat.rst:27
 msgid "megengine.module.qat.conv\\_bn"
 msgstr "megengine.module.qat.conv\\_bn"
 
@@ -97,22 +97,23 @@ msgstr "基类： :class:`megengine.module.qat.conv_bn._ConvBnActivation2d`"
 
 #: megengine.module.qat.conv_bn.ConvBn2d:1 of
 msgid ""
-"A fused :class:`~.QATModule` including Conv2d, BatchNorm2d with QAT support."
-" Could be applied with :class:`~.Observer` and :class:`~.FakeQuantize`."
+"A fused :class:`~.QATModule` including Conv2d, BatchNorm2d with QAT "
+"support. Could be applied with :class:`~.Observer` and "
+":class:`~.FakeQuantize`."
 msgstr ""
-"支持QAT并融合Conv2d和BatchNorm2d的 :class:`~.QATModule` 。可搭配使用 :class:`~.Observer` 与 "
-":class:`~.FakeQuantize` 。"
+"支持QAT并融合Conv2d和BatchNorm2d的 :class:`~.QATModule` 。可搭配使用 "
+":class:`~.Observer` 与 :class:`~.FakeQuantize` 。"
 
 #: megengine.module.qat.conv_bn.ConvBnRelu2d:1 of
 msgid ""
-"A fused :class:`~.QATModule` including Conv2d, BatchNorm2d and relu with QAT"
-" support. Could be applied with :class:`~.Observer` and "
+"A fused :class:`~.QATModule` including Conv2d, BatchNorm2d and relu with "
+"QAT support. Could be applied with :class:`~.Observer` and "
 ":class:`~.FakeQuantize`."
 msgstr ""
 "支持QAT并融合Conv2d，BatchNorm2d和relu的 :class:`~.QATModule` 。可搭配使用 "
 ":class:`~.Observer` 与 :class:`~.FakeQuantize` 。"
 
-#: ../../source/api_zh/megengine.module.qat.rst:35
+#: ../../source_api/zh/api/megengine.module.qat.rst:35
 msgid "megengine.module.qat.elemwise"
 msgstr "megengine.module.qat.elemwise"
 
@@ -126,23 +127,21 @@ msgstr ""
 
 #: megengine.module.qat.elemwise.Elemwise:1 of
 msgid ""
-"A :class:`~.QATModule` to do elemwise operator with QAT support. Could be "
-"applied with :class:`~.Observer` and :class:`~.FakeQuantize`."
+"A :class:`~.QATModule` to do elemwise operator with QAT support. Could be"
+" applied with :class:`~.Observer` and :class:`~.FakeQuantize`."
 msgstr ""
 "支持QAT，具有elemwise算子功能的 :class:`~.QATModule` 。可搭配使用 :class:`~.Observer` 和 "
 ":class:`~.FakeQuantize` 。"
 
-#: megengine.module.qat.elemwise.Elemwise megengine.module.qat.linear.Linear
-#: of
+#: megengine.module.qat.elemwise.Elemwise megengine.module.qat.linear.Linear of
 msgid "Parameters"
 msgstr "参数"
 
 #: megengine.module.qat.elemwise.Elemwise:4 of
-msgid ""
-"the elemwise method, see :class:`~.module.elemwise.Elemwise` for detail."
+msgid "the elemwise method, see :class:`~.module.elemwise.Elemwise` for detail."
 msgstr "elemwise方法，可参考 :class:`~.module.elemwise.Elemwise` 获取详情。"
 
-#: ../../source/api_zh/megengine.module.qat.rst:43
+#: ../../source_api/zh/api/megengine.module.qat.rst:43
 msgid "megengine.module.qat.linear"
 msgstr "megengine.module.qat.linear"
 
@@ -156,8 +155,8 @@ msgstr ""
 
 #: megengine.module.qat.linear.Linear:1 of
 msgid ""
-"A :class:`~.QATModule` version of :class:`~.module.linear.Linear`. Could be "
-"applied with :class:`~.Observer` and :class:`~.FakeQuantize`."
+"A :class:`~.QATModule` version of :class:`~.module.linear.Linear`. Could "
+"be applied with :class:`~.Observer` and :class:`~.FakeQuantize`."
 msgstr ""
 ":class:`~.QATModule` 型 :class:`~.module.linear.Linear` 。可搭配使用 "
 ":class:`~.Observer` 和 :class:`~.FakeQuantize` 。"
@@ -173,10 +172,10 @@ msgstr "各输出样本的大小。"
 #: megengine.module.qat.linear.Linear:9 of
 msgid ""
 "If set to ``False``, the layer will not learn an additive bias. Default: "
-"``True``"
-msgstr "若为 ``False`` ， 该层不添加偏置。默认： ``True`` 。"
+"True"
+msgstr "若为 ``False`` ， 该层不添加偏置。默认：True"
 
-#: ../../source/api_zh/megengine.module.qat.rst:51
+#: ../../source_api/zh/api/megengine.module.qat.rst:51
 msgid "megengine.module.qat.module"
 msgstr "megengine.module.qat.module"
 
@@ -192,19 +191,18 @@ msgstr "浮点数量化相关模块的基类。主要用于 QAT 和 Calibration 
 
 #: megengine.module.qat.module.QATModule:3 of
 msgid ""
-"Use :meth:`~.QATModule.from_float_module` to generate a instance from float "
-":class:`~.Module`. Or use :func:`~.quantize.quantize_qat` to do it "
+"Use :meth:`~.QATModule.from_float_module` to generate a instance from "
+"float :class:`~.Module`. Or use :func:`~.quantize.quantize_qat` to do it "
 "recursively and automatically."
 msgstr ""
-"使用 :meth:`~.QATModule.from_float_module` 从浮点数型 :class:`~.Module` 中生成实例。或使用 "
-":func:`~.quantize.quantize_qat` 来自动递归进行此操作。"
+"使用 :meth:`~.QATModule.from_float_module` 从浮点数型 :class:`~.Module` "
+"中生成实例。或使用 :func:`~.quantize.quantize_qat` 来自动递归进行此操作。"
 
 #: megengine.module.qat.module.QATModule:6 of
 msgid ""
 "Can also be converted to :class:`~.QuantizedModule` for deployment using "
 ":func:`~.quantize.quantize` further."
-msgstr ""
-"可之后使用  :func:`~.quantize.quantize` 将该模块转为 :class:`~.QuantizedModule` 用于部署。"
+msgstr "可之后使用  :func:`~.quantize.quantize` 将该模块转为 :class:`~.QuantizedModule` 用于部署。"
 
 #: megengine.module.qat.module.QATModule.apply_quant_activation:1
 #: megengine.module.qat.module.QATModule.apply_quant_weight:1 of
@@ -215,17 +213,25 @@ msgstr "在 ``target`` 上根据 ``qconfig`` 应用权重observer以及fake_quan
 msgid "Get activation's quantization dtype as the method from ``qconfig``."
 msgstr "按照qconfig指定的方法，从 ``qconfig`` 中获取激活值的量化数据类型。"
 
+#: megengine.module.qat.module.QATModule.get_activation_qparams:1 of
+msgid "Get activation's quantization parameters."
+msgstr "获取激活值的量化参数。"
+
 #: megengine.module.qat.module.QATModule.get_weight_dtype:1 of
 msgid "Get weight's quantization dtype as the method from ``qconfig``."
-msgstr "以类方法形式，从 ``qconfig`` 中获取权重的量化数据类型。"
+msgstr "从 ``qconfig`` 中获取权重的量化数据类型。"
+
+#: megengine.module.qat.module.QATModule.get_weight_qparams:1 of
+msgid "Get weight's quantization parameters."
+msgstr "获取权重的量化参数。"
 
 #: megengine.module.qat.module.QATModule.set_qconfig:1 of
 msgid ""
-"Set quantization related configs with ``qconfig``, including observer and "
-"fake_quant for weight and activation."
+"Set quantization related configs with ``qconfig``, including observer and"
+" fake_quant for weight and activation."
 msgstr "使用 ``qconfig`` 更改量化相关配置。包含权重和激活值的 observer 和 fake_quant 。"
 
-#: ../../source/api_zh/megengine.module.qat.rst:59
+#: ../../source_api/zh/api/megengine.module.qat.rst:59
 msgid "megengine.module.qat.quant\\_dequant"
 msgstr "megengine.module.qat.quant\\_dequant"
 
@@ -256,3 +262,4 @@ msgid ""
 "A helper QATModule simply return input, but will quantize input after "
 "converted to :class:`~.QuantizedModule`."
 msgstr "仅返回输入的辅助QATModule， 但在转换为 :class:`~.QuantizedModule` 之后，会对输入进行量化。"
+

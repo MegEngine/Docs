@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 09:28-0700\n"
+"POT-Creation-Date: 2020-10-09 10:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/api_zh/megengine.optimizer.rst:2
+#: ../../source_api/zh/api/megengine.optimizer.rst:2
 msgid "megengine.optimizer package"
 msgstr "megengine.optimizer package"
 
-#: ../../source/api_zh/megengine.optimizer.rst:11
+#: ../../source_api/zh/api/megengine.optimizer.rst:11
 msgid "megengine.optimizer.adadelta"
 msgstr "megengine.optimizer.adadelta"
 
@@ -51,7 +51,6 @@ msgstr ""
 #: megengine.optimizer.multi_step_lr.MultiStepLR.load_state_dict
 #: megengine.optimizer.optimizer.Optimizer
 #: megengine.optimizer.optimizer.Optimizer.add_param_group
-#: megengine.optimizer.optimizer.Optimizer.backward
 #: megengine.optimizer.optimizer.Optimizer.load_state_dict
 #: megengine.optimizer.sgd.SGD of
 msgid "Parameters"
@@ -65,28 +64,28 @@ msgstr "可迭代对象，可以是一组待优化的参数，或定义几组参
 
 #: megengine.optimizer.adadelta.Adadelta:9 of
 msgid ""
-"coefficient that scale delta before it is applied to the parameters "
-"(default: 1.0)."
-msgstr "在将delta应用于参数之前缩放比例系数(默认: 1.0)。"
+"coefficient that scales delta before it is applied to the parameters. "
+"Default: 1.0"
+msgstr "在将delta应用于参数之前缩放比例系数。默认: 1.0"
 
 #: megengine.optimizer.adadelta.Adadelta:12 of
 msgid ""
-"coefficient used for computing a running average of squared gradients "
-"(default: 0.9)."
-msgstr "用于计算平方梯度的移动平均值(running average)的系数(默认: 0.9)。"
+"coefficient used for computing a running average of squared gradients. "
+"Default: 0.9"
+msgstr "用于计算平方梯度的移动平均值(running average)的系数。默认: 0.9"
 
 #: megengine.optimizer.adadelta.Adadelta:15 of
 msgid ""
-"term added to the denominator to improve numerical stability (default: "
-"1e-6)."
-msgstr "加到分母上以提高数值稳定性的值 (默认: 1e-6)。"
+"term added to the denominator to improve numerical stability. Default: "
+"1e-6"
+msgstr "加到分母上以提高数值稳定性的值。默认: 1e-6"
 
 #: megengine.optimizer.adadelta.Adadelta:18
-#: megengine.optimizer.adagrad.Adagrad:18 of
-msgid "weight decay (L2 penalty) (default: 0)."
-msgstr "权重衰减(L2 penalty)(默认: 0)。"
+#: megengine.optimizer.adagrad.Adagrad:18 megengine.optimizer.adam.Adam:15 of
+msgid "weight decay (L2 penalty). Default: 0"
+msgstr "权重衰减(L2惩罚)。默认：0"
 
-#: ../../source/api_zh/megengine.optimizer.rst:19
+#: ../../source_api/zh/api/megengine.optimizer.rst:19
 msgid "megengine.optimizer.adagrad"
 msgstr "megengine.optimizer.adagrad"
 
@@ -96,29 +95,30 @@ msgstr "实现Adagrad算法。"
 
 #: megengine.optimizer.adagrad.Adagrad:3 of
 msgid ""
-"It has been proposed in `\"Adaptive Subgradient Methods for Online Learning "
-"and Stochastic Optimization\" <http://jmlr.org/papers/v12/duchi11a.html>`_."
+"It has been proposed in `\"Adaptive Subgradient Methods for Online "
+"Learning and Stochastic Optimization\" "
+"<http://jmlr.org/papers/v12/duchi11a.html>`_."
 msgstr ""
 "这已经在 `\"Adaptive Subgradient Methods for Online Learning and Stochastic "
 "Optimization\" <http://jmlr.org/papers/v12/duchi11a.html>` _ 中被提出。"
 
 #: megengine.optimizer.adagrad.Adagrad:10 of
 msgid ""
-"coefficient that scale delta before it is applied to the parameters "
-"(default: 1e-2)."
-msgstr "在将delta应用于参数之前缩放比例系数(默认: 1e-2)。"
+"coefficient that scales delta before it is applied to the parameters. "
+"Default: 1e-2"
+msgstr "在将delta应用于参数之前缩放比例系数。默认: 1e-2"
 
 #: megengine.optimizer.adagrad.Adagrad:13 of
-msgid "learning rate decay (default: 0)"
-msgstr "学习率衰减的乘数因子。(默认: 0)"
+msgid "learning rate decay. Default: 0"
+msgstr "学习率衰减的乘数因子。默认: 0"
 
 #: megengine.optimizer.adagrad.Adagrad:15 of
 msgid ""
-"term added to the denominator to improve numerical stability (default: "
-"1e-10)."
-msgstr "加到分母上以提高数值稳定性的值(默认: 1e-10)。"
+"term added to the denominator to improve numerical stability. Default: "
+"1e-10"
+msgstr "加到分母上以提高数值稳定性的值。默认: 1e-10"
 
-#: ../../source/api_zh/megengine.optimizer.rst:27
+#: ../../source_api/zh/api/megengine.optimizer.rst:27
 msgid "megengine.optimizer.adam"
 msgstr "megengine.optimizer.adam"
 
@@ -136,33 +136,15 @@ msgstr "学习率(learning rate)。"
 
 #: megengine.optimizer.adam.Adam:9 of
 msgid ""
-"coefficients used for computing running averages of gradient and its square."
-" Default: (0.9, 0.999)"
+"coefficients used for computing running averages of gradient and its "
+"square. Default: (0.9, 0.999)"
 msgstr "一组系数，用于计算运行时梯度的平均值及其平方值。默认：(0.9，0.999)"
 
 #: megengine.optimizer.adam.Adam:12 of
-msgid ""
-"term added to the denominator to improve numerical stability Default: 1e-8"
+msgid "term added to the denominator to improve numerical stability Default: 1e-8"
 msgstr "加到分母上以提高数值稳定性的值，默认：1e-8"
 
-#: megengine.optimizer.adam.Adam:15 of
-msgid "weight decay (L2 penalty). Default: 0"
-msgstr "权重衰减(L2惩罚)。默认：0"
-
-#: ../../source/api_zh/megengine.optimizer.rst:35
-msgid "megengine.optimizer.internal"
-msgstr "megengine.optimizer.internal"
-
-#: megengine.optimizer.internal.add_update_fastpath:1 of
-msgid ""
-"a fast-path ONLY used to update parameters in optimizer, since it would "
-"bypass computing graph and launch dnn/add_update kernel directly, it is more"
-" efficient than functional/add_update."
-msgstr ""
-"仅用于在优化器中更新参数的快捷路径。因为它可以绕过计算图直接启动dnn/add_update kernel， "
-"启用此项比functional/add_update更加高效。"
-
-#: ../../source/api_zh/megengine.optimizer.rst:43
+#: ../../source_api/zh/api/megengine.optimizer.rst:35
 msgid "megengine.optimizer.lr\\_scheduler"
 msgstr "megengine.optimizer.lr\\_scheduler"
 
@@ -177,11 +159,12 @@ msgstr "所有学习率调度器的基类。"
 
 #: megengine.optimizer.lr_scheduler.LRScheduler:4
 #: megengine.optimizer.multi_step_lr.MultiStepLR:5 of
-msgid "Wrapped optimizer."
+msgid "wrapped optimizer."
 msgstr "包装后的优化器。"
 
-#: megengine.optimizer.lr_scheduler.LRScheduler:6 of
-msgid "The index of current epoch. Default: -1"
+#: megengine.optimizer.lr_scheduler.LRScheduler:6
+#: megengine.optimizer.multi_step_lr.MultiStepLR:13 of
+msgid "the index of current epoch. Default: -1"
 msgstr "当前epoch的索引。默认：-1"
 
 #: megengine.optimizer.lr_scheduler.LRScheduler.get_lr:1
@@ -194,20 +177,21 @@ msgstr "计算当前调度器(scheduler)的学习率。"
 msgid "Loads the schedulers state."
 msgstr "加载调度器(scheduler)的状态。"
 
-#: megengine.optimizer.lr_scheduler.LRScheduler.load_state_dict:3
-#: megengine.optimizer.multi_step_lr.MultiStepLR.load_state_dict:3 of
+#: megengine.optimizer.lr_scheduler.LRScheduler.load_state_dict:4
+#: megengine.optimizer.multi_step_lr.MultiStepLR.load_state_dict:4 of
 msgid "scheduler state."
 msgstr "调度器(scheduler)的状态。"
 
 #: megengine.optimizer.lr_scheduler.LRScheduler.state_dict:1
 #: megengine.optimizer.multi_step_lr.MultiStepLR.state_dict:1 of
 msgid ""
-"Returns the state of the scheduler as a :class:`dict`. It contains an entry "
-"for every variable in self.__dict__ which is not the optimizer."
+"Returns the state of the scheduler as a :class:`dict`. It contains an "
+"entry for every variable in self.__dict__ which is not the optimizer."
 msgstr ""
-"以 :class:`dict` 的形式返回调度器(非优化器)的状态。对于调度器的 self.__dict__ 中的每一个变量，都会在其中有对应的条目。"
+"以 :class:`dict` 的形式返回调度器(非优化器)的状态。对于调度器的 self.__dict__ "
+"中的每一个变量，都会在其中有对应的条目。"
 
-#: ../../source/api_zh/megengine.optimizer.rst:51
+#: ../../source_api/zh/api/megengine.optimizer.rst:43
 msgid "megengine.optimizer.multi\\_step\\_lr"
 msgstr "megengine.optimizer.multi\\_step\\_lr"
 
@@ -223,19 +207,15 @@ msgstr "以gamma为倍率阶梯式衰减各参数组的学习率"
 msgid "number of epoch reaches one of the milestones."
 msgstr "当epoch的数目达到milestones之一时，才会执行。"
 
-#: megengine.optimizer.multi_step_lr.MultiStepLR:6 of
-msgid "List of epoch indices. Must be increasing."
+#: megengine.optimizer.multi_step_lr.MultiStepLR:8 of
+msgid "list of epoch indices which should be increasing."
 msgstr "epoch索引列表。必须按递增排序。"
 
-#: megengine.optimizer.multi_step_lr.MultiStepLR:7 of
-msgid "Multiplicative factor of learning rate decay. Default: 0.1."
-msgstr "学习率衰减的乘数因子。默认：0.1。"
+#: megengine.optimizer.multi_step_lr.MultiStepLR:11 of
+msgid "multiplicative factor of learning rate decay. Default: 0.1"
+msgstr "学习率衰减的乘数因子。默认：0.1"
 
-#: megengine.optimizer.multi_step_lr.MultiStepLR:9 of
-msgid "The index of current epoch. Default: -1."
-msgstr "当前epoch的索引。默认：-1。"
-
-#: ../../source/api_zh/megengine.optimizer.rst:59
+#: ../../source_api/zh/api/megengine.optimizer.rst:51
 msgid "megengine.optimizer.optimizer"
 msgstr "megengine.optimizer.optimizer"
 
@@ -248,43 +228,33 @@ msgid "specifies what Tensors should be optimized."
 msgstr "指定应该优化哪些张量。"
 
 #: megengine.optimizer.optimizer.Optimizer:6 of
-msgid ""
-"a dict of default parameters of Optimizer, like learning rate or momentum."
+msgid "a dict of default parameters of Optimizer, like learning rate or momentum."
 msgstr "一个含有优化器默认参数的dict，如含有学习率(learning rate)和动量(momentum)。"
-
-#: megengine.optimizer.optimizer.Optimizer:8 of
-msgid ""
-"interval time between two broadcast of distributed training. Default: 500"
-msgstr "分布式训练中每两次参数广播的间隔时间。默认：500"
 
 #: megengine.optimizer.optimizer.Optimizer.add_param_group:1 of
 msgid ""
 "Add a param group to ``param_groups`` of the "
 ":class:`~megengine.optim.optimizer.Optimizer`."
 msgstr ""
-"向 :class:`~megengine.optim.optimizer.Optimizer`    的 ``param_groups`` "
+"向 :class:`~megengine.optim.optimizer.Optimizer` 的 ``param_groups`` "
 "中添加一组参数。"
 
 #: megengine.optimizer.optimizer.Optimizer.add_param_group:3 of
 msgid ""
-"This can be useful when fine tuning a pre-trained network as frozen layers "
-"can be made trainable and added to the "
+"This can be useful when fine tuning a pre-trained network as frozen "
+"layers can be made trainable and added to the "
 ":class:`~megengine.optim.optimizer.Optimizer` as training progresses."
 msgstr ""
 "该方法可以在微调(fine-tuning)预训练网络时发挥作用，在训练过程中，冻结层通过此方法加入到 "
-":class:`~megengine.optim.optimizer.Optimizer` 中变为可训练层 。"
+":class:`~megengine.optim.optimizer.Optimizer` 中变为可训练层。"
 
 #: megengine.optimizer.optimizer.Optimizer.add_param_group:7 of
 msgid "specifies what tensors should be optimized along with group."
 msgstr "指定了应与参数组一起进行优化的张量。"
 
-#: megengine.optimizer.optimizer.Optimizer.backward:1 of
-msgid "Computes the back-propagation of the network given loss."
-msgstr "由给定网络损失，计算反向传播。"
-
-#: megengine.optimizer.optimizer.Optimizer.backward:4 of
-msgid "The obtained loss tensor"
-msgstr "得到的损失张量"
+#: megengine.optimizer.optimizer.Optimizer.clear_grad:1 of
+msgid "Set the grad attribute to None for all parameters."
+msgstr "把所有参数的梯度属性设置为 None。"
 
 #: megengine.optimizer.optimizer.Optimizer.load_state_dict:1 of
 msgid "Loads the optimizer state."
@@ -320,11 +290,11 @@ msgstr "优化器状态。可通过 :meth:`load_state_dict` 来加载。"
 msgid "Performs a single optimization step."
 msgstr "执行单一优化步骤。"
 
-#: megengine.optimizer.optimizer.Optimizer.zero_grad:1 of
-msgid "Reset the grad to zeros."
-msgstr "重置梯度为零。"
+#: megengine.optimizer.optimizer.Optimizer.zero_grad:2 of
+msgid "use clear_grad instead"
+msgstr "使用 clear_grad"
 
-#: ../../source/api_zh/megengine.optimizer.rst:67
+#: ../../source_api/zh/api/megengine.optimizer.rst:59
 msgid "megengine.optimizer.sgd"
 msgstr "megengine.optimizer.sgd"
 
@@ -339,8 +309,8 @@ msgid ""
 "initialization and momentum in deep learning\" "
 "<http://www.cs.toronto.edu/%7Ehinton/absps/momentum.pdf>`_ ."
 msgstr ""
-"Nesterov momentum的实现是基于 `\"On the importance of initialization and momentum "
-"in deep learning\" "
+"Nesterov momentum的实现是基于 `\"On the importance of initialization and "
+"momentum in deep learning\" "
 "<http://www.cs.toronto.edu/%7Ehinton/absps/momentum.pdf>`_ 中的公式。"
 
 #: megengine.optimizer.sgd.SGD:12 of
@@ -350,6 +320,3 @@ msgstr "momentum因子。默认：0.0"
 #: megengine.optimizer.sgd.SGD:14 of
 msgid "weight decay (L2 penalty). Default: 0.0"
 msgstr "权重衰减(L2范数惩罚)。默认：0.0"
-
-#~ msgid "Implements Adam algorithm."
-#~ msgstr "实现Adam算法。"

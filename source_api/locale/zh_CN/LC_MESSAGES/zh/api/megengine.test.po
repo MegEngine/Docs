@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 09:28-0700\n"
+"POT-Creation-Date: 2020-09-22 10:40+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/api_zh/megengine.test.rst:2
+#: ../../source_api/zh/api/megengine.test.rst:2
 msgid "megengine.test package"
 msgstr "megengine.test package"
 
@@ -27,8 +27,7 @@ msgid "Parameters"
 msgstr "参数"
 
 #: megengine.test.assertTensorClose:2 of
-msgid ""
-"whether to allow :attr:`v0` and :attr:`v1` to contain inf and nan values."
+msgid "whether to allow :attr:`v0` and :attr:`v1` to contain inf and nan values."
 msgstr "是否允许 :attr:`v0` 和 :attr:`v1` 包含inf和NaN值。"
 
 #: megengine.test.assertTensorClose:4 of
@@ -37,3 +36,42 @@ msgstr "相对误差"
 
 #~ msgid "max_err: relative error"
 #~ msgstr "max_err：相对误差"
+
+#~ msgid ""
+#~ "func: the function to run opr. "
+#~ "compare_fn: the function to compare the"
+#~ " result and expected, use assertTensorClose"
+#~ " if None. ref_fn: the function to "
+#~ "generate expected data, should assign "
+#~ "output if None. cases: the list "
+#~ "which have dict element, the list "
+#~ "length should be 2 for dynamic "
+#~ "shape test."
+#~ msgstr "func：运行算子的函数。"
+
+#~ msgid ""
+#~ "and the dict should have input, "
+#~ "and should have output if ref_fn "
+#~ "is None. should use list for "
+#~ "multiple inputs and outputs for each "
+#~ "case."
+#~ msgstr ""
+
+#~ msgid "kwargs: The additional kwargs for opr func."
+#~ msgstr ""
+
+#~ msgid "simple examples:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "dtype = np.float32 cases = [{\"input\":"
+#~ " [10, 20]}, {\"input\": [20, 30]}] "
+#~ "opr_test(cases,"
+#~ msgstr ""
+
+#~ msgid "F.eye, ref_fn=lambda n, m: np.eye(n, m).astype(dtype), dtype=dtype)"
+#~ msgstr ""
+
+#~ msgid "megengine.test.conftest"
+#~ msgstr "megengine.test.conftest"
+

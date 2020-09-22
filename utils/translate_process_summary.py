@@ -48,10 +48,10 @@ allpo_entry_num = 0
 allpo_entry_num_trans = 0
 
 
-for pofname in po_files:
+for pofname in sorted(po_files):
     pof = polib.pofile(poloc + pofname, encoding="utf-8")
-    # ignore all cleared files and megengine.core files
-    if pof.percent_translated() < 100 and "megengine.core" not in pofname:
+    # ignore all megengine.core files
+    if "megengine.core" not in pofname:
         print(highlighter(pofname, "filename"), end="")
 
         allpo_entry_num += len(pof) - len(pof.obsolete_entries())
@@ -69,4 +69,6 @@ print(highlighter("总条目：", "hint3"), end="")
 print(str(allpo_entry_num_trans) + "/" + str(allpo_entry_num))
 
 print(highlighter("总翻译进度：", "hint3"), end="")
+if  allpo_entry_num == 0:
+    allpo_entry_num, allpo_entry_num_trans = 1, 1
 print("{:=.2f}".format((allpo_entry_num_trans / allpo_entry_num) * 100) + "%")

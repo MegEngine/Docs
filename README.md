@@ -102,7 +102,7 @@ Finally, run `build_api.sh` again to update zh html pages.
 In order to help with the translation procedure, run following command to see the progress:
 
 ```bash
-python3 utils/trans_summary.py /data/docs/source_api/locale/zh_CN/LC_MESSAGES/zh/api/
+python3 utils/translate_process_summary.py /data/docs/source_api/locale/zh_CN/LC_MESSAGES/zh/api/
 ```
 
 

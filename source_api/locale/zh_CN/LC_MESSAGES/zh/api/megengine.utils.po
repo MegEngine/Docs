@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-27 03:15-0700\n"
+"POT-Creation-Date: 2020-10-09 16:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,27 +18,66 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/autogen/megengine.utils.rst:2
+#: ../../source_api/zh/api/megengine.utils.rst:2
 msgid "megengine.utils package"
 msgstr "megengine.utils package"
 
-#: ../../source/autogen/megengine.utils.rst:11
-msgid "megengine.utils.http\\_download"
-msgstr "megengine.utils.http\\_download"
+#: ../../source_api/zh/api/megengine.utils.rst:11
+msgid "megengine.utils.comp\\_graph\\_tools"
+msgstr "megengine.utils.comp\\_graph\\_tools"
 
-#: megengine.utils.http_download.HTTPDownloadError:1 of
-msgid "Bases: :class:`BaseException`"
-msgstr "基类: :class:`BaseException`"
+#: megengine.utils.comp_graph_tools.get_dep_vars:1 of
+msgid ""
+"Returns :class:`.tensor.core.megbrain_graph.VarNode` of type ``var_type``"
+" that input ``var`` depands on. If ``var_type`` is None, returns all "
+"types."
+msgstr ""
+"返回一个输入的 ``var`` 依赖的、类型是 ``var_type`` 的 :class:`.tensor.core.megbrain_graph.VarNode` 。"
+"如果 ``var_type`` 是 None，返回所有类型。"
 
-#: megengine.utils.http_download.HTTPDownloadError:1 of
-msgid "The class that represents http request error"
-msgstr "表示http请求错误的类"
+#: megengine.utils.comp_graph_tools.get_dep_vars
+#: megengine.utils.comp_graph_tools.get_opr_type
+#: megengine.utils.comp_graph_tools.get_oprs_seq
+#: megengine.utils.comp_graph_tools.get_owner_opr_inputs
+#: megengine.utils.comp_graph_tools.get_owner_opr_type
+#: megengine.utils.comp_graph_tools.load_and_inference
+#: megengine.utils.comp_graph_tools.replace_oprs
+#: megengine.utils.comp_graph_tools.replace_vars
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func of
+msgid "Return type"
+msgstr "返回类型"
 
-#: megengine.utils.http_download.download_from_url:1 of
-msgid "Downloads file from given url to ``dst``"
-msgstr "从指定URL下载文件到 ``dst`` "
+#: megengine.utils.comp_graph_tools.get_dep_vars:5
+#: megengine.utils.comp_graph_tools.get_owner_opr_inputs:5
+#: megengine.utils.comp_graph_tools.replace_oprs:8
+#: megengine.utils.comp_graph_tools.replace_vars:8 of
+msgid ":py:class:`~typing.List`\\[:py:class:`~megengine.core._imperative_rt.graph.VarNode`]"
+msgstr ":py:class:`~typing.List`\\[:py:class:`~megengine.core._imperative_rt.graph.VarNode`]"
 
+#: megengine.utils.comp_graph_tools.get_opr_type:1 of
+msgid "Gets the type of an opr."
+msgstr "获取一个算子的类型。"
+
+#: megengine.utils.comp_graph_tools.get_opr_type:5
+#: megengine.utils.comp_graph_tools.get_owner_opr_type:6 of
+msgid ":py:class:`str`"
+msgstr ":py:class:`str`"
+
+#: megengine.utils.comp_graph_tools.get_oprs_seq:1 of
+msgid "Gets oprs in some topological order for a dumped model."
+msgstr "获取一个导出模型的按照拓扑序排列的算子列表。"
+
+#: megengine.utils.comp_graph_tools.get_oprs_seq
+#: megengine.utils.comp_graph_tools.graph_traversal
+#: megengine.utils.comp_graph_tools.load_and_inference
+#: megengine.utils.comp_graph_tools.replace_oprs
+#: megengine.utils.comp_graph_tools.replace_vars
+#: megengine.utils.comp_graph_tools.set_priority_to_id
 #: megengine.utils.http_download.download_from_url
+#: megengine.utils.plugin.load_tensor_binary
 #: megengine.utils.profile_analyzer.OprProfRst.__init__
 #: megengine.utils.profile_analyzer.OprProfRst.update_device_prof_info
 #: megengine.utils.profile_analyzer.OprProfRst.update_footprint
@@ -50,44 +89,238 @@ msgstr "从指定URL下载文件到 ``dst`` "
 #: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func
 #: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func
 #: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func
-#: megengine.utils.types.get_ndtuple of
+#: megengine.utils.profiler.Profiler megengine.utils.types.get_ndtuple of
 msgid "Parameters"
 msgstr "参数"
 
-#: megengine.utils.http_download.download_from_url:4 of
-msgid "source URL"
-msgstr "来源网址URL"
+#: megengine.utils.comp_graph_tools.get_oprs_seq:4
+#: megengine.utils.comp_graph_tools.graph_traversal:4 of
+msgid "model outputs."
+msgstr "模型输出。"
 
-#: megengine.utils.http_download.download_from_url:6 of
-msgid "saving path"
-msgstr "保存路径"
+#: megengine.utils.comp_graph_tools.get_oprs_seq:5 of
+msgid "whether to prune the useless operators during inference."
+msgstr "是否在推理时剪掉无用的算子。"
 
-#: megengine.utils.http_download.download_from_url:7 of
-msgid "how many seconds to wait for data before giving up"
-msgstr "等待数据多少秒后放弃"
+#: megengine.utils.comp_graph_tools.get_oprs_seq:6 of
+msgid ":py:class:`~typing.List`\\[:py:class:`~megengine.core._imperative_rt.graph.OperatorNode`]"
+msgstr ":py:class:`~typing.List`\\[:py:class:`~megengine.core._imperative_rt.graph.OperatorNode`]"
 
-#: ../../source/autogen/megengine.utils.rst:19
-msgid "megengine.utils.max\\_recursion\\_limit"
-msgstr "megengine.utils.max\\_recursion\\_limit"
+#: megengine.utils.comp_graph_tools.get_oprs_seq
+#: megengine.utils.comp_graph_tools.graph_traversal
+#: megengine.utils.comp_graph_tools.load_and_inference
+#: megengine.utils.comp_graph_tools.replace_oprs
+#: megengine.utils.comp_graph_tools.replace_vars
+#: megengine.utils.plugin.load_tensor_binary
+#: megengine.utils.profile_analyzer.ProfileAnalyzer.select
+#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func
+#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func
+#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func of
+msgid "Returns"
+msgstr "返回"
 
+#: megengine.utils.comp_graph_tools.get_oprs_seq:7 of
+msgid "opr list with some correct execution order."
+msgstr "按照运行顺序排列的算子列表。"
+
+#: megengine.utils.comp_graph_tools.get_owner_opr_inputs:1 of
+msgid "Gets the inputs of owner opr of a variable."
+msgstr "获取拥有这个变量的算子的所有输入。"
+
+#: megengine.utils.comp_graph_tools.get_owner_opr_type:1 of
+msgid "Gets the type of owner opr of a variable."
+msgstr "获得拥有这个变量的算子类型。"
+
+#: megengine.utils.comp_graph_tools.graph_traversal:1 of
+msgid ""
+"Helper function to traverse the computing graph and return enough useful "
+"information."
+msgstr ""
+"一个用于遍历计算图并返回足够有用的信息的辅助函数。"
+
+#: megengine.utils.comp_graph_tools.graph_traversal:5 of
+msgid ""
+"tuple (map_oprs, map_vars, var2oprs, opr2receivers, indegree2opr, "
+"opr2indegree) WHERE map_oprs is dict from opr_id to actual opr map_vars "
+"is dict from var_id to actual var var2oprs is dict from var to dest oprs "
+"along with index opr2receivers is dict from current opr to next opr "
+"indegree2opr is dict from in_degree to opr in computing graph "
+"opr2indegree is dict from opr in computing graph to in_degree  "
+"(indegree2opr, opr2indegree) are only used in topological sort in "
+"get_oprs_seq function"
+msgstr " "
+
+#: megengine.utils.comp_graph_tools.graph_traversal:5 of
+msgid ""
+"tuple (map_oprs, map_vars, var2oprs, opr2receivers, indegree2opr, "
+"opr2indegree) WHERE map_oprs is dict from opr_id to actual opr map_vars "
+"is dict from var_id to actual var var2oprs is dict from var to dest oprs "
+"along with index opr2receivers is dict from current opr to next opr "
+"indegree2opr is dict from in_degree to opr in computing graph "
+"opr2indegree is dict from opr in computing graph to in_degree"
+msgstr ""
+"元组（map_oprs, map_vars, var2oprs, opr2receivers, indegree2opr, opr2indegree）。其中，map_oprs是把算子下标（opr_id）映射到实际的算子（opr）的字典，"
+"map_vars是把变量下标（var_id）映射到实际的变量（var）的字典，var2oprs是一个把变量（var）映射到目标算子（opr）的字典，opr2receivers是一个把算子（opr）映射到"
+"下一个算子（opr）的字典，indegree2opr是一个把入度（in_degree）映射到计算图中的算子（opr）的字典，opr2indegree是一个把算子（opr）映射到入度（in_degree）的字典。"
+
+#: megengine.utils.comp_graph_tools.graph_traversal:14 of
+msgid ""
+"(indegree2opr, opr2indegree) are only used in topological sort in "
+"get_oprs_seq function"
+msgstr "(indegree2opr, opr2indegree) 只会在函数 get_oprs_seq 中被用于拓扑排序。"
+
+#: megengine.utils.comp_graph_tools.load_and_inference:1 of
+msgid "Loads a serialized computing graph and run inference with input data."
+msgstr "加载一个序列化的计算图并根据输入数据进行推理。"
+
+#: megengine.utils.comp_graph_tools.load_and_inference:3 of
+msgid "path or handle of the input file."
+msgstr "输入文件的路径或句柄。"
+
+#: megengine.utils.comp_graph_tools.load_and_inference:5 of
+msgid "list of input data."
+msgstr "输入数据的列表。"
+
+#: megengine.utils.comp_graph_tools.load_and_inference:6 of
+msgid ":py:class:`~typing.List`\\[:py:class:`~numpy.ndarray`]"
+msgstr ":py:class:`~typing.List`\\[:py:class:`~numpy.ndarray`]"
+
+#: megengine.utils.comp_graph_tools.load_and_inference:7 of
+msgid "list of inference results."
+msgstr "推理结果的列表。"
+
+#: megengine.utils.comp_graph_tools.replace_oprs:1 of
+msgid "Replaces operators in the graph."
+msgstr "替换图中的算子。"
+
+#: megengine.utils.comp_graph_tools.replace_oprs:4
+#: megengine.utils.comp_graph_tools.replace_vars:4
+#: megengine.utils.comp_graph_tools.set_priority_to_id:3 of
+msgid "target vars representing the graph."
+msgstr "将会出现在新图中的目标变量。"
+
+#: megengine.utils.comp_graph_tools.replace_oprs:6 of
+msgid "the map that specifies how to replace the operators."
+msgstr "一个指示如何替换算子的映射。"
+
+#: megengine.utils.comp_graph_tools.replace_oprs:9
+#: megengine.utils.comp_graph_tools.replace_vars:9 of
+msgid "new vars that correspond to ``dst`` with all the dependencies replaced."
+msgstr "与 ``dst`` 对应且所有依赖都被替换好的新变量。"
+
+#: megengine.utils.comp_graph_tools.replace_vars:1 of
+msgid "Replaces vars in the graph."
+msgstr "替换图中的变量。"
+
+#: megengine.utils.comp_graph_tools.replace_vars:6 of
+msgid "the map that specifies how to replace the vars."
+msgstr "一个指示如何替换变量的映射。"
+
+#: megengine.utils.comp_graph_tools.set_priority_to_id:1 of
+msgid "For all oprs in the subgraph constructed by dest_vars,"
+msgstr "对于根据 dest_vars 构建的子图中的所有算子，"
+
+#: megengine.utils.comp_graph_tools.set_priority_to_id:2 of
+msgid "sets its priority to id if its original priority is zero."
+msgstr "如果它的初始优先级是0，就把它的优先级设置为id。"
+
+#: ../../source_api/zh/api/megengine.utils.rst:19
+msgid "megengine.utils.compare\\_binary\\_iodump"
+msgstr "megengine.utils.compare\\_binary\\_iodump"
+
+#: ../../source_api/zh/api/megengine.utils.rst:27
+msgid "megengine.utils.deprecation"
+msgstr "megengine.utils.deprecation"
+
+#: ../../source_api/zh/api/megengine.utils.rst:35
+msgid "megengine.utils.future"
+msgstr "megengine.utils.future"
+
+#: megengine.utils.future.Future:1 megengine.utils.hook.HookHandler:1
 #: megengine.utils.max_recursion_limit.AlternativeRecursionLimit:1
 #: megengine.utils.profile_analyzer.NonExistNum:1
 #: megengine.utils.profile_analyzer.OprProfRst:1
 #: megengine.utils.profile_analyzer.ProfileAnalyzer:1
 #: megengine.utils.profile_analyzer.Record:1
-#: megengine.utils.profile_analyzer.TimeFuncHelper:1 of
+#: megengine.utils.profile_analyzer.TimeFuncHelper:1
+#: megengine.utils.profiler.Profiler:1
+#: megengine.utils.tensor_sanity_check.TensorSanityCheck:1 of
 msgid "Bases: :class:`object`"
 msgstr "基类: :class:`object`"
+
+#: ../../source_api/zh/api/megengine.utils.rst:43
+msgid "megengine.utils.hook"
+msgstr "megengine.utils.hook"
+
+#: ../../source_api/zh/api/megengine.utils.rst:51
+msgid "megengine.utils.http\\_download"
+msgstr "megengine.utils.http\\_download"
+
+#: megengine.utils.http_download.HTTPDownloadError:1 of
+msgid "Bases: :class:`BaseException`"
+msgstr "基类: :class:`BaseException`"
+
+#: megengine.utils.http_download.HTTPDownloadError:1 of
+msgid "The class that represents http request error."
+msgstr "表示http请求错误的类。"
+
+#: megengine.utils.http_download.download_from_url:1 of
+msgid "Downloads file from given url to ``dst``."
+msgstr "从指定URL下载文件到 ``dst`` ."
+
+#: megengine.utils.http_download.download_from_url:4 of
+msgid "source URL."
+msgstr "来源网址URL."
+
+#: megengine.utils.http_download.download_from_url:6 of
+msgid "saving path."
+msgstr "保存路径。"
+
+#: megengine.utils.http_download.download_from_url:7 of
+msgid "how many seconds to wait for data before giving up."
+msgstr "等待数据多少秒后放弃。"
+
+#: ../../source_api/zh/api/megengine.utils.rst:59
+msgid "megengine.utils.max\\_recursion\\_limit"
+msgstr "megengine.utils.max\\_recursion\\_limit"
 
 #: megengine.utils.max_recursion_limit.AlternativeRecursionLimit:1 of
 msgid "A reentrant context manager for setting global recursion limits."
 msgstr "一个可重入上下文管理器，可用于设置全局递归限制。"
 
 #: megengine.utils.max_recursion_limit.max_recursion_limit:1 of
-msgid "Sets recursion limit to the max possible value"
-msgstr "设置递归限制为最大可能值"
+msgid "Sets recursion limit to the max possible value."
+msgstr "设置递归限制为最大可能值。"
 
-#: ../../source/autogen/megengine.utils.rst:27
+#: ../../source_api/zh/api/megengine.utils.rst:67
+msgid "megengine.utils.net\\_stats"
+msgstr "megengine.utils.net\\_stats"
+
+#: ../../source_api/zh/api/megengine.utils.rst:75
+msgid "megengine.utils.plugin"
+msgstr "megengine.utils.plugin"
+
+#: megengine.utils.plugin.load_tensor_binary:1 of
+msgid ""
+"Load a tensor dumped by the :class:`BinaryOprIODump` plugin; the actual "
+"tensor value dump is implemented by ``mgb::debug::dump_tensor``."
+msgstr ""
+"载入一个通过 :class:`BinaryOprIODump` 存入文件的张量；真实的张量数值存储由 "
+"``mgb::debug::dump_tensor`` 实现。"
+
+#: megengine.utils.plugin.load_tensor_binary:4 of
+msgid "Multiple values can be compared by ``tools/compare_binary_iodump.py``."
+msgstr "多个值可以通过 ``tools/compare_binary_iodump.py`` 进行比较。"
+
+#: megengine.utils.plugin.load_tensor_binary:6 of
+msgid "file object, or a string that contains the file name."
+msgstr "文件对象，或者一个文件名的字符串。"
+
+#: megengine.utils.plugin.load_tensor_binary:7 of
+msgid "tuple ``(tensor_value, tensor_name)``."
+msgstr "元组 ``(tensor_value, tensor_name)``。"
+
+#: ../../source_api/zh/api/megengine.utils.rst:83
 msgid "megengine.utils.profile\\_analyze"
 msgstr "megengine.utils.profile\\_analyze"
 
@@ -99,70 +332,71 @@ msgstr "分析 :mod:`~.utils.profile_analyzer` 中的性能分析信息。"
 msgid "Run this file with ``--help`` to get more usage."
 msgstr "运行该文件时，附带 ``--help`` 得到更详细的使用说明。"
 
-#: ../../source/autogen/megengine.utils.rst:35
+#: ../../source_api/zh/api/megengine.utils.rst:91
 msgid "megengine.utils.profile\\_analyzer"
 msgstr "megengine.utils.profile\\_analyzer"
 
 #: megengine.utils.profile_analyzer.NonExistNum:1 of
 msgid ""
-"An object that behaves like a number but means a field does not exist; It is"
-" always greater than any real number"
-msgstr "一个内部方法类似数字型的对象，但用来表明一个域不存在。它总是大于任何实数"
+"An object that behaves like a number but means a field does not exist; It"
+" is always greater than any real number."
+msgstr "一个内部方法类似数字型的对象，但用来表明一个域不存在。它总是大于任何实数。"
 
 #: megengine.utils.profile_analyzer.OprProfRst:1 of
 msgid "Opr profiling result dumped from megengine profiler."
 msgstr "从megengine profiler抛出的opr profiling结果。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.__init__:1 of
-msgid ""
-"Opr profiling initialization, which sets up name, type and id of opr_info."
+msgid "Opr profiling initialization, which sets up name, type and id of opr_info."
 msgstr "opr profiling初始化，其中设置opr_info的name，type，id。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.__init__:4 of
-msgid "profiling json exec_graph items"
-msgstr "对json exec_graph条目进行性能分析"
+msgid "profiling json exec_graph items."
+msgstr "对json exec_graph条目进行性能分析。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.footprint:1 of
 msgid ""
-"A mapping from ``\"memory\"`` or ``\"computation\"`` to the actual number of"
-" corresponding operations"
-msgstr "从 ``\"memory\"`` 或 ``\"computation\"`` 到对应操作中实际数据的映射"
+"A mapping from ``\"memory\"`` or ``\"computation\"`` to the actual number"
+" of corresponding operations."
+msgstr "从 ``\"memory\"`` 或 ``\"computation\"`` 到对应操作中实际数据的映射。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.opr_info:1 of
 msgid "A dict containing operator info:  name, id and type."
 msgstr "一个包含操作符信息的dict型变量，信息包括 :  name, id and type。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.time_dict:1 of
-msgid "A mapping from ``\"host\"`` or ``\"device\"`` to list of profiling results."
+msgid ""
+"A mapping from ``\"host\"`` or ``\"device\"`` to list of profiling "
+"results."
 msgstr "从 ``\"host\"`` 或 ``\"device\"`` 到性能测试（profiling）结果列表的映射。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.update_device_prof_info:1 of
-msgid "Updates device profiling info"
-msgstr "更新设备性能测试信息（profiling info）"
+msgid "Updates device profiling info."
+msgstr "更新设备性能测试信息（profiling info）。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.update_device_prof_info:4 of
 msgid "device time for single opr, is an attribute of profiling result."
 msgstr "对于单个算子（operator）的设备时间，是性能测试（profiling）结果的属性之一。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.update_footprint:1 of
-msgid "Updates opr footprint"
-msgstr "更新算子性能记录（footprint）"
+msgid "Updates opr footprint."
+msgstr "更新算子性能记录（footprint）。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.update_footprint:4 of
 msgid "footprint for single opr, is an attribute of profiling result."
 msgstr "单个算子的内存大小（footprint）性能记录，是性能测试结果的属性之一。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.update_host_prof_info:1 of
-msgid "Updates host profiling info"
-msgstr "更新host的性能测试信息（profiling info）"
+msgid "Updates host profiling info."
+msgstr "更新host的性能测试信息（profiling info）。"
 
 #: megengine.utils.profile_analyzer.OprProfRst.update_host_prof_info:4 of
 msgid "host time for single opr, is an attribute of profiling result."
 msgstr "单个算子的host时间， 性能测试结果的属性之一。"
 
 #: megengine.utils.profile_analyzer.ProfileAnalyzer.__init__:1 of
-msgid "Initializes ProfileAnalyzer"
-msgstr "初始化ProfileAnalyzer"
+msgid "Initializes ProfileAnalyzer."
+msgstr "初始化ProfileAnalyzer."
 
 #: megengine.utils.profile_analyzer.ProfileAnalyzer.__init__:4 of
 msgid "dict dumped from json str."
@@ -173,24 +407,24 @@ msgid "function that filter oprs."
 msgstr "一个可以筛选算子的函数。"
 
 #: megengine.utils.profile_analyzer.ProfileAnalyzer.select:1 of
-msgid "Select operation"
-msgstr "选择操作"
+msgid "Select operation."
+msgstr "选择操作。"
 
 #: megengine.utils.profile_analyzer.ProfileAnalyzer.select:4 of
-msgid "time_func provided by user, would apply to every OprProfRst"
-msgstr "由用户提供的time_func，它依次作用于每一个OprProfRst"
+msgid "time_func provided by user, would apply to every OprProfRst."
+msgstr "由用户提供的time_func，它依次作用于每一个OprProfRst."
 
 #: megengine.utils.profile_analyzer.ProfileAnalyzer.select:7 of
 msgid "filter satisfied operatiors."
 msgstr "满足筛选条件的算子。"
 
 #: megengine.utils.profile_analyzer.ProfileAnalyzer.select:9 of
-msgid "function that apply to list of records which are aggregated by atype"
-msgstr "在一组被 atype 聚合的记录上进行调用的函数"
+msgid "function that apply to list of records which are aggregated by atype."
+msgstr "在一组被 atype 聚合的记录上进行调用的函数。"
 
 #: megengine.utils.profile_analyzer.ProfileAnalyzer.select:12 of
-msgid "the type aggregated by"
-msgstr "聚合（aggregate）所依据的类型"
+msgid "the type aggregated by."
+msgstr "聚合（aggregate）所依据的类型。"
 
 #: megengine.utils.profile_analyzer.ProfileAnalyzer.select:14 of
 msgid "keyword for sorting all records."
@@ -200,25 +434,9 @@ msgstr "对所有记录进行排序时使用的关键字。"
 msgid "specify the maximum number of records."
 msgstr "指定最大记录数。"
 
-#: megengine.utils.profile_analyzer.ProfileAnalyzer.select
-#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func
-#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func
-#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func of
-msgid "Return type"
-msgstr "返回类型"
-
 #: megengine.utils.profile_analyzer.ProfileAnalyzer.select:17 of
-msgid ""
-":py:class:`~typing.List`\\[:py:class:`~megengine.utils.profile_analyzer.Record`]"
-msgstr ""
-":py:class:`~typing.List`\\[:py:class:`~megengine.utils.profile_analyzer.Record`]"
-
-#: megengine.utils.profile_analyzer.ProfileAnalyzer.select
-#: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func
-#: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func
-#: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func of
-msgid "Returns"
-msgstr "返回"
+msgid ":py:class:`~typing.List`\\[:py:class:`~megengine.utils.profile_analyzer.Record`]"
+msgstr ":py:class:`~typing.List`\\[:py:class:`~megengine.utils.profile_analyzer.Record`]"
 
 #: megengine.utils.profile_analyzer.ProfileAnalyzer.select:18 of
 msgid "the records that go through select, aggregate, sort."
@@ -229,8 +447,8 @@ msgid "A record of analyzing result"
 msgstr "分析结果记录"
 
 #: megengine.utils.profile_analyzer.Record.__init__:1 of
-msgid "Initializes single record"
-msgstr "初始化单个记录"
+msgid "Initializes single record."
+msgstr "初始化单个记录。"
 
 #: megengine.utils.profile_analyzer.Record.__init__:4 of
 msgid ""
@@ -240,8 +458,8 @@ msgstr "算子的运行时间，通过将用户提供的函数作用于OprProfRs
 
 #: megengine.utils.profile_analyzer.Record.__init__:7 of
 msgid ""
-"opr information, could be original opr information or aggregate infomation "
-"if aggregating enabled."
+"opr information, could be original opr information or aggregate "
+"infomation if aggregating enabled."
 msgstr "算子的信息，可以是原来的OPR信息，或启用aggregating聚合的条件下，聚合后的信息。"
 
 #: megengine.utils.profile_analyzer.Record.__init__:10 of
@@ -253,8 +471,8 @@ msgstr ""
 "``\"in_shapes\"``, ``\"out_shapes\"`` 。"
 
 #: megengine.utils.profile_analyzer.Record.get_column_by_name:1 of
-msgid "extracts column value by its column name"
-msgstr "根据列名提取列值"
+msgid "Extracts column value by its column name."
+msgstr "根据列名提取列值。"
 
 #: megengine.utils.profile_analyzer.Record.get_column_by_name:4 of
 msgid "column name, None for time."
@@ -271,14 +489,14 @@ msgstr "测试算子时间性能。"
 #: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func:4
 #: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:4
 #: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func:4 of
-msgid "'host' or 'device'"
-msgstr "'host' 或 'device'"
+msgid "'host' or 'device'."
+msgstr "'host' 或 'device'."
 
 #: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func:6
 #: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:6
 #: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func:6 of
-msgid "'kern' or 'end'"
-msgstr "'kern' 或 'end'"
+msgid "'kern' or 'end'."
+msgstr "'kern' 或 'end'."
 
 #: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func:8
 #: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:8
@@ -295,31 +513,122 @@ msgstr ":py:class:`float`"
 #: megengine.utils.profile_analyzer.TimeFuncHelper.eval_time_func:10
 #: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:10
 #: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func:10 of
-msgid "Eval time results"
+msgid "eval time results."
 msgstr "评估时间结果"
 
 #: megengine.utils.profile_analyzer.TimeFuncHelper.max_end_func:1 of
-msgid "Eval oprerator profile max end time"
+msgid "Eval oprerator profile max end time."
 msgstr "测试算子的最长结束时间"
 
 #: megengine.utils.profile_analyzer.TimeFuncHelper.min_start_func:1 of
-msgid "Eval oprerator profile min start time"
+msgid "Eval oprerator profile min start time."
 msgstr "测试算子最短开始时间"
 
-#: ../../source/autogen/megengine.utils.rst:43
+#: ../../source_api/zh/api/megengine.utils.rst:99
+msgid "megengine.utils.profiler"
+msgstr "megengine.utils.profiler"
+
+#: megengine.utils.profiler.Profiler:1 of
+msgid "Profile graph execution in imperative mode."
+msgstr "imperative模式下对图执行进行性能分析。"
+
+#: megengine.utils.profiler.Profiler:5 of
+msgid "default path prefix for profiler to dump."
+msgstr "性能分析文件存储的默认文件路径"
+
+#: megengine.utils.profiler.Profiler:7
+#: megengine.utils.tensor_sanity_check.TensorSanityCheck:3 of
+msgid "Examples:"
+msgstr "例如："
+
+#: ../../source_api/zh/api/megengine.utils.rst:107
+msgid "megengine.utils.tensor\\_sanity\\_check"
+msgstr "megengine.utils.tensor\\_sanity\\_check"
+
+#: megengine.utils.tensor_sanity_check.TensorSanityCheck:1 of
+msgid ""
+"An object that checks whether the input tensors of each operator have "
+"changed before and after the operation."
+msgstr "一个检查每一个算子输入张量是否在算子执行前后发生了变化的对象。"
+
+#: ../../source_api/zh/api/megengine.utils.rst:115
 msgid "megengine.utils.types"
 msgstr "megengine.utils.types"
 
 #: megengine.utils.types.get_ndtuple:1 of
-msgid "Converts possibly 1D tuple to nd tuple"
-msgstr "转换可能为一维的元组到N维元组"
+msgid "Converts possibly 1D tuple to nd tuple."
+msgstr "转换可能为一维的元组到N维元组。"
 
 #: megengine.utils.types.get_ndtuple:4 of
-msgid "whether to allow zero tuple value"
-msgstr "是否允许元组值为零"
+msgid "whether to allow zero tuple value."
+msgstr "是否允许元组值为零。"
 
 #~ msgid "Eval max end time"
 #~ msgstr "评估最大结束时间"
 
 #~ msgid "Eval oprerator profile time with ``np.min``."
 #~ msgstr "使用 ``np.min`` 评估最短算子时间 。"
+
+#~ msgid "get the type of a opr"
+#~ msgstr ""
+
+#~ msgid "get oprs in some topological order for a dumped model"
+#~ msgstr ""
+
+#~ msgid "model outputs"
+#~ msgstr ""
+
+#~ msgid "whether to prune the operators useless during inference"
+#~ msgstr ""
+
+#~ msgid "opr list with some correct execution order"
+#~ msgstr ""
+
+#~ msgid "get the inputs of owner opr of a variable"
+#~ msgstr ""
+
+#~ msgid "get the type of owner opr of a variable"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "helper function to traverse the "
+#~ "computing graph and return enough useful"
+#~ " information"
+#~ msgstr ""
+
+#~ msgid "Load a serialized computing graph and run inference with input data."
+#~ msgstr ""
+
+#~ msgid "Path or Handle of the input file."
+#~ msgstr ""
+
+#~ msgid "List of input data."
+#~ msgstr ""
+
+#~ msgid "List of inference results."
+#~ msgstr ""
+
+#~ msgid "Replace operators in the graph."
+#~ msgstr ""
+
+#~ msgid "target vars representing the graph"
+#~ msgstr ""
+
+#~ msgid "the map that specifies how to replace the operators"
+#~ msgstr ""
+
+#~ msgid "new vars that correspond to ``dst`` with all the dependencies replaced"
+#~ msgstr ""
+
+#~ msgid "replace vars in the graph"
+#~ msgstr ""
+
+#~ msgid "the map that specifies how to replace the vars"
+#~ msgstr ""
+
+#~ msgid "For all oprs in the subgraph constructed by dest_vars"
+#~ msgstr ""
+
+#~ msgid "set its priority to id if its original priority is zero"
+#~ msgstr ""
+

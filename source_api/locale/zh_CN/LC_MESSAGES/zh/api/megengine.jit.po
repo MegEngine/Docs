@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-27 10:55+0800\n"
+"POT-Creation-Date: 2020-09-21 16:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,178 +18,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/api_zh/megengine.jit.rst:2
+#: ../../source_api/zh/api/megengine.jit.rst:2
 msgid "megengine.jit package"
 msgstr "megengine.jit package"
 
-#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:1
-#: megengine.jit.trace:1 megengine.jit.unset:1 of
-msgid "Bases: :class:`object`"
-msgstr "Bases: :class:`object`"
-
-#: megengine.jit.trace:1 of
-msgid "Wrap a callable and provide:"
-msgstr "包装一个可调用对象，并提供以下功能："
-
-#: megengine.jit.trace:3 of
-msgid "tracing via :meth:`.trace` and :meth:`.dump`"
-msgstr "通过 :meth:`.trace` 和 :meth:`.dump` 实现追溯（tracing）"
-
-#: megengine.jit.trace:4 of
-msgid "accelerated evalutaion via :meth:`.__call__`"
-msgstr "通过调用 :meth:`.__call__` 加速执行"
-
-#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig
-#: megengine.jit.trace megengine.jit.trace.dump of
-msgid "Parameters"
-msgstr "参数"
-
-#: megengine.jit.trace:7 of
-msgid "Positional only argument."
-msgstr "位置型参数(Positional only argument)"
-
-#: megengine.jit.trace:9 of
-msgid "Whether to use symbolic tensor. Default: False"
-msgstr "是否使用符号型张量（symbolic tensor）。默认：False。"
-
-#: megengine.jit.trace:11 of
-msgid "Optimization level for compiling trace."
-msgstr "编译追踪函数时的优化级别。"
-
-#: megengine.jit.trace:13 of
-msgid "Log level."
-msgstr "日志级别。"
-
-#: megengine.jit.trace:15 of
-msgid ""
-"Configuration for sublinear memory optimization. If not None, it enables "
-"sublinear memory optimization with given setting."
-msgstr "配置次线性内存优化。如果不是None，则使用给定设置进行次线性内存优化。"
-
-#: megengine.jit.trace:18 of
-msgid ""
-"Maximum size of an allreduce pack in MB. If not None, multiple gradients "
-"will be packed and synchronized together"
-msgstr "单个allreduce包的最大容量，以MB为单位。如果非None，则多个梯度将会被打包并一起同步"
-
-#: megengine.jit.trace:21 of
-msgid "Whether to profile compiled trace. Default: False"
-msgstr "是否对编译好的函数追溯（trace）进行性能评估（profile）。"
-
-#: megengine.jit.trace.__call__:1 of
-msgid ""
-"Evaluate on provided arguments, using compiled trace instead of the "
-"original callable if applicable."
-msgstr "对编译好的函数追溯（trace）在给定参数下执行，而不评估原来的可调用对象（如果适用）。"
-
-#: megengine.jit.trace.__call__ megengine.jit.trace.get_profile of
-msgid "Returns"
-msgstr "返回"
-
-#: megengine.jit.trace.__call__:4 of
-msgid ""
-"``None`` or :class:`~.Tensor` or tuple of :class:`~.Tensor`, depending on"
-" the return value of wrapped callable."
-msgstr ""
-"``None`` 或 :class:`~.Tensor` 或 tuple of :class:`~.Tensor` "
-"。需要根据包装后的可调用对象返回的值来确定类型。"
-
-#: megengine.jit.trace.dump:1 of
-msgid "Serialize trace to file system."
-msgstr "序列化被追溯 (trace) 的模型并保存到文件。"
-
-#: megengine.jit.trace.dump:3 of
-msgid "positional only argument. Path of output file."
-msgstr "仅作为位置参数（positional only argument）。输出文件所在路径。"
-
-#: megengine.jit.trace.dump:4 of
-msgid "names of the input tensors in the traced function."
-msgstr "被追溯（traced）函数的输入张量的名字。"
-
-#: megengine.jit.trace.dump:5 of
-msgid "whether output is appended to ``fpath``."
-msgstr "是否在 ``fpath`` 后追加输出。"
-
-#: megengine.jit.trace.dump:6 of
-msgid "whether to enable optimize_for_inference pass before dump."
-msgstr "是否在模型转储之前打开 ``optimize_for_inference`` 开关。"
-
-#: megengine.jit.trace.dump:9 of
-msgid ""
-"whether to use float16 for I/O between oprs and use float32 as internal "
-"computation precision. Note the output var would be changed to float16."
-msgstr "是否使用float16作为算子间I/O的数据精度，同时float32作为内部计算的数据精度。注意输出变量的类型也随之更改为float16。"
-
-#: megengine.jit.trace.dump:12 of
-msgid "whether to use float16 for both I/O and computation precision."
-msgstr "是否使用float16同时作为算子间I/O和内部计算的数据精度。"
-
-#: megengine.jit.trace.dump:15 of
-msgid "whether to use NHWCD4 data layout. This is faster on some OpenCL backend."
-msgstr "是否使用NHWCD4数据格式。在某些OpenCL设备上，会提高计算速度。"
-
-#: megengine.jit.trace.dump:17 of
-msgid "whether to use NCHW88 data layout. it currently used in X86 AVX backend."
-msgstr "是否使用NCHW88数据格式。当前用于X86 AVX后端。"
-
-#: megengine.jit.trace.dump:19 of
-msgid "whether to use NCHW44 data layout. it currently used in arm backend."
-msgstr "是否使用NCHW44数据格式。当前用于arm后端。"
-
-#: megengine.jit.trace.dump:21 of
-msgid ""
-"whether to use NCHW44_dot data layout. it currently used in "
-"armv8.2+dotprod backend."
-msgstr "是否使用NCHW4_dot数据格式。当前用于armv8.2+dotprod后端。"
-
-#: megengine.jit.trace.dump:23 of
-msgid ""
-"whether to use NCHW4 data layout. it currently used in nvidia "
-"backend(based on cudnn)."
-msgstr "是否使用NCHW4数据格式。当前用于nvidia后端（基于cudnn）。"
-
-#: megengine.jit.trace.dump:25 of
-msgid ""
-"whether to use NCHW32 data layout. it currently used in nvidia backend "
-"with tensorcore(based on cudnn)."
-msgstr "是否使用NCHW32数据格式。当前与tensorcore用于nvidia后端（基于cudnn）。"
-
-#: megengine.jit.trace.dump:27 of
-msgid ""
-"whether to use CHWN4 data layout. it currently used in nvidia backend "
-"with tensorcore."
-msgstr "是否使用CHWN4数据格式。当前与tensorcore用于nvidia后端。"
-
-#: megengine.jit.trace.dump:30 of
-msgid "whether to fuse conv+bias+nonlinearty into one opr."
-msgstr "是否融合 CONV + bias + 非线性激活成一个算子。"
-
-#: megengine.jit.trace.dump:32 of
-msgid ""
-"whether to fuse conv_bias with z input for inference on nvidia "
-"backend(this optimization pass will result in mismatch of the precision "
-"of output of training and inference)"
-msgstr "推理阶段是否在nvidia后端对输入z融合 CONV + bias 成一个算子（这个优化会导致训练和推理的输出精度不一致）"
-
-#: megengine.jit.trace.get_profile:1 of
-msgid "Get profiling result for compiled trace."
-msgstr "获取被追溯（trace）函数在编译后运行的性能结果。"
-
-#: megengine.jit.trace.get_profile:3 of
-msgid "a json compatible object."
-msgstr "一个兼容json的对象。"
-
-#: megengine.jit.trace.trace:1 of
-msgid "Trace wrapped callable with provided arguments."
-msgstr "使用提供的参数，追溯（trace）包装后的可调用对象。"
-
-#: ../../source/api_zh/megengine.jit.rst:11
+#: ../../source_api/zh/api/megengine.jit.rst:11
 msgid "megengine.jit.sublinear\\_memory\\_config"
 msgstr "megengine.jit.sublinear\\_memory\\_config"
 
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:1
+#: megengine.jit.tracing.TensorInfo:1 megengine.jit.tracing.TraceMixin:1
+#: megengine.jit.tracing.trace:1 of
+msgid "Bases: :class:`object`"
+msgstr "Bases: :class:`object`"
+
 #: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:1 of
 msgid "Configuration for sublinear memory optimization."
-msgstr "次线性内存优化的配置。"
+msgstr "亚线性内存优化的配置。"
+
+#: megengine.jit.sublinear_memory_config.SublinearMemoryConfig
+#: megengine.jit.tracing.trace megengine.jit.tracing.trace.dump of
+msgid "Parameters"
+msgstr "参数"
 
 #: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:4 of
 msgid ""
@@ -197,7 +47,7 @@ msgid ""
 "thresh in sublinear memory optimization. Default: 10. It can also be set "
 "through the environmental variable 'MGB_SUBLINEAR_MEMORY_THRESH_NR_TRY'."
 msgstr ""
-"线性空间中以及次线性内存优化的当前范围中搜索的样本数目。默认：10。也可以通过环境变量 "
+"线性空间以及亚线性内存优化的当前范围搜索的样本数目。默认：10。也可以通过环境变量 "
 "'MGB_SUBLINEAR_MEMORY_THRESH_NR_TRY' 进行设置。"
 
 #: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:8 of
@@ -246,4 +96,265 @@ msgid ""
 msgstr ""
 "注意，为了使上述环境变量生效，需要将环境变量 MGB_COMP_GRAPH_OPT 设置为 "
 "'enable_sublinear_memory_opt=1' 。"
+
+#: ../../source_api/zh/api/megengine.jit.rst:19
+msgid "megengine.jit.tracing"
+msgstr "megengine.jit tracing"
+
+#: megengine.jit.tracing.BrokenRawTensor:1
+#: megengine.jit.tracing.CompiledTensorProxy:1
+#: megengine.jit.tracing.LazyEvalTensor:1 of
+msgid "Bases: :class:`megengine.core.tensor.raw_tensor.RawTensor`"
+msgstr "基类：:class:`megengine.core.tensor.raw_tensor.RawTensor`"
+
+#: megengine.jit.tracing.CompiledTensorProxy:1 of
+msgid "Duck-typed RawTensor"
+msgstr "鸭子类型的RawTensor"
+
+#: megengine.jit.tracing.TraceMismatchError:1 of
+msgid "Bases: :class:`RuntimeError`"
+msgstr "基类: :class:`RuntimeError`"
+
+#: megengine.jit.tracing.TracedLazyTensor:1 of
+msgid ""
+"Bases: :class:`megengine.jit.tracing.TraceMixin`, "
+":class:`megengine.jit.tracing.LazyEvalTensor`"
+msgstr ""
+"基类：:class:`megengine.jit.tracing.TraceMixin`，"
+":class:`megengine.jit.tracing.LazyEvalTensor`"
+
+#: megengine.jit.tracing.TracedRawTensor:1 of
+msgid ""
+"Bases: :class:`megengine.jit.tracing.TraceMixin`, "
+":class:`megengine.core.tensor.raw_tensor.RawTensor`"
+msgstr ""
+"基类：:class:`megengine.jit.tracing.TraceMixin`，"
+":class:`megengine.core.tensor.raw_tensor.RawTensor`"
+
+#: megengine.jit.tracing.trace:1 of
+msgid "Wraps a callable and provide:"
+msgstr "包装一个可调用对象，并提供以下功能："
+
+#: megengine.jit.tracing.trace:3 of
+msgid "tracing via :meth:`.trace` and :meth:`.dump`"
+msgstr "通过 :meth:`.trace` 和 :meth:`.dump` 实现追溯（tracing）"
+
+#: megengine.jit.tracing.trace:4 of
+msgid "accelerated evalutaion via :meth:`.__call__`"
+msgstr "通过调用 :meth:`.__call__` 加速执行"
+
+#: megengine.jit.tracing.trace:6 of
+msgid "the function will be traced."
+msgstr "将被追溯的函数。"
+
+#: megengine.jit.tracing.trace:7 of
+msgid "whether to apply symbolic execution for tracing. Default: False"
+msgstr "是否为追溯使用符号执行。默认：False"
+
+#: megengine.jit.tracing.trace:8 of
+msgid "capture global vars or closures as const value. Default: False"
+msgstr "将全局变量或闭包捕获为常值。默认：False"
+
+#: megengine.jit.tracing.trace:10 of
+msgid ""
+"configuration for sublinear memory optimization. If not None, it enables "
+"sublinear memory optimization with given setting."
+msgstr "配置亚线性内存优化。如果不是None，则使用给定设置进行亚线性内存优化。"
+
+#: megengine.jit.tracing.trace:13 of
+msgid "whether to profile compiled trace. Default: False"
+msgstr "是否对编译好的函数追溯（trace）进行性能评估（profile）。默认：False"
+
+#: megengine.jit.tracing.trace:15 of
+msgid "optimization level for compiling trace."
+msgstr "编译追踪函数时的优化级别。"
+
+#: megengine.jit.tracing.trace:16 of
+msgid "whether to use symbolic shape for tracing. Default: True"
+msgstr "是否为追溯使用符号形状。默认：True"
+
+#: megengine.jit.tracing.trace.dump:1 of
+msgid "Serializes trace to file system."
+msgstr "序列化被追溯 (trace) 的模型并保存到文件。"
+
+#: megengine.jit.tracing.trace.dump:3 of
+msgid "output file, could be file object or filename."
+msgstr "输出文件，可以是文件对象或文件名"
+
+#: megengine.jit.tracing.trace.dump:4 of
+msgid "names of the input tensors in the traced function."
+msgstr "被追溯（traced）函数的输入张量的名字。"
+
+#: megengine.jit.tracing.trace.dump:5 of
+msgid ""
+"names of the output tensors in the traced function, use the default name "
+"if not specified."
+msgstr "被追溯（traced）函数的输出张量的名字，如果未指明则使用默认名字。"
+
+#: megengine.jit.tracing.trace.dump:7 of
+msgid "whether output is appended to ``file``. Only works when ``file`` is str."
+msgstr "是否在 ``file`` 后追加输出。仅当 ``file`` 是文件名时可用。"
+
+#: megengine.jit.tracing.trace.dump:9 of
+msgid ""
+"enbale optmizations, will skip all optimize options if this is False. "
+"Default: True"
+msgstr ""
+"打开推理优化，如果是False则关闭所有优化选项。"
+"默认：True"
+
+#: megengine.jit.tracing.trace.dump of
+msgid "Keyword Arguments"
+msgstr "关键字参数"
+
+#: megengine.jit.tracing.trace.dump:16 of
+msgid "enable_io16xc32 --"
+msgstr "enable_io16xc32 --"
+
+#: megengine.jit.tracing.trace.dump:15 of
+msgid ""
+"whether to use float16 for I/O between oprs and use float32 as internal "
+"computation precision. Note the output var would be changed to float16."
+msgstr "是否使用float16作为算子间I/O的数据精度，同时float32作为内部计算的数据精度。注意输出变量的类型也随之更改为float16。"
+
+#: megengine.jit.tracing.trace.dump:20 of
+msgid "enable_ioc16 --"
+msgstr "enable_ioc16 --"
+
+#: megengine.jit.tracing.trace.dump:19 of
+msgid "whether to use float16 for both I/O and computation precision."
+msgstr "是否使用float16同时作为算子间I/O和内部计算的数据精度。"
+
+#: megengine.jit.tracing.trace.dump:23 of
+msgid "enable_hwcd4 --"
+msgstr "enable_hwcd4 --"
+
+#: megengine.jit.tracing.trace.dump:23 of
+msgid "whether to use NHWCD4 data layout. This is faster on some OpenCL backend."
+msgstr "是否使用NHWCD4数据格式。在某些OpenCL设备上，会提高计算速度。"
+
+#: megengine.jit.tracing.trace.dump:26 of
+msgid "enable_nchw88 --"
+msgstr "enable_nchw88 --"
+
+#: megengine.jit.tracing.trace.dump:26 of
+msgid "whether to use NCHW88 data layout, currently used in X86 AVX backend."
+msgstr "是否使用NCHW88数据格式。当前用于X86 AVX后端。"
+
+#: megengine.jit.tracing.trace.dump:29 of
+msgid "enable_nchw44 --"
+msgstr "enable_nchw44 --"
+
+#: megengine.jit.tracing.trace.dump:29 of
+msgid "whether to use NCHW44 data layout, currently used in arm backend."
+msgstr "是否使用NCHW44数据格式。当前用于arm后端。"
+
+#: megengine.jit.tracing.trace.dump:32 of
+msgid "enable_nchw44_dot --"
+msgstr "enable_nchw44_dot --"
+
+#: megengine.jit.tracing.trace.dump:32 of
+msgid ""
+"whether to use NCHW44_dot data layout, currently used in armv8.2+dotprod "
+"backend."
+msgstr "是否使用NCHW4_dot数据格式。当前用于armv8.2+dotprod后端。"
+
+#: megengine.jit.tracing.trace.dump:35 of
+msgid "enable_nchw4 --"
+msgstr "enable_nchw4 --"
+
+#: megengine.jit.tracing.trace.dump:35 of
+msgid ""
+"whether to use NCHW4 data layout, currently used in nvidia backend(based "
+"on cudnn)."
+msgstr "是否使用NCHW4数据格式。当前用于nvidia后端（基于cudnn）。"
+
+#: megengine.jit.tracing.trace.dump:38 of
+msgid "enable_nchw32 --"
+msgstr "enable_nchw32 --"
+
+#: megengine.jit.tracing.trace.dump:38 of
+msgid ""
+"whether to use NCHW32 data layout, currently used in nvidia backend with "
+"tensorcore(based on cudnn)."
+msgstr "是否使用NCHW32数据格式。当前与tensorcore用于nvidia后端（基于cudnn）。"
+
+#: megengine.jit.tracing.trace.dump:42 of
+msgid "enable_chwn4 --"
+msgstr "enable_chwn4 --"
+
+#: megengine.jit.tracing.trace.dump:41 of
+msgid ""
+"whether to use CHWN4 data layout, currently used in nvidia backend with "
+"tensorcore."
+msgstr "是否使用CHWN4数据格式。当前与tensorcore用于nvidia后端。"
+
+#: megengine.jit.tracing.trace.dump:44 of
+msgid "enable_fuse_conv_bias_nonlinearity: whether to fuse conv+bias+nonlinearty"
+msgstr "enable_fuse_conv_bias_nonlinearity：是否融合 conv bias nonlinearty 算子"
+
+#: megengine.jit.tracing.trace.dump:45 of
+msgid "into one opr."
+msgstr "成一个算子。"
+
+#: megengine.jit.tracing.trace.dump:48 of
+msgid "enable_fuse_conv_bias_with_z: whether to fuse conv_bias with z"
+msgstr "enable_fuse_conv_bias_with_z："
+
+#: megengine.jit.tracing.trace.dump:47 of
+msgid ""
+"input for inference on nvidia backend(this optimization pass will result "
+"in mismatch of the precision of output of training and inference)"
+msgstr "推理阶段是否在nvidia后端对输入z融合 CONV + bias 成一个算子（这个优化会导致训练和推理的输出精度不一致）"
+
+#: megengine.jit.tracing.trace.get_profile:1 of
+msgid "Get profiling result for compiled trace."
+msgstr "获取被追溯（trace）函数在编译后运行的性能结果。"
+
+#: megengine.jit.tracing.trace.get_profile of
+msgid "Returns"
+msgstr "返回"
+
+#: megengine.jit.tracing.trace.get_profile:3 of
+msgid "a json compatible object."
+msgstr "一个兼容json的对象。"
+
+#~ msgid "Positional only argument."
+#~ msgstr "位置型参数(Positional only argument)"
+
+#~ msgid "Log level."
+#~ msgstr "日志级别。"
+
+#~ msgid ""
+#~ "Maximum size of an allreduce pack "
+#~ "in MB. If not None, multiple "
+#~ "gradients will be packed and "
+#~ "synchronized together"
+#~ msgstr "单个allreduce包的最大容量，以MB为单位。如果非None，则多个梯度将会被打包并一起同步"
+
+#~ msgid ""
+#~ "Evaluate on provided arguments, using "
+#~ "compiled trace instead of the original"
+#~ " callable if applicable."
+#~ msgstr "对编译好的函数追溯（trace）在给定参数下执行，而不评估原来的可调用对象（如果适用）。"
+
+#~ msgid ""
+#~ "``None`` or :class:`~.Tensor` or tuple "
+#~ "of :class:`~.Tensor`, depending on the "
+#~ "return value of wrapped callable."
+#~ msgstr ""
+#~ "``None`` 或 :class:`~.Tensor` 或 tuple of"
+#~ " :class:`~.Tensor` 。需要根据包装后的可调用对象返回的值来确定类型。"
+
+#~ msgid "positional only argument. Path of output file."
+#~ msgstr "仅作为位置参数（positional only argument）。输出文件所在路径。"
+
+#~ msgid "whether to enable optimize_for_inference pass before dump."
+#~ msgstr "是否在模型转储之前打开 ``optimize_for_inference`` 开关。"
+
+#~ msgid "whether to fuse conv+bias+nonlinearty into one opr."
+#~ msgstr "是否融合 CONV + bias + 非线性激活成一个算子。"
+
+#~ msgid "Trace wrapped callable with provided arguments."
+#~ msgstr "使用提供的参数，追溯（trace）包装后的可调用对象。"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 16:38+0800\n"
+"POT-Creation-Date: 2020-10-15 12:39+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/api_zh/megengine.quantization.rst:2
+#: ../../source_api/zh/api/megengine.quantization.rst:2
 msgid "megengine.quantization package"
 msgstr "megengine.quantization package"
 
-#: ../../source/api_zh/megengine.quantization.rst:11
+#: ../../source_api/zh/api/megengine.quantization.rst:11
 msgid "megengine.quantization.fake\\_quant"
 msgstr "megengine.quantization.fake\\_quant"
 
@@ -37,13 +37,30 @@ msgid ""
 "zero_point."
 msgstr "可根据observer的scale和zero_point参数来进行量化（Quantization）和反量化（Dequantization）的模块。"
 
-#: megengine.quantization.fake_quant.FakeQuantize
+#: megengine.quantization.fake_quant.TQT:1 of
+msgid ""
+"TQT: https://arxiv.org/abs/1903.08066 Trained Quantization Thresholds for"
+" Accurate and Efficient Fixed-Point Inference of Deep Neural Networks."
+msgstr ""
+"TQT: https://arxiv.org/abs/1903.08066 Trained Quantization Thresholds for"
+" Accurate and Efficient Fixed-Point Inference of Deep Neural Networks"
+
+#: megengine.quantization.fake_quant.TQT_Function:1
+#: megengine.quantization.utils.Round:1 of
+msgid "Bases: :class:`megengine.core.tensor.function.Function`"
+msgstr "基类： :class:`megengine.core.tensor.function.Function`"
+
+#: megengine.quantization.fake_quant.TQT_Function.backward:1
+#: megengine.quantization.utils.Round.backward:1 of
+msgid ""
+"Compute the gradient of the forward function. It must be overriden by all"
+" subclasses."
+msgstr "计算前向函数的梯度。必须在子类中被重写。"
+
 #: megengine.quantization.fake_quant.TQT_Function.backward
 #: megengine.quantization.fake_quant.TQT_Function.forward
 #: megengine.quantization.observer.Observer
 #: megengine.quantization.observer.Observer.train
-#: megengine.quantization.observer.Round.backward
-#: megengine.quantization.observer.Round.forward
 #: megengine.quantization.qconfig.QConfig
 #: megengine.quantization.quantize.disable_fake_quant
 #: megengine.quantization.quantize.disable_observer
@@ -51,72 +68,30 @@ msgstr "可根据observer的scale和zero_point参数来进行量化（Quantizati
 #: megengine.quantization.quantize.enable_observer
 #: megengine.quantization.quantize.propagate_qconfig
 #: megengine.quantization.quantize.quantize
-#: megengine.quantization.quantize.quantize_qat of
+#: megengine.quantization.quantize.quantize_qat
+#: megengine.quantization.utils.Round.backward
+#: megengine.quantization.utils.Round.forward
+#: megengine.quantization.utils.fake_quant_bias
+#: megengine.quantization.utils.fake_quant_tensor of
 msgid "Parameters"
 msgstr "参数"
 
-#: megengine.quantization.fake_quant.FakeQuantize:4 of
-msgid "A string indicating the target quantization type of input."
-msgstr "指示输入的目标量化类型的一个字符串。"
-
-#: megengine.quantization.fake_quant.FakeQuantize:6
-#: megengine.quantization.observer.Observer:6 of
-msgid ""
-"Whether the absolute value of ``qmin`` is the same as ``qmax``, instead "
-"of 1 greater. Usually True for weight and False for activation."
-msgstr ""
-"``qmin`` 的绝对值是否与 ``qmax`` 相同，或者"
-"比 ``qmax`` 的绝对值大1。通常对于权重而言是True，对于激活而言是False。"
-
-#: megengine.quantization.fake_quant.FakeQuantize:9 of
-msgid "Whether do ``normal_forward`` or ``fake_quant_forward``."
-msgstr "做 ``normal_forward`` 还是 ``fake_quant_forward`` 。"
-
-#: megengine.quantization.fake_quant.TQT:1 of
-msgid ""
-"TQT: https://arxiv.org/abs/1903.08066 Trained Quantization Thresholds for"
-" Accurate and Efficient Fixed-Point Inference of Deep Neural Networks"
-msgstr ""
-"TQT: https://arxiv.org/abs/1903.08066 Trained Quantization Thresholds for"
-" Accurate and Efficient Fixed-Point Inference of Deep Neural Networks"
-
-#: megengine.quantization.fake_quant.TQT_Function:1
-#: megengine.quantization.observer.Round:1 of
-msgid "Bases: :class:`megengine.core.function.Function`"
-msgstr "基类： :class:`megengine.core.function.Function`"
-
-#: megengine.quantization.fake_quant.TQT_Function.backward:1
-#: megengine.quantization.observer.Round.backward:1 of
-msgid ""
-"Compute the gradient of the forward function. It must be overriden by all"
-" subclasses."
-msgstr "计算前向函数的梯度。必须在子类中被重写。"
-
 #: megengine.quantization.fake_quant.TQT_Function.backward:3
-#: megengine.quantization.observer.Round.backward:3 of
+#: megengine.quantization.utils.Round.backward:3 of
 msgid ""
 "gradients of outputs that are returned by "
-":meth:`~.function.Function.forward`  .. note::      In case when some "
-"tensors of outputs are not related to loss function, the corresponding"
-"     values in ``output_grads`` would be ``None``."
-msgstr " "
-
-#: megengine.quantization.fake_quant.TQT_Function.backward:3
-#: megengine.quantization.observer.Round.backward:3 of
-msgid ""
-"gradients of outputs that are returned by "
-":meth:`~.function.Function.forward`"
+":meth:`~.function.Function.forward`."
 msgstr "返回 :meth:`~.function.Function.forward` 输出的梯度"
 
 #: megengine.quantization.fake_quant.TQT_Function.backward:7
-#: megengine.quantization.observer.Round.backward:7 of
+#: megengine.quantization.utils.Round.backward:7 of
 msgid ""
 "In case when some tensors of outputs are not related to loss function, "
 "the corresponding values in ``output_grads`` would be ``None``."
 msgstr "当一些输出张量和损失函数不相关时， ``output_grads`` 中对应的值应为 ``None`` 。"
 
 #: megengine.quantization.fake_quant.TQT_Function.backward:12
-#: megengine.quantization.observer.Round.backward:12 of
+#: megengine.quantization.utils.Round.backward:12 of
 msgid ""
 "This method should return a tuple which containing the gradients of all "
 "inputs, in the same order as the ``inputs`` argument of "
@@ -130,39 +105,52 @@ msgstr ""
 "``None`` 。"
 
 #: megengine.quantization.fake_quant.TQT_Function.forward:1
-#: megengine.quantization.observer.Round.forward:1 of
+#: megengine.quantization.utils.Round.forward:1 of
 msgid ""
 "Applies operations to ``inputs`` and returns results. It must be "
-"overriden by all subclasses. Users can call "
-":meth:`~.function.Function.save_for_backward` in this method to save "
-"tensors."
-msgstr ""
-"对 ``inputs`` 应用操作并返回结果，必须在所有子类中被重写。可以调用 "
-":meth:`~.function.Function.save_for_backward` 来保存张量。"
+"overriden by all subclasses."
+msgstr "对 ``inputs`` 应用操作并返回结果，必须在所有子类中被重写。"
 
-#: megengine.quantization.fake_quant.TQT_Function.forward:4
-#: megengine.quantization.observer.Round.forward:4 of
-msgid "Input tensors."
+#: megengine.quantization.fake_quant.TQT_Function.forward:3
+#: megengine.quantization.utils.Round.forward:3 of
+msgid "input tensors."
 msgstr "输入张量。"
 
 #: megengine.quantization.fake_quant.TQT_Function.forward
-#: megengine.quantization.observer.Round.forward of
+#: megengine.quantization.utils.Round.forward of
 msgid "Returns"
 msgstr "返回"
 
-#: megengine.quantization.fake_quant.TQT_Function.forward:5
-#: megengine.quantization.observer.Round.forward:5 of
-msgid "A tuple of Tensor or a single Tensor."
+#: megengine.quantization.fake_quant.TQT_Function.forward:4
+#: megengine.quantization.utils.Round.forward:4 of
+msgid "a tuple of Tensor or a single Tensor."
 msgstr "张量的元组或单个张量。"
 
-#: megengine.quantization.fake_quant.TQT_Function.forward:9
-#: megengine.quantization.observer.Round.forward:9 of
+#: megengine.quantization.fake_quant.TQT_Function.forward:8
+#: megengine.quantization.utils.Round.forward:8 of
 msgid ""
 "This method should return a tuple of Tensor or a single Tensor "
 "representing the output of the function."
 msgstr "此方法返回一个张量元组或表示函数输出的单个张量。"
 
-#: ../../source/api_zh/megengine.quantization.rst:19
+#: megengine.quantization.fake_quant.TQT_Function.save_for_backward:1 of
+msgid ""
+"Saves tensors needed for gradient computation. This method should be "
+"called only once in :meth:`~.function.Function.forward`, additional calls"
+" will replace values saved previously."
+msgstr ""
+"保存需要被计算导数的张量。这个方法应该只会在  :meth:`~.function.Function.forward` "
+"中调用一次，之后的调用将会覆盖之前保存的值。"
+
+#: megengine.quantization.fake_quant.TQT_Function.save_for_backward:4 of
+msgid "The saved tensors can be accessed through the ``saved_tensors`` attribute."
+msgstr "保存的张量可以被 ``saved_tensors`` 参数访问。"
+
+#: ../../source_api/zh/api/megengine.quantization.rst:19
+msgid "megengine.quantization.internal\\_fake\\_quant"
+msgstr "megengine.quantization.internal\\_fake\\_quant"
+
+#: ../../source_api/zh/api/megengine.quantization.rst:27
 msgid "megengine.quantization.observer"
 msgstr "megengine.quantization.observer"
 
@@ -184,12 +172,20 @@ msgid "A base class for Observer Module."
 msgstr "Observer模块的基类。"
 
 #: megengine.quantization.observer.Observer:4 of
-msgid "a string indicating to collect scale and zero_point of which dtype"
-msgstr "字符串，表明按何dtype来收集scale和zero_point"
+msgid "a string indicating to collect scale and zero_point of which dtype."
+msgstr "字符串，表明按何种dtype来收集scale和zero_point"
+
+#: megengine.quantization.observer.Observer:6 of
+msgid ""
+"whether the absolute value of ``qmin`` is the same as ``qmax``, instead "
+"of 1 greater. Usually True for weight and False for activation."
+msgstr ""
+"``qmin`` 的绝对值是否与 ``qmax`` 相同，或者比 ``qmax`` "
+"的绝对值大1。通常对于权重而言是True，对于激活而言是False。"
 
 #: megengine.quantization.observer.Observer.train:1 of
 msgid ""
-"Set training mode of all the modules within this module (including "
+"Sets training mode of all the modules within this module (including "
 "itself) to ``mode``. This effectively sets the ``training`` attributes of"
 " those modules to ``mode``, but only has effect on certain modules (e.g. "
 ":class:`~.BatchNorm2d`, :class:`~.Dropout`, :class:`~.Observer`)"
@@ -206,23 +202,17 @@ msgstr "为模块设置的训练模式。"
 msgid "whether to recursively call submodules' ``train()``."
 msgstr "是否要递归调用子模块的 ``train()`` 。"
 
-#: megengine.quantization.observer.Observer.train of
+#: megengine.quantization.observer.Observer.train
+#: megengine.quantization.utils.fake_quant_bias
+#: megengine.quantization.utils.fake_quant_tensor of
 msgid "Return type"
 msgstr "返回类型"
 
 #: megengine.quantization.observer.Observer.train:12 of
-msgid "``None``"
-msgstr "``None``"
+msgid ":py:obj:`None`"
+msgstr ":py:obj:`None`"
 
-#: megengine.quantization.observer.ObserverMode:1 of
-msgid "Bases: :class:`enum.Enum`"
-msgstr "基类: :class:`enum.Enum`"
-
-#: megengine.quantization.observer.ObserverMode:1 of
-msgid "An enumeration."
-msgstr "一个枚举。"
-
-#: ../../source/api_zh/megengine.quantization.rst:27
+#: ../../source_api/zh/api/megengine.quantization.rst:35
 msgid "megengine.quantization.qconfig"
 msgstr "megengine.quantization.qconfig"
 
@@ -270,9 +260,8 @@ msgid ""
 "``class``, so that don't need to provide parameters in "
 ":meth:`~.QATModule.set_qconfig`."
 msgstr ""
-"每个参数都是一个 ``class`` 而不是一个实例。 我们建议"
-"使用 ``functools.partial`` 来添加 ``class`` 的初始化参数"
-"，这样就不需要在 :meth:`~.QATModule.set_qconfig` 中提供参数。"
+"每个参数都是一个 ``class`` 而不是一个实例。 我们建议使用 ``functools.partial`` 来添加 ``class`` "
+"的初始化参数，这样就不需要在 :meth:`~.QATModule.set_qconfig` 中提供参数。"
 
 #: megengine.quantization.qconfig.QConfig:27 of
 msgid ""
@@ -283,13 +272,11 @@ msgid ""
 "overflow. Weights are commonly calculated in this way, so needed to "
 "narrow the range."
 msgstr ""
-"通常我们将权重相关参数的 ``narrow_range`` 设置为 ``True`` ，"
-"并将与激活相关参数的该值设置为 ``False`` 。"
-"对于乘法和加法的结果，如 ``a * b + c * d`` ，如果四个变量"
-"的值都是 ``qint8`` 类型的 -128，那么结果会变成 ``2^15`` 然后溢出。"
-"权重涉及的计算方式通常是这种形式，所以需要将下界增加1。"
+"通常我们将权重相关参数的 ``narrow_range`` 设置为 ``True`` ，并将与激活相关参数的该值设置为 ``False`` "
+"。对于乘法和加法的结果，如 ``a * b + c * d`` ，如果四个变量的值都是 ``qint8`` 类型的 -128，那么结果会变成 "
+"``2^15`` 然后溢出。权重涉及的计算方式通常是这种形式，所以需要将下界增加1。"
 
-#: ../../source/api_zh/megengine.quantization.rst:35
+#: ../../source_api/zh/api/megengine.quantization.rst:43
 msgid "megengine.quantization.quantize"
 msgstr "megengine.quantization.quantize"
 
@@ -363,6 +350,13 @@ msgstr "根模块，以此开始递归地进行转换。"
 msgid "whether to convert submodules in-place."
 msgstr "是否对子模块进行原地转换。"
 
+#: megengine.quantization.quantize.quantize:9 of
+msgid ""
+"a dict indicating how to convert custom modules from QATModule to "
+"QuantizedModule. Will be combined with internal default convert mapping "
+"dict."
+msgstr "一个用来指示如何把 QATModule 转换为 QuantizedModule 的字典。将会和内部的默认的转换映射字典合并。"
+
 #: megengine.quantization.quantize.quantize_qat:1 of
 msgid ""
 "Recursively convert float :class:`~.Module` to :class:`~.QATModule` "
@@ -377,37 +371,80 @@ msgid ""
 "default is ``ema_fakequant_qconfig``."
 msgstr " :class:`~.QConfig` 实例，用于作为子模块的qconfig。默认为 ``ema_fakequant_qconfig`` 。"
 
-#: ../../source/api_zh/megengine.quantization.rst:43
+#: megengine.quantization.quantize.quantize_qat:12 of
+msgid ""
+"a dict indicating how to convert custom modules from Module to QATModule."
+" Will be combined with internal default convert mapping dict."
+msgstr "一个用来指示如何把 Module 转换为 QATModule 的字典。将会和内部的默认的转换映射字典合并。"
+
+#: ../../source_api/zh/api/megengine.quantization.rst:51
 msgid "megengine.quantization.utils"
 msgstr "megengine.quantization.utils"
 
-#~ msgid "An test Observer that always return scale:1 and zero_point:0."
-#~ msgstr "一个测试用的Observer，总是返回scale：1和zero_point：0。"
+#: megengine.quantization.utils.QuantMode:1 of
+msgid "Bases: :class:`enum.Enum`"
+msgstr "基类: :class:`enum.Enum`"
 
-#~ msgid "And ``fake_quant`` parameter to indicate"
-#~ msgstr "以及 ``fake_quant`` 参数来指示"
+#: megengine.quantization.utils.QuantMode:1 of
+msgid "Quantization mode enumerate class."
+msgstr "量化模式枚举类。"
 
-#~ msgid "See :meth:`~.QATModule.set_qconfig` for detail usage."
-#~ msgstr "详细用法参考： :meth:`~.QATModule.set_qconfig` 。"
+#: megengine.quantization.utils.Round:1 of
+msgid ""
+"The functional round have no grad and can not use for quantization-aware-"
+"training. We use Function and STE(Straight-Through Estimator) to "
+"implement backward propagation."
+msgstr ""
+"这个四舍五入函数没有导数，不能用于量化感知训练。我们用 Function 和 STE(Straight-Through Estimator) "
+"来实现反向传播。"
 
-#~ msgid "similar to ``inp_observer`` but toward weight."
-#~ msgstr "功能类似 ``inp_observer`` ，但是该observer针对权重。"
+#: megengine.quantization.utils.fake_quant_bias:1 of
+msgid ""
+"Apply fake quantization to bias, with the special scale from input tensor"
+" and weight tensor, the quantized type set to qint32 also."
+msgstr "根据输入张量和权值张量的特殊的数值范围，对偏置张量进行假量化，并把量化类型设置为qint32."
 
-#~ msgid ""
-#~ "similar to ``fake_quant``, but usually "
-#~ "need to set ``dtype`` in advance, "
-#~ "for bias's dtype is unable to be"
-#~ " inferred from observer."
-#~ msgstr "类似于 ``fake_quant`` ，但需要提前设置好 ``dtype`` ，因为不能从observer中推断偏置的dtype。"
+#: megengine.quantization.utils.fake_quant_bias:5 of
+msgid "the bias tensor which need to be faked."
+msgstr "需要被假量化的偏置张量。"
 
-#~ msgid ""
-#~ "interface to instantiate a "
-#~ ":class:`~.FakeQuantize` indicating how to do"
-#~ " fake_quant calculation. can be invoked "
-#~ "multi times to get different instance"
-#~ " for each target tensor, for better"
-#~ " control on enable and disable."
-#~ msgstr ""
-#~ "创建 :class:`~.FakeQuantize` "
-#~ "实例的接口，指定计算fake_quant的方法。可以通过重复多次调用来为各张量获得不同的实例，来更好地控制启用和禁用。"
+#: megengine.quantization.utils.fake_quant_bias:7 of
+msgid "the input tensor which contain the quantization parameters."
+msgstr "包含了量化参数的输入张量"
 
+#: megengine.quantization.utils.fake_quant_bias:8 of
+msgid "the weight tensor which contain the quantization parameters."
+msgstr "包含了量化参数的权值张量"
+
+#: megengine.quantization.utils.fake_quant_bias:11 of
+msgid "Only work for symmetric quantization method now."
+msgstr "现在只对对称的量化方法有效。"
+
+#: megengine.quantization.utils.fake_quant_bias:15
+#: megengine.quantization.utils.fake_quant_tensor:14 of
+msgid ":py:class:`~megengine.tensor.Tensor`"
+msgstr ":py:class:`~megengine.tensor.Tensor`"
+
+#: megengine.quantization.utils.fake_quant_tensor:1 of
+msgid "Apply fake quantization to the inp tensor."
+msgstr "对 ``inp`` 张量做假量化。"
+
+#: megengine.quantization.utils.fake_quant_tensor:4 of
+msgid "the input tensor which need to be faked."
+msgstr "需要被假量化的输入张量。"
+
+#: megengine.quantization.utils.fake_quant_tensor:6 of
+msgid "the minimum value which the integer limit to."
+msgstr "限制的整数最小值。"
+
+#: megengine.quantization.utils.fake_quant_tensor:8 of
+msgid "the maximum value which the integer limit to."
+msgstr "限制的整数最大值。"
+
+#: megengine.quantization.utils.fake_quant_tensor:10 of
+msgid "the quantization parameter dict."
+msgstr "量化参数字典。"
+
+#: megengine.quantization.utils.get_qparam_dict:1 of
+msgid "Return the quantization parameters dictionary according to the mode."
+msgstr "根据模式返回一个量化参数字典。"
