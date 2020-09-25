@@ -13,15 +13,21 @@
         lr=0.05,                # 学习速率
     )
 
-这个优化器对所有参数都使用同一学习速率进行优化，而在本章中我们将介绍如何做到对不同的参数采用不同的学习速率。
+这个优化器对所有参数都使用同一学习速率进行优化，本章将介绍如何做到对不同的参数采用不同的学习速率。
 
-本章我们沿用 :ref:`network_build` 中创建的 ``LeNet`` ，下述的优化器相关代码可以用于取代 :ref:`train_and_evaluation` 中对应的代码。
+本章沿用 :ref:`network_build` 中创建的 ``LeNet`` ，下述的优化器相关代码可以用于取代 :ref:`train_and_evaluation` 中对应的代码。
 
 
 不同参数使用不同的学习速率
 ------------------------------
 
-:class:`~.megengine.optimizer.optimizer.Optimizer` 支持将网络的参数进行分组，不同的参数组可以采用不同的学习速率进行训练。 一个参数组由一个字典表示，这个字典中必然有键值对： ``'params': param_list`` ，用来指定参数组包含的参数。该字典还可以包含 ``'lr':learning_rate`` 来指定此参数组的学习速率。此键值对有时可省略，省略后参数组的学习速率由优化器指定。所有待优化参数组的字典会组成一个列表作为 :class:`~.megengine.optimizer.optimizer.Optimizer` 实例化时的第一个参数传入。
+:class:`~.megengine.optimizer.optimizer.Optimizer` 支持将网络的参数进行分组，不同的参数组可以采用不同的学习速率进行训练。 一个参数组由一个字典表示，这个字典中有
+
+*  ``'params': param_list``，用来指定参数组包含的参数。此键值对必须有。
+
+*  ``'lr': learning_rate``，用来指定此参数组的学习速率。此键值对有时可省略，省略后参数组的学习速率由优化器指定。
+
+所有待优化参数组的字典会组成一个列表作为 :class:`~.megengine.optimizer.optimizer.Optimizer` 实例化时的第一个参数传入。
 
 为了更好的说明参数组，我们首先使用 :class:`~.megengine.module.module.Module` 提供的 :meth:`~.megengine.module.module.Module.named_parameters` 函数来对网络参数进行分组。这个函数返回一个包含网络所有参数并且以参数名字为键、参数变量为值的字典：
 
@@ -71,7 +77,7 @@
         lr=0.05,  # 参数组例表中未指定学习速率的参数组服从此设置，如所有卷积参数
     )
 
-优化器中设置的参数组列表对应于 :attr:`~.megengine.optimizer.optimizer.Optimizer.param_groups` 属性。我们可以通过其获取不同参数组的学习速率。
+优化器中设置的参数组列表对应于 :attr:`~.megengine.optimizer.optimizer.Optimizer.param_groups` 属性。可以通过它获取不同参数组的学习速率。
 
 .. testcode::
 
@@ -120,7 +126,7 @@ MegEngine 也支持在训练过程中对学习速率进行修改，比如部分�
 
 从输出可以看到在学习速率设为0之前参数值是在不断更新的，但是在设为0之后参数值就不再变化。
 
-同时多数网络在训练当中会不断减小学习速率，如下代码展示了 MegEnging 是如何在训练过程中线性减小学习速率的：
+同时多数网络在训练当中会不断减小学习速率，如下代码展示了 MegEngine 是如何在训练过程中线性减小学习速率的：
 
 .. testcode::
 
@@ -130,13 +136,41 @@ MegEngine 也支持在训练过程中对学习速率进行修改，比如部分�
         # 设置当前epoch的学习速率
         for param_group in optimizer.param_groups: # param_groups中包含所有需要此优化器更新的参数
             # 学习速率线性递减，每个epoch调整一次
-            param_group["lr"] = learning_rate * (1-float(epoch)/total_epochs)
+            param_group["lr"] = learning_rate * (1 - float(epoch) / total_epochs)
 
-
-固定部分参数不优化
+不同参数使用不同的优化器
 ------------------------------
 
-除了将不训练的参数分为一组并将学习速率设为零外，MegEngine 还提供了其他途径来固定参数不进行优化：仅将需要优化的参数与求导器和优化器绑定即可。如下代码所示，我们仅对 ``LeNet`` 中的卷积参数进行优化：
+对于不同的参数，也可以使用不同的优化器对它们分别优化。对参数的梯度置零（ :meth:`~.megengine.optimizer.optimizer.Optimizer.clear_grad` ）和更新（ :meth:`~.megengine.optimizer.optimizer.Optimizer.step` ）操作，如果所有优化器都是同时进行的，可以定义一个 ``MultipleOptimizer`` 类。在初始化时声明多个不同的优化器，在调用置零函数和更新函数时对所有优化器执行对应操作。
+
+.. code-block:: python
+
+    class MultipleOptimizer(object):
+        def __init__(*opts):
+            self.opts = opts
+
+        def clear_grad(self):
+            for opt in self.opts:
+                opt.clear_grad()
+
+        def step(self):
+            for opt in self.opts:
+                opt.step()
+
+假设想用 :class:`~.megengine.optimizer.sgd.SGD` 优化所有卷积参数，用 :class:`~.megengine.optimizer.adam.Adam` 优化所有全连接层参数。可以按照如下方式定义优化器，不需要改变训练代码就可以达到不同的参数使用不同的优化器优化的效果。
+
+.. code-block:: python
+
+    optimizer = MultipleOptimizer(
+        optim.SGD(conv_param_list, lr=0.05), optim.Adam(fc_param_list, lr=0.01)
+    )        
+
+如果不同的参数梯度置零和更新不是同时进行的，你只需要定义多个优化器，在不同的时间调用对应的函数即可。
+
+固定部分参数不优化
+''''''''''''''''''''''''''''''
+
+除了将不训练的参数分为一组并将学习速率设为零外，MegEngine 还提供了其他途径来固定参数不进行优化：仅将需要优化的参数与求导器和优化器绑定即可。如下代码所示，仅对 ``LeNet`` 中的卷积参数进行优化：
 
 .. testcode::
 

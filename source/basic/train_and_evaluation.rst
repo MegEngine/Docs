@@ -142,37 +142,6 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
     epoch: 8, loss 0.01511287806855861
     epoch: 9, loss 0.012423654125569995
 
-GPU 和 CPU 切换
-``````````````````````````````
-MegEngine 在 GPU 和 CPU 同时存在时默认使用 GPU 进行训练。用户可以调用 :func:`~.megengine.core.device.set_default_device` 来根据自身需求设置默认计算设备。
-
-如下代码设置默认设备为 CPU：
-
-.. testcode::
-
-    import megengine as mge
-
-    # 默认使用 CPU
-    mge.set_default_device('cpux')
-
-如下代码设置默认设备为GPU:
-
-.. testcode::
-
-    # 默认使用 GPU
-    mge.set_default_device('gpux')
-
-更多用法可见 :func:`~.megengine.core.device.set_default_device` API 文档。
-
-如果不想修改代码，用户也可通过环境变量 ``MGE_DEFAULT_DEVICE`` 来设置默认计算设备：
-
-.. code-block:: bash
-
-    # 默认使用 CPU
-    export MGE_DEFAULT_DEVICE='cpux'
-
-    # 默认使用 GPU
-    export MGE_DEFAULT_DEVICE='gpux'
 
 网络的保存
 ``````````````````````````````
