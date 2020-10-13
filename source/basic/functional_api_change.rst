@@ -1,9 +1,9 @@
-.. _api_change:
+.. _functional_api_change:
 
-API 变更与说明
+Functional API 变更与说明
 ==============================
 
-本章节列出了 v0.6 与 v1.0 版本的 API 对比，并以 v1.0 为基准（中间列）。
+本章节列出了 v0.6 与 v1.0 版本的 Functional API 对比，并以 v1.0 为基准（中间列）。
 有些 API 是 v1.0 版本新增的，表现为 v0.6 列为空。有些 API 在 v1.0 中被删除了，表现为 v1.0 列为空。
 
 .. note::

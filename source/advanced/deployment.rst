@@ -7,40 +7,14 @@ MegEngine 的一大核心优势是“训练推理一体化”，其中“训练�
 
 本章从一个训练好的异或网络模型（见 `MegStudio 项目 <https://studio.brainpp.com/public-project/53>`_ ）出发，讲解如何将其部署到 CPU（X86）环境下运行。主要分为以下步骤：
 
-1. 将模型序列化并导出到文件；
+1. 将模型序列化并导出到文件，详细介绍可见 :ref:`trace_and_dump`；
 2. 编写读取模型的 C++ 脚本；
 3. 编译 C++ 脚本成可执行文件。
 
 模型序列化
 ------------------------------
 
-为了将模型进行部署，首先我们需要使模型不依赖于 Python 环境，这一步称作 **序列化** 。序列化只支持静态图，这是因为“剥离” Python 环境的操作需要网络结构是确定不可变的，而这依赖于静态图模式下的编译操作（详情见 :ref:`dynamic_and_static_graph` ），另外编译本身对计算图的优化也是部署的必要步骤。
-
-在 MegEngine 中，序列化对应的接口为 :meth:`~.megengine.jit.trace.dump` ，对于一个训练好的网络模型，我们使用以下代码来将其序列化：
-
-.. code-block::
-
-    import megengine.functional as F
-    from megengine import tensor, jit
-
-    # 通过 trace 转换为静态图
-    @jit.trace(symbolic=True)
-    def pred_fun(data, *, net):
-        net.eval()
-        pred = net(data)
-        pred_normalized = F.softmax(pred)
-        return pred_normalized
-
-    data = tensor(np.random.random([64, 2]).astype(np.float32))
-
-    pred_fun(data, net=xor_net)
-
-    # 使用 trace 类的 dump 接口进行部署
-    pred_fun.dump("xornet_deploy.mge", arg_names=["data"])
-
-为了便于在 C++ 代码中给序列化模型传输入数据，需要给输入赋予一个名字，即代码中的 ``arg_names`` 参数。由于该示例中 ``pred_fun`` 只有一个位置参数，即计算图只有一个输入，所以传给 ``arg_names`` 的列表也只需一个字符串值即可，可以是任意名字，用于在 C++ 代码中引用，详情见下节内容。
-
-总结一下，我们对在静态图模式下训练得到的模型，可以使用 :meth:`~.megengine.jit.trace.dump` 方法直接序列化，而无需对模型代码做出任何修改，这就是“训练推理一体化”的由来。
+这里我们使用 xor-deploy 的例子，模型定义与序列化代码可见 `xornet.py <https://github.com/MegEngine/MegEngine/blob/master/sdk/xor-deploy/xornet.py>`_ 。
 
 编写 C++ 程序读取模型
 ------------------------------

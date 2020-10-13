@@ -21,7 +21,7 @@
 #. :ref:`network_build` ：介绍在 MegEngine 中搭建网络的两种方式。
 #. :ref:`data_load` ：介绍在 MegEngine 中加载和处理数据的方法。
 #. :ref:`train_and_evaluation` ：介绍如何进行模型的训练与测试。
-#. :ref:`api_change`：从v0.6到v1.0的API改动。
+#. :ref:`functional_api_change`：从 v0.6 到 v1.0 的API改动。
 
 对于上述内容非常熟悉的用户（例如 PyTorch 用户），也建议您快速阅读了解这部分的内容，因为它们是 :ref:`进阶学习 <advanced>` 的基础。
 
@@ -33,4 +33,4 @@
     network_build
     data_load
     train_and_evaluation
-    api_change
+    functional_api_change

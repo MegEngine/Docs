@@ -9,9 +9,9 @@
 基于 :mod:`~.megengine.functional` 搭建网络
 --------------------------------------------------
 
-:mod:`~.megengine.functional` 包提供了常用的算子函数（如 :func:`~.megengine.functional.nn.conv2d` 、 :func:`~.megengine.functional.nn.linear` 等）。这些函数接受参与计算的张量并返回计算结果。参与计算的张量通常包括两类：输入数据和该算子自身的参数，其中后者是网路中需要学习的变量。比如，二维卷积（ :func:`~.megengine.functional.nn.conv2d` ）接受多通道的二维图像作为输入数据，把卷积核作为参数，输出经卷积操作后的多通道二维图像。
+:mod:`~.megengine.functional` 包提供了常用的算子函数（如 :func:`~.megengine.functional.nn.conv2d` 、 :func:`~.megengine.functional.nn.batch_norm` 等）。这些函数接受参与计算的张量并返回计算结果。参与计算的张量通常包括两类：输入数据和该算子自身的参数，其中后者是网路中需要学习的变量。比如，二维卷积（ :func:`~.megengine.functional.nn.conv2d` ）接受多通道的二维图像作为输入数据，把卷积核作为参数，输出经卷积操作后的多通道二维图像。
 
-算子的输入和输出数据都是 :class:`~.megengine.core.tensor.Tensor` 类型。算子的参数通常由 :class:`~.megengine.core.tensor_nn.Parameter` 类表示。 :class:`~.megengine.core.tensor_nn.Parameter` 是 :class:`~.megengine.core.tensor.Tensor` 的子类，其对象（即网络参数）可以被优化器更新。更多内容参见 :ref:`train_and_evaluation` 。
+算子的输入和输出数据都是 :class:`~.megengine.tensor.Tensor` 类型。算子的参数通常由 :class:`~.megengine.tensor.Parameter` 类表示。 :class:`~.megengine.tensor.Parameter` 是 :class:`~.megengine.tensor.Tensor` 的子类，其对象（即网络参数）可以被优化器更新。更多内容参见 :ref:`train_and_evaluation` 。
 
 下面的例子实现了一个两层卷积网络（使用 `ReLU <https://en.wikipedia.org/wiki/Rectifier_(neural_networks)>`_ 作为激活函数）：
 

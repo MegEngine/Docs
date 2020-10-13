@@ -13,19 +13,19 @@
 
 2. :ref:`parameter_more_setting` ：介绍更加细粒度的参数优化设置方法。
 
-3. :ref:`sublinear` ：介绍 MegEngine 的亚线性内存优化技术。
+3. :ref:`trace_and_dump` ：介绍如何将动态图 trace 成静态图，并序列化到文件中。
 
-4. :ref:`deployment` ：介绍如何将 MegEngine 模型在 C++ 环境下运行。
+4. :ref:`sublinear` ：介绍 MegEngine 的亚线性内存优化技术。
 
-5. :ref:`quantization` ：介绍如何在 MegEngine 中使用训练中量化（QAT）以及后量化。
+5. :ref:`deployment` ：介绍如何将 MegEngine 模型在 C++ 环境下运行。
 
-6. :ref:`how_to_use_load_and_run` ：介绍如何使用 load_and_run 对模型推理测速。
+6. :ref:`quantization` ：介绍如何在 MegEngine 中使用训练中量化（QAT）以及后量化。
 
-7. :ref:`inference_in_nvidia_gpu` ： 介绍如何使用 load_and_run 在 nvidia GPU 上测速。
+7. :ref:`how_to_use_load_and_run` ：介绍如何使用 load_and_run 对模型推理测速。
 
-8. :ref:`how_to_use_codegen` ：介绍如何使用 codegen。
+8. :ref:`inference_in_nvidia_gpu` ： 介绍如何使用 load_and_run 在 nvidia GPU 上测速。
 
-9. :ref:`profiling` ：介绍如何对 MegEngine 训练代码做性能分析。
+9. :ref:`how_to_use_codegen` ：介绍如何使用 codegen。
 
 10. :ref:`how_to_use_load_and_run` ：介绍如何使用load_and_run对模型推理测速。
 
@@ -39,6 +39,7 @@
 
     distributed
     parameter_more_setting
+    trace_and_dump
     sublinear
     deployment
     quantization

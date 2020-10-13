@@ -61,11 +61,8 @@ MegEngine 是基于计算图的深度神经网络学习框架。
 
     Tensor([1. 2. 3.], device=xpux:0)
 
-dtype属性与astype()方法
-``````````````````````````````
-
-通过 :meth:`dtype <.megengine.core.tensor.Tensor.dtype>` 属性可以获取 Tensor 的数据类型；
-通过 :meth:`~.megengine.core.tensor.Tensor.astype` 方法可以拷贝创建一个指定数据类型的新 Tensor ，原 Tensor 不变。
+通过 :meth:`dtype <.megengine.core.tensor.tensor.Tensor.dtype>` 属性我们可以获取 Tensor 的数据类型；
+通过 :meth:`~.megengine.core.tensor.tensor_wrapper.ArrayMethodMixin.astype` 方法我们可以拷贝创建一个指定数据类型的新 Tensor ，原 Tensor 不变。
 
 .. testcode::
 
@@ -80,10 +77,7 @@ dtype属性与astype()方法
     <class 'numpy.float32'>
     <class 'numpy.float16'>
 
-shape属性
-``````````````````````````````
-
-通过 :meth:`shape <.megengine.core.tensor.Tensor.shape>` 属性，可以获取 Tensor 的形状：
+通过 :meth:`shape <.megengine.core.tensor.tensor.Tensor.shape>` 属性，我们可以获取 Tensor 的形状：
 
 .. testcode::
 
@@ -96,10 +90,7 @@ shape属性
     (2, 5)
 
 
-numpy()方法
-``````````````````````````````
-
-通过 :meth:`~.megengine.core.tensor.Tensor.numpy` 方法，可以将 Tensor 转换为 numpy.ndarray：
+通过 :meth:`~.megengine.core.tensor.tensor.Tensor.numpy` 方法，我们可以将 Tensor 转换为 numpy.ndarray：
 
 .. testcode::
 
@@ -119,10 +110,7 @@ numpy()方法
     [[ 0.  1.  2.  3.  4.  5.]
     [ 6.  7.  8.  9. 10. 11.]]
 
-device属性
-``````````````````````````````
-
-通过 :meth:`device <.megengine.core.tensor.Tensor.device>` 属性，可以查询当前 Tensor 所在的设备。创建的 Tensor 可以位于不同 device，这根据当前的环境决定。一般地，如果在创建 Tensor 时不指定 device，其 device 属性默认为 xpux，表示当前任意一个可用的设备。如果存在 GPU 则优先使用 GPU，否则为 CPU。
+通过 :meth:`device <.megengine.core.tensor.tensor.Tensor.device>` 属性，我们可以查询当前 Tensor 所在的设备。创建的 Tensor 可以位于不同 device，这根据当前的环境决定。一般地，如果在创建 Tensor 时不指定 device，其 device 属性默认为 xpux，表示当前任意一个可用的设备。如果存在 GPU 则优先使用 GPU，否则为 CPU。
 
 .. testcode::
 
@@ -136,7 +124,7 @@ device属性
 
 你也可以在创建 Tensor 时，指定 device 为 cpu0, cpu1, ..., gpu0, gpu1, ... ，也可以是 cpux 或 gpux，表示当前任意一个可用的 CPU 或 GPU。
 
-通过 :meth:`~.megengine.core.tensor.Tensor.to` 方法可以在另一个 device 上生成当前 Tensor 的拷贝，比如将刚刚创建的 Tensor ``a`` 迁移到 CPU 上，再迁移到 GPU 上：
+通过 :meth:`~.megengine.tensor.Tensor.to` 方法可以在另一个 device 上生成当前 Tensor 的拷贝，比如我们将刚刚创建的 Tensor ``a`` 迁移到 CPU 上，再迁移到 GPU 上：
 
 .. testcode::
 
@@ -248,7 +236,7 @@ Tensor 形状的更改：
     [2. 5.]
     [1. 8.]], device=xpux:0)
 
-:meth:`~.megengine.core.tensor.Tensor.reshape` 的参数允许存在单个维度的缺省值，用 -1 表示。此时，reshape 会自动推理该维度的值：
+:meth:`~.megengine.core.tensor.tensor_wrapper.ArrayMethodMixin.reshape` 的参数允许存在单个维度的缺省值，用 -1 表示。此时，reshape 会自动推理该维度的值：
 
 .. testcode::
 

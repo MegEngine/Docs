@@ -8,7 +8,7 @@
 打开 codegen
 ---------------------------------------
 
-我们在 :class:`~.megengine.jit.trace` 接口中传入 ``symbolic=True, opt_level=3``
+我们在 :class:`~.megengine.jit.tracing.trace` 接口中传入 ``symbolic=True, opt_level=3``
 ，即可打开 MegEngine codegen 优化。
 
 指定 codegen 的后端

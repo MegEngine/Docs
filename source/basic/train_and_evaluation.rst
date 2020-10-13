@@ -142,10 +142,41 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
     epoch: 8, loss 0.01511287806855861
     epoch: 9, loss 0.012423654125569995
 
+GPU 和 CPU 切换
+``````````````````````````````
+MegEngine 在 GPU 和 CPU 同时存在时默认使用 GPU 进行训练。用户可以调用 :func:`~.megengine.device.set_default_device` 来根据自身需求设置默认计算设备。
+
+如下代码设置默认设备为 CPU：
+
+.. testcode::
+
+    import megengine as mge
+
+    # 默认使用 CPU
+    mge.set_default_device('cpux')
+
+如下代码设置默认设备为GPU:
+
+.. testcode::
+
+    # 默认使用 GPU
+    mge.set_default_device('gpux')
+
+更多用法可见 :func:`~.megengine.device.set_default_device` API 文档。
+
+如果不想修改代码，用户也可通过环境变量 ``MGE_DEFAULT_DEVICE`` 来设置默认计算设备：
+
+.. code-block:: bash
+
+    # 默认使用 CPU
+    export MGE_DEFAULT_DEVICE='cpux'
+
+    # 默认使用 GPU
+    export MGE_DEFAULT_DEVICE='gpux'
 
 网络的保存
 ``````````````````````````````
-网络训练完成之后需要保存，以便后续使用。在之前 :ref:`network_build` 部分，我们介绍了网络模块 Module 中  :meth:`~.megengine.module.module.Module.state_dict`  的功能： :meth:`~.megengine.module.module.Module.state_dict` 遍历网络的所有参数，将其组成一个有序字典并返回。 我们通过 MegEngine 中的 :func:`~.megengine.core.serialization.save` 保存这些网络参数。
+网络训练完成之后需要保存，以便后续使用。在之前 :ref:`network_build` 部分，我们介绍了网络模块 Module 中  :meth:`~.megengine.module.module.Module.state_dict`  的功能： :meth:`~.megengine.module.module.Module.state_dict` 遍历网络的所有参数，将其组成一个有序字典并返回。 我们通过 MegEngine 中的 :func:`~.megengine.serialization.save` 保存这些网络参数。
 
 .. testcode::
 
@@ -157,7 +188,7 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
 
 网络的加载
 ``````````````````````````````
-测试时我们可以通过 :func:`~.megengine.core.serialization.load` 来读取 ``lenet.mge`` ，它会返回 :meth:`~.megengine.module.module.Module.state_dict` 字典对象，其中保存了模型中的模块名称和对应参数。 接着，我们可以通过 Module 的 :meth:`~.megengine.module.module.Module.load_state_dict` 方法将该字典对象加载到 ``le_net`` 模型。
+测试时我们可以通过 :func:`~.megengine.serialization.load` 来读取 ``lenet.mge`` ，它会返回 :meth:`~.megengine.module.module.Module.state_dict` 字典对象，其中保存了模型中的模块名称和对应参数。 接着，我们可以通过 Module 的 :meth:`~.megengine.module.module.Module.load_state_dict` 方法将该字典对象加载到 ``le_net`` 模型。
 
 .. testcode::
 

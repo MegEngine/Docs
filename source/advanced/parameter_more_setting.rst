@@ -77,7 +77,7 @@
         lr=0.05,  # 参数组例表中未指定学习速率的参数组服从此设置，如所有卷积参数
     )
 
-优化器中设置的参数组列表对应于 :attr:`~.megengine.optimizer.optimizer.Optimizer.param_groups` 属性。可以通过它获取不同参数组的学习速率。
+优化器中设置的参数组列表对应于 :attr:`~.megengine.optimizer.Optimizer.param_groups` 属性。我们可以通过其获取不同参数组的学习速率。
 
 .. testcode::
 

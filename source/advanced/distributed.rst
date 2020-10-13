@@ -111,7 +111,7 @@ launcher 是我们提供的一个语法糖，它等价于下面这段代码：
 初始化分布式训练
 ''''''''''''''''''''''''''''''
 
-在 MegEngine 中，我们通过 :func:`~.megengine.distributed.util.init_process_group` 来初始化分布式训练。其接收以下参数
+在 MegEngine 中，我们通过 :func:`~.megengine.distributed.group.init_process_group` 来初始化分布式训练。其接收以下参数
 
 * ``master_ip`` (str) – 主节点的 IP 地址；
 * ``port`` (int) – 所有进程通信使用的端口；
@@ -186,7 +186,7 @@ launcher 是我们提供的一个语法糖，它等价于下面这段代码：
 
 在 MegEngine 中，依赖于上面提到的状态同步机制，我们保持了各个进程状态的一致，因此可以很容易地实现模型的保存和加载。
 
-对于加载，我们只要在主进程（rank 0 进程）中加载模型参数，然后调用 :func:`~.megengine.distributed.bcast_list_` 对各个进程的参数进行同步，就保持了各个进程的状态一致。
+对于加载，我们只要在主进程（rank 0 进程）中加载模型参数，然后调用 :func:`~.megengine.distributed.helper.bcast_list_` 对各个进程的参数进行同步，就保持了各个进程的状态一致。
 
 对于保存，由于我们在梯度计算中插入了 callback 函数对各个进程的梯度进行累加，所以我们进行参数更新后的参数还是一致的，可以直接保存。
 
@@ -229,7 +229,7 @@ launcher 是我们提供的一个语法糖，它等价于下面这段代码：
 多机多卡
 ------------------------------
 
-在 MegEngine 中，我们能很方便地将上面单机多卡的代码修改为多机多卡，只需修改传给 :func:`~.megengine.distributed.util.init_process_group` 的总进程数 ``world_size`` 和当前进程序号 ``rank`` 参数。即只需在计算每台机器中每个进程的序号时，考虑到机器节点 ID （ ``node_id`` ）即可。另外选择其中一台机器作为主节点（master node），创建一个 Server 用于同步进程间信息，然后将其 IP 地址和通信端口提供给所有机器即可。
+在 MegEngine 中，我们能很方便地将上面单机多卡的代码修改为多机多卡，只需修改传给 :func:`~.megengine.distributed.group.init_process_group` 的总进程数 ``world_size`` 和当前进程序号 ``rank`` 参数。即只需在计算每台机器中每个进程的序号时，考虑到机器节点 ID （ ``node_id`` ）即可。另外选择其中一台机器作为主节点（master node），创建一个 Server 用于同步进程间信息，然后将其 IP 地址和通信端口提供给所有机器即可。
 
 .. code-block::
 
