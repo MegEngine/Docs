@@ -74,20 +74,19 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 .. code-block:: python
 
 
+   import megengine.hub
    import megengine.module as M
    import megengine.functional as F
+   from megengine.jit import trace
+   from megengine import tensor
    import numpy as np
 
    if __name__ == '__main__':
 
-      import megengine.hub
-      import megengine.functional as F
-      from megengine.jit import trace
-
       net = megengine.hub.load("megengine/models", "shufflenet_v2_x1_0", pretrained=True)
       net.eval()
 
-      @trace(symbolic=True)
+      @trace(symbolic=True, capture_as_const=True)
       def fun(data,*, net):
          pred = net(data)
          pred_normalized = F.softmax(pred)
@@ -95,9 +94,8 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
 
       data = np.random.random([1, 3, 224,
                               224]).astype(np.float32)
-      
 
-      fun.trace(data,net=net)
+      fun.trace(tensor(data), net=net)
       fun.dump("shufflenet_deploy.mge", arg_names=["data"], optimize_for_inference=True)
 
 执行脚本，并完成模型转换后，我们就获得了可以通过 MegEngine C++ API 加载的预训练模型文件 **shufflenet_deploy.mge**。
