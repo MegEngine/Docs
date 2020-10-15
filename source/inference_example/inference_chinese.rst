@@ -96,7 +96,7 @@ MegEngine可以支持多平台的交叉编译，可以根据官方指导文档�
                               224]).astype(np.float32)
 
       fun.trace(tensor(data), net=net)
-      fun.dump("shufflenet_deploy.mge", arg_names=["data"], optimize_for_inference=True)
+      fun.dump("shufflenet_deploy.mge", arg_names=["data"])
 
 执行脚本，并完成模型转换后，我们就获得了可以通过 MegEngine C++ API 加载的预训练模型文件 **shufflenet_deploy.mge**。
 
