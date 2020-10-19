@@ -61,9 +61,9 @@ MegEngine 的上述特点使其成为了最适合工业级研发的框架之一�
 
 .. note::
 
-    MegEngine 目前仅支持 Linux 环境下安装，以及 Python3.5 及以上的版本（不支持 Python2 ）。
+    MegEngine 目前支持 Linux 、Windows、Mac 环境下安装，支持Python3.5 及以上的版本（不支持 Python2 ）。
 
-    对于 Windows 10 用户，可以通过安装 `WSL(Windows Subsystem for Linux) <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_ 进行体验，但是由于 WSL 还不支持访问 GPU，所以目前只能使用 CPU 运行 MegEngine 程序。
+    对于 Windows 10 用户，建议通过安装 `WSL(Windows Subsystem for Linux) <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_ 进行体验。
 
 .. toctree::
     :hidden:
