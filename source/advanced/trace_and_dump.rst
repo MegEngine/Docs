@@ -27,7 +27,7 @@ symbolic 参数
 
     from megengine.jit import trace
     @trace(symbolic=True) # 设置为静态图模式
-    def train_func(data, label, *, opt, net):
+    def train_func(data, label, *, gm, net):
         pass
 
 ``symbolic`` 的取值为 True 或者 False，其含义如下:
@@ -44,11 +44,12 @@ symbolic 参数
 
     # @trace(symbolic=False) # “动态构造”
     @trace(symbolic=True) # “静态构造”
-    def train_func(data, label, *, opt, net):
-        logits = net(data)
-        print(logits[0]) # 因网络输出太多，此处仅打印部分
-        loss = F.cross_entropy_with_softmax(logits, label)
-        opt.backward(loss)
+    def train_func(data, label, *, gm, net):
+        with gm:
+            logits = net(data)
+            print(logits[0]) # 因网络输出太多，此处仅打印部分
+            loss = F.loss.cross_entropy(logits, label)
+            gm.backward(loss)
         return logits, loss
 
 输出为：

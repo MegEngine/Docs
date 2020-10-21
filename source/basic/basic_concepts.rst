@@ -66,8 +66,8 @@ MegEngine 是基于计算图的深度神经网络学习框架。
 
 .. testcode::
 
-    print(c.dtype)
-    d = c.astype("float16")
+    print(a.dtype)
+    d = a.astype("float16")
     print(d.dtype)
 
 输出：
@@ -81,7 +81,7 @@ MegEngine 是基于计算图的深度神经网络学习框架。
 
 .. testcode::
 
-    print(c.shape)
+    print(a.shape)
 
 输出为一个Tuple：
 

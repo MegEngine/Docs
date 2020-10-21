@@ -52,10 +52,10 @@
             config = SublinearMemoryConfig(genetic_nr_iter=genetic_nr_iter)
 
         @trace(symbolic=True, sublinear_memory_config=config)
-        def train_func(data, label, *, net, optimizer, gm):
+        def train_func(data, label, *, net, gm):
             with gm:
                 pred = net(data)
-                loss = F.cross_entropy_with_softmax(pred, label)
+                loss = F.loss.cross_entropy(pred, label)
                 gm.backward(loss)
 
         resnet.train()
@@ -63,7 +63,7 @@
             batch_data = np.random.randn(batch_size, 3, 224, 224).astype(np.float32)
             batch_label = np.random.randint(1000, size=(batch_size,)).astype(np.int32)
             optimizer.clear_grad()
-            train_func(tensor(batch_data), tensor(batch_label), net=resnet, optimizer=optimizer, gm=gm)
+            train_func(tensor(batch_data), tensor(batch_label), net=resnet, gm=gm)
             optimizer.step()
         
 

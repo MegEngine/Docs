@@ -60,7 +60,7 @@ MegEngine 的 codegen 目前集成了三种后端，分别是 NVRTC, HALIDE 和 
             opt.clear_grad()
             with gm:
                 logits = model(image)
-                loss = F.cross_entropy_with_softmax(logits, label)
+                loss = F.loss.cross_entropy(logits, label)
                 gm.backward(loss)
             opt.step()
             return loss

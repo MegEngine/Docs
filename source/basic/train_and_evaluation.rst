@@ -55,7 +55,7 @@ MegEngine 提供了各种常见损失函数，具体可见API文档中的 :mod:`
         logits = le_net(batch_data)
 
         # logits 为网络的输出结果，label 是数据的真实标签即训练目标
-        loss = F.cross_entropy_with_softmax(logits, batch_label) # 交叉熵损失函数
+        loss = F.loss.cross_entropy(logits, batch_label) # 交叉熵损失函数
 
 求导器和优化器
 ``````````````````````````````
@@ -95,7 +95,7 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
         optimizer.clear_grad()      # 将参数的梯度置零
         with gm:                    # 记录计算图
             logits = le_net(batch_data)
-            loss = F.cross_entropy_with_softmax(logits, batch_label)
+            loss = F.loss.cross_entropy(logits, batch_label)
             gm.backward(loss)       # 反向传播计算梯度
         optimizer.step()            # 根据梯度更新参数值
 
@@ -121,7 +121,7 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
             optimizer.clear_grad()      # 将参数的梯度置零
             with gm:                    # 记录计算图
                 logits = le_net(batch_data)
-                loss = F.cross_entropy_with_softmax(logits, batch_label)
+                loss = F.loss.cross_entropy(logits, batch_label)
                 gm.backward(loss)       # 反向传播计算梯度
             optimizer.step()            # 根据梯度更新参数值
             total_loss += loss.numpy().item()
