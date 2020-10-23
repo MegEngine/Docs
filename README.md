@@ -41,7 +41,7 @@
 2. Make sure you have cloned [MegBrain](https://git-core.megvii-inc.com/brain-sdk/MegBrain)
 
     ```bash
-    git clone git@git-core.megvii-inc.com:brain-sdk/MegBrain.git
+    git clone https://github.com/MegEngine/MegEngine.git
     ```
 
 3. Run [gen_docs/build_api.sh](gen_docs/build_api.sh) to generate HTML files of api.

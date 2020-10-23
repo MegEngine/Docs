@@ -3,6 +3,17 @@
 {%- for option in options %}
    :{{ option }}:
 {%- endfor %}
+{%- if "megengine.functional.nn" == modname|string() %}
+   {{ "" }}
+   {{ ".. autofunction:: megengine.functional.nn.conv_bias_activation" }}
+   {{ ".. autofunction:: megengine.functional.nn.embedding" }}
+   {{ ".. autofunction:: megengine.functional.nn.interpolate" }}
+   {{ ".. autofunction:: megengine.functional.nn.linear" }}
+   {{ ".. autofunction:: megengine.functional.nn.nms" }}
+   {{ ".. autofunction:: megengine.functional.nn.roi_align" }}
+   {{ ".. autofunction:: megengine.functional.nn.roi_pooling" }}
+   {{ ".. autofunction:: megengine.functional.nn.sync_batch_norm" }}
+{%- endif %}
 {%- endmacro %}
 
 {%- macro toctree(docnames) -%}

@@ -3,8 +3,6 @@ build_api
 build_doc
 gen_cpp_docs/xml
 source/include/file
-source_api/autogen
-source_api/autogen_zh
 source_api/zh/api
 source_api/en/api
 source_api/cpp_api
