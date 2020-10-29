@@ -41,7 +41,7 @@
 
         # ... 你的训练代码
 
-launcher 是我们提供的一个语法糖，它等价于下面这段代码：
+:func:`~.megengine.distributed.launcher.launcher` 是我们提供的一个语法糖，它等价于下面这段代码：
 
 .. code-block::
 
@@ -71,6 +71,7 @@ launcher 是我们提供的一个语法糖，它等价于下面这段代码：
     port = dist.util.get_free_ports(1)[0]
     server = dist.Server(port)
 
+    procs = []
     for rank in range(num_devices):
         p = mp.Process(
             target=run,
@@ -78,6 +79,13 @@ launcher 是我们提供的一个语法糖，它等价于下面这段代码：
                 num_devices, rank, "localhost", port
             )
         )
+        p.start()
+        procs.append(p)
+
+    for rank in range(num_devices):
+        procs[rank].join()
+        code = procs[rank].exitcode
+        assert code == 0, "subprocess {} exit with code {}".format(rank, code)
 
 下面几个小节，我们会逐步解释其中的原理。
 
@@ -100,6 +108,7 @@ launcher 是我们提供的一个语法糖，它等价于下面这段代码：
 
     import multiprocessing as mp
 
+    procs = []
     for rank in range(num_devices):
         p = mp.Process(
             target=run,
@@ -107,6 +116,13 @@ launcher 是我们提供的一个语法糖，它等价于下面这段代码：
                 num_devices, rank, # ... 省略更多参数
             )
         )
+        p.start()
+        procs.append(p)
+
+    for rank in range(num_devices):
+        procs[rank].join()
+        code = procs[rank].exitcode
+        assert code == 0, "subprocess {} exit with code {}".format(rank, code)
 
 初始化分布式训练
 ''''''''''''''''''''''''''''''
@@ -275,6 +291,7 @@ launcher 是我们提供的一个语法糖，它等价于下面这段代码：
 
     num_devices = dist.helper.get_device_count_by_fork("gpu")
 
+    procs = []
     for rank in range(num_devices):
         p = mp.Process(
             target=run,
@@ -282,4 +299,11 @@ launcher 是我们提供的一个语法糖，它等价于下面这段代码：
                 args.num_nodes, args.node_id, num_devices, rank, args.master_ip, args.port
             )
         )
+        p.start()
+        procs.append(p)
+
+    for rank in range(num_devices):
+        procs[rank].join()
+        code = procs[rank].exitcode
+        assert code == 0, "subprocess {} exit with code {}".format(rank, code)
 
