@@ -5,7 +5,7 @@
 
 本章我们以 :ref:`network_build` 中的 ``LeNet`` 为例介绍网络的训练和测试。 ``LeNet`` 的实例化代码如下所示：
 
-.. testcode::
+.. code-block::
 
     # 实例化
     le_net = LeNet()
@@ -15,7 +15,7 @@
 ------------------------------
 在此我们仿照 :ref:`data_load` 中的方式读取 `MNIST <http://yann.lecun.com/exdb/mnist/>`_ 数据。 下面的代码和之前基本一样，我们删除了注释并去掉了 ``RandomResizedCrop`` （MNIST 数据集通常不需要此数据增广）。
 
-.. testcode::
+.. code-block::
 
     from megengine.data import DataLoader, RandomSampler
     from megengine.data.transform import ToMode, Pad, Normalize, Compose
@@ -46,7 +46,7 @@ MegEngine 提供了各种常见损失函数，具体可见API文档中的 :mod:`
 
 如下代码展示了如何使用交叉熵损失：
 
-.. testcode::
+.. code-block::
 
     import megengine as mge
     import megengine.functional as F
@@ -75,7 +75,7 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
 
 此处的 ``learning_rate`` 代表学习速率，用来控制参数每次更新的幅度。在 MegEngine 中此更新方式对应的优化器是 :class:`~.megengine.optimizer.sgd.SGD` 。 我们首先创建一个求导器和一个优化器：
 
-.. testcode::
+.. code-block::
 
     import megengine.optimizer as optim
     from megengine.autodiff import GradManager
@@ -89,7 +89,7 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
 
 然后通过 ``dataloader`` 读取一遍训练数据，并利用优化器对网络参数进行更新，这样的一轮更新我们称为一个 epoch：
 
-.. testcode::
+.. code-block::
 
     for step, (batch_data, batch_label) in enumerate(dataloader):
         optimizer.clear_grad()      # 将参数的梯度置零
@@ -104,10 +104,11 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
 
 完整的训练流程通常需要运行多个 epoch，代码如下所示：
 
-.. testcode::
+.. code-block::
 
     import megengine as mge
     import megengine.optimizer as optim
+    from megengine.autodiff import GradManager
 
     # 网络、求导器和优化器的创建
     le_net = LeNet()
@@ -148,7 +149,7 @@ MegEngine 在 GPU 和 CPU 同时存在时默认使用 GPU 进行训练。用户�
 
 如下代码设置默认设备为 CPU：
 
-.. testcode::
+.. code-block::
 
     import megengine as mge
 
@@ -157,7 +158,7 @@ MegEngine 在 GPU 和 CPU 同时存在时默认使用 GPU 进行训练。用户�
 
 如下代码设置默认设备为GPU:
 
-.. testcode::
+.. code-block::
 
     # 默认使用 GPU
     mge.set_default_device('gpux')
@@ -178,7 +179,7 @@ MegEngine 在 GPU 和 CPU 同时存在时默认使用 GPU 进行训练。用户�
 ``````````````````````````````
 网络训练完成之后需要保存，以便后续使用。在之前 :ref:`network_build` 部分，我们介绍了网络模块 Module 中  :meth:`~.megengine.module.module.Module.state_dict`  的功能： :meth:`~.megengine.module.module.Module.state_dict` 遍历网络的所有参数，将其组成一个有序字典并返回。 我们通过 MegEngine 中的 :func:`~.megengine.serialization.save` 保存这些网络参数。
 
-.. testcode::
+.. code-block::
 
     path = "lenet.mge"  # 我们约定用 ".mge" 拓展名表示 MegEngine 模型文件
     mge.save(le_net.state_dict(), path)
@@ -190,7 +191,7 @@ MegEngine 在 GPU 和 CPU 同时存在时默认使用 GPU 进行训练。用户�
 ``````````````````````````````
 测试时我们可以通过 :func:`~.megengine.serialization.load` 来读取 ``lenet.mge`` ，它会返回 :meth:`~.megengine.module.module.Module.state_dict` 字典对象，其中保存了模型中的模块名称和对应参数。 接着，我们可以通过 Module 的 :meth:`~.megengine.module.module.Module.load_state_dict` 方法将该字典对象加载到 ``le_net`` 模型。
 
-.. testcode::
+.. code-block::
 
     state_dict = mge.load("lenet.mge")
     # 将参数加载到网络
@@ -205,7 +206,7 @@ MegEngine 在 GPU 和 CPU 同时存在时默认使用 GPU 进行训练。用户�
 
 在此我们以 :class:`~.megengine.module.dropout.Dropout` 为例展示这两个函数的作用：
 
-.. testcode::
+.. code-block::
 
     import megengine as mge
     import numpy as np 
@@ -234,7 +235,7 @@ MegEngine 在 GPU 和 CPU 同时存在时默认使用 GPU 进行训练。用户�
 
 在此我们使用 MNIST 测试数据集对训好的网络进行测试。 具体测试代码如下所示，和训练代码相比主要是去掉了优化器的相关代码：
 
-.. testcode::
+.. code-block::
 
     # 读取测试数据并进行预处理
     mnist_test_dataset = MNIST(root="./dataset/MNIST", train=False, download=True)

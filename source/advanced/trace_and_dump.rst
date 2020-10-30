@@ -136,6 +136,8 @@ optimize_for_inference
 
 .. code-block::
 
+    from megengine.core.tensor import megbrain_graph as G
+
     f.dump("test.mge", enable_io16xc32=True)
 
     res = G.load_graph("test.mge")

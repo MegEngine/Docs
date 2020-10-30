@@ -70,7 +70,7 @@
     # 以下示例结果在2080Ti GPU运行得到，显存容量为 11 GB
 
     # 不使用亚线性内存优化，允许的batch_size最大为 100 左右
-    p = Process(target=train_resnet_demo, args=(200, True, 20))
+    p = Process(target=train_resnet_demo, args=(100, False))
     p.start()
     p.join()
     

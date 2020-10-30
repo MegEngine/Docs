@@ -337,7 +337,7 @@ MegEngine 为计算图中的张量提供了自动求导功能，以上图的例�
 
 可以看到，求出的梯度本身也是 Tensor。
 
-with 代码段中的前向运算都会被求导器记录。你也可以用 :meth:`~.megengine.autodiff.grad_manager.GradManager.record()` 和 :meth:`~.megengine.autodiff.grad_manager.GradManager.release()` 来替代 with，分别控制求导器的开启和关闭，代码如下所示。
+with 代码段中的前向运算都会被求导器记录。你也可以用 :meth:`~.megengine.autodiff.grad_manager.GradManager.record()` 和 :meth:`~.megengine.autodiff.grad_manager.GradManager.release()` 来替代 with，分别控制求导器的开启和关闭（不推荐），代码如下所示。
 
 .. code-block:: python
 
