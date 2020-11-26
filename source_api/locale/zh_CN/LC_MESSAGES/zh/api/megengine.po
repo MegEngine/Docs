@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 12:39+0800\n"
+"POT-Creation-Date: 2020-11-26 15:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source_api/zh/api/megengine.rst:2
 msgid "megengine package"
-msgstr "megengine package"
+msgstr "megengine 模块"
 
 #: ../../source_api/zh/api/megengine.rst:11
 msgid "megengine.device"
@@ -79,7 +79,7 @@ msgstr "获取当前系统中的设备数量。"
 #: megengine.device.set_prealloc_config megengine.logger.replace_mgb_log_level
 #: megengine.logger.set_log_file megengine.logger.set_log_level
 #: megengine.logger.set_mgb_log_level megengine.serialization.load
-#: megengine.serialization.save megengine.tensor.Tensor.detach of
+#: megengine.serialization.save of
 msgid "Parameters"
 msgstr "参数"
 
@@ -91,11 +91,15 @@ msgstr "设备类型，'gpu' 和 'cpu' 中的一个"
 msgid ":py:class:`int`"
 msgstr ":py:class:`int`"
 
+#: megengine.device.get_mem_status_bytes:1 of
+msgid "Get total and free memory on the computing device in bytes."
+msgstr "以字节为单位获取计算设备上的总内存和可用内存。"
+
 #: megengine.device.is_cuda_available:1 of
 msgid "Returns whether cuda device is available on this system."
 msgstr "cuda设备是否在当前机器可用。"
 
-#: megengine.device.is_cuda_available:6 of
+#: megengine.device.is_cuda_available:5 of
 msgid ":py:class:`bool`"
 msgstr ":py:class:`bool`"
 
@@ -327,13 +331,9 @@ msgstr "__getstate__ 会在pickle序列化或深拷贝时被调用"
 
 #: megengine.tensor.Tensor.detach:1 of
 msgid ""
-"Returns a new tensor which is treated as constant during backward "
-"gradient calcuation, i.e. its gradient is zero."
+"Returns a new tensor sharing the same data memory, which is treated as a "
+"constant during backward gradient calcuation, i.e. its gradient is zero."
 msgstr "返回一个新的张量，它在反向梯度计算的时候会被当作常量。即，它的梯度是零。"
-
-#: megengine.tensor.Tensor.detach:4 of
-msgid "input tensor"
-msgstr "输入张量"
 
 #: megengine.tensor.Tensor.reset_zero:2 of
 msgid "use *= 0 instead"
@@ -346,51 +346,3 @@ msgstr "在1.0版本后不需要重复使用一个存在的张量"
 #: ../../source_api/zh/api/megengine.rst:43
 msgid "megengine.version"
 msgstr "megengine.version"
-
-#~ msgid ""
-#~ "'multithread' device type is avaliable "
-#~ "when inference, which implements multi-"
-#~ "threading parallelism at the operator "
-#~ "level. For example, 'multithread4' will "
-#~ "compute with 4 threads. which implements"
-#~ msgstr ""
-
-#~ msgid "It can also be set by environmental variable `MGE_DEFAULT_DEVICE`."
-#~ msgstr ""
-
-#~ msgid "specifies how to pre-allocate from raw dev allocator"
-#~ msgstr ""
-
-#~ msgid "growth_factor"
-#~ msgstr ""
-
-#~ msgid "request size / cur allocated"
-#~ msgstr ""
-
-#~ msgid "device_type"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Default: ``None``.  .. note::      "
-#~ "map_location defines device mapping. See "
-#~ "examples for usage."
-#~ msgstr ""
-
-#~ msgid "CAMBRICON"
-#~ msgstr "CAMBRICON"
-
-#~ msgid "FPGA"
-#~ msgstr "FPGA"
-
-#~ msgid "OPENCL"
-#~ msgstr "OPENCL"
-
-#~ msgid "HEXAGON"
-#~ msgstr "HEXAGON"
-
-#~ msgid "CADENCE"
-#~ msgstr "CADENCE"
-
-#~ msgid "ROCM"
-#~ msgstr "ROCM"
-

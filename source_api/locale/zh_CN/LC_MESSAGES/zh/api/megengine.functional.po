@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 18:47+0800\n"
+"POT-Creation-Date: 2020-11-26 15:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source_api/zh/api/megengine.functional.rst:2
 msgid "megengine.functional package"
-msgstr "megengine.functional package"
+msgstr "megengine.functional 模块"
 
 #: ../../source_api/zh/api/megengine.functional.rst:11
 msgid "megengine.functional.debug\\_param"
@@ -49,8 +49,8 @@ msgstr "参考 :func:`~.set_conv_execution_strategy` 的相关说明了解可能
 #: megengine.functional.math.sum megengine.functional.math.topk
 #: megengine.functional.math.var megengine.functional.nn.adaptive_avg_pool2d
 #: megengine.functional.nn.adaptive_max_pool2d
-#: megengine.functional.nn.avg_pool2d megengine.functional.nn.conv2d
-#: megengine.functional.nn.conv_bias_activation
+#: megengine.functional.nn.avg_pool2d megengine.functional.nn.conv1d
+#: megengine.functional.nn.conv2d megengine.functional.nn.conv_bias_activation
 #: megengine.functional.nn.conv_transpose2d megengine.functional.nn.dot
 #: megengine.functional.nn.dropout megengine.functional.nn.indexing_one_hot
 #: megengine.functional.nn.interpolate megengine.functional.nn.leaky_relu
@@ -58,10 +58,12 @@ msgstr "参考 :func:`~.set_conv_execution_strategy` 的相关说明了解可能
 #: megengine.functional.nn.logsoftmax megengine.functional.nn.logsumexp
 #: megengine.functional.nn.matmul megengine.functional.nn.max_pool2d
 #: megengine.functional.nn.nms megengine.functional.nn.one_hot
-#: megengine.functional.nn.prelu megengine.functional.nn.roi_align
-#: megengine.functional.nn.roi_pooling megengine.functional.nn.softmax
-#: megengine.functional.nn.softplus megengine.functional.nn.svd
-#: megengine.functional.nn.sync_batch_norm
+#: megengine.functional.nn.prelu megengine.functional.nn.remap
+#: megengine.functional.nn.roi_align megengine.functional.nn.roi_pooling
+#: megengine.functional.nn.softmax megengine.functional.nn.softplus
+#: megengine.functional.nn.svd megengine.functional.nn.sync_batch_norm
+#: megengine.functional.nn.warp_perspective
+#: megengine.functional.quantized.batch_conv_bias_activation
 #: megengine.functional.quantized.conv_bias_activation
 #: megengine.functional.tensor.arange megengine.functional.tensor.broadcast_to
 #: megengine.functional.tensor.concat megengine.functional.tensor.cond_take
@@ -104,7 +106,8 @@ msgstr "设置 :class:`~.Conv2d` 的执行策略。"
 #: megengine.functional.nn.adaptive_avg_pool2d
 #: megengine.functional.nn.adaptive_max_pool2d
 #: megengine.functional.nn.avg_pool2d megengine.functional.nn.batch_norm
-#: megengine.functional.nn.conv2d megengine.functional.nn.conv_bias_activation
+#: megengine.functional.nn.conv1d megengine.functional.nn.conv2d
+#: megengine.functional.nn.conv_bias_activation
 #: megengine.functional.nn.conv_transpose2d megengine.functional.nn.dot
 #: megengine.functional.nn.dropout megengine.functional.nn.embedding
 #: megengine.functional.nn.indexing_one_hot megengine.functional.nn.interpolate
@@ -112,10 +115,12 @@ msgstr "设置 :class:`~.Conv2d` 的执行策略。"
 #: megengine.functional.nn.logsoftmax megengine.functional.nn.logsumexp
 #: megengine.functional.nn.matmul megengine.functional.nn.max_pool2d
 #: megengine.functional.nn.nms megengine.functional.nn.one_hot
-#: megengine.functional.nn.roi_align megengine.functional.nn.roi_pooling
-#: megengine.functional.nn.softmax megengine.functional.nn.softplus
-#: megengine.functional.nn.svd megengine.functional.nn.sync_batch_norm
+#: megengine.functional.nn.remap megengine.functional.nn.roi_align
+#: megengine.functional.nn.roi_pooling megengine.functional.nn.softmax
+#: megengine.functional.nn.softplus megengine.functional.nn.svd
+#: megengine.functional.nn.sync_batch_norm
 #: megengine.functional.nn.warp_perspective
+#: megengine.functional.quantized.batch_conv_bias_activation
 #: megengine.functional.quantized.conv_bias_activation
 #: megengine.functional.tensor.arange megengine.functional.tensor.broadcast_to
 #: megengine.functional.tensor.concat megengine.functional.tensor.cond_take
@@ -270,9 +275,9 @@ msgstr "输入张量。"
 #: megengine.functional.nn.embedding megengine.functional.nn.indexing_one_hot
 #: megengine.functional.nn.interpolate megengine.functional.nn.matmul
 #: megengine.functional.nn.max_pool2d megengine.functional.nn.nms
-#: megengine.functional.nn.one_hot megengine.functional.nn.roi_align
-#: megengine.functional.nn.roi_pooling megengine.functional.nn.svd
-#: megengine.functional.nn.sync_batch_norm
+#: megengine.functional.nn.one_hot megengine.functional.nn.remap
+#: megengine.functional.nn.roi_align megengine.functional.nn.roi_pooling
+#: megengine.functional.nn.svd megengine.functional.nn.sync_batch_norm
 #: megengine.functional.nn.warp_perspective megengine.functional.tensor.arange
 #: megengine.functional.tensor.broadcast_to megengine.functional.tensor.concat
 #: megengine.functional.tensor.expand_dims megengine.functional.tensor.eye
@@ -316,10 +321,10 @@ msgstr "计算得到的张量。"
 #: megengine.functional.nn.interpolate:15 megengine.functional.nn.logsigmoid:12
 #: megengine.functional.nn.logsoftmax:20 megengine.functional.nn.logsumexp:26
 #: megengine.functional.nn.matmul:21 megengine.functional.nn.nms:15
-#: megengine.functional.nn.one_hot:10 megengine.functional.nn.roi_align:22
-#: megengine.functional.nn.roi_pooling:16 megengine.functional.nn.softmax:17
-#: megengine.functional.nn.softplus:18 megengine.functional.nn.svd:8
-#: megengine.functional.nn.warp_perspective:29
+#: megengine.functional.nn.one_hot:10 megengine.functional.nn.remap:22
+#: megengine.functional.nn.roi_align:22 megengine.functional.nn.roi_pooling:16
+#: megengine.functional.nn.softmax:17 megengine.functional.nn.softplus:18
+#: megengine.functional.nn.svd:8 megengine.functional.nn.warp_perspective:33
 #: megengine.functional.tensor.arange:13
 #: megengine.functional.tensor.broadcast_to:10
 #: megengine.functional.tensor.concat:11
@@ -359,10 +364,10 @@ msgstr "例如："
 #: megengine.functional.nn.interpolate:29 megengine.functional.nn.logsigmoid:24
 #: megengine.functional.nn.logsoftmax:32 megengine.functional.nn.logsumexp:38
 #: megengine.functional.nn.matmul:34 megengine.functional.nn.nms:32
-#: megengine.functional.nn.one_hot:22 megengine.functional.nn.roi_align:36
-#: megengine.functional.nn.roi_pooling:30 megengine.functional.nn.softmax:29
-#: megengine.functional.nn.softplus:30 megengine.functional.nn.svd:20
-#: megengine.functional.nn.warp_perspective:47
+#: megengine.functional.nn.one_hot:22 megengine.functional.nn.remap:38
+#: megengine.functional.nn.roi_align:36 megengine.functional.nn.roi_pooling:30
+#: megengine.functional.nn.softmax:29 megengine.functional.nn.softplus:30
+#: megengine.functional.nn.svd:20 megengine.functional.nn.warp_perspective:51
 #: megengine.functional.tensor.arange:23 megengine.functional.tensor.arange:25
 #: megengine.functional.tensor.broadcast_to:22
 #: megengine.functional.tensor.concat:24
@@ -413,9 +418,12 @@ msgstr "把每个元素的值限定在范围 `[` :attr:`lower`, :attr:`upper` `
 
 #: megengine.functional.elemwise.clip:4 of
 msgid ""
-"y_i = \\begin{cases}     \\text{lower} & \\text{if } x_i < \\text{lower} "
-"\\\\     x_i & \\text{if } \\text{lower} \\leq x_i \\leq \\text{upper} "
-"\\\\     \\text{upper} & \\text{if } x_i > \\text{upper} \\end{cases}"
+"y_i = \\begin{cases}\n"
+"    \\text{lower} & \\text{if } x_i < \\text{lower} \\\\\n"
+"    x_i & \\text{if } \\text{lower} \\leq x_i \\leq \\text{upper} \\\\\n"
+"    \\text{upper} & \\text{if } x_i > \\text{upper}\n"
+"\\end{cases}\n"
+"\n"
 msgstr ""
 "y_i = \\begin{cases}     \\text{lower} & \\text{if } x_i < \\text{lower} "
 "\\\\     x_i & \\text{if } \\text{lower} \\leq x_i \\leq \\text{upper} "
@@ -443,8 +451,9 @@ msgstr "限定区间的上界"
 #: megengine.functional.math.sum:12 megengine.functional.math.var:11
 #: megengine.functional.nn.adaptive_avg_pool2d:9
 #: megengine.functional.nn.adaptive_max_pool2d:9
-#: megengine.functional.nn.avg_pool2d:16 megengine.functional.nn.conv2d:32
-#: megengine.functional.nn.conv_bias_activation:34
+#: megengine.functional.nn.avg_pool2d:16 megengine.functional.nn.conv1d:36
+#: megengine.functional.nn.conv2d:32
+#: megengine.functional.nn.conv_bias_activation:32
 #: megengine.functional.nn.conv_transpose2d:32 megengine.functional.nn.dot:8
 #: megengine.functional.nn.dropout:11
 #: megengine.functional.nn.indexing_one_hot:10
@@ -453,22 +462,24 @@ msgstr "限定区间的上界"
 #: megengine.functional.nn.logsoftmax:41 megengine.functional.nn.logsumexp:46
 #: megengine.functional.nn.matmul:18 megengine.functional.nn.max_pool2d:14
 #: megengine.functional.nn.nms:12 megengine.functional.nn.one_hot:7
-#: megengine.functional.nn.prelu:6 megengine.functional.nn.roi_align:19
-#: megengine.functional.nn.roi_pooling:13 megengine.functional.nn.softmax:38
-#: megengine.functional.nn.softplus:38 megengine.functional.nn.svd:5
-#: megengine.functional.nn.sync_batch_norm:27
-#: megengine.functional.quantized.conv_bias_activation:34
+#: megengine.functional.nn.prelu:6 megengine.functional.nn.remap:19
+#: megengine.functional.nn.roi_align:19 megengine.functional.nn.roi_pooling:13
+#: megengine.functional.nn.softmax:38 megengine.functional.nn.softplus:38
+#: megengine.functional.nn.svd:5 megengine.functional.nn.sync_batch_norm:27
+#: megengine.functional.nn.warp_perspective:26
+#: megengine.functional.quantized.batch_conv_bias_activation:32
+#: megengine.functional.quantized.conv_bias_activation:32
 #: megengine.functional.tensor.arange:10
 #: megengine.functional.tensor.broadcast_to:7
 #: megengine.functional.tensor.concat:8
 #: megengine.functional.tensor.cond_take:32
 #: megengine.functional.tensor.expand_dims:7 megengine.functional.tensor.eye:7
 #: megengine.functional.tensor.flatten:9
-#: megengine.functional.tensor.full_like:5
+#: megengine.functional.tensor.full_like:4
 #: megengine.functional.tensor.gather:21
 #: megengine.functional.tensor.linspace:10
-#: megengine.functional.tensor.ones_like:5
-#: megengine.functional.tensor.reshape:35
+#: megengine.functional.tensor.ones_like:4
+#: megengine.functional.tensor.reshape:30
 #: megengine.functional.tensor.scatter:38 megengine.functional.tensor.squeeze:7
 #: megengine.functional.tensor.transpose:19
 #: megengine.functional.tensor.where:13
@@ -672,9 +683,7 @@ msgstr "计算 binary cross entropy loss（默认使用 logits）。"
 msgid ""
 "By default(``with_logitis`` is True), ``pred`` is assumed to be logits, "
 "class probabilities are given by sigmoid."
-msgstr ""
-"默认情况下（``with_logitis`` 为真），``pred`` 被认为是 logits，"
-"类的概率将由 sigmoid 计算得出。"
+msgstr "默认情况下（``with_logitis`` 为真），``pred`` 被认为是 logits，类的概率将由 sigmoid 计算得出。"
 
 #: megengine.functional.loss.binary_cross_entropy:7 of
 msgid "`(N, *)`, where `*` means any number of additional dimensions."
@@ -703,9 +712,7 @@ msgstr "计算 multi-class cross entropy loss（默认使用 logits）。"
 msgid ""
 "By default(``with_logitis`` is True), ``pred`` is assumed to be logits, "
 "class probabilities are given by softmax."
-msgstr ""
-"默认情况下（``with_logitis`` 为真），``pred`` 被认为是 logits，"
-"类的概率将由 softmax 计算得出。"
+msgstr "默认情况下（``with_logitis`` 为真），``pred`` 被认为是 logits，类的概率将由 softmax 计算得出。"
 
 #: megengine.functional.loss.cross_entropy:6 of
 msgid ""
@@ -718,9 +725,10 @@ msgid "When using label smoothing, the label distribution is as follows:"
 msgstr "当使用标签平滑 (label smoothing) 时，标签的分布情况如下:"
 
 #: megengine.functional.loss.cross_entropy:10 of
-msgid "y^{LS}_{k}=y_{k}\\left(1-\\alpha\\right)+\\alpha/K"
-msgstr ""
-"y^{LS}_{k}=y_{k}\\left(1-\\alpha\\right)+\\alpha/K"
+msgid ""
+"y^{LS}_{k}=y_{k}\\left(1-\\alpha\\right)+\\alpha/K\n"
+"\n"
+msgstr "y^{LS}_{k}=y_{k}\\left(1-\\alpha\\right)+\\alpha/K"
 
 #: megengine.functional.loss.cross_entropy:12 of
 msgid ""
@@ -763,7 +771,9 @@ msgid "The hinge loss can be described as:"
 msgstr "hinge loss 可以表示为："
 
 #: megengine.functional.loss.hinge_loss:5 of
-msgid "loss(x, y) = \\frac{1}{N}\\sum_i\\sum_j(max(0, 1 - x_{ij}*y_{ij}))"
+msgid ""
+"loss(x, y) = \\frac{1}{N}\\sum_i\\sum_j(max(0, 1 - x_{ij}*y_{ij}))\n"
+"\n"
 msgstr "loss(x, y) = \\frac{1}{N}\\sum_i\\sum_j(max(0, 1 - x_{ij}*y_{ij}))"
 
 #: megengine.functional.loss.hinge_loss:8 of
@@ -791,7 +801,9 @@ msgid "The mean absolute error can be described as:"
 msgstr "平均绝对误差可以表示为："
 
 #: megengine.functional.loss.l1_loss:6 of
-msgid "\\ell(x,y) = mean\\left(L \\right)"
+msgid ""
+"\\ell(x,y) = mean\\left(L \\right)\n"
+"\n"
 msgstr "\\ell(x,y) = mean\\left(L \\right)"
 
 #: megengine.functional.loss.l1_loss:8 megengine.functional.loss.square_loss:8
@@ -800,7 +812,9 @@ msgid "where"
 msgstr "式中，"
 
 #: megengine.functional.loss.l1_loss:10 of
-msgid "L = \\{l_1,\\dots,l_N\\}, \\quad l_n = \\left| x_n - y_n \\right|,"
+msgid ""
+"L = \\{l_1,\\dots,l_N\\}, \\quad\n"
+"l_n = \\left| x_n - y_n \\right|,"
 msgstr "L = \\{l_1,\\dots,l_N\\}, \\quad l_n = \\left| x_n - y_n \\right|,"
 
 #: megengine.functional.loss.l1_loss:15
@@ -833,11 +847,15 @@ msgid "The mean squared error can be described as:"
 msgstr "均方误差可以表示为："
 
 #: megengine.functional.loss.square_loss:6 of
-msgid "\\ell(x, y) = mean\\left( L \\right)"
+msgid ""
+"\\ell(x, y) = mean\\left( L \\right)\n"
+"\n"
 msgstr "\\ell(x, y) = mean\\left( L \\right)"
 
 #: megengine.functional.loss.square_loss:10 of
-msgid "L = \\{l_1,\\dots,l_N\\}, \\quad l_n = \\left( x_n - y_n \\right)^2,"
+msgid ""
+"L = \\{l_1,\\dots,l_N\\}, \\quad\n"
+"l_n = \\left( x_n - y_n \\right)^2,"
 msgstr "L = \\{l_1,\\dots,l_N\\}, \\quad l_n = \\left( x_n - y_n \\right)^2,"
 
 #: megengine.functional.loss.square_loss:28 of
@@ -896,9 +914,9 @@ msgstr "输出张量是否保留了轴 *axis* 。默认：False"
 #: megengine.functional.nn.indexing_one_hot:11
 #: megengine.functional.nn.interpolate:13 megengine.functional.nn.matmul:19
 #: megengine.functional.nn.max_pool2d:15 megengine.functional.nn.one_hot:8
-#: megengine.functional.nn.roi_align:20
+#: megengine.functional.nn.remap:20 megengine.functional.nn.roi_align:20
 #: megengine.functional.nn.sync_batch_norm:28
-#: megengine.functional.nn.warp_perspective:23
+#: megengine.functional.nn.warp_perspective:27
 #: megengine.functional.tensor.broadcast_to:8
 #: megengine.functional.tensor.concat:9
 #: megengine.functional.tensor.expand_dims:8
@@ -989,7 +1007,9 @@ msgstr ""
 ":math:`n_{dim}` - :attr:`axis` 维度上的元素向量 :math:`v` 将转化为:"
 
 #: megengine.functional.math.normalize:7 of
-msgid "v = \\frac{v}{\\max(\\lVert v \\rVert_p, \\epsilon)}."
+msgid ""
+"v = \\frac{v}{\\max(\\lVert v \\rVert_p, \\epsilon)}.\n"
+"\n"
 msgstr "v = \\frac{v}{\\max(\\lVert v \\rVert_p, \\epsilon)}."
 
 #: megengine.functional.math.normalize:13 of
@@ -1106,6 +1126,7 @@ msgstr "带有激活操作的卷积偏置，仅用于推断。"
 #: megengine.functional.nn.conv2d:6
 #: megengine.functional.nn.conv_bias_activation:4
 #: megengine.functional.nn.conv_transpose2d:6
+#: megengine.functional.quantized.batch_conv_bias_activation:4
 #: megengine.functional.quantized.conv_bias_activation:4 of
 msgid "feature map of the convolution operation."
 msgstr "卷积运算的特征图。"
@@ -1118,6 +1139,7 @@ msgid "convolution kernel."
 msgstr "卷积核。"
 
 #: megengine.functional.nn.conv_bias_activation:8
+#: megengine.functional.quantized.batch_conv_bias_activation:8
 #: megengine.functional.quantized.conv_bias_activation:8 of
 msgid "bias added to the result of convolution"
 msgstr "添加到卷积结果中的偏置量"
@@ -1125,6 +1147,7 @@ msgstr "添加到卷积结果中的偏置量"
 #: megengine.functional.nn.conv2d:12
 #: megengine.functional.nn.conv_bias_activation:10
 #: megengine.functional.nn.conv_transpose2d:12
+#: megengine.functional.quantized.batch_conv_bias_activation:10
 #: megengine.functional.quantized.conv_bias_activation:10 of
 msgid "stride of the 2D convolution operation. Default: 1"
 msgstr "二维卷积运算中的步长。 默认： 1"
@@ -1132,6 +1155,7 @@ msgstr "二维卷积运算中的步长。 默认： 1"
 #: megengine.functional.nn.conv2d:14
 #: megengine.functional.nn.conv_bias_activation:12
 #: megengine.functional.nn.conv_transpose2d:14
+#: megengine.functional.quantized.batch_conv_bias_activation:12
 #: megengine.functional.quantized.conv_bias_activation:12 of
 msgid ""
 "size of the paddings added to the input on both sides of its spatial "
@@ -1141,11 +1165,13 @@ msgstr "在输入值的空间维度上每一侧填充的尺寸。 仅支持用�
 #: megengine.functional.nn.conv2d:17
 #: megengine.functional.nn.conv_bias_activation:14
 #: megengine.functional.nn.conv_transpose2d:17
+#: megengine.functional.quantized.batch_conv_bias_activation:14
 #: megengine.functional.quantized.conv_bias_activation:14 of
 msgid "dilation of the 2D convolution operation. Default: 1"
 msgstr "二维卷积运算的扩张值(dilation)。 默认： 1"
 
 #: megengine.functional.nn.conv_bias_activation:16
+#: megengine.functional.quantized.batch_conv_bias_activation:16
 #: megengine.functional.quantized.conv_bias_activation:16 of
 msgid ""
 "number of groups into which the input and output channels are divided, so"
@@ -1160,6 +1186,7 @@ msgstr ""
 "height, width)` 。"
 
 #: megengine.functional.nn.conv_bias_activation:21
+#: megengine.functional.quantized.batch_conv_bias_activation:21
 #: megengine.functional.quantized.conv_bias_activation:21 of
 msgid ""
 "supports 'CROSS_CORRELATION' or 'CONVOLUTION'. Default: "
@@ -1167,24 +1194,16 @@ msgid ""
 msgstr "支持 'CROSS_CORRELATION' 或者 'CONVOLUTION'. 默认: 'CROSS_CORRELATION'"
 
 #: megengine.functional.nn.conv_bias_activation:23
+#: megengine.functional.quantized.batch_conv_bias_activation:23
 #: megengine.functional.quantized.conv_bias_activation:23 of
 msgid "support for ``np.dtype``, Default: np.int8"
 msgstr "支持np.dtype， 默认：np.int8"
 
-#: megengine.functional.nn.conv_bias_activation:24
-#: megengine.functional.quantized.conv_bias_activation:24 of
-msgid "scale if use quantization, Default: 0.0"
-msgstr "使用量化操作后进行的缩放， 默认： 0.0"
-
-#: megengine.functional.nn.conv_bias_activation:25
-#: megengine.functional.quantized.conv_bias_activation:25 of
-msgid "scale if use quantization quint8, Default: 0.0"
-msgstr "使用 quint8 量化操作后进行的缩放， 默认： 0.0"
-
 #: megengine.functional.nn.conv2d:28
-#: megengine.functional.nn.conv_bias_activation:28
+#: megengine.functional.nn.conv_bias_activation:26
 #: megengine.functional.nn.conv_transpose2d:28
-#: megengine.functional.quantized.conv_bias_activation:28 of
+#: megengine.functional.quantized.batch_conv_bias_activation:26
+#: megengine.functional.quantized.conv_bias_activation:26 of
 msgid ""
 "when set to \"DEFAULT\", no special requirements will be placed on the "
 "precision of intermediate results. When set to \"FLOAT32\", \"Float32\" "
@@ -1220,8 +1239,8 @@ msgid ""
 "Down/up samples the input tensor to either the given size or with the "
 "given scale_factor. ``size`` can not coexist with ``scale_factor``."
 msgstr ""
-"按照给定的 ``size`` 或 ``scale_factor`` 对输入张量进行向下/向上采样。"
-"``size`` 不可以与 ``scale_factor`` 共存。"
+"按照给定的 ``size`` 或 ``scale_factor`` 对输入张量进行向下/向上采样。``size`` 不可以与 "
+"``scale_factor`` 共存。"
 
 #: megengine.functional.nn.interpolate:6 of
 msgid "size of the output tensor. Default: None"
@@ -1235,9 +1254,7 @@ msgstr "输出张量的放缩参数。默认：None"
 msgid ""
 "interpolation methods, acceptable values are: \"BILINEAR\", \"LINEAR\". "
 "Default: \"BILINEAR\""
-msgstr ""
-"插值方法，可接受的值有：\"BILINEAR\", \"LINEAR\"。"
-"默认：\"BILINEAR\""
+msgstr "插值方法，可接受的值有：\"BILINEAR\", \"LINEAR\"。默认：\"BILINEAR\""
 
 #: megengine.functional.nn.linear:1 of
 msgid "Applies a linear transformation to the input tensor."
@@ -1269,9 +1286,7 @@ msgstr "根据小方框的 IoU 值进行 非最大值抑制（NMS）。"
 msgid ""
 "tensor of shape `(N, 4)`; the boxes to perform nms on; each box is "
 "expected to be in `(x1, y1, x2, y2)` format."
-msgstr ""
-"形状为 `(N, 4)` 的张量；表示所有会被进行 nms 的小方框；每个小方框"
-"期望的格式为 `(x1, y1, x2, y2)`。"
+msgstr "形状为 `(N, 4)` 的张量；表示所有会被进行 nms 的小方框；每个小方框期望的格式为 `(x1, y1, x2, y2)`。"
 
 #: megengine.functional.nn.nms:6 of
 msgid "IoU threshold for overlapping."
@@ -1284,12 +1299,9 @@ msgstr "形状为 `(N,)` 的张量，表示小方块的分值。"
 #: megengine.functional.nn.nms:10 of
 msgid ""
 "the maximum number of boxes to keep; it is optional if this operator is "
-"not traced  otherwise it required to be specified; if it is not "
-"specified, all boxes are kept."
-msgstr ""
-"将要保留的小方框的最大数目；如果这个算子未被追溯"
-"则此参数是可选的，否则必须指定；如果未被"
-"指定，所有的小方框都会被保留。"
+"not traced otherwise it required to be specified; if it is not specified,"
+" all boxes are kept."
+msgstr "将要保留的小方框的最大数目；如果这个算子未被追溯则此参数是可选的，否则必须指定；如果未被指定，所有的小方框都会被保留。"
 
 #: megengine.functional.nn.nms:13 of
 msgid "indices of the elements that have been kept by NMS."
@@ -1307,8 +1319,7 @@ msgstr "表示输入特征的张量，形状为 `(N, C, H, W)`。"
 msgid ""
 "`(N, 5)` boxes. First column is the box index. The other 4 columns are "
 "``xyxy``."
-msgstr ""
-"`(N, 5)` 的小方框。第一列为方框的索引，其余四列的格式是 ``xyxy``。"
+msgstr "`(N, 5)` 的小方框。第一列为方框的索引，其余四列的格式是 ``xyxy``。"
 
 #: megengine.functional.nn.roi_align:8 of
 msgid "`(height, width)` shape of output rois feature."
@@ -1318,9 +1329,7 @@ msgstr "输出的 rois 特征的形状 `(height, width)`。"
 msgid ""
 "\"max\" or \"average\", use max/average align just like max/average "
 "pooling. Default: \"average\""
-msgstr ""
-"\"max\" 或者 \"average\"，如同最大值/平均池化一样使用最大值/平均 align。"
-"默认：\"average\""
+msgstr "\"max\" 或者 \"average\"，如同最大值/平均池化一样使用最大值/平均 align。默认：\"average\""
 
 #: megengine.functional.nn.roi_align:12 megengine.functional.nn.roi_pooling:12
 #: of
@@ -1331,17 +1340,13 @@ msgstr "使用这个数值放缩输入框。默认：1.0"
 msgid ""
 "number of inputs samples to take for each output sample. 0 to take "
 "samples densely. Default: 2"
-msgstr ""
-"每个输出样本要采取的输入样本数。0 表示密集采样。"
-"默认：2"
+msgstr "每个输出样本要采取的输入样本数。0 表示密集采样。默认：2"
 
 #: megengine.functional.nn.roi_align:17 of
 msgid ""
 "wheather to align the input feature, with `aligned=True`, we first "
 "appropriately scale the ROI and then shift it by -0.5. Default: True"
-msgstr ""
-"是否对齐输入特征，如果 `aligned=True`，首先"
-"选取合适的参数放缩 ROI 然后以 -0.5 的偏移量进行偏移。默认：True"
+msgstr "是否对齐输入特征，如果 `aligned=True`，首先选取合适的参数放缩 ROI 然后以 -0.5 的偏移量进行偏移。默认：True"
 
 #: megengine.functional.nn.roi_pooling:1 of
 msgid "Applies roi pooling on input feature."
@@ -1365,9 +1370,7 @@ msgstr "输出 rois 特征的形状， `(height, width)`。"
 msgid ""
 "\"max\" or \"average\", use max/average align just like max/average "
 "pooling. Default: \"max\""
-msgstr ""
-"\"max\" 或者 \"average\", 像使用最大/平均池化一样使用 max/average "
-"pooling。 默认： \"max\""
+msgstr "\"max\" 或者 \"average\", 像使用最大/平均池化一样使用 max/average pooling。 默认： \"max\""
 
 #: megengine.functional.nn.roi_pooling:14 of
 msgid "`(K, C, output_shape[0], output_shape[1])` feature of rois."
@@ -1492,6 +1495,67 @@ msgid ""
 "new tensors Default: True"
 msgstr "是否要原地更新 ``running_mean`` 和 ``running_var``，否则返回一个新张量。默认：True"
 
+#: megengine.functional.nn.conv1d:1 of
+msgid "1D convolution operation."
+msgstr "一维卷积运算。"
+
+#: megengine.functional.nn.conv1d:3 of
+msgid "Refer to :class:`~.Conv1d` for more information."
+msgstr "更多信息参见 :class:`~.Conv1d` 。"
+
+#: megengine.functional.nn.conv1d:6 of
+msgid "The feature map of the convolution operation"
+msgstr "卷积运算的特征图。"
+
+#: megengine.functional.nn.conv1d:8 of
+msgid "The convolution kernel"
+msgstr "卷积核。"
+
+#: megengine.functional.nn.conv1d:10 of
+msgid "The bias added to the result of convolution (if given)"
+msgstr "添加到卷积结果中的偏置量(如果给定该值)"
+
+#: megengine.functional.nn.conv1d:12 of
+msgid "Stride of the 1D convolution operation. Default: 1"
+msgstr "一维卷积运算中的步长。 默认： 1"
+
+#: megengine.functional.nn.conv1d:14 of
+msgid ""
+"Size of the paddings added to the input on both sides of its spatial "
+"dimensions. Only zero-padding is supported. Default: 0"
+msgstr "在输入值的空间维度上每一侧填充的尺寸。 仅支持用零值填充。 默认： 0"
+
+#: megengine.functional.nn.conv1d:17 of
+msgid "Dilation of the 1D convolution operation. Default: 1"
+msgstr "一维卷积运算的扩张值(dilation)。 默认： 1"
+
+#: megengine.functional.nn.conv1d:19 of
+msgid ""
+"number of groups to divide input and output channels into, so as to "
+"perform a \"grouped convolution\". When ``groups`` is not 1, "
+"``in_channels`` and ``out_channels`` must be divisible by ``groups``, and"
+" the shape of weight should be ``(groups, out_channel // groups, "
+"in_channels // groups, height, width)``."
+msgstr ""
+"将输入和输出通道划分成的组数, 以便执行分组卷积 \"grouped convolution\" 。 当组数 ``groups`` "
+"不为1时,输入通道 ``in_channels`` 和输出通道 ``out_channels`` 必须能被 ``groups`` 整除， "
+"权值矩阵的形状应为  `(groups, out_channel // groups, in_channels // groups, "
+"height, width)` 。"
+
+#: megengine.functional.nn.conv1d:25 of
+msgid "Supports 'CROSS_CORRELATION'. Default: 'CROSS_CORRELATION'."
+msgstr "支持 'CROSS_CORRELATION'。默认：'CROSS_CORRELATION'。"
+
+#: megengine.functional.nn.conv1d:29 of
+msgid ""
+"When set to 'DEFAULT', no special requirements will be placed on the "
+"precision of intermediate results. When set to 'FLOAT32', Float32 would "
+"be used for accumulator and intermediate result, but only effective when "
+"input and output are of Float16 dtype."
+msgstr ""
+"当该值设置为 'DEFAULT' 时，对中间结果的精度不做特殊要求。当设置为 'FLOAT32' 时，累加器和中间结果将使用 Float32 "
+"类型，但该设置仅当输入和输出为 Float16 类型时有效。"
+
 #: megengine.functional.nn.conv2d:1 of
 msgid "2D convolution operation."
 msgstr "二维卷积运算。"
@@ -1520,10 +1584,8 @@ msgstr ""
 
 #: megengine.functional.nn.conv2d:24
 #: megengine.functional.nn.conv_transpose2d:24 of
-msgid ""
-"supports \"CROSS_CORRELATION\" or \"CONVOLUTION\". Default: "
-"\"CROSS_CORRELATION\""
-msgstr "\"CROSS_CORRELATION\" or \"CONVOLUTION\". 默认值：\"CROSS_CORRELATION\""
+msgid "supports \"CROSS_CORRELATION\". Default: \"CROSS_CORRELATION\""
+msgstr "支持 \"CROSS_CORRELATION\"。默认：\"CROSS_CORRELATION\""
 
 #: megengine.functional.nn.conv_transpose2d:1 of
 msgid "2D transposed convolution operation."
@@ -1624,26 +1686,34 @@ msgstr "逐元素应用函数："
 
 #: megengine.functional.nn.logsigmoid:3 of
 msgid ""
-"\\text{logsigmoid}(x) = \\log(\\frac{ 1 }{ 1 + \\exp(-x)}) = \\log(1/(1 +"
-" exp(-x))) = - \\log(1 + exp(-x)) = - \\text{softplus}(-x)"
+"\\text{logsigmoid}(x) = \\log(\\frac{ 1 }{ 1 + \\exp(-x)})\n"
+"= \\log(1/(1 + \\exp(-x)))\n"
+"= - \\log(1 + \\exp(-x))\n"
+"= - \\text{softplus}(-x)\n"
+"\n"
 msgstr ""
-"\\text{logsigmoid}(x) = \\log(\\frac{ 1 }{ 1 + \\exp(-x)}) = \\log(1/(1 +"
-" exp(-x))) = - \\log(1 + exp(-x)) = - \\text{softplus}(-x)"
+"\\text{logsigmoid}(x) = \\log(\\frac{ 1 }{ 1 + \\exp(-x)})\n"
+"= \\log(1/(1 + \\exp(-x)))\n"
+"= - \\log(1 + \\exp(-x))\n"
+"= - \\text{softplus}(-x)\n"
+"\n"
 
 #: megengine.functional.nn.logsoftmax:1 of
 msgid ""
-"Applies the :math:`\\log(\\text{Softmax}(x))` function to an "
-"n-dimensional input Tensor. The LogSoftmax formulation can be simplified "
-"as:"
-msgstr "对一个n维的输入张量做 :math:`\\log(\\text{Softmax}(x))` 函数LogSoftmax的公式可以简化为："
+"Applies the :math:`\\log(\\text{softmax}(x))` function to an "
+"n-dimensional input tensor. The :math:`\\text{logsoftmax}(x)` formulation"
+" can be simplified as:"
+msgstr "对一个n维的输入张量做 :math:`\\log(\\text{softmax}(x))` 函数 :math:`\\text{logsoftmax}(x)` 的公式可以简化为："
 
 #: megengine.functional.nn.logsoftmax:4 of
 msgid ""
-"\\text{LogSoftmax}(x_{i}) = \\log(\\frac{\\exp(x_i) }{ \\sum_j "
-"\\exp(x_j)} )"
+"\\text{logsoftmax}(x_{i}) = \\log(\\frac{\\exp(x_i) }{ \\sum_j "
+"\\exp(x_j)} )\n"
+"\n"
 msgstr ""
-"\\text{LogSoftmax}(x_{i}) = \\log(\\frac{\\exp(x_i) }{ \\sum_j "
-"\\exp(x_j)} )"
+"\\text{logsoftmax}(x_{i}) = \\log(\\frac{\\exp(x_i) }{ \\sum_j "
+"\\exp(x_j)} )\n"
+"\n"
 
 #: megengine.functional.nn.logsoftmax:7 of
 msgid "For numerical stability the implementation follows this transformation:"
@@ -1651,15 +1721,21 @@ msgstr "为了提高数值稳定性，实现根据以下的变换："
 
 #: megengine.functional.nn.logsoftmax:9 of
 msgid ""
-"\\operatorname{logsoftmax}(x) = \\log (\\frac{\\exp (x)}{\\sum_{i}(\\exp "
-"(x_{i}))}) = x - \\log (\\sum_{i}(\\exp (x_{i}))) = x - logsumexp(x)"
+"\\text{logsoftmax}(x)\n"
+"= \\log (\\frac{\\exp (x)}{\\sum_{i}(\\exp (x_{i}))})\n"
+"= x - \\log (\\sum_{i}(\\exp (x_{i})))\n"
+"= x - \\text{logsumexp}(x)\n"
+"\n"
 msgstr ""
-"\\operatorname{logsoftmax}(x) = \\log (\\frac{\\exp (x)}{\\sum_{i}(\\exp "
-"(x_{i}))}) = x - \\log (\\sum_{i}(\\exp (x_{i}))) = x - logsumexp(x)"
+"\\text{logsoftmax}(x)\n"
+"= \\log (\\frac{\\exp (x)}{\\sum_{i}(\\exp (x_{i}))})\n"
+"= x - \\log (\\sum_{i}(\\exp (x_{i})))\n"
+"= x - \\text{logsumexp}(x)\n"
+"\n"
 
 #: megengine.functional.nn.logsoftmax:18 of
-msgid "axis along which logsoftmax will be applied."
-msgstr "沿着该维度应用 logsoftmax。"
+msgid "axis along which :math:`\\text{logsoftmax}(x)` will be applied."
+msgstr "沿着该维度应用 :math:`\\text{logsoftmax}(x)`。"
 
 #: megengine.functional.nn.logsumexp:1 of
 msgid ""
@@ -1668,12 +1744,8 @@ msgid ""
 msgstr "计算输入数据沿给定维度 :attr:`axis` 的指数之和的对数。该计算是数值稳定的。"
 
 #: megengine.functional.nn.logsumexp:3 of
-msgid ""
-"\\operatorname{logsumexp}(\\boldsymbol{x})= \\log \\sum_{j=1}^{n} \\exp "
-"\\left(x_{j}\\right)"
-msgstr ""
-"\\operatorname{logsumexp}(\\boldsymbol{x})= \\log \\sum_{j=1}^{n} \\exp "
-"\\left(x_{j}\\right)"
+msgid "\\text{logsumexp}(x)= \\log \\sum_{j=1}^{n} \\exp \\left(x_{j}\\right)"
+msgstr "\\text{logsumexp}(x)= \\log \\sum_{j=1}^{n} \\exp \\left(x_{j}\\right)"
 
 #: megengine.functional.nn.logsumexp:7 of
 msgid "For numerical stability, the implementation follows this transformation:"
@@ -1681,16 +1753,18 @@ msgstr "为了提高数值稳定性，实现根据以下的变换："
 
 #: megengine.functional.nn.logsumexp:9 of
 msgid ""
-"\\operatorname{logsumexp}(\\boldsymbol{x})= \\log \\sum_{j=1}^{n} \\exp "
-"\\left(x_{j}\\right) = \\operatorname{logsumexp}(\\boldsymbol{x})=b+\\log"
-" \\sum_{j=1}^{n} \\exp \\left(x_{j}-b\\right)"
+"\\text{logsumexp}(x)= \\log \\sum_{j=1}^{n} \\exp \\left(x_{j}\\right)\n"
+"= \\text{logsumexp}(x)=b+\\log \\sum_{j=1}^{n} \\exp "
+"\\left(x_{j}-b\\right)"
 msgstr ""
-"\\operatorname{logsumexp}(\\boldsymbol{x})= \\log \\sum_{j=1}^{n} \\exp "
-"\\left(x_{j}\\right) = \\operatorname{logsumexp}(\\boldsymbol{x})=b+\\log"
-" \\sum_{j=1}^{n} \\exp \\left(x_{j}-b\\right)"
+"\\text{logsumexp}(x)= \\log \\sum_{j=1}^{n} \\exp \\left(x_{j}\\right)\n"
+"= \\text{logsumexp}(x)=b+\\log \\sum_{j=1}^{n} \\exp "
+"\\left(x_{j}-b\\right)"
 
 #: megengine.functional.nn.logsumexp:16 of
-msgid "b = \\max(x_j)"
+msgid ""
+"b = \\max(x_j)\n"
+"\n"
 msgstr "b = \\max(x_j)"
 
 #: megengine.functional.nn.logsumexp:22 of
@@ -1778,13 +1852,60 @@ msgstr "逐元素使用 PReLU 函数。"
 msgid "Refer to :class:`~.PReLU` for more information."
 msgstr "更多信息参见 :class:`~.PReLU` 。"
 
+#: megengine.functional.nn.remap:1 of
+msgid "Applies remap transformation to batched 2D images."
+msgstr "对按批组织的二维图像进行重映射变换。"
+
+#: megengine.functional.nn.remap:3 of
+msgid ""
+"The input images are transformed to the output images by the tensor "
+"map_xy. The output's H and W are same as map_xy's H and W."
+msgstr ""
+"输入图像通过张量 ``map_xy`` 变换为输出图像。"
+"输出的高度与宽度与 ``map_xy`` 中一致。"
+
+#: megengine.functional.nn.remap:7 of
+msgid "input image"
+msgstr "输入图像"
+
+#: megengine.functional.nn.remap:9 of
+msgid "(batch, oh, ow, 2) transformation matrix"
+msgstr "(batch, oh, ow, 2) 变换矩阵。"
+
+#: megengine.functional.nn.remap:11 megengine.functional.nn.warp_perspective:18
+#: of
+msgid ""
+"pixel extrapolation method. Default: \"REPLICATE\". Currently also "
+"support \"CONSTANT\", \"REFLECT\", \"REFLECT_101\", \"WRAP\"."
+msgstr ""
+"像素外推方法。默认：\"REPLICATE\"。当前也支持"
+"\"CONSTANT\"， \"REFLECT\"， \"REFLECT_101\"， \"WRAP\"。"
+
+#: megengine.functional.nn.remap:15 megengine.functional.nn.warp_perspective:22
+#: of
+msgid "value used in case of a constant border. Default: 0"
+msgstr "边界填充值。 默认：0"
+
+#: megengine.functional.nn.remap:17 megengine.functional.nn.warp_perspective:24
+#: of
+msgid ""
+"interpolation methods. Default: \"LINEAR\". Currently only support "
+"\"LINEAR\" mode."
+msgstr "插值方法。默认：\"LINEAR\"。当前只支持 \"LINEAR\" 模式。"
+
 #: megengine.functional.nn.softmax:1 of
-msgid "Applies a softmax function. Softmax is defined as:"
-msgstr "使用softmax函数。softmax被定义为："
+msgid ""
+"Applies a :math:`\\text{softmax}(x)` function. :math:`\\text{softmax}(x)`"
+" is defined as:"
+msgstr "使用 :math:`\\text{softmax}(x)` 函数。:math:`\\text{softmax}(x)` 被定义为："
 
 #: megengine.functional.nn.softmax:3 of
-msgid "\\text{Softmax}(x_{i}) = \\frac{\\exp(x_i)}{\\sum_j \\exp(x_j)}"
-msgstr "\\text{Softmax}(x_{i}) = \\frac{\\exp(x_i)}{\\sum_j \\exp(x_j)}"
+msgid ""
+"\\text{softmax}(x_{i}) = \\frac{\\exp(x_i)}{\\sum_j \\exp(x_j)}\n"
+"\n"
+msgstr ""
+"\\text{softmax}(x_{i}) = \\frac{\\exp(x_i)}{\\sum_j \\exp(x_j)}\n"
+"\n"
 
 #: megengine.functional.nn.softmax:6 of
 msgid ""
@@ -1798,13 +1919,18 @@ msgstr "更多信息参见 :class:`~megengine.module.activation.Softmax` 。"
 
 #: megengine.functional.nn.softmax:14 of
 msgid ""
-"an axis along which softmax will be applied. By default, softmax will "
-"apply along the highest ranked axis."
-msgstr "在该轴上使用softmax方法。默认情况下，softmax将在序号最大的轴上使用。"
+"an axis along which :math:`\\text{softmax}(x)` will be applied. By "
+"default, :math:`\\text{softmax}(x)` will apply along the highest ranked "
+"axis."
+msgstr "在该轴上使用 :math:`\\text{softmax}(x)` 方法。默认情况下，:math:`\\text{softmax}(x)` 将在序号最大的轴上使用。"
 
 #: megengine.functional.nn.softplus:3 of
-msgid "\\text{softplus}(x) = \\log(1 + \\exp(x))"
-msgstr "\\text{softplus}(x) = \\log(1 + \\exp(x))"
+msgid ""
+"\\text{softplus}(x) = \\log(1 + \\exp(x))\n"
+"\n"
+msgstr ""
+"\\text{softplus}(x) = \\log(1 + \\exp(x))\n"
+"\n"
 
 #: megengine.functional.nn.softplus:6 of
 msgid ""
@@ -1815,13 +1941,15 @@ msgstr "softplus 是 ReLU 函数的一个平滑的近似，可以被用来保证
 
 #: megengine.functional.nn.softplus:10 of
 msgid ""
-"\\text{softplus}(x) = \\log(1 + \\exp(x))                    = \\log(1 + "
-"\\exp(-\\text{abs}(x))) + \\max(x, 0)                    = "
-"\\log1p(\\exp(-\\text{abs}(x))) + \\text{relu}(x)"
+"\\text{softplus}(x) = \\log(1 + \\exp(x))\n"
+"                   = \\log(1 + \\exp(-\\text{abs}(x))) + \\max(x, 0)\n"
+"                   = \\log1p(\\exp(-\\text{abs}(x))) + \\text{relu}(x)\n"
+"\n"
 msgstr ""
-"\\text{softplus}(x) = \\log(1 + \\exp(x))                    = \\log(1 + "
-"\\exp(-\\text{abs}(x))) + \\max(x, 0)                    = "
-"\\log1p(\\exp(-\\text{abs}(x))) + \\text{relu}(x)"
+"\\text{softplus}(x) = \\log(1 + \\exp(x))\n"
+"                   = \\log(1 + \\exp(-\\text{abs}(x))) + \\max(x, 0)\n"
+"                   = \\log1p(\\exp(-\\text{abs}(x))) + \\text{relu}(x)\n"
+"\n"
 
 #: megengine.functional.nn.svd:1 of
 msgid "Computes the singular value decompositions of input matrix."
@@ -1847,15 +1975,17 @@ msgstr "输入图像通过变换矩阵变换为输出图像："
 
 #: megengine.functional.nn.warp_perspective:5 of
 msgid ""
-"\\text{output}(n, c, h, w) = \\text{input} \\left( n, c,     "
-"\\frac{M_{00}h + M_{01}w + M_{02}}{M_{20}h + M_{21}w + M_{22}},     "
-"\\frac{M_{10}h + M_{11}w + M_{12}}{M_{20}h + M_{21}w + M_{22}}     "
-"\\right)"
+"\\text{output}(n, c, h, w) = \\text{input} \\left( n, c,\n"
+"    \\frac{M_{00}h + M_{01}w + M_{02}}{M_{20}h + M_{21}w + M_{22}},\n"
+"    \\frac{M_{10}h + M_{11}w + M_{12}}{M_{20}h + M_{21}w + M_{22}}\n"
+"    \\right)\n"
+"\n"
 msgstr ""
-"\\text{output}(n, c, h, w) = \\text{input} \\left( n, c,     "
-"\\frac{M_{00}h + M_{01}w + M_{02}}{M_{20}h + M_{21}w + M_{22}},     "
-"\\frac{M_{10}h + M_{11}w + M_{12}}{M_{20}h + M_{21}w + M_{22}}     "
-"\\right)"
+"\\text{output}(n, c, h, w) = \\text{input} \\left( n, c,\n"
+"    \\frac{M_{00}h + M_{01}w + M_{02}}{M_{20}h + M_{21}w + M_{22}},\n"
+"    \\frac{M_{10}h + M_{11}w + M_{12}}{M_{20}h + M_{21}w + M_{22}}\n"
+"    \\right)\n"
+"\n"
 
 #: megengine.functional.nn.warp_perspective:12 of
 msgid "input image."
@@ -1869,23 +1999,11 @@ msgstr "(batch, 3, 3) 变换矩阵。"
 msgid "`(h, w)` size of the output image."
 msgstr "`(h, w)` 输出图像的大小。"
 
-#: megengine.functional.nn.warp_perspective:18 of
-msgid "pixel extrapolation method. Default: \"REPLICATE\""
-msgstr "像素外推方法。 默认： ``\"REPLICATE\"`` "
-
-#: megengine.functional.nn.warp_perspective:20 of
-msgid "value used in case of a constant border. Default: 0"
-msgstr "边界填充值。 默认：0"
-
-#: megengine.functional.nn.warp_perspective:22 of
-msgid "interpolation methods. Default: \"LINEAR\""
-msgstr "插值方法。 默认： ``\"LINEAR\"``"
-
-#: megengine.functional.nn.warp_perspective:25 of
+#: megengine.functional.nn.warp_perspective:29 of
 msgid "Note:"
 msgstr "备注："
 
-#: megengine.functional.nn.warp_perspective:27 of
+#: megengine.functional.nn.warp_perspective:31 of
 msgid ""
 "The transformation matrix is the inverse of that used by "
 "`cv2.warpPerspective`."
@@ -1894,6 +2012,14 @@ msgstr "转换矩阵是 `cv2.warpPerspective` 使用的矩阵的逆矩阵。"
 #: ../../source_api/zh/api/megengine.functional.rst:68
 msgid "megengine.functional.quantized"
 msgstr "megengine.functional.quantized"
+
+#: megengine.functional.quantized.batch_conv_bias_activation:1 of
+msgid "Batch convolution bias with activation operation, only for inference."
+msgstr "带有激活操作的批卷积偏置，仅用于推断。"
+
+#: megengine.functional.quantized.batch_conv_bias_activation:6 of
+msgid "convolution kernel in batched way."
+msgstr "批格式的卷积核。"
 
 #: ../../source_api/zh/api/megengine.functional.rst:76
 msgid "megengine.functional.tensor"

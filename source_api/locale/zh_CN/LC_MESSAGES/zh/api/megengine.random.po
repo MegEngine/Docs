@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source_api/zh/api/megengine.random.rst:2
 msgid "megengine.random package"
-msgstr "megengine.random package"
+msgstr "megengine.random 模块"
 
 #: ../../source_api/zh/api/megengine.random.rst:11
 msgid "megengine.random.distribution"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 10:00+0800\n"
+"POT-Creation-Date: 2020-11-26 15:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source_api/zh/api/megengine.optimizer.rst:2
 msgid "megengine.optimizer package"
-msgstr "megengine.optimizer package"
+msgstr "megengine.optimizer 模块"
 
 #: ../../source_api/zh/api/megengine.optimizer.rst:11
 msgid "megengine.optimizer.adadelta"
@@ -182,13 +182,18 @@ msgstr "加载调度器(scheduler)的状态。"
 msgid "scheduler state."
 msgstr "调度器(scheduler)的状态。"
 
-#: megengine.optimizer.lr_scheduler.LRScheduler.state_dict:1
-#: megengine.optimizer.multi_step_lr.MultiStepLR.state_dict:1 of
+#: megengine.optimizer.lr_scheduler.LRScheduler.state_dict:2
+#: megengine.optimizer.multi_step_lr.MultiStepLR.state_dict:2 of
+msgid "Returns the state of the scheduler as a :class:`dict`."
+msgstr "以 :class:`dict` 的形式返回调度器的状态。"
+
+#: megengine.optimizer.lr_scheduler.LRScheduler.state_dict:2
+#: megengine.optimizer.multi_step_lr.MultiStepLR.state_dict:2 of
 msgid ""
-"Returns the state of the scheduler as a :class:`dict`. It contains an "
-"entry for every variable in self.__dict__ which is not the optimizer."
+"It contains an entry for every variable in self.__dict__ which is not the"
+" optimizer."
 msgstr ""
-"以 :class:`dict` 的形式返回调度器(非优化器)的状态。对于调度器的 self.__dict__ "
+"对于调度器的 self.__dict__ "
 "中的每一个变量，都会在其中有对应的条目。"
 
 #: ../../source_api/zh/api/megengine.optimizer.rst:43
@@ -320,3 +325,4 @@ msgstr "momentum因子。默认：0.0"
 #: megengine.optimizer.sgd.SGD:14 of
 msgid "weight decay (L2 penalty). Default: 0.0"
 msgstr "权重衰减(L2范数惩罚)。默认：0.0"
+

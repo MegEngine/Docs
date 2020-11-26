@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 12:39+0800\n"
+"POT-Creation-Date: 2020-11-26 15:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source_api/zh/api/megengine.quantization.rst:2
 msgid "megengine.quantization package"
-msgstr "megengine.quantization package"
+msgstr "megengine.quantization 模块"
 
 #: ../../source_api/zh/api/megengine.quantization.rst:11
 msgid "megengine.quantization.fake\\_quant"
@@ -155,7 +155,8 @@ msgid "megengine.quantization.observer"
 msgstr "megengine.quantization.observer"
 
 #: megengine.quantization.observer.ExponentialMovingAverageObserver:1
-#: megengine.quantization.observer.HistogramObserver:1 of
+#: megengine.quantization.observer.HistogramObserver:1
+#: megengine.quantization.observer.SyncMinMaxObserver:1 of
 msgid "Bases: :class:`megengine.quantization.observer.MinMaxObserver`"
 msgstr "基类： :class:`megengine.quantization.observer.MinMaxObserver`"
 
@@ -211,6 +212,12 @@ msgstr "返回类型"
 #: megengine.quantization.observer.Observer.train:12 of
 msgid ":py:obj:`None`"
 msgstr ":py:obj:`None`"
+
+#: megengine.quantization.observer.SyncExponentialMovingAverageObserver:1 of
+msgid ""
+"Bases: "
+":class:`megengine.quantization.observer.ExponentialMovingAverageObserver`"
+msgstr "基类：:class:`megengine.quantization.observer.ExponentialMovingAverageObserver`"
 
 #: ../../source_api/zh/api/megengine.quantization.rst:35
 msgid "megengine.quantization.qconfig"
@@ -448,3 +455,4 @@ msgstr "量化参数字典。"
 #: megengine.quantization.utils.get_qparam_dict:1 of
 msgid "Return the quantization parameters dictionary according to the mode."
 msgstr "根据模式返回一个量化参数字典。"
+

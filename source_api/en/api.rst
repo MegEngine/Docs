@@ -9,6 +9,7 @@ API Reference
     :maxdepth: 2
 
     api/megengine
+    api/megengine.autodiff
     api/megengine.data
     api/megengine.distributed
     api/megengine.functional

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 12:39+0800\n"
+"POT-Creation-Date: 2020-11-26 15:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source_api/zh/api/megengine.distributed.rst:2
 msgid "megengine.distributed package"
-msgstr "megengine.distributed package"
+msgstr "megengine.distributed 模块"
 
 #: ../../source_api/zh/api/megengine.distributed.rst:11
 msgid "megengine.distributed.functional"
@@ -141,7 +141,7 @@ msgstr "返回类型"
 #: megengine.distributed.functional.gather:11
 #: megengine.distributed.functional.reduce_scatter_sum:11
 #: megengine.distributed.functional.reduce_sum:11
-#: megengine.distributed.functional.remote_recv:13
+#: megengine.distributed.functional.remote_recv:14
 #: megengine.distributed.functional.remote_send:9
 #: megengine.distributed.functional.scatter:11 of
 msgid ":py:class:`~megengine.core.tensor.tensor.Tensor`"
@@ -198,6 +198,10 @@ msgstr "被接收的张量的数据类型。"
 #: megengine.distributed.functional.remote_recv:10 of
 msgid "the device to place the received tensor."
 msgstr "被接收的张量将要放置的设备。"
+
+#: megengine.distributed.functional.remote_recv:11 of
+msgid "dummy input to determine recved tensor type"
+msgstr "虚拟输入以确定接收张量类型"
 
 #: megengine.distributed.functional.remote_send:1 of
 msgid "Send a Tensor to a remote process."
@@ -402,9 +406,7 @@ msgstr "只用在 ``parampack`` 处。"
 msgid ""
 "offsets of outputs, length of `2 * n`, while n is tensor nums you want to"
 " split, format `[begin0, end0, begin1, end1]`."
-msgstr ""
-"输出的偏移量，长度为 `2 * n`，其中 n 是想要被切割成多少部分，"
-"格式为 `[begin0, end0, begin1, end1]`。"
+msgstr "输出的偏移量，长度为 `2 * n`，其中 n 是想要被切割成多少部分，格式为 `[begin0, end0, begin1, end1]`。"
 
 #: megengine.distributed.helper.param_pack_split:11 of
 msgid "tensor shapes of outputs."
@@ -510,6 +512,16 @@ msgstr "为 send/recv 算子设置 tracer dict。"
 msgid "valid tracer set."
 msgstr "有效的 tracer 集合。"
 
+#: megengine.distributed.server.Client.user_get:1
+#: megengine.distributed.server.Methods.user_get:1 of
+msgid "Get user defined key-value pairs across processes."
+msgstr "跨进程获取用户定义的键值对。"
+
+#: megengine.distributed.server.Client.user_set:1
+#: megengine.distributed.server.Methods.user_set:1 of
+msgid "Set user defined key-value pairs across processes."
+msgstr "跨进程设置用户定义的键值对。"
+
 #: megengine.distributed.server.Methods:1 of
 msgid ""
 "Distributed Server Method. Used for exchange information between "
@@ -561,6 +573,7 @@ msgstr "megengine.distributed.util"
 msgid "Get one or more free ports."
 msgstr "获得一个或多个空闲端口。"
 
-#: megengine.distributed.util.get_free_ports:5 of
+#: megengine.distributed.util.get_free_ports:4 of
 msgid ":py:class:`~typing.List`\\[:py:class:`int`]"
 msgstr ":py:class:`~typing.List`\\[:py:class:`int`]"
+

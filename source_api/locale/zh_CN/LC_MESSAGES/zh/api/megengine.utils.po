@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 16:01+0800\n"
+"POT-Creation-Date: 2020-11-26 15:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source_api/zh/api/megengine.utils.rst:2
 msgid "megengine.utils package"
-msgstr "megengine.utils package"
+msgstr "megengine.utils 模块"
 
 #: ../../source_api/zh/api/megengine.utils.rst:11
 msgid "megengine.utils.comp\\_graph\\_tools"
@@ -32,8 +32,9 @@ msgid ""
 " that input ``var`` depands on. If ``var_type`` is None, returns all "
 "types."
 msgstr ""
-"返回一个输入的 ``var`` 依赖的、类型是 ``var_type`` 的 :class:`.tensor.core.megbrain_graph.VarNode` 。"
-"如果 ``var_type`` 是 None，返回所有类型。"
+"返回一个输入的 ``var`` 依赖的、类型是 ``var_type`` 的 "
+":class:`.tensor.core.megbrain_graph.VarNode` 。如果 ``var_type`` 是 "
+"None，返回所有类型。"
 
 #: megengine.utils.comp_graph_tools.get_dep_vars
 #: megengine.utils.comp_graph_tools.get_opr_type
@@ -51,7 +52,7 @@ msgid "Return type"
 msgstr "返回类型"
 
 #: megengine.utils.comp_graph_tools.get_dep_vars:5
-#: megengine.utils.comp_graph_tools.get_owner_opr_inputs:5
+#: megengine.utils.comp_graph_tools.get_owner_opr_inputs:4
 #: megengine.utils.comp_graph_tools.replace_oprs:8
 #: megengine.utils.comp_graph_tools.replace_vars:8 of
 msgid ":py:class:`~typing.List`\\[:py:class:`~megengine.core._imperative_rt.graph.VarNode`]"
@@ -61,8 +62,8 @@ msgstr ":py:class:`~typing.List`\\[:py:class:`~megengine.core._imperative_rt.gra
 msgid "Gets the type of an opr."
 msgstr "获取一个算子的类型。"
 
-#: megengine.utils.comp_graph_tools.get_opr_type:5
-#: megengine.utils.comp_graph_tools.get_owner_opr_type:6 of
+#: megengine.utils.comp_graph_tools.get_opr_type:4
+#: megengine.utils.comp_graph_tools.get_owner_opr_type:5 of
 msgid ":py:class:`str`"
 msgstr ":py:class:`str`"
 
@@ -135,8 +136,7 @@ msgstr "获得拥有这个变量的算子类型。"
 msgid ""
 "Helper function to traverse the computing graph and return enough useful "
 "information."
-msgstr ""
-"一个用于遍历计算图并返回足够有用的信息的辅助函数。"
+msgstr "一个用于遍历计算图并返回足够有用的信息的辅助函数。"
 
 #: megengine.utils.comp_graph_tools.graph_traversal:5 of
 msgid ""
@@ -159,9 +159,8 @@ msgid ""
 "indegree2opr is dict from in_degree to opr in computing graph "
 "opr2indegree is dict from opr in computing graph to in_degree"
 msgstr ""
-"元组（map_oprs, map_vars, var2oprs, opr2receivers, indegree2opr, opr2indegree）。其中，map_oprs是把算子下标（opr_id）映射到实际的算子（opr）的字典，"
-"map_vars是把变量下标（var_id）映射到实际的变量（var）的字典，var2oprs是一个把变量（var）映射到目标算子（opr）的字典，opr2receivers是一个把算子（opr）映射到"
-"下一个算子（opr）的字典，indegree2opr是一个把入度（in_degree）映射到计算图中的算子（opr）的字典，opr2indegree是一个把算子（opr）映射到入度（in_degree）的字典。"
+"元组（map_oprs, map_vars, var2oprs, opr2receivers, indegree2opr, "
+"opr2indegree）。其中，map_oprs是把算子下标（opr_id）映射到实际的算子（opr）的字典，map_vars是把变量下标（var_id）映射到实际的变量（var）的字典，var2oprs是一个把变量（var）映射到目标算子（opr）的字典，opr2receivers是一个把算子（opr）映射到下一个算子（opr）的字典，indegree2opr是一个把入度（in_degree）映射到计算图中的算子（opr）的字典，opr2indegree是一个把算子（opr）映射到入度（in_degree）的字典。"
 
 #: megengine.utils.comp_graph_tools.graph_traversal:14 of
 msgid ""
@@ -297,6 +296,14 @@ msgid "megengine.utils.net\\_stats"
 msgstr "megengine.utils.net\\_stats"
 
 #: ../../source_api/zh/api/megengine.utils.rst:75
+msgid "megengine.utils.persistent\\_cache"
+msgstr "megengine.utils.persistent\\_cache"
+
+#: megengine.utils.persistent_cache.PersistentCacheOnServer:1 of
+msgid "Bases: :class:`megengine.core._imperative_rt.utils.PersistentCache`"
+msgstr "基类：:class:`megengine.core._imperative_rt.utils.PersistentCache`"
+
+#: ../../source_api/zh/api/megengine.utils.rst:83
 msgid "megengine.utils.plugin"
 msgstr "megengine.utils.plugin"
 
@@ -320,7 +327,7 @@ msgstr "文件对象，或者一个文件名的字符串。"
 msgid "tuple ``(tensor_value, tensor_name)``."
 msgstr "元组 ``(tensor_value, tensor_name)``。"
 
-#: ../../source_api/zh/api/megengine.utils.rst:83
+#: ../../source_api/zh/api/megengine.utils.rst:91
 msgid "megengine.utils.profile\\_analyze"
 msgstr "megengine.utils.profile\\_analyze"
 
@@ -332,7 +339,7 @@ msgstr "分析 :mod:`~.utils.profile_analyzer` 中的性能分析信息。"
 msgid "Run this file with ``--help`` to get more usage."
 msgstr "运行该文件时，附带 ``--help`` 得到更详细的使用说明。"
 
-#: ../../source_api/zh/api/megengine.utils.rst:91
+#: ../../source_api/zh/api/megengine.utils.rst:99
 msgid "megengine.utils.profile\\_analyzer"
 msgstr "megengine.utils.profile\\_analyzer"
 
@@ -524,7 +531,7 @@ msgstr "测试算子的最长结束时间"
 msgid "Eval oprerator profile min start time."
 msgstr "测试算子最短开始时间"
 
-#: ../../source_api/zh/api/megengine.utils.rst:99
+#: ../../source_api/zh/api/megengine.utils.rst:107
 msgid "megengine.utils.profiler"
 msgstr "megengine.utils.profiler"
 
@@ -541,7 +548,7 @@ msgstr "性能分析文件存储的默认文件路径"
 msgid "Examples:"
 msgstr "例如："
 
-#: ../../source_api/zh/api/megengine.utils.rst:107
+#: ../../source_api/zh/api/megengine.utils.rst:115
 msgid "megengine.utils.tensor\\_sanity\\_check"
 msgstr "megengine.utils.tensor\\_sanity\\_check"
 
@@ -551,7 +558,7 @@ msgid ""
 "changed before and after the operation."
 msgstr "一个检查每一个算子输入张量是否在算子执行前后发生了变化的对象。"
 
-#: ../../source_api/zh/api/megengine.utils.rst:115
+#: ../../source_api/zh/api/megengine.utils.rst:123
 msgid "megengine.utils.types"
 msgstr "megengine.utils.types"
 

@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source/autogen/megengine.module.pytorch.rst:2
 msgid "megengine.module.pytorch package"
-msgstr "megengine.module.pytorch package"
+msgstr "megengine.module.pytorch 模块"
 
 #: ../../source/autogen/megengine.module.pytorch.rst:11
 msgid "megengine.module.pytorch.pytorch"

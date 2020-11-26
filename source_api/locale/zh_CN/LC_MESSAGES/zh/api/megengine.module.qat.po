@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-09 10:00+0800\n"
+"POT-Creation-Date: 2020-11-26 15:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,9 +20,36 @@ msgstr ""
 
 #: ../../source_api/zh/api/megengine.module.qat.rst:2
 msgid "megengine.module.qat package"
-msgstr "megengine.module.qat package"
+msgstr "megengine.module.qat 模块"
 
 #: ../../source_api/zh/api/megengine.module.qat.rst:11
+msgid "megengine.module.qat.batch\\_matmul\\_activation"
+msgstr "megengine.module.qat.batch\\_matmul\\_activation"
+
+#: megengine.module.qat.batch_matmul_activation.BatchMatMulActivation:1 of
+msgid ""
+"Bases: "
+":class:`megengine.module.batch_matmul_activation.BatchMatMulActivation`, "
+":class:`megengine.module.qat.module.QATModule`"
+msgstr ""
+"基类："
+":class:`megengine.module.batch_matmul_activation.BatchMatMulActivation`， "
+":class:`megengine.module.qat.module.QATModule`"
+
+#: megengine.module.qat.batch_matmul_activation.BatchMatMulActivation.from_float_module:1
+#: megengine.module.qat.concat.Concat.from_float_module:1
+#: megengine.module.qat.conv.Conv2d.from_float_module:1
+#: megengine.module.qat.elemwise.Elemwise.from_float_module:1
+#: megengine.module.qat.linear.Linear.from_float_module:1
+#: megengine.module.qat.module.QATModule.from_float_module:1
+#: megengine.module.qat.quant_dequant.DequantStub.from_float_module:1
+#: megengine.module.qat.quant_dequant.QuantStub.from_float_module:1 of
+msgid ""
+"Return a :class:`~.QATModule` instance converted from a float "
+":class:`~.Module` instance."
+msgstr "返回从浮点型 :class:`~.Module` 实例转换而来的 :class:`~.QATModule` 实例。"
+
+#: ../../source_api/zh/api/megengine.module.qat.rst:19
 msgid "megengine.module.qat.concat"
 msgstr "megengine.module.qat.concat"
 
@@ -42,19 +69,7 @@ msgstr ""
 "支持QAT，实现concat函数计算的 :class:`~.QATModule` 。可搭配使用 :class:`~.Observer` 与 "
 ":class:`~.FakeQuantize` 。"
 
-#: megengine.module.qat.concat.Concat.from_float_module:1
-#: megengine.module.qat.conv.Conv2d.from_float_module:1
-#: megengine.module.qat.elemwise.Elemwise.from_float_module:1
-#: megengine.module.qat.linear.Linear.from_float_module:1
-#: megengine.module.qat.module.QATModule.from_float_module:1
-#: megengine.module.qat.quant_dequant.DequantStub.from_float_module:1
-#: megengine.module.qat.quant_dequant.QuantStub.from_float_module:1 of
-msgid ""
-"Return a :class:`~.QATModule` instance converted from a float "
-":class:`~.Module` instance."
-msgstr "返回从浮点型 :class:`~.Module` 实例转换而来的 :class:`~.QATModule` 实例。"
-
-#: ../../source_api/zh/api/megengine.module.qat.rst:19
+#: ../../source_api/zh/api/megengine.module.qat.rst:27
 msgid "megengine.module.qat.conv"
 msgstr "megengine.module.qat.conv"
 
@@ -86,7 +101,7 @@ msgstr ""
 "支持QAT的包含Conv2d与Relu的 :class:`~.QATModule` 。可搭配使用 :class:`~.Observer` 与 "
 ":class:`~.FakeQuantize` 。"
 
-#: ../../source_api/zh/api/megengine.module.qat.rst:27
+#: ../../source_api/zh/api/megengine.module.qat.rst:35
 msgid "megengine.module.qat.conv\\_bn"
 msgstr "megengine.module.qat.conv\\_bn"
 
@@ -113,7 +128,7 @@ msgstr ""
 "支持QAT并融合Conv2d，BatchNorm2d和relu的 :class:`~.QATModule` 。可搭配使用 "
 ":class:`~.Observer` 与 :class:`~.FakeQuantize` 。"
 
-#: ../../source_api/zh/api/megengine.module.qat.rst:35
+#: ../../source_api/zh/api/megengine.module.qat.rst:43
 msgid "megengine.module.qat.elemwise"
 msgstr "megengine.module.qat.elemwise"
 
@@ -141,7 +156,7 @@ msgstr "参数"
 msgid "the elemwise method, see :class:`~.module.elemwise.Elemwise` for detail."
 msgstr "elemwise方法，可参考 :class:`~.module.elemwise.Elemwise` 获取详情。"
 
-#: ../../source_api/zh/api/megengine.module.qat.rst:43
+#: ../../source_api/zh/api/megengine.module.qat.rst:51
 msgid "megengine.module.qat.linear"
 msgstr "megengine.module.qat.linear"
 
@@ -175,7 +190,7 @@ msgid ""
 "True"
 msgstr "若为 ``False`` ， 该层不添加偏置。默认：True"
 
-#: ../../source_api/zh/api/megengine.module.qat.rst:51
+#: ../../source_api/zh/api/megengine.module.qat.rst:59
 msgid "megengine.module.qat.module"
 msgstr "megengine.module.qat.module"
 
@@ -231,7 +246,7 @@ msgid ""
 " fake_quant for weight and activation."
 msgstr "使用 ``qconfig`` 更改量化相关配置。包含权重和激活值的 observer 和 fake_quant 。"
 
-#: ../../source_api/zh/api/megengine.module.qat.rst:59
+#: ../../source_api/zh/api/megengine.module.qat.rst:67
 msgid "megengine.module.qat.quant\\_dequant"
 msgstr "megengine.module.qat.quant\\_dequant"
 

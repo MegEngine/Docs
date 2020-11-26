@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source_api/zh/api/megengine.jit.rst:2
 msgid "megengine.jit package"
-msgstr "megengine.jit package"
+msgstr "megengine.jit 模块"
 
 #: ../../source_api/zh/api/megengine.jit.rst:11
 msgid "megengine.jit.sublinear\\_memory\\_config"

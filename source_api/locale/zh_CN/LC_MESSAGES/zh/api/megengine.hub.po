@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source_api/zh/api/megengine.hub.rst:2
 msgid "megengine.hub package"
-msgstr "megengine.hub package"
+msgstr "megengine.hub 模块"
 
 #: ../../source_api/zh/api/megengine.hub.rst:11
 msgid "megengine.hub.const"
