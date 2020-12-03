@@ -92,12 +92,12 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
 .. code-block::
 
     for step, (batch_data, batch_label) in enumerate(dataloader):
-        optimizer.clear_grad()      # 将参数的梯度置零
         with gm:                    # 记录计算图
             logits = le_net(batch_data)
             loss = F.loss.cross_entropy(logits, batch_label)
             gm.backward(loss)       # 反向传播计算梯度
         optimizer.step()            # 根据梯度更新参数值
+        optimizer.clear_grad()      # 将参数的梯度置零
 
 训练示例
 ``````````````````````````````
@@ -119,12 +119,12 @@ MegEngine 提供了基于各种常见优化策略的优化器，如 :class:`~.me
     for epoch in range(total_epochs):
         total_loss = 0
         for step, (batch_data, batch_label) in enumerate(dataloader):
-            optimizer.clear_grad()      # 将参数的梯度置零
             with gm:                    # 记录计算图
                 logits = le_net(batch_data)
                 loss = F.loss.cross_entropy(logits, batch_label)
                 gm.backward(loss)       # 反向传播计算梯度
             optimizer.step()            # 根据梯度更新参数值
+            optimizer.clear_grad()      # 将参数的梯度置零
             total_loss += loss.numpy().item()
         print("epoch: {}, loss {}".format(epoch, total_loss/len(dataloader)))
 

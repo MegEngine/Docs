@@ -57,12 +57,12 @@ MegEngine 的 codegen 目前集成了三种后端，分别是 NVRTC, HALIDE 和 
         # 通过 trace 转换为静态图
         @trace(symbolic=True, opt_level=3)
         def train():
-            opt.clear_grad()
             with gm:
                 logits = model(image)
                 loss = F.loss.cross_entropy(logits, label)
                 gm.backward(loss)
             opt.step()
+            opt.clear_grad()
             return loss
 
         loss = train()

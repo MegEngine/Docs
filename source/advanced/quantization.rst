@@ -197,9 +197,9 @@ QConfig 提供了一系列如何对模型做量化的接口，而要使用这些
 
         n = image.shape[0]
 
-        optimizer.clear_grad()
         loss, acc1, acc5 = train_func(image, label, net, gm)
         optimizer.step()
+        optimizer.clear_grad()
 
 再调用 :func:`~.megengine.quantization.quantize.quantize_qat` 来将网络转换为 QATModule：
 

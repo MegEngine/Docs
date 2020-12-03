@@ -62,10 +62,10 @@
         for i in range(10):
             batch_data = np.random.randn(batch_size, 3, 224, 224).astype(np.float32)
             batch_label = np.random.randint(1000, size=(batch_size,)).astype(np.int32)
-            optimizer.clear_grad()
             train_func(tensor(batch_data), tensor(batch_label), net=resnet, gm=gm)
             optimizer.step()
-        
+            optimizer.clear_grad()
+
 
     # 以下示例结果在2080Ti GPU运行得到，显存容量为 11 GB
 
