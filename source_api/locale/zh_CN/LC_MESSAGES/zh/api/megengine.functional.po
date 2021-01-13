@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-26 15:12+0800\n"
+"POT-Creation-Date: 2021-01-13 10:41+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -315,7 +315,7 @@ msgstr "计算得到的张量。"
 #: megengine.functional.math.prod:12 megengine.functional.math.sign:6
 #: megengine.functional.math.sort:10 megengine.functional.math.std:14
 #: megengine.functional.math.sum:15 megengine.functional.math.topk:16
-#: megengine.functional.math.var:14 megengine.functional.nn.dot:11
+#: megengine.functional.math.var:14 megengine.functional.nn.dot:12
 #: megengine.functional.nn.dropout:14
 #: megengine.functional.nn.indexing_one_hot:13
 #: megengine.functional.nn.interpolate:15 megengine.functional.nn.logsigmoid:12
@@ -358,7 +358,7 @@ msgstr "例如："
 #: megengine.functional.math.prod:24 megengine.functional.math.sign:16
 #: megengine.functional.math.sort:22 megengine.functional.math.std:26
 #: megengine.functional.math.sum:27 megengine.functional.math.topk:28
-#: megengine.functional.math.var:26 megengine.functional.nn.dot:24
+#: megengine.functional.math.var:26 megengine.functional.nn.dot:25
 #: megengine.functional.nn.dropout:26
 #: megengine.functional.nn.indexing_one_hot:25
 #: megengine.functional.nn.interpolate:29 megengine.functional.nn.logsigmoid:24
@@ -377,7 +377,7 @@ msgstr "例如："
 #: megengine.functional.tensor.gather:38
 #: megengine.functional.tensor.linspace:23 megengine.functional.tensor.ones:15
 #: megengine.functional.tensor.reshape:20
-#: megengine.functional.tensor.scatter:55 megengine.functional.tensor.split:21
+#: megengine.functional.tensor.scatter:55 megengine.functional.tensor.split:29
 #: megengine.functional.tensor.squeeze:22 megengine.functional.tensor.stack:22
 #: megengine.functional.tensor.transpose:33
 #: megengine.functional.tensor.where:29
@@ -454,7 +454,7 @@ msgstr "限定区间的上界"
 #: megengine.functional.nn.avg_pool2d:16 megengine.functional.nn.conv1d:36
 #: megengine.functional.nn.conv2d:32
 #: megengine.functional.nn.conv_bias_activation:32
-#: megengine.functional.nn.conv_transpose2d:32 megengine.functional.nn.dot:8
+#: megengine.functional.nn.conv_transpose2d:32 megengine.functional.nn.dot:9
 #: megengine.functional.nn.dropout:11
 #: megengine.functional.nn.indexing_one_hot:10
 #: megengine.functional.nn.interpolate:12 megengine.functional.nn.leaky_relu:6
@@ -672,6 +672,10 @@ msgid "Element-wise `hyperbolic tangent`."
 msgstr "逐元素计算双曲正切值。"
 
 #: ../../source_api/zh/api/megengine.functional.rst:35
+msgid "megengine.functional.inplace"
+msgstr "megengine.functional.inplace"
+
+#: ../../source_api/zh/api/megengine.functional.rst:43
 msgid "megengine.functional.loss"
 msgstr "megengine.functional.loss"
 
@@ -872,7 +876,7 @@ msgstr "pred : :math:`(N, *)` ，这里的 :math:`*` 指任何附加的维度。
 msgid "label: :math:`(N, *)`. Same shape as ``pred``."
 msgstr "label: :math:`(N, *)`. 与 ``pred`` 的形状相同"
 
-#: ../../source_api/zh/api/megengine.functional.rst:43
+#: ../../source_api/zh/api/megengine.functional.rst:51
 msgid "megengine.functional.math"
 msgstr "megengine.functional.math"
 
@@ -1114,7 +1118,7 @@ msgid ""
 " list of dimensions, reduce over all of them."
 msgstr "返回在给定轴 ``axis`` 上 ``inp`` 张量每一行的方差。如果给定的轴是一个维度列表，则规约所有维度。"
 
-#: ../../source_api/zh/api/megengine.functional.rst:51
+#: ../../source_api/zh/api/megengine.functional.rst:59
 msgid "megengine.functional.nn"
 msgstr "megengine.functional.nn"
 
@@ -1611,18 +1615,21 @@ msgstr ""
 #: megengine.functional.nn.dot:1 of
 msgid ""
 "Computes dot-product of two vectors ``inp1`` and ``inp2``. inputs must be"
-" 1-dimensional, scalar input can be automatically broadcasted."
-msgstr "计算两个向量 ``inp1`` 和 ``inp2`` 的点积。输入必须是1维的，标量会被自动广播。"
+" 1-dimensional or scalar. A scalar input is automatically broadcasted. "
+"Refer to :func:`~.matmul` for more general usage."
+msgstr ""
+"计算两个向量 ``inp1`` 和 ``inp2`` 的点积。输入必须是1维或标量，标量会被自动广播。"
+"在 :func:`~.matmul` 查看更加通用的乘法。"
 
-#: megengine.functional.nn.dot:5 of
+#: megengine.functional.nn.dot:6 of
 msgid "first vector."
 msgstr "第一个向量"
 
-#: megengine.functional.nn.dot:7 of
+#: megengine.functional.nn.dot:8 of
 msgid "second vector."
 msgstr "第二个向量"
 
-#: megengine.functional.nn.dot:9 of
+#: megengine.functional.nn.dot:10 of
 msgid "output value."
 msgstr "输出值"
 
@@ -1703,7 +1710,9 @@ msgid ""
 "Applies the :math:`\\log(\\text{softmax}(x))` function to an "
 "n-dimensional input tensor. The :math:`\\text{logsoftmax}(x)` formulation"
 " can be simplified as:"
-msgstr "对一个n维的输入张量做 :math:`\\log(\\text{softmax}(x))` 函数 :math:`\\text{logsoftmax}(x)` 的公式可以简化为："
+msgstr ""
+"对一个n维的输入张量做 :math:`\\log(\\text{softmax}(x))` 函数 "
+":math:`\\text{logsoftmax}(x)` 的公式可以简化为："
 
 #: megengine.functional.nn.logsoftmax:4 of
 msgid ""
@@ -1860,9 +1869,7 @@ msgstr "对按批组织的二维图像进行重映射变换。"
 msgid ""
 "The input images are transformed to the output images by the tensor "
 "map_xy. The output's H and W are same as map_xy's H and W."
-msgstr ""
-"输入图像通过张量 ``map_xy`` 变换为输出图像。"
-"输出的高度与宽度与 ``map_xy`` 中一致。"
+msgstr "输入图像通过张量 ``map_xy`` 变换为输出图像。输出的高度与宽度与 ``map_xy`` 中一致。"
 
 #: megengine.functional.nn.remap:7 of
 msgid "input image"
@@ -1878,8 +1885,8 @@ msgid ""
 "pixel extrapolation method. Default: \"REPLICATE\". Currently also "
 "support \"CONSTANT\", \"REFLECT\", \"REFLECT_101\", \"WRAP\"."
 msgstr ""
-"像素外推方法。默认：\"REPLICATE\"。当前也支持"
-"\"CONSTANT\"， \"REFLECT\"， \"REFLECT_101\"， \"WRAP\"。"
+"像素外推方法。默认：\"REPLICATE\"。当前也支持\"CONSTANT\"， \"REFLECT\"， \"REFLECT_101\"， "
+"\"WRAP\"。"
 
 #: megengine.functional.nn.remap:15 megengine.functional.nn.warp_perspective:22
 #: of
@@ -1922,7 +1929,9 @@ msgid ""
 "an axis along which :math:`\\text{softmax}(x)` will be applied. By "
 "default, :math:`\\text{softmax}(x)` will apply along the highest ranked "
 "axis."
-msgstr "在该轴上使用 :math:`\\text{softmax}(x)` 方法。默认情况下，:math:`\\text{softmax}(x)` 将在序号最大的轴上使用。"
+msgstr ""
+"在该轴上使用 :math:`\\text{softmax}(x)` 方法。默认情况下，:math:`\\text{softmax}(x)` "
+"将在序号最大的轴上使用。"
 
 #: megengine.functional.nn.softplus:3 of
 msgid ""
@@ -2009,7 +2018,7 @@ msgid ""
 "`cv2.warpPerspective`."
 msgstr "转换矩阵是 `cv2.warpPerspective` 使用的矩阵的逆矩阵。"
 
-#: ../../source_api/zh/api/megengine.functional.rst:68
+#: ../../source_api/zh/api/megengine.functional.rst:76
 msgid "megengine.functional.quantized"
 msgstr "megengine.functional.quantized"
 
@@ -2021,7 +2030,7 @@ msgstr "带有激活操作的批卷积偏置，仅用于推断。"
 msgid "convolution kernel in batched way."
 msgstr "批格式的卷积核。"
 
-#: ../../source_api/zh/api/megengine.functional.rst:76
+#: ../../source_api/zh/api/megengine.functional.rst:84
 msgid "megengine.functional.tensor"
 msgstr "megengine.functional.tensor"
 
@@ -2412,7 +2421,7 @@ msgstr "返回一个给定形状的全0张量。"
 msgid "Returns a zero tensor with the same shape as input tensor."
 msgstr "返回一个与输入张量形状相同的全0张量。"
 
-#: ../../source_api/zh/api/megengine.functional.rst:84
+#: ../../source_api/zh/api/megengine.functional.rst:92
 msgid "megengine.functional.types"
 msgstr "megengine.functional.types"
 
@@ -2436,7 +2445,7 @@ msgstr "是否允许出现0值。"
 msgid "a tuple."
 msgstr "一个元组。"
 
-#: ../../source_api/zh/api/megengine.functional.rst:92
+#: ../../source_api/zh/api/megengine.functional.rst:100
 msgid "megengine.functional.utils"
 msgstr "megengine.functional.utils"
 
@@ -2470,13 +2479,11 @@ msgstr "指定前k个值，可以是整型数，也可以是整型数构成的�
 
 #: megengine.functional.utils.topk_accuracy:10 of
 msgid ""
-":py:data:`~typing.Union`\\[:py:class:`~megengine.core.tensor.tensor_wrapper.TensorWrapper`,"
-" "
-":py:class:`~typing.Iterable`\\[:py:class:`~megengine.core.tensor.tensor_wrapper.TensorWrapper`]]"
+":py:data:`~typing.Union`\\[:py:class:`~megengine.tensor.Tensor`, "
+":py:class:`~typing.Iterable`\\[:py:class:`~megengine.tensor.Tensor`]]"
 msgstr ""
-":py:data:`~typing.Union`\\[:py:class:`~megengine.core.tensor.tensor_wrapper.TensorWrapper`,"
-" "
-":py:class:`~typing.Iterable`\\[:py:class:`~megengine.core.tensor.tensor_wrapper.TensorWrapper`]]"
+":py:data:`~typing.Union`\\[:py:class:`~megengine.tensor.Tensor`, "
+":py:class:`~typing.Iterable`\\[:py:class:`~megengine.tensor.Tensor`]]"
 
 #: megengine.functional.utils.topk_accuracy:11 of
 msgid "tensor(s) of classification accuracy between 0.0 and 1.0."

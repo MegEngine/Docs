@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-21 16:26+0800\n"
+"POT-Creation-Date: 2021-01-13 10:41+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,8 +27,8 @@ msgid "megengine.jit.sublinear\\_memory\\_config"
 msgstr "megengine.jit.sublinear\\_memory\\_config"
 
 #: megengine.jit.sublinear_memory_config.SublinearMemoryConfig:1
-#: megengine.jit.tracing.TensorInfo:1 megengine.jit.tracing.TraceMixin:1
-#: megengine.jit.tracing.trace:1 of
+#: megengine.jit.tracing.CompiledTensorProxy:1
+#: megengine.jit.tracing.TensorInfo:1 megengine.jit.tracing.trace:1 of
 msgid "Bases: :class:`object`"
 msgstr "Bases: :class:`object`"
 
@@ -101,12 +101,6 @@ msgstr ""
 msgid "megengine.jit.tracing"
 msgstr "megengine.jit tracing"
 
-#: megengine.jit.tracing.BrokenRawTensor:1
-#: megengine.jit.tracing.CompiledTensorProxy:1
-#: megengine.jit.tracing.LazyEvalTensor:1 of
-msgid "Bases: :class:`megengine.core.tensor.raw_tensor.RawTensor`"
-msgstr "基类：:class:`megengine.core.tensor.raw_tensor.RawTensor`"
-
 #: megengine.jit.tracing.CompiledTensorProxy:1 of
 msgid "Duck-typed RawTensor"
 msgstr "鸭子类型的RawTensor"
@@ -114,22 +108,6 @@ msgstr "鸭子类型的RawTensor"
 #: megengine.jit.tracing.TraceMismatchError:1 of
 msgid "Bases: :class:`RuntimeError`"
 msgstr "基类: :class:`RuntimeError`"
-
-#: megengine.jit.tracing.TracedLazyTensor:1 of
-msgid ""
-"Bases: :class:`megengine.jit.tracing.TraceMixin`, "
-":class:`megengine.jit.tracing.LazyEvalTensor`"
-msgstr ""
-"基类：:class:`megengine.jit.tracing.TraceMixin`，"
-":class:`megengine.jit.tracing.LazyEvalTensor`"
-
-#: megengine.jit.tracing.TracedRawTensor:1 of
-msgid ""
-"Bases: :class:`megengine.jit.tracing.TraceMixin`, "
-":class:`megengine.core.tensor.raw_tensor.RawTensor`"
-msgstr ""
-"基类：:class:`megengine.jit.tracing.TraceMixin`，"
-":class:`megengine.core.tensor.raw_tensor.RawTensor`"
 
 #: megengine.jit.tracing.trace:1 of
 msgid "Wraps a callable and provide:"
@@ -169,7 +147,7 @@ msgstr "是否对编译好的函数追溯（trace）进行性能评估（profile
 msgid "optimization level for compiling trace."
 msgstr "编译追踪函数时的优化级别。"
 
-#: megengine.jit.tracing.trace:16 of
+#: megengine.jit.tracing.trace:17 of
 msgid "whether to use symbolic shape for tracing. Default: True"
 msgstr "是否为追溯使用符号形状。默认：True"
 
@@ -199,9 +177,7 @@ msgstr "是否在 ``file`` 后追加输出。仅当 ``file`` 是文件名时可�
 msgid ""
 "enbale optmizations, will skip all optimize options if this is False. "
 "Default: True"
-msgstr ""
-"打开推理优化，如果是False则关闭所有优化选项。"
-"默认：True"
+msgstr "打开推理优化，如果是False则关闭所有优化选项。默认：True"
 
 #: megengine.jit.tracing.trace.dump of
 msgid "Keyword Arguments"
@@ -318,43 +294,3 @@ msgstr "返回"
 #: megengine.jit.tracing.trace.get_profile:3 of
 msgid "a json compatible object."
 msgstr "一个兼容json的对象。"
-
-#~ msgid "Positional only argument."
-#~ msgstr "位置型参数(Positional only argument)"
-
-#~ msgid "Log level."
-#~ msgstr "日志级别。"
-
-#~ msgid ""
-#~ "Maximum size of an allreduce pack "
-#~ "in MB. If not None, multiple "
-#~ "gradients will be packed and "
-#~ "synchronized together"
-#~ msgstr "单个allreduce包的最大容量，以MB为单位。如果非None，则多个梯度将会被打包并一起同步"
-
-#~ msgid ""
-#~ "Evaluate on provided arguments, using "
-#~ "compiled trace instead of the original"
-#~ " callable if applicable."
-#~ msgstr "对编译好的函数追溯（trace）在给定参数下执行，而不评估原来的可调用对象（如果适用）。"
-
-#~ msgid ""
-#~ "``None`` or :class:`~.Tensor` or tuple "
-#~ "of :class:`~.Tensor`, depending on the "
-#~ "return value of wrapped callable."
-#~ msgstr ""
-#~ "``None`` 或 :class:`~.Tensor` 或 tuple of"
-#~ " :class:`~.Tensor` 。需要根据包装后的可调用对象返回的值来确定类型。"
-
-#~ msgid "positional only argument. Path of output file."
-#~ msgstr "仅作为位置参数（positional only argument）。输出文件所在路径。"
-
-#~ msgid "whether to enable optimize_for_inference pass before dump."
-#~ msgstr "是否在模型转储之前打开 ``optimize_for_inference`` 开关。"
-
-#~ msgid "whether to fuse conv+bias+nonlinearty into one opr."
-#~ msgstr "是否融合 CONV + bias + 非线性激活成一个算子。"
-
-#~ msgid "Trace wrapped callable with provided arguments."
-#~ msgstr "使用提供的参数，追溯（trace）包装后的可调用对象。"
-

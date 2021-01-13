@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-26 15:12+0800\n"
+"POT-Creation-Date: 2021-01-13 10:41+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,7 +47,7 @@ msgstr "创建用于聚合通信的 all_gather 算子。"
 #: megengine.distributed.helper.bcast_list_
 #: megengine.distributed.helper.param_pack_concat
 #: megengine.distributed.helper.param_pack_split
-#: megengine.distributed.server.Client
+#: megengine.distributed.launcher.launcher megengine.distributed.server.Client
 #: megengine.distributed.server.Client.check_is_grad
 #: megengine.distributed.server.Client.check_remote_tracer
 #: megengine.distributed.server.Client.group_barrier
@@ -59,8 +59,7 @@ msgstr "创建用于聚合通信的 all_gather 算子。"
 #: megengine.distributed.server.Methods.group_barrier
 #: megengine.distributed.server.Methods.set_is_grad
 #: megengine.distributed.server.Methods.set_remote_tracer
-#: megengine.distributed.server.Server
-#: megengine.distributed.server.start_server of
+#: megengine.distributed.server.Server of
 msgid "Parameters"
 msgstr "参数"
 
@@ -144,8 +143,8 @@ msgstr "返回类型"
 #: megengine.distributed.functional.remote_recv:14
 #: megengine.distributed.functional.remote_send:9
 #: megengine.distributed.functional.scatter:11 of
-msgid ":py:class:`~megengine.core.tensor.tensor.Tensor`"
-msgstr ":py:class:`~megengine.core.tensor.tensor.Tensor`"
+msgid ":py:class:`~megengine.tensor.Tensor`"
+msgstr ":py:class:`~megengine.tensor.Tensor`"
 
 #: megengine.distributed.functional.all_reduce_max:1 of
 msgid "Create all_reduce_max operator for collective communication."
@@ -225,6 +224,7 @@ msgstr "megengine.distributed.group"
 
 #: megengine.distributed.group.Group:1 megengine.distributed.group.StaticData:1
 #: megengine.distributed.helper.AllreduceCallback:1
+#: megengine.distributed.launcher.launcher:1
 #: megengine.distributed.server.Client:1 megengine.distributed.server.Methods:1
 #: megengine.distributed.server.Server:1 of
 msgid "Bases: :class:`object`"
@@ -432,6 +432,30 @@ msgid ""
 "training."
 msgstr "在单机多卡环境下启动多个进程进行训练的装饰器。"
 
+#: megengine.distributed.launcher.launcher:3 of
+msgid "the function you want to launch in distributed mode."
+msgstr "你想要在分布式模式下启动的函数。"
+
+#: megengine.distributed.launcher.launcher:4 of
+msgid "how many devices each node."
+msgstr "每个节点多少个设备。"
+
+#: megengine.distributed.launcher.launcher:5 of
+msgid "how many devices totally."
+msgstr "总共多少个设备。"
+
+#: megengine.distributed.launcher.launcher:6 of
+msgid "start number for rank."
+msgstr "机器上 rank 开始的数字。"
+
+#: megengine.distributed.launcher.launcher:7 of
+msgid "ip address for master node (where the rank 0 is)."
+msgstr "主节点的IP地址（即 rank 0 所在的机器）。"
+
+#: megengine.distributed.launcher.launcher:8 of
+msgid "server port for distributed server."
+msgstr "分布式客户端的端口。"
+
 #: ../../source_api/zh/api/megengine.distributed.rst:43
 msgid "megengine.distributed.server"
 msgstr "megengine.distributed.server"
@@ -546,8 +570,7 @@ msgid ""
 "node."
 msgstr "分布式训练的分布式服务器。需要在主节点上运行。"
 
-#: megengine.distributed.server.Server:4
-#: megengine.distributed.server.start_server:3 of
+#: megengine.distributed.server.Server:4 of
 msgid "python server port."
 msgstr "python 服务器端口。"
 
@@ -556,14 +579,6 @@ msgid ""
 "Bases: :class:`socketserver.ThreadingMixIn`, "
 ":class:`xmlrpc.server.SimpleXMLRPCServer`"
 msgstr "基类：:class:`socketserver.ThreadingMixIn`，:class:`xmlrpc.server.SimpleXMLRPCServer`"
-
-#: megengine.distributed.server.start_server:1 of
-msgid "Start python distributed server and multiple machine server."
-msgstr "启动 python 分布式服务器和多机服务器。"
-
-#: megengine.distributed.server.start_server:4 of
-msgid "multiple machine server port."
-msgstr "多机服务器端口。"
 
 #: ../../source_api/zh/api/megengine.distributed.rst:51
 msgid "megengine.distributed.util"

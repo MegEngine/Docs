@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-26 15:12+0800\n"
+"POT-Creation-Date: 2021-01-13 10:41+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,18 +322,18 @@ msgid "A kind of Tensor that is to be considered a module parameter."
 msgstr "一类表示模块参数的张量。"
 
 #: megengine.tensor.Tensor:1 of
-msgid "Bases: :class:`megengine.core.tensor.tensor_wrapper.TensorWrapper`"
-msgstr "基类: :class:`megengine.core.tensor.tensor_wrapper.TensorWrapper`"
+msgid ""
+"Bases: :class:`Tensor`, "
+":class:`megengine.core.tensor.array_method.ArrayMethodMixin`"
+msgstr "基类: :class:`Tensor`, :class:`megengine.core.tensor.array_method.ArrayMethodMixin`"
+
+#: megengine.tensor.Tensor.__getnewargs__:1 of
+msgid "__getnewargs__ will be called for pickle serialization or deep copy"
+msgstr "__getstate__ 会在 pickle 序列化或深拷贝时被调用"
 
 #: megengine.tensor.Tensor.__getstate__:1 of
 msgid "__getstate__ will be called for pickle serialization or deep copy"
-msgstr "__getstate__ 会在pickle序列化或深拷贝时被调用"
-
-#: megengine.tensor.Tensor.detach:1 of
-msgid ""
-"Returns a new tensor sharing the same data memory, which is treated as a "
-"constant during backward gradient calcuation, i.e. its gradient is zero."
-msgstr "返回一个新的张量，它在反向梯度计算的时候会被当作常量。即，它的梯度是零。"
+msgstr "__getstate__ 会在 pickle 序列化或深拷贝时被调用"
 
 #: megengine.tensor.Tensor.reset_zero:2 of
 msgid "use *= 0 instead"

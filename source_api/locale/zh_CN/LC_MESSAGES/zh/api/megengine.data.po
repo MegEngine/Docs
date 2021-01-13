@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MegEngine Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-26 15:12+0800\n"
+"POT-Creation-Date: 2021-01-13 10:41+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -288,18 +288,15 @@ msgid ""
 "In the case of multiple machines, sampler should ensure that each worker "
 "gets different data. But this class cannot do it yet, please build your "
 "own dataset and sampler to achieve this goal."
-msgstr ""
-"在多台机器的情况下，采样器应确保每个 worker"
-"获取不同的数据。但是此类还无法做到这一点，请构建您"
-"自己的数据集和采样器以达成此目标。"
+msgstr "在多台机器的情况下，采样器应确保每个 worker获取不同的数据。但是此类还无法做到这一点，请构建您自己的数据集和采样器以达成此目标。"
 
 #: megengine.data.sampler.StreamSampler:9 of
 msgid ""
 "Usually, meth::`~.StreamDataset.__iter__` can return different iterator "
 "by ``rank = dist.get_rank()``. So that they will get different data."
 msgstr ""
-"通常，:meth:`〜..StreamDataset .__ iter__` 可以通过 ``rank = dist.get_rank（)`` 返回不同的迭代器"
-"这样他们将获得不同的数据。"
+"通常，:meth:`〜..StreamDataset .__ iter__` 可以通过 ``rank = dist.get_rank（)`` "
+"返回不同的迭代器这样他们将获得不同的数据。"
 
 #: ../../source_api/zh/api/megengine.data.rst:41
 msgid "megengine.data.transform.meta\\_transform"
@@ -895,9 +892,10 @@ msgid "megengine.data.dataset.meta\\_dataset"
 msgstr "megengine.data.dataset.meta\\_dataset"
 
 #: megengine.data.dataset.meta_dataset.ArrayDataset:1
+#: megengine.data.dataset.meta_dataset.StreamDataset:1
 #: megengine.data.dataset.vision.meta_vision.VisionDataset:1 of
-msgid "Bases: :class:`megengine.data.dataset.meta_dataset.MapDataset`"
-msgstr "基类： :class:`megengine.data.dataset.meta_dataset.MapDataset`"
+msgid "Bases: :class:`megengine.data.dataset.meta_dataset.Dataset`"
+msgstr "基类： :class:`megengine.data.dataset.meta_dataset.Dataset`"
 
 #: megengine.data.dataset.meta_dataset.ArrayDataset.__init__:2 of
 msgid "ArrayDataset is a dataset for numpy array data, one or more numpy arrays"
@@ -910,19 +908,10 @@ msgid ""
 msgstr "来初始化数据集，且其中表示样本数的维度应一致。"
 
 #: megengine.data.dataset.meta_dataset.Dataset:1 of
-msgid "An abstract class for all Datasets."
-msgstr "所有数据集类Datasets的抽象类。"
-
-#: megengine.data.dataset.meta_dataset.MapDataset:1
-#: megengine.data.dataset.meta_dataset.StreamDataset:1 of
-msgid "Bases: :class:`megengine.data.dataset.meta_dataset.Dataset`"
-msgstr "基类： :class:`megengine.data.dataset.meta_dataset.Dataset`"
-
-#: megengine.data.dataset.meta_dataset.MapDataset:1 of
 msgid ""
-"An abstract class for map data. __getitem__ and __len__ method are "
+"An abstract class for all datasets. __getitem__ and __len__ method are "
 "aditionally needed."
-msgstr "映射类型数据集（map-style dataset）类的抽象类。 需要进一步提供 __getitem__ 和 __len__ 方法。"
+msgstr "数据集类的抽象类。 需要进一步提供 __getitem__ 和 __len__ 方法。"
 
 #: megengine.data.dataset.meta_dataset.StreamDataset:1 of
 msgid "An abstract class for stream data. __iter__ method is aditionally needed."
@@ -1132,4 +1121,10 @@ msgstr "megengine.data.dataset.vision.voc"
 #: megengine.data.dataset.vision.voc.PascalVOC:1 of
 msgid "`Pascal VOC <http://host.robots.ox.ac.uk/pascal/VOC/>`_ Dataset."
 msgstr "`Pascal VOC <http://host.robots.ox.ac.uk/pascal/VOC/>`_ 数据集."
+
+#~ msgid "Bases: :class:`megengine.data.dataset.meta_dataset.MapDataset`"
+#~ msgstr "基类： :class:`megengine.data.dataset.meta_dataset.MapDataset`"
+
+#~ msgid "An abstract class for all Datasets."
+#~ msgstr "所有数据集类Datasets的抽象类。"
 
